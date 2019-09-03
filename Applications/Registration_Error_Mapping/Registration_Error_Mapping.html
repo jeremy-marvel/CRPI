@@ -1,0 +1,133 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: Library_Interface - Win32 Debug--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating temporary file "C:\Users\JB384~1.MAR\AppData\Local\Temp\RSP2A20.tmp" with contents
+[
+/nologo /MTd /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_CONSOLE" /D "_MBCS" /FR"../../Debug/" /Fp"../../Debug/Interface.pch" /YX /Fo"../../Debug/" /Fd"../../Debug/" /FD /GZ /c 
+"C:\School Documents\Dissertation Source Code\Libraries\Interface\Graphics.cpp"
+]
+Creating command line "cl.exe @C:\Users\JB384~1.MAR\AppData\Local\Temp\RSP2A20.tmp" 
+Creating temporary file "C:\Users\JB384~1.MAR\AppData\Local\Temp\RSP2A31.tmp" with contents
+[
+opengl32.lib glu32.lib glut32.lib /nologo /subsystem:console /dll /incremental:yes /pdb:"../../Debug/Interface.pdb" /debug /machine:I386 /out:"../../Debug/Interface.dll" /implib:"../../Debug/Interface.lib" /pdbtype:sept 
+"\School Documents\Dissertation Source Code\Debug\Graphics.obj"
+]
+Creating command line "link.exe @C:\Users\JB384~1.MAR\AppData\Local\Temp\RSP2A31.tmp"
+<h3>Output Window</h3>
+Compiling...
+Graphics.cpp
+Linking...
+   Creating library ../../Debug/Interface.lib and object ../../Debug/Interface.exp
+Creating command line "bscmake.exe /nologo /o"../../Debug/Interface.bsc"  "\School Documents\Dissertation Source Code\Debug\Graphics.sbr""
+Creating browse info file...
+<h3>Output Window</h3>
+<h3>
+--------------------Configuration: Neuron - Win32 Debug--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating temporary file "C:\Users\JB384~1.MAR\AppData\Local\Temp\RSP350B.tmp" with contents
+[
+/nologo /MLd /W3 /Gm /Gi /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_CONSOLE" /D "_MBCS" /FR"../../Debug/" /Fp"../../Debug/Neuron.pch" /YX /Fo"../../Debug/" /Fd"../../Debug/" /FD /GZ /c 
+"C:\School Documents\Dissertation Source Code\Neural\Neuron\Biological\hhneuron.cpp"
+"C:\School Documents\Dissertation Source Code\Neural\Neuron\Numerical\Numerical.cpp"
+]
+Creating command line "cl.exe @C:\Users\JB384~1.MAR\AppData\Local\Temp\RSP350B.tmp" 
+Creating temporary file "C:\Users\JB384~1.MAR\AppData\Local\Temp\RSP350C.tmp" with contents
+[
+/nologo /subsystem:console /dll /incremental:yes /pdb:"../../Debug/Neuron.pdb" /debug /machine:I386 /out:"../../Debug/Neuron.dll" /implib:"../../Debug/Neuron.lib" /pdbtype:sept 
+"\School Documents\Dissertation Source Code\Debug\hhneuron.obj"
+"\School Documents\Dissertation Source Code\Debug\Numerical.obj"
+]
+Creating command line "link.exe @C:\Users\JB384~1.MAR\AppData\Local\Temp\RSP350C.tmp"
+<h3>Output Window</h3>
+Compiling...
+hhneuron.cpp
+Numerical.cpp
+Linking...
+   Creating library ../../Debug/Neuron.lib and object ../../Debug/Neuron.exp
+<h3>
+--------------------Configuration: NeuralNet - Win32 Debug--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating temporary file "C:\Users\JB384~1.MAR\AppData\Local\Temp\RSP3A79.tmp" with contents
+[
+/nologo /MTd /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_CONSOLE" /D "_MBCS" /FR"../../Debug/" /Fp"../../Debug/NeuralNet.pch" /YX /Fo"../../Debug/" /Fd"../../Debug/" /FD /GZ /c 
+"C:\School Documents\Dissertation Source Code\Neural\Neural Net\NeuralNet.cpp"
+]
+Creating command line "cl.exe @C:\Users\JB384~1.MAR\AppData\Local\Temp\RSP3A79.tmp" 
+Creating temporary file "C:\Users\JB384~1.MAR\AppData\Local\Temp\RSP3A7A.tmp" with contents
+[
+../../Debug/Neuron.lib ../../Debug/Math.lib /nologo /subsystem:console /dll /incremental:yes /pdb:"../../Debug/NeuralNet.pdb" /debug /machine:I386 /out:"../../Debug/NeuralNet.dll" /implib:"../../Debug/NeuralNet.lib" /pdbtype:sept 
+"\School Documents\Dissertation Source Code\Debug\NeuralNet.obj"
+"\School Documents\Dissertation Source Code\Debug\Neuron.lib"
+"\School Documents\Dissertation Source Code\Debug\reporter.lib"
+]
+Creating command line "link.exe @C:\Users\JB384~1.MAR\AppData\Local\Temp\RSP3A7A.tmp"
+<h3>Output Window</h3>
+Compiling...
+NeuralNet.cpp
+Linking...
+   Creating library ../../Debug/NeuralNet.lib and object ../../Debug/NeuralNet.exp
+<h3>
+--------------------Configuration: NeuralTissue - Win32 Debug--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating temporary file "C:\Users\JB384~1.MAR\AppData\Local\Temp\RSP413F.tmp" with contents
+[
+/nologo /MTd /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_CONSOLE" /D "_MBCS" /FR"../../Debug/" /Fp"../../Debug/NeuralTissue.pch" /YX /Fo"../../Debug/" /Fd"../../Debug/" /FD /GZ /c 
+"C:\School Documents\Dissertation Source Code\Neural\Neural Tissue\NeuralTissue.cpp"
+"C:\School Documents\Dissertation Source Code\Neural\Neural Tissue\TissueLink.cpp"
+"C:\School Documents\Dissertation Source Code\Neural\Neural Tissue\TissueShell.cpp"
+]
+Creating command line "cl.exe @C:\Users\JB384~1.MAR\AppData\Local\Temp\RSP413F.tmp" 
+Creating temporary file "C:\Users\JB384~1.MAR\AppData\Local\Temp\RSP4140.tmp" with contents
+[
+../../Debug/Neuron.lib /nologo /subsystem:console /dll /incremental:yes /pdb:"../../Debug/NeuralTissue.pdb" /debug /machine:I386 /out:"../../Debug/NeuralTissue.dll" /implib:"../../Debug/NeuralTissue.lib" /pdbtype:sept 
+"\School Documents\Dissertation Source Code\Debug\NeuralTissue.obj"
+"\School Documents\Dissertation Source Code\Debug\TissueLink.obj"
+"\School Documents\Dissertation Source Code\Debug\TissueShell.obj"
+"\School Documents\Dissertation Source Code\Debug\Neuron.lib"
+"\School Documents\Dissertation Source Code\Debug\reporter.lib"
+]
+Creating command line "link.exe @C:\Users\JB384~1.MAR\AppData\Local\Temp\RSP4140.tmp"
+<h3>Output Window</h3>
+Compiling...
+NeuralTissue.cpp
+TissueLink.cpp
+TissueShell.cpp
+Linking...
+   Creating library ../../Debug/NeuralTissue.lib and object ../../Debug/NeuralTissue.exp
+<h3>
+--------------------Configuration: Application_UnitTest - Win32 Debug--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating temporary file "C:\Users\JB384~1.MAR\AppData\Local\Temp\RSP4823.tmp" with contents
+[
+kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib "../../Debug/xml.lib" "../../Debug/socknet.lib" "../../Debug/reporter.lib" "../../Debug/GeneticAlgorithm.lib" "../../Debug/NeuralTissue.lib" /nologo /subsystem:console /incremental:yes /pdb:"../../Debug/UnitTest.pdb" /debug /machine:I386 /out:"../../Debug/UnitTest.exe" /pdbtype:sept 
+"\School Documents\Dissertation Source Code\Debug\main.obj"
+"\School Documents\Dissertation Source Code\Debug\GeneticAlgorithm.lib"
+"\School Documents\Dissertation Source Code\Debug\Interface.lib"
+"\School Documents\Dissertation Source Code\Debug\Math.lib"
+"\School Documents\Dissertation Source Code\Debug\reporter.lib"
+"\School Documents\Dissertation Source Code\Debug\socknet.lib"
+"\School Documents\Dissertation Source Code\Debug\xml.lib"
+"\School Documents\Dissertation Source Code\Debug\NeuralNet.lib"
+"\School Documents\Dissertation Source Code\Debug\NeuralTissue.lib"
+"\School Documents\Dissertation Source Code\Debug\Neuron.lib"
+]
+Creating command line "link.exe @C:\Users\JB384~1.MAR\AppData\Local\Temp\RSP4823.tmp"
+<h3>Output Window</h3>
+Linking...
+
+
+
+<h3>Results</h3>
+UnitTest.exe - 0 error(s), 0 warning(s)
+</pre>
+</body>
+</html>

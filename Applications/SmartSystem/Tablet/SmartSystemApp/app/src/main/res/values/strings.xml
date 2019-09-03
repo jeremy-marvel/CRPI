@@ -1,0 +1,64 @@
+<resources>
+    <string name="app_name">UR10 Interface</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="system_status">System Status</string>
+    <string name="tcp_details">TCP Details</string>
+    <string name="surroundings">Surroundings</string>
+    <string name="task_sequence">Task Sequence</string>
+    <string name="tool_vector">Tool Vector:</string>
+    <string name="force_vector">Force Vector:</string>
+    <string name="velocity">Velocity:</string>
+    <string name="actual">Actual:</string>
+    <string name="target">Target:</string>
+    <string name="user_group">User Group:</string>
+    <string name="no_disturbance">No disturbance detected</string>
+    <string name="force">Force:</string>
+    <string name="time_elapsed">Total Elapsed Time:</string>
+    <string name="current_step_time">Current Task Time:</string>
+    <string name="pick">Pick</string>
+    <string name="lower_arm">Lower arm</string>
+    <string name="raise_arm">Raise arm</string>
+    <string name="next">Next</string>
+    <string name="current">Current</string>
+    <string name="previous">Previous</string>
+    <string name="user_prompt">Select a user group</string>
+    <string name="time">time</string>
+    <string name="xyz">X:\n\nY:\n\nZ:</string>
+    <string name="velocityunits">mm/s</string>
+    <string name="forceunits">Newtons</string>
+    <string name="toolunits">mm</string>
+
+
+
+
+    <string name="velx">100</string>
+    <string name="vely">100</string>
+    <string name="velz">100</string>
+
+    <string name="forcex">100</string>
+    <string name="forcey">100</string>
+    <string name="forcez">100</string>
+
+    <string name="toolx">100</string>
+    <string name="tooly">100</string>
+    <string name="toolz">100</string>
+
+
+    <string-array name="user_groups">
+        <item>Visitor</item>
+        <item>Operator</item>
+        <item>Worker</item>
+        <item>Maintenance</item>
+    </string-array>
+
+
+    <string-array name="navdrawer">
+        <item>About</item>
+    </string-array>
+
+
+
+
+
+</resources>

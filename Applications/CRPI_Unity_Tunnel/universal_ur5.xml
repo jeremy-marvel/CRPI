@@ -1,0 +1,18 @@
+<ROBOT>
+ <TCP_IP Address="169.254.152.47" Port="30002" Client="true"/>
+  <ComType Val="TCP_IP"/>
+  <Mounting X="0" Y="0" Z="0" XR="0" YR="0" ZR="0"/>
+  <ToWorld X="323.661" Y="-686.604" Z="-13.7866" XR="0.0976726" YR="5.64165e-005" ZR="45.412" M00="0.702004" M01="-0.712172" M02="0.00121471" M03="323.661" M10="0.712173" M11="0.702003" M12="-0.00119592" M13="-686.604" M20="-9.84653e-007" M21="0.00170471" M22="0.999999" M23="-13.7866" M30="-2.1684e-019" M31="2.1684e-019" M32="-2.11758e-022" M33="1"/>
+  <Tool ID="7" Name="gripper_gear" X="0" Y="0" Z="185" XR="0" YR="0" ZR="0" Mass="0.9" MX="0" MY="0" MZ="71"/>
+  <Tool ID="7" Name="gripper_top_cover" X="0" Y="0" Z="185" XR="0" YR="0" ZR="0" Mass="0.9" MX="0" MY="0" MZ="71"/>
+  <Tool ID="7" Name="gripper_bottom_cover" X="0" Y="0" Z="185" XR="0" YR="0" ZR="0" Mass="0.9" MX="0" MY="0" MZ="71"/>
+  <Tool ID="4" Name="gripper_parallel" X="0" Y="0" Z="0" XR="185" YR="0" ZR="0" Mass="0.9" MX="0" MY="0" MZ="71"/>
+  <Tool ID="3" Name="schunk_hand" X="0" Y="0" Z="127" XR="0" YR="0" ZR="0" Mass="2.2" MX="0" MY="0" MZ="125"/>
+  <Tool ID="5" Name="robotiq" X="0" Y="0" Z="260" XR="0" YR="0" ZR="0" Mass="2.7" MX="0" MY="0" MZ="125"/>
+  <Tool ID="6" Name="Para_grip_point" X="0" Y="0" Z="202.5" XR="0" YR="0" ZR="0" Mass="0.9" MX="0" MY="0" MZ="71"/>
+  <Tool ID="2" Name="point" X="0" Y="0" Z="0" XR="0" YR="0" ZR="0" Mass="0" MX="0" MY="0" MZ="0"/>
+  <Tool ID="8" Name="flange_ring" X="0" Y="0" Z="90.9" XR="0" YR="0" ZR="0" Mass="0.65" MX="0" MY="0" MZ="45"/>
+  <Tool ID="0" Name="default" X="0" Y="0" Z="0" XR="0" YR="0" ZR="0" Mass="5" MX="0" MY="0" MZ="125"/>
+</ROBOT>
+  <Tool ID="10" Name="plate" X="-53.03" Y="-53.03" Z="26.1" XR="0" YR="0" ZR="2.356" Mass="3" MX="0" MY="0" MZ="125"/>
+</ROBOT>

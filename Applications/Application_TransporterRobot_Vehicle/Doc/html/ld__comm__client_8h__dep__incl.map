@@ -1,0 +1,4 @@
+<map id="C:/Users/oya/Desktop/TortoiseSVN/Applications/Application_TransporterRobot_Vehicle/ld_comm_client.h" name="C:/Users/oya/Desktop/TortoiseSVN/Applications/Application_TransporterRobot_Vehicle/ld_comm_client.h">
+<area shape="rect" id="node2" href="$ld__comm__client_8cpp.html" title="Interface for managing ARCL connections to the Omron Adept ld mobile robot platform. &#160;This is the standard client / server connection where the ld core functions as the server and &#160;This control program connects as a client. &#160;. " alt="" coords="5,124,201,195"/>
+<area shape="rect" id="node3" href="$tasks_8cpp.html" title="Main task code. (e.g. thread function definitions) &#160;Also corresponds to the actual tasks each robot p..." alt="" coords="225,124,421,195"/>
+</map>

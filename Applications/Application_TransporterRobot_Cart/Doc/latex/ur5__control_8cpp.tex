@@ -1,0 +1,735 @@
+\hypertarget{ur5__control_8cpp}{}\section{ur5\+\_\+control.\+cpp File Reference}
+\label{ur5__control_8cpp}\index{ur5\+\_\+control.\+cpp@{ur5\+\_\+control.\+cpp}}
+
+
+Function implementation for controlling the ur5 arm. Includes pose conversion helper functions, spiral searches, and laser registration methods. Note\+: some comments that appear in this file were made by the original author of the copied or adapted functions, S. Legowik.~\newline
+.  
+
+
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include \char`\"{}ur5\+\_\+control.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Assembly\+Prims.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}crpi\+\_\+robot.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}crpi\+\_\+universal.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}ld\+\_\+msg.\+h\char`\"{}}\newline
+Include dependency graph for ur5\+\_\+control.\+cpp\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ur5__control_8cpp__incl}
+\end{center}
+\end{figure}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{ur5__control_8cpp_ae30f8b81a96c496f99b0f93c1ce71b69}{set\+Position}} (robot\+Pose \&pose, const P\+M\+\_\+\+C\+A\+R\+T\+E\+S\+I\+AN point, const double rot\mbox{[}$\,$\mbox{]})
+\item 
+robot\+Pose \mbox{\hyperlink{ur5__control_8cpp_a547abf2340c659191e167aed29bc895e}{cart2rob}} (P\+M\+\_\+\+C\+A\+R\+T\+E\+S\+I\+AN position, robot\+Pose orientation)
+\item 
+robot\+Pose \mbox{\hyperlink{ur5__control_8cpp_aade3f14167ff77e664c91a7e2f0dcedb}{pm2robot\+Convert}} (P\+M\+\_\+\+P\+O\+SE pm)
+\item 
+P\+M\+\_\+\+P\+O\+SE \mbox{\hyperlink{ur5__control_8cpp_a60205703665d497795088762692bf477}{robot2pm\+Convert}} (robot\+Pose robot)
+\item 
+P\+M\+\_\+\+C\+A\+R\+T\+E\+S\+I\+AN \mbox{\hyperlink{ur5__control_8cpp_ad4b55ff43fc9b8a5e047bbf3c043dc79}{rob2cart}} (robot\+Pose pose)
+\item 
+void \mbox{\hyperlink{ur5__control_8cpp_a0dc9d46c088768cd62c5aa6af3f04c64}{compute\+\_\+start}} (P\+M\+\_\+\+C\+A\+R\+T\+E\+S\+I\+AN \&point1\+\_\+world, P\+M\+\_\+\+C\+A\+R\+T\+E\+S\+I\+AN \&point2\+\_\+world, P\+M\+\_\+\+C\+A\+R\+T\+E\+S\+I\+AN point1\+\_\+ur5, P\+M\+\_\+\+C\+A\+R\+T\+E\+S\+I\+AN point2\+\_\+ur5, P\+M\+\_\+\+P\+O\+SE rmma\+\_\+to\+\_\+ld, P\+M\+\_\+\+P\+O\+SE ld\+\_\+pose)
+\item 
+void \mbox{\hyperlink{ur5__control_8cpp_adda784117983eea22a49bf54fa6ae4c7}{compute\+\_\+start}} (P\+M\+\_\+\+C\+A\+R\+T\+E\+S\+I\+AN \&point\+\_\+world, P\+M\+\_\+\+C\+A\+R\+T\+E\+S\+I\+AN point\+\_\+ur5, P\+M\+\_\+\+P\+O\+SE rmma\+\_\+to\+\_\+ld, P\+M\+\_\+\+P\+O\+SE ld\+\_\+pose)
+\item 
+double \mbox{\hyperlink{ur5__control_8cpp_ac489e85a4c7e9d9e91b4f70b7525e34f}{time\+\_\+since}} (int seconds)
+\item 
+int \mbox{\hyperlink{ur5__control_8cpp_aa44db83dc50df091c2f5177a750511c7}{get\+\_\+seconds}} ()
+\item 
+Canon\+Return \mbox{\hyperlink{ur5__control_8cpp_a17c02a2fa59dae5ac6254a6aa9827f8b}{lower\+\_\+feet}} (Crpi\+Robot$<$ Crpi\+Universal $>$ $\ast$ur\+\_\+robot)
+\item 
+Canon\+Return \mbox{\hyperlink{ur5__control_8cpp_a5cc30393899ac9d611f68b25e0c65d92}{raise\+\_\+feet}} (Crpi\+Robot$<$ Crpi\+Universal $>$ $\ast$ur\+\_\+robot)
+\item 
+Canon\+Return \mbox{\hyperlink{ur5__control_8cpp_ace4540075fbdf6ea27adf8ec67f4c3ad}{stage\+\_\+arm}} (Crpi\+Robot$<$ Crpi\+Universal $>$ $\ast$ur\+\_\+robot)
+\item 
+\mbox{\Hypertarget{ur5__control_8cpp_ab44ff7aedfa395e1429496d1f52eda1d}\label{ur5__control_8cpp_ab44ff7aedfa395e1429496d1f52eda1d}} 
+Canon\+Return {\bfseries stage\+\_\+arm\+\_\+edge} (Crpi\+Robot$<$ Crpi\+Universal $>$ $\ast$ur\+\_\+robot, robot\+Pose \&edge\+Pose)
+\item 
+Canon\+Return \mbox{\hyperlink{ur5__control_8cpp_a42fa3c41420185199e5537c546d6a0ea}{stow\+\_\+arm}} (Crpi\+Robot$<$ Crpi\+Universal $>$ $\ast$ur\+\_\+robot)
+\item 
+Canon\+Return \mbox{\hyperlink{ur5__control_8cpp_a25198752149d58e6ca17f4bfffe2a5e9}{spiral\+\_\+search\+\_\+large}} (Crpi\+Robot$<$ Crpi\+Universal $>$ $\ast$ur\+\_\+robot, robot\+Pose rmma\+\_\+point, robot\+Pose \&pose\+\_\+me, ofstream \&out\+\_\+file, int mytime\+\_\+seconds)
+\item 
+Canon\+Return \mbox{\hyperlink{ur5__control_8cpp_a6fdcecb12107bd7d7ff706800c1bd176}{spiral\+\_\+search}} (Crpi\+Robot$<$ Crpi\+Universal $>$ $\ast$ur\+\_\+robot, robot\+Pose rmma\+\_\+point, robot\+Pose \&pose\+\_\+me, ofstream \&out\+\_\+file, int mytime\+\_\+seconds)
+\item 
+Canon\+Return \mbox{\hyperlink{ur5__control_8cpp_a1bdf54ea9a9f671180c3584cd75f29e5}{square}} (Crpi\+Robot$<$ Crpi\+Universal $>$ $\ast$ur\+\_\+robot, P\+M\+\_\+\+C\+A\+R\+T\+E\+S\+I\+AN start\+\_\+point1, P\+M\+\_\+\+C\+A\+R\+T\+E\+S\+I\+AN start\+\_\+point2, int num\+\_\+iters, int mytime\+\_\+seconds)
+\item 
+Canon\+Return \mbox{\hyperlink{ur5__control_8cpp_a57db33185e80901363a356338adda7fd}{square\+\_\+bisect}} (Crpi\+Robot$<$ Crpi\+Universal $>$ $\ast$ur\+\_\+robot, P\+M\+\_\+\+C\+A\+R\+T\+E\+S\+I\+AN start\+\_\+point1\+\_\+large, P\+M\+\_\+\+C\+A\+R\+T\+E\+S\+I\+AN start\+\_\+point2\+\_\+large, int num\+\_\+iters, int mytime\+\_\+seconds)
+\item 
+Canon\+Return \mbox{\hyperlink{ur5__control_8cpp_a718207e13742b4e1b2faf0507608a68d}{square\+\_\+bisect\+\_\+short}} (Crpi\+Robot$<$ Crpi\+Universal $>$ $\ast$ur\+\_\+robot, P\+M\+\_\+\+C\+A\+R\+T\+E\+S\+I\+AN start\+\_\+point1\+\_\+large, P\+M\+\_\+\+C\+A\+R\+T\+E\+S\+I\+AN start\+\_\+point2\+\_\+large, int num\+\_\+iters, int mytime\+\_\+seconds, char $\ast$goal, P\+M\+\_\+\+C\+A\+R\+T\+E\+S\+I\+AN $\ast$updated\+\_\+point1, P\+M\+\_\+\+C\+A\+R\+T\+E\+S\+I\+AN $\ast$updated\+\_\+point2)
+\item 
+Canon\+Return \mbox{\hyperlink{ur5__control_8cpp_a17f7089b8c5b7e867e02909d134f2163}{square\+\_\+bisect\+\_\+short}} (Crpi\+Robot$<$ Crpi\+Universal $>$ $\ast$ur\+\_\+robot, P\+M\+\_\+\+C\+A\+R\+T\+E\+S\+I\+AN start\+\_\+point1\+\_\+large, P\+M\+\_\+\+C\+A\+R\+T\+E\+S\+I\+AN start\+\_\+point2\+\_\+large, int num\+\_\+iters, int mytime\+\_\+seconds, char $\ast$goal, bool ots\+\_\+pause)
+\item 
+Canon\+Return \mbox{\hyperlink{ur5__control_8cpp_a6330fdf077d6149b3657b2a3e4a5f2e9}{square\+\_\+edge\+\_\+short}} (Crpi\+Robot$<$ Crpi\+Universal $>$ $\ast$ur\+\_\+robot, P\+M\+\_\+\+C\+A\+R\+T\+E\+S\+I\+AN start\+\_\+point, double max\+\_\+dist, double large\+\_\+step, double r2\+\_\+offset, double r3\+\_\+offset, int num\+\_\+iters, int mytime\+\_\+seconds, char $\ast$goal)
+\item 
+\mbox{\Hypertarget{ur5__control_8cpp_aaa2b9a08eb4ad223dab80d00ed8a2ea5}\label{ur5__control_8cpp_aaa2b9a08eb4ad223dab80d00ed8a2ea5}} 
+Canon\+Return {\bfseries square\+\_\+edge\+\_\+short} (Crpi\+Robot$<$ Crpi\+Universal $>$ $\ast$ur\+\_\+robot, P\+M\+\_\+\+C\+A\+R\+T\+E\+S\+I\+AN start\+\_\+point, double r3\+\_\+start, double max\+\_\+dist, double large\+\_\+step, double r2\+\_\+offset, double r3\+\_\+offset, int num\+\_\+iters, int mytime\+\_\+seconds, char $\ast$goal)
+\item 
+\mbox{\Hypertarget{ur5__control_8cpp_ae3b5a3a303dec2b852a2b9f42c108adb}\label{ur5__control_8cpp_ae3b5a3a303dec2b852a2b9f42c108adb}} 
+Canon\+Return {\bfseries square\+\_\+edge\+\_\+short} (Crpi\+Robot$<$ Crpi\+Universal $>$ $\ast$ur\+\_\+robot, P\+M\+\_\+\+C\+A\+R\+T\+E\+S\+I\+AN start\+\_\+point, double r1\+\_\+start, double r3\+\_\+start, double max\+\_\+dist, double large\+\_\+step, double r2\+\_\+offset, double r3\+\_\+offset, int num\+\_\+iters, int mytime\+\_\+seconds, char $\ast$goal, bool ots\+\_\+pause)
+\item 
+\mbox{\Hypertarget{ur5__control_8cpp_a4f0f84690a5f21c123331152679d31ed}\label{ur5__control_8cpp_a4f0f84690a5f21c123331152679d31ed}} 
+Canon\+Return {\bfseries circle\+\_\+bisect} (Crpi\+Robot$<$ Crpi\+Universal $>$ $\ast$ur\+\_\+robot, P\+M\+\_\+\+C\+A\+R\+T\+E\+S\+I\+AN start\+\_\+point1\+\_\+large, P\+M\+\_\+\+C\+A\+R\+T\+E\+S\+I\+AN start\+\_\+point2\+\_\+large, int num\+\_\+iters, int mytime\+\_\+seconds)
+\item 
+Canon\+Return \mbox{\hyperlink{ur5__control_8cpp_a6ef1ec387f188d9ba69ee42a8c8198bf}{circle}} (Crpi\+Robot$<$ Crpi\+Universal $>$ $\ast$ur\+\_\+robot, P\+M\+\_\+\+C\+A\+R\+T\+E\+S\+I\+AN start\+\_\+point1, P\+M\+\_\+\+C\+A\+R\+T\+E\+S\+I\+AN start\+\_\+point2, int num\+\_\+iters, int mytime\+\_\+seconds)
+\item 
+\mbox{\Hypertarget{ur5__control_8cpp_a288f6cc98100c8d2410738813fb3f1f0}\label{ur5__control_8cpp_a288f6cc98100c8d2410738813fb3f1f0}} 
+{\footnotesize template$<$class T $>$ }\\T {\bfseries sq} (T val)
+\item 
+bool \mbox{\hyperlink{ur5__control_8cpp_a715e713702c1940bc3b56d92ba1a50ac}{vertical\+\_\+pan}} (Crpi\+Robot$<$ Crpi\+Universal $>$ $\ast$arm, robot\+Pose \&pose, double step\+Size1, double step\+Size2, double max\+\_\+x, int $\ast$step\+Count, double $\ast$search\+Time)
+\item 
+bool \mbox{\hyperlink{ur5__control_8cpp_acffebc53ae26844d2528071d84762317}{horizontal\+\_\+pan}} (Crpi\+Robot$<$ Crpi\+Universal $>$ $\ast$arm, robot\+Pose \&pose, double step\+Size1, double step\+Size2, double max\+\_\+y, bool reverse, int $\ast$step\+Count, double $\ast$search\+Time)
+\item 
+bool \mbox{\hyperlink{ur5__control_8cpp_adfbce66ace365783e829aa914746c5bc}{acc\+Search}} (Crpi\+Robot$<$ Crpi\+Universal $>$ $\ast$arm, robot\+Pose \&pose, bool up, bool x\+Axis, double step\+Size, int \&count)
+\item 
+bool \mbox{\hyperlink{ur5__control_8cpp_a309446e589fed9039b8c24a0196e6f87}{bisect}} (Crpi\+Robot$<$ Crpi\+Universal $>$ $\ast$arm, robot\+Pose \&pose, double step\+Size, int $\ast$step\+Count, double $\ast$search\+Time)
+\item 
+void \mbox{\hyperlink{ur5__control_8cpp_aa388e59f6ff544b91dc73afa03cd30dd}{run\+Target\+Scan}} (Crpi\+Robot$<$ Crpi\+Universal $>$ $\ast$arm, string filename, double step\+Size, robot\+Pose center)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Function implementation for controlling the ur5 arm. Includes pose conversion helper functions, spiral searches, and laser registration methods. Note\+: some comments that appear in this file were made by the original author of the copied or adapted functions, S. Legowik.~\newline
+. 
+
+\mbox{\hyperlink{ur5__control_8cpp_ae30f8b81a96c496f99b0f93c1ce71b69}{set\+Position()}}, \mbox{\hyperlink{ur5__control_8cpp_a547abf2340c659191e167aed29bc895e}{cart2rob()}}, \mbox{\hyperlink{ur5__control_8cpp_aade3f14167ff77e664c91a7e2f0dcedb}{pm2robot\+Convert()}}, \mbox{\hyperlink{ur5__control_8cpp_a60205703665d497795088762692bf477}{robot2pm\+Convert()}}, \mbox{\hyperlink{ur5__control_8cpp_ad4b55ff43fc9b8a5e047bbf3c043dc79}{rob2cart()}}, \mbox{\hyperlink{ur5__control_8cpp_ac489e85a4c7e9d9e91b4f70b7525e34f}{time\+\_\+since(int seconds)}}, \mbox{\hyperlink{ur5__control_8cpp_aa44db83dc50df091c2f5177a750511c7}{get\+\_\+seconds()}}, ~\newline
+copied from mobmanmain.\+cpp by S. Legowik~\newline
+ \mbox{\hyperlink{ur5__control_8cpp_a309446e589fed9039b8c24a0196e6f87}{bisect()}}, \mbox{\hyperlink{ur5__control_8cpp_adfbce66ace365783e829aa914746c5bc}{acc\+Search()}}, \mbox{\hyperlink{ur5__control_8cpp_aa388e59f6ff544b91dc73afa03cd30dd}{run\+Target\+Scan()}} copied from scan\+Utils.\+cpp by S. Legowik~\newline
+ \mbox{\hyperlink{ur5__control_8cpp_a0dc9d46c088768cd62c5aa6af3f04c64}{compute\+\_\+start()}}, \mbox{\hyperlink{ur5__control_8cpp_a6fdcecb12107bd7d7ff706800c1bd176}{spiral\+\_\+search()}}, \mbox{\hyperlink{ur5__control_8cpp_a1bdf54ea9a9f671180c3584cd75f29e5}{square()}}, \mbox{\hyperlink{ur5__control_8cpp_a6ef1ec387f188d9ba69ee42a8c8198bf}{circle()}}, \mbox{\hyperlink{ur5__control_8cpp_a57db33185e80901363a356338adda7fd}{square\+\_\+bisect()}}, circle\+\_\+bisect(), \mbox{\hyperlink{ur5__control_8cpp_a718207e13742b4e1b2faf0507608a68d}{square\+\_\+bisect\+\_\+short()}} are adapted~\newline
+from scan\+Utils.\+cpp by S. Legowik~\newline
+ Adapted from\+:~\newline
+mobmanmain.\+cpp by S. Legowik~\newline
+scan\+Utils.\+cpp by S. Legowik
+
+\begin{DoxyAuthor}{Author}
+Omar Aboul-\/\+Enein 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+2017-\/06-\/05 
+\end{DoxyDate}
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{ur5__control_8cpp_adfbce66ace365783e829aa914746c5bc}\label{ur5__control_8cpp_adfbce66ace365783e829aa914746c5bc}} 
+\index{ur5\+\_\+control.\+cpp@{ur5\+\_\+control.\+cpp}!acc\+Search@{acc\+Search}}
+\index{acc\+Search@{acc\+Search}!ur5\+\_\+control.\+cpp@{ur5\+\_\+control.\+cpp}}
+\subsubsection{\texorpdfstring{acc\+Search()}{accSearch()}}
+{\footnotesize\ttfamily bool acc\+Search (\begin{DoxyParamCaption}\item[{Crpi\+Robot$<$ Crpi\+Universal $>$ $\ast$}]{arm,  }\item[{robot\+Pose \&}]{pose,  }\item[{bool}]{up,  }\item[{bool}]{x\+Axis,  }\item[{double}]{step\+Size,  }\item[{int \&}]{count }\end{DoxyParamCaption})}
+
+Code and comments From scan\+Utils.\+cpp by S. Legowik\+: ~\newline
+ Fast search bisection search. Starts moving at step size ~\newline
+doubling the distance each time till the transition is detected. ~\newline
+Then it starts searching with decreasing step size. ~\newline
+Subroutine assumes that robot has been paused long enough ~\newline
+prior to call to allow for a different pause at beginning and ~\newline
+end of search. ~\newline
+Routine increments count by 1 per step. Count should be reset ~\newline
+externally.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em arm} & Pointer to robot control data structure \\
+\hline
+\mbox{\tt in}  & {\em pose} & Returns center pose of reflector. \\
+\hline
+\mbox{\tt in}  & {\em up} & True if serching in positive direction. \\
+\hline
+\mbox{\tt in}  & {\em x\+Axis} & True if motion is along x-\/axis, false for y-\/axis. \\
+\hline
+\mbox{\tt in}  & {\em count} & Incremented for each step taken by the robot. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 2830 of file ur5\+\_\+control.\+cpp.
+
+\mbox{\Hypertarget{ur5__control_8cpp_a309446e589fed9039b8c24a0196e6f87}\label{ur5__control_8cpp_a309446e589fed9039b8c24a0196e6f87}} 
+\index{ur5\+\_\+control.\+cpp@{ur5\+\_\+control.\+cpp}!bisect@{bisect}}
+\index{bisect@{bisect}!ur5\+\_\+control.\+cpp@{ur5\+\_\+control.\+cpp}}
+\subsubsection{\texorpdfstring{bisect()}{bisect()}}
+{\footnotesize\ttfamily bool bisect (\begin{DoxyParamCaption}\item[{Crpi\+Robot$<$ Crpi\+Universal $>$ $\ast$}]{arm,  }\item[{robot\+Pose \&}]{pose,  }\item[{double}]{step\+Size,  }\item[{int $\ast$}]{step\+Count,  }\item[{double $\ast$}]{search\+Time }\end{DoxyParamCaption})}
+
+Code and comments from scan\+Utils.\+cpp by S. Legowik\+: Bisect the current target to find the center more accurately. Detects target when dio\mbox{[}8\mbox{]} is false; 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em arm} & Pointer to robot control data structure \\
+\hline
+\mbox{\tt in}  & {\em pose} & Returns center pose of reflector. \\
+\hline
+\mbox{\tt in}  & {\em step\+Size} & Step size to used when incrementing along bisect path. \\
+\hline
+\mbox{\tt out}  & {\em step\+Count} & Stores number of steps taken in bisect. \\
+\hline
+\mbox{\tt out}  & {\em search\+Time} & Stores time it took to complete the bisect. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 2907 of file ur5\+\_\+control.\+cpp.
+
+\mbox{\Hypertarget{ur5__control_8cpp_a547abf2340c659191e167aed29bc895e}\label{ur5__control_8cpp_a547abf2340c659191e167aed29bc895e}} 
+\index{ur5\+\_\+control.\+cpp@{ur5\+\_\+control.\+cpp}!cart2rob@{cart2rob}}
+\index{cart2rob@{cart2rob}!ur5\+\_\+control.\+cpp@{ur5\+\_\+control.\+cpp}}
+\subsubsection{\texorpdfstring{cart2rob()}{cart2rob()}}
+{\footnotesize\ttfamily robot\+Pose cart2rob (\begin{DoxyParamCaption}\item[{P\+M\+\_\+\+C\+A\+R\+T\+E\+S\+I\+AN}]{position,  }\item[{robot\+Pose}]{orientation }\end{DoxyParamCaption})}
+
+Conversion function from P\+M\+\_\+\+C\+A\+R\+T\+E\+S\+I\+AN to C\+R\+PI Robot\+Pose. From mobmanmain by S. Legowik. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em position} & N\+I\+ST R\+CS Library point to be converted. \char`\"{}\+Position is used to set the x and y coordinates (\+S. Legowik)\char`\"{}. \\
+\hline
+\mbox{\tt in}  & {\em orientation} & Orientation of T\+CP at point. Should be specified so that the T\+CP is facing towards the R\+M\+MA. \char`\"{}\+Orientation is used to set the z value and the rotation (\+S. Legowik)\char`\"{}. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A C\+R\+PI Robot\+Pose that contains the same position and oriantation as input parameters. 
+\end{DoxyReturn}
+
+
+Definition at line 45 of file ur5\+\_\+control.\+cpp.
+
+\mbox{\Hypertarget{ur5__control_8cpp_a6ef1ec387f188d9ba69ee42a8c8198bf}\label{ur5__control_8cpp_a6ef1ec387f188d9ba69ee42a8c8198bf}} 
+\index{ur5\+\_\+control.\+cpp@{ur5\+\_\+control.\+cpp}!circle@{circle}}
+\index{circle@{circle}!ur5\+\_\+control.\+cpp@{ur5\+\_\+control.\+cpp}}
+\subsubsection{\texorpdfstring{circle()}{circle()}}
+{\footnotesize\ttfamily Canon\+Return circle (\begin{DoxyParamCaption}\item[{Crpi\+Robot$<$ Crpi\+Universal $>$ $\ast$}]{ur\+\_\+robot,  }\item[{P\+M\+\_\+\+C\+A\+R\+T\+E\+S\+I\+AN}]{start\+\_\+point1,  }\item[{P\+M\+\_\+\+C\+A\+R\+T\+E\+S\+I\+AN}]{start\+\_\+point2,  }\item[{int}]{num\+\_\+iters,  }\item[{int}]{mytime\+\_\+seconds }\end{DoxyParamCaption})}
+
+This function implements the spiral search multiple times to locate the set of reflectors on the R\+M\+MA organized along a circular shape. ~\newline
+After the localization of each reflector, the location of the other reflectors are updated. ~\newline
+N\+O\+TE\+: This function was intended for use on A\+G\+V/\+U\+R10 mobile manipulator and should not be used on the ld. This is because the ur5 arm cannot reach ~\newline
+all of the reflectors that are specified in this search patttern. This code is useful, however to help develop new search patterns. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em ur\+\_\+robot} & C\+R\+PI object that stores configuration and connection parameters for robot arm. \\
+\hline
+\mbox{\tt in}  & {\em start\+\_\+point1\+\_\+large} & Expected position of the first bisect reflectors used to compute the location of the rest of the square patern reflectors. \\
+\hline
+\mbox{\tt in}  & {\em start\+\_\+point2\+\_\+large} & Expected position of the second bisect reflectors used to compute the location of the rest of the square patern reflectors. \\
+\hline
+\mbox{\tt in}  & {\em num\+\_\+iters} & Number of times to go around the square pattern \\
+\hline
+\mbox{\tt in}  & {\em mytime\+\_\+seconds} & Timestamp used to compute the time it took to complete the searches. This parameter is passed down to the spiral\+\_\+search function. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 2368 of file ur5\+\_\+control.\+cpp.
+
+\mbox{\Hypertarget{ur5__control_8cpp_a0dc9d46c088768cd62c5aa6af3f04c64}\label{ur5__control_8cpp_a0dc9d46c088768cd62c5aa6af3f04c64}} 
+\index{ur5\+\_\+control.\+cpp@{ur5\+\_\+control.\+cpp}!compute\+\_\+start@{compute\+\_\+start}}
+\index{compute\+\_\+start@{compute\+\_\+start}!ur5\+\_\+control.\+cpp@{ur5\+\_\+control.\+cpp}}
+\subsubsection{\texorpdfstring{compute\+\_\+start()}{compute\_start()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void compute\+\_\+start (\begin{DoxyParamCaption}\item[{P\+M\+\_\+\+C\+A\+R\+T\+E\+S\+I\+AN \&}]{point1\+\_\+world,  }\item[{P\+M\+\_\+\+C\+A\+R\+T\+E\+S\+I\+AN \&}]{point2\+\_\+world,  }\item[{P\+M\+\_\+\+C\+A\+R\+T\+E\+S\+I\+AN}]{point1\+\_\+ur5,  }\item[{P\+M\+\_\+\+C\+A\+R\+T\+E\+S\+I\+AN}]{point2\+\_\+ur5,  }\item[{P\+M\+\_\+\+P\+O\+SE}]{rmma\+\_\+to\+\_\+ld,  }\item[{P\+M\+\_\+\+P\+O\+SE}]{ld\+\_\+pose }\end{DoxyParamCaption})}
+
+Transforms trained initial reflector points given in robot base coordinates ~\newline
+to ld coordinates using the commanded ld position, ~\newline
+then performs the inverse transformation using the actual ld position. ~\newline
+The final result corrects the expected reflector position based on position and orientation ~\newline
+readings from the lync controller. Adapted from mobmanmain by S. Legowik. Note that ld\+\_\+to\+\_\+ur5 constant is used to factor in the mounting offset of the robot base, currently this pose is set to zero. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt out}  & {\em point1\+\_\+world} & Computed position of first reflector. \\
+\hline
+\mbox{\tt out}  & {\em point2\+\_\+world} & Computed position of second reflector. \\
+\hline
+\mbox{\tt in}  & {\em point1\+\_\+ur5} & Expected position of first reflector relative to manipulator base. \\
+\hline
+\mbox{\tt in}  & {\em point2\+\_\+ur5} & Expected position of second reflector relative to manipulator base \\
+\hline
+\mbox{\tt in}  & {\em rmma\+\_\+to\+\_\+ld} & Expected position of R\+M\+MA dock point in vehicle map. \\
+\hline
+\mbox{\tt in}  & {\em ld\+\_\+pose} & Actual position of ld in vehicle map. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 85 of file ur5\+\_\+control.\+cpp.
+
+\mbox{\Hypertarget{ur5__control_8cpp_adda784117983eea22a49bf54fa6ae4c7}\label{ur5__control_8cpp_adda784117983eea22a49bf54fa6ae4c7}} 
+\index{ur5\+\_\+control.\+cpp@{ur5\+\_\+control.\+cpp}!compute\+\_\+start@{compute\+\_\+start}}
+\index{compute\+\_\+start@{compute\+\_\+start}!ur5\+\_\+control.\+cpp@{ur5\+\_\+control.\+cpp}}
+\subsubsection{\texorpdfstring{compute\+\_\+start()}{compute\_start()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void compute\+\_\+start (\begin{DoxyParamCaption}\item[{P\+M\+\_\+\+C\+A\+R\+T\+E\+S\+I\+AN \&}]{point\+\_\+world,  }\item[{P\+M\+\_\+\+C\+A\+R\+T\+E\+S\+I\+AN}]{point\+\_\+ur5,  }\item[{P\+M\+\_\+\+P\+O\+SE}]{rmma\+\_\+to\+\_\+ld,  }\item[{P\+M\+\_\+\+P\+O\+SE}]{ld\+\_\+pose }\end{DoxyParamCaption})}
+
+Transforms expected reflector points given in robot base coordinates ~\newline
+to ld coordinates using the commanded ld position, ~\newline
+then performs the inverse transformation using the actual ld position. ~\newline
+The final result corrects the expected reflector position based on position and orientation ~\newline
+readings from the lync controller. Adapted from mobmanmain by S. Legowik. Note that ld\+\_\+to\+\_\+ur5 constant is used to factor in the mounting offset of the robot base, currently this pose is set to zero. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt out}  & {\em point\+\_\+world} & Computed position of point in ur base coordinates. \\
+\hline
+\mbox{\tt in}  & {\em point\+\_\+ur5} & Expected position of first reflector relative to manipulator base. \\
+\hline
+\mbox{\tt in}  & {\em rmma\+\_\+to\+\_\+ld} & Expected position of R\+M\+MA dock point in vehicle map. \\
+\hline
+\mbox{\tt in}  & {\em ld\+\_\+pose} & Actual position of ld in vehicle map. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 112 of file ur5\+\_\+control.\+cpp.
+
+\mbox{\Hypertarget{ur5__control_8cpp_aa44db83dc50df091c2f5177a750511c7}\label{ur5__control_8cpp_aa44db83dc50df091c2f5177a750511c7}} 
+\index{ur5\+\_\+control.\+cpp@{ur5\+\_\+control.\+cpp}!get\+\_\+seconds@{get\+\_\+seconds}}
+\index{get\+\_\+seconds@{get\+\_\+seconds}!ur5\+\_\+control.\+cpp@{ur5\+\_\+control.\+cpp}}
+\subsubsection{\texorpdfstring{get\+\_\+seconds()}{get\_seconds()}}
+{\footnotesize\ttfamily int get\+\_\+seconds (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Get seconds since January 1, 1970 (U\+N\+IX T\+I\+ME) based on Windows System Libraries. From mobmanmainby S. Legowik \begin{DoxyReturn}{Returns}
+Timestamp from system clock 
+\end{DoxyReturn}
+
+
+Definition at line 146 of file ur5\+\_\+control.\+cpp.
+
+\mbox{\Hypertarget{ur5__control_8cpp_acffebc53ae26844d2528071d84762317}\label{ur5__control_8cpp_acffebc53ae26844d2528071d84762317}} 
+\index{ur5\+\_\+control.\+cpp@{ur5\+\_\+control.\+cpp}!horizontal\+\_\+pan@{horizontal\+\_\+pan}}
+\index{horizontal\+\_\+pan@{horizontal\+\_\+pan}!ur5\+\_\+control.\+cpp@{ur5\+\_\+control.\+cpp}}
+\subsubsection{\texorpdfstring{horizontal\+\_\+pan()}{horizontal\_pan()}}
+{\footnotesize\ttfamily bool horizontal\+\_\+pan (\begin{DoxyParamCaption}\item[{Crpi\+Robot$<$ Crpi\+Universal $>$ $\ast$}]{arm,  }\item[{robot\+Pose \&}]{pose,  }\item[{double}]{step\+Size1,  }\item[{double}]{step\+Size2,  }\item[{double}]{max\+\_\+y,  }\item[{bool}]{reverse,  }\item[{int $\ast$}]{step\+Count,  }\item[{double $\ast$}]{search\+Time }\end{DoxyParamCaption})}
+
+Code and comments from scan\+Utils.\+cpp by S. Legowik\+: Bisect the current target to find the center more accurately. Detects target when dio\mbox{[}8\mbox{]} is false; 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em arm} & Pointer to robot control data structure \\
+\hline
+\mbox{\tt in}  & {\em pose} & Returns pose of short table edge. Use Y component to get the Y component of table corner. \\
+\hline
+\mbox{\tt in}  & {\em step\+Size1} & Initial large step size to used when incrementing along horizontal pan. Used to speed up search. \\
+\hline
+\mbox{\tt out}  & {\em step\+Size2} & Initial smaller step size to used when incrementing along horiozontal pan. Used to more precisely detect location of table edge. \\
+\hline
+\mbox{\tt out}  & {\em step\+Count} & Stores number of steps taken in horizontal pan. \\
+\hline
+\mbox{\tt out}  & {\em search\+Time} & Stores time it took to complete the horizontal pan. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 2654 of file ur5\+\_\+control.\+cpp.
+
+\mbox{\Hypertarget{ur5__control_8cpp_a17c02a2fa59dae5ac6254a6aa9827f8b}\label{ur5__control_8cpp_a17c02a2fa59dae5ac6254a6aa9827f8b}} 
+\index{ur5\+\_\+control.\+cpp@{ur5\+\_\+control.\+cpp}!lower\+\_\+feet@{lower\+\_\+feet}}
+\index{lower\+\_\+feet@{lower\+\_\+feet}!ur5\+\_\+control.\+cpp@{ur5\+\_\+control.\+cpp}}
+\subsubsection{\texorpdfstring{lower\+\_\+feet()}{lower\_feet()}}
+{\footnotesize\ttfamily Canon\+Return lower\+\_\+feet (\begin{DoxyParamCaption}\item[{Crpi\+Robot$<$ Crpi\+Universal $>$ $\ast$}]{ur\+\_\+robot }\end{DoxyParamCaption})}
+
+Lowers the actuated feet mounted on the cart. Feet cannot be lowered again if they were lowered previously to avoid tipping the cart. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em ur\+\_\+robot} & C\+R\+PI object that stores configuration and connection parameters for robot arm. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+C\+R\+PI canonical return that indicates if an error occurred while attempting to move the robot. 
+\end{DoxyReturn}
+
+
+Definition at line 158 of file ur5\+\_\+control.\+cpp.
+
+\mbox{\Hypertarget{ur5__control_8cpp_aade3f14167ff77e664c91a7e2f0dcedb}\label{ur5__control_8cpp_aade3f14167ff77e664c91a7e2f0dcedb}} 
+\index{ur5\+\_\+control.\+cpp@{ur5\+\_\+control.\+cpp}!pm2robot\+Convert@{pm2robot\+Convert}}
+\index{pm2robot\+Convert@{pm2robot\+Convert}!ur5\+\_\+control.\+cpp@{ur5\+\_\+control.\+cpp}}
+\subsubsection{\texorpdfstring{pm2robot\+Convert()}{pm2robotConvert()}}
+{\footnotesize\ttfamily robot\+Pose pm2robot\+Convert (\begin{DoxyParamCaption}\item[{P\+M\+\_\+\+P\+O\+SE}]{pm }\end{DoxyParamCaption})}
+
+Conversion function from P\+M\+\_\+\+P\+O\+SE to C\+R\+PI Robot\+Pose. From mobmanmain by S. Legowik 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em pm} & N\+I\+ST R\+CS pose to be converted. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Converted C\+R\+PI Robot pose. 
+\end{DoxyReturn}
+
+
+Definition at line 54 of file ur5\+\_\+control.\+cpp.
+
+\mbox{\Hypertarget{ur5__control_8cpp_a5cc30393899ac9d611f68b25e0c65d92}\label{ur5__control_8cpp_a5cc30393899ac9d611f68b25e0c65d92}} 
+\index{ur5\+\_\+control.\+cpp@{ur5\+\_\+control.\+cpp}!raise\+\_\+feet@{raise\+\_\+feet}}
+\index{raise\+\_\+feet@{raise\+\_\+feet}!ur5\+\_\+control.\+cpp@{ur5\+\_\+control.\+cpp}}
+\subsubsection{\texorpdfstring{raise\+\_\+feet()}{raise\_feet()}}
+{\footnotesize\ttfamily Canon\+Return raise\+\_\+feet (\begin{DoxyParamCaption}\item[{Crpi\+Robot$<$ Crpi\+Universal $>$ $\ast$}]{ur\+\_\+robot }\end{DoxyParamCaption})}
+
+Raises the actuated feet mounted on the cart. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em ur\+\_\+robot} & C\+R\+PI object that stores configuration and connection parameters for robot arm. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+C\+R\+PI canonical return that indicates if an error occurred while attempting to move the robot. 
+\end{DoxyReturn}
+
+
+Definition at line 216 of file ur5\+\_\+control.\+cpp.
+
+\mbox{\Hypertarget{ur5__control_8cpp_ad4b55ff43fc9b8a5e047bbf3c043dc79}\label{ur5__control_8cpp_ad4b55ff43fc9b8a5e047bbf3c043dc79}} 
+\index{ur5\+\_\+control.\+cpp@{ur5\+\_\+control.\+cpp}!rob2cart@{rob2cart}}
+\index{rob2cart@{rob2cart}!ur5\+\_\+control.\+cpp@{ur5\+\_\+control.\+cpp}}
+\subsubsection{\texorpdfstring{rob2cart()}{rob2cart()}}
+{\footnotesize\ttfamily P\+M\+\_\+\+C\+A\+R\+T\+E\+S\+I\+AN rob2cart (\begin{DoxyParamCaption}\item[{robot\+Pose}]{pose }\end{DoxyParamCaption})}
+
+Conversion function from C\+R\+PI robot\+Pose to P\+M\+\_\+\+C\+A\+R\+T\+E\+S\+I\+AN. From mobmanmain by S. Legowik 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em pose} & C\+R\+PI Robot pose to be converted \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Converted N\+I\+ST R\+CS position. 
+\end{DoxyReturn}
+
+
+Definition at line 80 of file ur5\+\_\+control.\+cpp.
+
+\mbox{\Hypertarget{ur5__control_8cpp_a60205703665d497795088762692bf477}\label{ur5__control_8cpp_a60205703665d497795088762692bf477}} 
+\index{ur5\+\_\+control.\+cpp@{ur5\+\_\+control.\+cpp}!robot2pm\+Convert@{robot2pm\+Convert}}
+\index{robot2pm\+Convert@{robot2pm\+Convert}!ur5\+\_\+control.\+cpp@{ur5\+\_\+control.\+cpp}}
+\subsubsection{\texorpdfstring{robot2pm\+Convert()}{robot2pmConvert()}}
+{\footnotesize\ttfamily P\+M\+\_\+\+P\+O\+SE robot2pm\+Convert (\begin{DoxyParamCaption}\item[{robot\+Pose}]{robot }\end{DoxyParamCaption})}
+
+Conversion function from C\+R\+PI robot\+Pose to P\+M\+\_\+\+P\+O\+SE. From mobmanmain by S. Legowik 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em robot} & C\+R\+PI Robot Pose to be converted. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+N\+I\+ST R\+CS pose. 
+\end{DoxyReturn}
+
+
+Definition at line 68 of file ur5\+\_\+control.\+cpp.
+
+\mbox{\Hypertarget{ur5__control_8cpp_aa388e59f6ff544b91dc73afa03cd30dd}\label{ur5__control_8cpp_aa388e59f6ff544b91dc73afa03cd30dd}} 
+\index{ur5\+\_\+control.\+cpp@{ur5\+\_\+control.\+cpp}!run\+Target\+Scan@{run\+Target\+Scan}}
+\index{run\+Target\+Scan@{run\+Target\+Scan}!ur5\+\_\+control.\+cpp@{ur5\+\_\+control.\+cpp}}
+\subsubsection{\texorpdfstring{run\+Target\+Scan()}{runTargetScan()}}
+{\footnotesize\ttfamily void run\+Target\+Scan (\begin{DoxyParamCaption}\item[{Crpi\+Robot$<$ Crpi\+Universal $>$ $\ast$}]{arm,  }\item[{string}]{filename,  }\item[{double}]{step\+Size,  }\item[{robot\+Pose}]{center }\end{DoxyParamCaption})}
+
+Raster scan function, not currently used, but ported from Steve Legowik\textquotesingle{}s code for reference. 
+
+Definition at line 3113 of file ur5\+\_\+control.\+cpp.
+
+\mbox{\Hypertarget{ur5__control_8cpp_ae30f8b81a96c496f99b0f93c1ce71b69}\label{ur5__control_8cpp_ae30f8b81a96c496f99b0f93c1ce71b69}} 
+\index{ur5\+\_\+control.\+cpp@{ur5\+\_\+control.\+cpp}!set\+Position@{set\+Position}}
+\index{set\+Position@{set\+Position}!ur5\+\_\+control.\+cpp@{ur5\+\_\+control.\+cpp}}
+\subsubsection{\texorpdfstring{set\+Position()}{setPosition()}}
+{\footnotesize\ttfamily void set\+Position (\begin{DoxyParamCaption}\item[{robot\+Pose \&}]{pose,  }\item[{const P\+M\+\_\+\+C\+A\+R\+T\+E\+S\+I\+AN}]{point,  }\item[{const double}]{rot\mbox{[}$\,$\mbox{]} }\end{DoxyParamCaption})}
+
+Conversion function from P\+M\+\_\+\+C\+A\+R\+T\+E\+S\+I\+AN to C\+R\+PI Robot\+Pose. From from mobmanmain by S. Legowik. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt out}  & {\em pose} & Pointer to a C\+R\+PI Robot\+Pose object to hold the converted pose. \\
+\hline
+\mbox{\tt in}  & {\em point} & X, y, z position of point to be converted expressed in N\+I\+ST R\+CS \\
+\hline
+\mbox{\tt in}  & {\em rot} & Rotation of point to be converted \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 35 of file ur5\+\_\+control.\+cpp.
+
+\mbox{\Hypertarget{ur5__control_8cpp_a6fdcecb12107bd7d7ff706800c1bd176}\label{ur5__control_8cpp_a6fdcecb12107bd7d7ff706800c1bd176}} 
+\index{ur5\+\_\+control.\+cpp@{ur5\+\_\+control.\+cpp}!spiral\+\_\+search@{spiral\+\_\+search}}
+\index{spiral\+\_\+search@{spiral\+\_\+search}!ur5\+\_\+control.\+cpp@{ur5\+\_\+control.\+cpp}}
+\subsubsection{\texorpdfstring{spiral\+\_\+search()}{spiral\_search()}}
+{\footnotesize\ttfamily Canon\+Return spiral\+\_\+search (\begin{DoxyParamCaption}\item[{Crpi\+Robot$<$ Crpi\+Universal $>$ $\ast$}]{ur\+\_\+robot,  }\item[{robot\+Pose}]{rmma\+\_\+point,  }\item[{robot\+Pose \&}]{pose\+\_\+me,  }\item[{ofstream \&}]{out\+\_\+file,  }\item[{int}]{mytime\+\_\+seconds }\end{DoxyParamCaption})}
+
+This function implements the fine spiral search used to localize the small reflectors. ~\newline
+This function is called multiple times in other functions to perform a full test around the square or circle reflector patterns. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em ur\+\_\+robot} & C\+R\+PI object that stores configuration and connection parameters for robot arm. \\
+\hline
+\mbox{\tt in}  & {\em pose\+\_\+me} & C\+R\+PI pose that holds the result of the search after localizing the bisect reflector. \\
+\hline
+\mbox{\tt in}  & {\em out\+\_\+file} & Output file for logging the reseults of the search \\
+\hline
+\mbox{\tt in}  & {\em mytime\+\_\+seconds} & Time seed used for computing the time it took to complete the search. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+C\+R\+PI canonical return that indicates if an error occurred while attempting to move the robot. 
+\end{DoxyReturn}
+Move to position j
+
+Run spiral search at rmma\+\_\+point 
+
+Definition at line 694 of file ur5\+\_\+control.\+cpp.
+
+\mbox{\Hypertarget{ur5__control_8cpp_a25198752149d58e6ca17f4bfffe2a5e9}\label{ur5__control_8cpp_a25198752149d58e6ca17f4bfffe2a5e9}} 
+\index{ur5\+\_\+control.\+cpp@{ur5\+\_\+control.\+cpp}!spiral\+\_\+search\+\_\+large@{spiral\+\_\+search\+\_\+large}}
+\index{spiral\+\_\+search\+\_\+large@{spiral\+\_\+search\+\_\+large}!ur5\+\_\+control.\+cpp@{ur5\+\_\+control.\+cpp}}
+\subsubsection{\texorpdfstring{spiral\+\_\+search\+\_\+large()}{spiral\_search\_large()}}
+{\footnotesize\ttfamily Canon\+Return spiral\+\_\+search\+\_\+large (\begin{DoxyParamCaption}\item[{Crpi\+Robot$<$ Crpi\+Universal $>$ $\ast$}]{ur\+\_\+robot,  }\item[{robot\+Pose}]{rmma\+\_\+point,  }\item[{robot\+Pose \&}]{pose\+\_\+me,  }\item[{ofstream \&}]{out\+\_\+file,  }\item[{int}]{mytime\+\_\+seconds }\end{DoxyParamCaption})}
+
+This function implements the coarse spiral search used to localize the large reflectors. This code is identical to the spiral\+\_\+search function,~\newline
+but uses a larger step size for square spiral path. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em ur\+\_\+robot} & C\+R\+PI object that stores configuration and connection parameters for robot arm. \\
+\hline
+\mbox{\tt in}  & {\em rmma\+\_\+point} & C\+R\+PI robot pose that holds the initial search position of the robot arm. \\
+\hline
+\mbox{\tt in}  & {\em pose\+\_\+me} & C\+R\+PI pose that holds the result of the search after localizing the bisect reflector. \\
+\hline
+\mbox{\tt in}  & {\em out\+\_\+file} & Output file for logging the reseults of the search. \\
+\hline
+\mbox{\tt in}  & {\em mytime\+\_\+seconds} & Start time used for computing the time it took to complete the search. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+C\+R\+PI canonical return that indicates if an error occurred while attempting to move the robot. 
+\end{DoxyReturn}
+Move to position j
+
+Run spiral search at rmma\+\_\+point 
+
+Definition at line 610 of file ur5\+\_\+control.\+cpp.
+
+\mbox{\Hypertarget{ur5__control_8cpp_a1bdf54ea9a9f671180c3584cd75f29e5}\label{ur5__control_8cpp_a1bdf54ea9a9f671180c3584cd75f29e5}} 
+\index{ur5\+\_\+control.\+cpp@{ur5\+\_\+control.\+cpp}!square@{square}}
+\index{square@{square}!ur5\+\_\+control.\+cpp@{ur5\+\_\+control.\+cpp}}
+\subsubsection{\texorpdfstring{square()}{square()}}
+{\footnotesize\ttfamily Canon\+Return square (\begin{DoxyParamCaption}\item[{Crpi\+Robot$<$ Crpi\+Universal $>$ $\ast$}]{ur\+\_\+robot,  }\item[{P\+M\+\_\+\+C\+A\+R\+T\+E\+S\+I\+AN}]{start\+\_\+point1,  }\item[{P\+M\+\_\+\+C\+A\+R\+T\+E\+S\+I\+AN}]{start\+\_\+point2,  }\item[{int}]{num\+\_\+iters,  }\item[{int}]{mytime\+\_\+seconds }\end{DoxyParamCaption})}
+
+This function implements the spiral search multiple times to locate the set of reflectors on the R\+M\+MA organized along a square shape. After the localization of each reflector, the location of the other reflectors are updated.~\newline
+N\+O\+TE\+: This function was intended for use on A\+G\+V/\+U\+R10 mobile manipulator and should not be used on the ld. This is because the ur5 arm cannot reach. ~\newline
+all of the reflectors that are specified in this search patttern. This code is useful, however to help develop new search patterns. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em ur\+\_\+robot} & C\+R\+PI object that stores configuration and connection parameters for robot arm. \\
+\hline
+\mbox{\tt in}  & {\em start\+\_\+point1} & Expected position of the first reflector used to compute the location of the rest of the square patern reflectors. \\
+\hline
+\mbox{\tt in}  & {\em start\+\_\+point2} & Expected position of the second reflector used to compute the location of the rest of the square patern reflectors. \\
+\hline
+\mbox{\tt in}  & {\em num\+\_\+iters} & Number of times to go around the square pattern \\
+\hline
+\mbox{\tt in}  & {\em mytime\+\_\+seconds} & Timestamp used to compute the time it took to complete the searches. This parameter is passed down to the spiral\+\_\+search function. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+C\+R\+PI canonical return that indicates if an error occurred while attempting to move the robot. 
+\end{DoxyReturn}
+
+
+Definition at line 776 of file ur5\+\_\+control.\+cpp.
+
+\mbox{\Hypertarget{ur5__control_8cpp_a57db33185e80901363a356338adda7fd}\label{ur5__control_8cpp_a57db33185e80901363a356338adda7fd}} 
+\index{ur5\+\_\+control.\+cpp@{ur5\+\_\+control.\+cpp}!square\+\_\+bisect@{square\+\_\+bisect}}
+\index{square\+\_\+bisect@{square\+\_\+bisect}!ur5\+\_\+control.\+cpp@{ur5\+\_\+control.\+cpp}}
+\subsubsection{\texorpdfstring{square\+\_\+bisect()}{square\_bisect()}}
+{\footnotesize\ttfamily Canon\+Return square\+\_\+bisect (\begin{DoxyParamCaption}\item[{Crpi\+Robot$<$ Crpi\+Universal $>$ $\ast$}]{ur\+\_\+robot,  }\item[{P\+M\+\_\+\+C\+A\+R\+T\+E\+S\+I\+AN}]{start\+\_\+point1\+\_\+large,  }\item[{P\+M\+\_\+\+C\+A\+R\+T\+E\+S\+I\+AN}]{start\+\_\+point2\+\_\+large,  }\item[{int}]{num\+\_\+iters,  }\item[{int}]{mytime\+\_\+seconds }\end{DoxyParamCaption})}
+
+This function implements the spiral search multiple times to locate the set of reflectors on the R\+M\+MA organized along a square shape.~\newline
+After the localization of each reflector, the location of the other reflectors are updated. Bisection registration is also used to~\newline
+further localize the start points of the square pattern.~\newline
+N\+O\+TE\+: This function was intended for use on A\+G\+V/\+U\+R10 mobile manipulator and should not be used on the ld. This is because the ur5 arm cannot reach~\newline
+all of the reflectors that are specified in this search patttern. This code is useful, however to help develop new search patterns. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em ur\+\_\+robot} & C\+R\+PI object that stores configuration and connection parameters for robot arm. \\
+\hline
+\mbox{\tt in}  & {\em start\+\_\+point1\+\_\+large} & Expected position of the first bisect reflector used to compute the location of the rest of the square patern reflectors. \\
+\hline
+\mbox{\tt in}  & {\em start\+\_\+point2\+\_\+large} & Expected position of the second bisect reflector used to compute the location of the rest of the square patern reflectors. \\
+\hline
+\mbox{\tt in}  & {\em num\+\_\+iters} & Number of times to go around the square pattern \\
+\hline
+\mbox{\tt in}  & {\em mytime\+\_\+seconds} & Timestamp used to compute the time it took to complete the searches. This parameter is passed down to the spiral\+\_\+search function. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+C\+R\+PI canonical return that indicates if an error occurred while attempting to move the robot. 
+\end{DoxyReturn}
+
+
+Definition at line 872 of file ur5\+\_\+control.\+cpp.
+
+\mbox{\Hypertarget{ur5__control_8cpp_a718207e13742b4e1b2faf0507608a68d}\label{ur5__control_8cpp_a718207e13742b4e1b2faf0507608a68d}} 
+\index{ur5\+\_\+control.\+cpp@{ur5\+\_\+control.\+cpp}!square\+\_\+bisect\+\_\+short@{square\+\_\+bisect\+\_\+short}}
+\index{square\+\_\+bisect\+\_\+short@{square\+\_\+bisect\+\_\+short}!ur5\+\_\+control.\+cpp@{ur5\+\_\+control.\+cpp}}
+\subsubsection{\texorpdfstring{square\+\_\+bisect\+\_\+short()}{square\_bisect\_short()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Canon\+Return square\+\_\+bisect\+\_\+short (\begin{DoxyParamCaption}\item[{Crpi\+Robot$<$ Crpi\+Universal $>$ $\ast$}]{ur\+\_\+robot,  }\item[{P\+M\+\_\+\+C\+A\+R\+T\+E\+S\+I\+AN}]{start\+\_\+point1\+\_\+large,  }\item[{P\+M\+\_\+\+C\+A\+R\+T\+E\+S\+I\+AN}]{start\+\_\+point2\+\_\+large,  }\item[{int}]{num\+\_\+iters,  }\item[{int}]{mytime\+\_\+seconds,  }\item[{char $\ast$}]{goal,  }\item[{P\+M\+\_\+\+C\+A\+R\+T\+E\+S\+I\+AN $\ast$}]{updated\+\_\+point1,  }\item[{P\+M\+\_\+\+C\+A\+R\+T\+E\+S\+I\+AN $\ast$}]{updated\+\_\+point2 }\end{DoxyParamCaption})}
+
+This function implements the spiral search multiple times to locate the set of reflectors on the R\+M\+MA organized along a square shape.~\newline
+After the localization of each reflector, the location of the other reflectors are updated. Bisection registration is also used to~\newline
+further localize the start points of the square pattern.~\newline
+This function is modified for the ld/ur5 mobile manipulator, adjusting the location of the bisect reflectors to account for the limited reach of the ur5.~\newline
+In addition, the function implements spiral\+\_\+search\+\_\+large to account for the larger uncertainty in the ld vehicle docking.~\newline
+This is the recommended function to use when testing on the ld.~\newline
+This overloaded version of the function also returns the actual position of the large reflectors so they can be updated in the configuration file. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em ur\+\_\+robot} & C\+R\+PI object that stores configuration and connection parameters for robot arm. \\
+\hline
+\mbox{\tt in}  & {\em start\+\_\+point1\+\_\+large} & Expected position of the first bisect reflector used to compute the location of the rest of the square patern reflectors. \\
+\hline
+\mbox{\tt in}  & {\em start\+\_\+point2\+\_\+large} & Expected position of the second bisect reflector used to compute the location of the rest of the square patern reflectors. \\
+\hline
+\mbox{\tt in}  & {\em num\+\_\+iters} & Number of times to go around the square pattern \\
+\hline
+\mbox{\tt in}  & {\em mytime\+\_\+seconds} & Timestamp used to compute the time it took to complete the searches. This parameter is passed down to the spiral\+\_\+search function. \\
+\hline
+\mbox{\tt in}  & {\em goal} & Goal name associated with the position that the ld is parked at. Primarily used for logging purposes. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+C\+R\+PI canonical return that indicates if an error occurred while attempting to move the robot. 
+\end{DoxyReturn}
+
+
+Definition at line 1023 of file ur5\+\_\+control.\+cpp.
+
+\mbox{\Hypertarget{ur5__control_8cpp_a17f7089b8c5b7e867e02909d134f2163}\label{ur5__control_8cpp_a17f7089b8c5b7e867e02909d134f2163}} 
+\index{ur5\+\_\+control.\+cpp@{ur5\+\_\+control.\+cpp}!square\+\_\+bisect\+\_\+short@{square\+\_\+bisect\+\_\+short}}
+\index{square\+\_\+bisect\+\_\+short@{square\+\_\+bisect\+\_\+short}!ur5\+\_\+control.\+cpp@{ur5\+\_\+control.\+cpp}}
+\subsubsection{\texorpdfstring{square\+\_\+bisect\+\_\+short()}{square\_bisect\_short()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Canon\+Return square\+\_\+bisect\+\_\+short (\begin{DoxyParamCaption}\item[{Crpi\+Robot$<$ Crpi\+Universal $>$ $\ast$}]{ur\+\_\+robot,  }\item[{P\+M\+\_\+\+C\+A\+R\+T\+E\+S\+I\+AN}]{start\+\_\+point1\+\_\+large,  }\item[{P\+M\+\_\+\+C\+A\+R\+T\+E\+S\+I\+AN}]{start\+\_\+point2\+\_\+large,  }\item[{int}]{num\+\_\+iters,  }\item[{int}]{mytime\+\_\+seconds,  }\item[{char $\ast$}]{goal,  }\item[{bool}]{ots\+\_\+pause }\end{DoxyParamCaption})}
+
+This function implements the spiral search multiple times to locate the set of reflectors on the R\+M\+MA organized along a square shape.~\newline
+After the localization of each reflector, the location of the other reflectors are updated. Bisection registration is also used to~\newline
+further localize the start points of the square pattern.~\newline
+This function is modified for the ld/ur5 mobile manipulator, adjusting the location of the bisect reflectors to account for the limited reach of the ur5.~\newline
+In addition, the function implements spiral\+\_\+search\+\_\+large to account for the larger uncertainty in the ld vehicle docking.~\newline
+This is the recommended function to use when testing on the ld. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em ur\+\_\+robot} & C\+R\+PI object that stores configuration and connection parameters for robot arm. \\
+\hline
+\mbox{\tt in}  & {\em start\+\_\+point1\+\_\+large} & Expected position of the first bisect reflector used to compute the location of the rest of the square patern reflectors. \\
+\hline
+\mbox{\tt in}  & {\em start\+\_\+point2\+\_\+large} & Expected position of the second bisect reflector used to compute the location of the rest of the square patern reflectors. \\
+\hline
+\mbox{\tt in}  & {\em num\+\_\+iters} & Number of times to go around the square pattern \\
+\hline
+\mbox{\tt in}  & {\em mytime\+\_\+seconds} & Timestamp used to compute the time it took to complete the searches. This parameter is passed down to the spiral\+\_\+search function. \\
+\hline
+\mbox{\tt in}  & {\em goal} & Goal name associated with the position that the ld is parked at. Primarily used for logging purposes. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+C\+R\+PI canonical return that indicates if an error occurred while attempting to move the robot. 
+\end{DoxyReturn}
+
+
+Definition at line 1245 of file ur5\+\_\+control.\+cpp.
+
+\mbox{\Hypertarget{ur5__control_8cpp_a6330fdf077d6149b3657b2a3e4a5f2e9}\label{ur5__control_8cpp_a6330fdf077d6149b3657b2a3e4a5f2e9}} 
+\index{ur5\+\_\+control.\+cpp@{ur5\+\_\+control.\+cpp}!square\+\_\+edge\+\_\+short@{square\+\_\+edge\+\_\+short}}
+\index{square\+\_\+edge\+\_\+short@{square\+\_\+edge\+\_\+short}!ur5\+\_\+control.\+cpp@{ur5\+\_\+control.\+cpp}}
+\subsubsection{\texorpdfstring{square\+\_\+edge\+\_\+short()}{square\_edge\_short()}}
+{\footnotesize\ttfamily Canon\+Return square\+\_\+edge\+\_\+short (\begin{DoxyParamCaption}\item[{Crpi\+Robot$<$ Crpi\+Universal $>$ $\ast$}]{ur\+\_\+robot,  }\item[{P\+M\+\_\+\+C\+A\+R\+T\+E\+S\+I\+AN}]{start\+\_\+point,  }\item[{double}]{max\+\_\+dist,  }\item[{double}]{large\+\_\+step,  }\item[{double}]{r2\+\_\+offset,  }\item[{double}]{r3\+\_\+offset,  }\item[{int}]{num\+\_\+iters,  }\item[{int}]{mytime\+\_\+seconds,  }\item[{char $\ast$}]{goal }\end{DoxyParamCaption})}
+
+\begin{DoxyWarning}{Warning}
+This function is not yet finished. This function implements the spiral search multiple times to locate the set of reflectors on the R\+M\+MA organized along a square shape.~\newline
+After the localization of each reflector, the location of the other reflectors are updated. Edge registration is also used to~\newline
+further localize the start points of the square pattern by searching for table corner.~\newline
+This function is modified for the ld/ur5 mobile manipulator, adjusting the location of the bisect reflectors to account for the limited reach of the ur5.~\newline
+In addition, the function implements spiral\+\_\+search\+\_\+large to account for the larger uncertainty in the ld vehicle docking.~\newline
+This is the recommended function to use when testing on the ld. 
+\end{DoxyWarning}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em ur\+\_\+robot} & C\+R\+PI object that stores configuration and connection parameters for robot arm. \\
+\hline
+\mbox{\tt in}  & {\em start\+\_\+point1} & First reference point to begin a vertical pan to detect long edge of the R\+M\+MA. X component of resulting point finds the X component of the table corner. \\
+\hline
+\mbox{\tt in}  & {\em start\+\_\+point2} & Second reference point to begin a vertical pan to detect long edge of the R\+M\+MA. Needed to compute angle offset. \\
+\hline
+\mbox{\tt in}  & {\em start\+\_\+point3} & Third reference point for a horizontal pan to detect the short edge of the R\+M\+MA. Y component of resulting point finds the Y component of the table corner \\
+\hline
+\mbox{\tt in}  & {\em num\+\_\+iters} & Number of times to go around the square pattern \\
+\hline
+\mbox{\tt in}  & {\em mytime\+\_\+seconds} & Timestamp used to compute the time it took to complete the searches. This parameter is passed down to the spiral\+\_\+search function. \\
+\hline
+\mbox{\tt in}  & {\em goal} & Goal name associated with the position that the ld is parked at. Primarily used for logging purposes. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+C\+R\+PI canonical return that indicates if an error occurred while attempting to move the robot. 
+\end{DoxyReturn}
+
+
+Definition at line 1446 of file ur5\+\_\+control.\+cpp.
+
+\mbox{\Hypertarget{ur5__control_8cpp_ace4540075fbdf6ea27adf8ec67f4c3ad}\label{ur5__control_8cpp_ace4540075fbdf6ea27adf8ec67f4c3ad}} 
+\index{ur5\+\_\+control.\+cpp@{ur5\+\_\+control.\+cpp}!stage\+\_\+arm@{stage\+\_\+arm}}
+\index{stage\+\_\+arm@{stage\+\_\+arm}!ur5\+\_\+control.\+cpp@{ur5\+\_\+control.\+cpp}}
+\subsubsection{\texorpdfstring{stage\+\_\+arm()}{stage\_arm()}}
+{\footnotesize\ttfamily Canon\+Return stage\+\_\+arm (\begin{DoxyParamCaption}\item[{Crpi\+Robot$<$ Crpi\+Universal $>$ $\ast$}]{ur\+\_\+robot }\end{DoxyParamCaption})}
+
+Moves the arm into a position whereby it can safely access the R\+M\+MA. ~\newline
+Uses a series of intermediate points to stage the arm. Stage points are stored ~\newline
+in \mbox{\hyperlink{ur5__control_8h}{ur5\+\_\+control.\+h}} ~\newline
+Note\+: Robot arm must be within 5 mm of stow point to be safely staged. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em ur\+\_\+robot} & C\+R\+PI object that stores configuration and connection parameters for robot arm. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+C\+R\+PI canonical return that indicates if an error occurred while attempting to move the robot. 
+\end{DoxyReturn}
+
+
+Definition at line 272 of file ur5\+\_\+control.\+cpp.
+
+\mbox{\Hypertarget{ur5__control_8cpp_a42fa3c41420185199e5537c546d6a0ea}\label{ur5__control_8cpp_a42fa3c41420185199e5537c546d6a0ea}} 
+\index{ur5\+\_\+control.\+cpp@{ur5\+\_\+control.\+cpp}!stow\+\_\+arm@{stow\+\_\+arm}}
+\index{stow\+\_\+arm@{stow\+\_\+arm}!ur5\+\_\+control.\+cpp@{ur5\+\_\+control.\+cpp}}
+\subsubsection{\texorpdfstring{stow\+\_\+arm()}{stow\_arm()}}
+{\footnotesize\ttfamily Canon\+Return stow\+\_\+arm (\begin{DoxyParamCaption}\item[{Crpi\+Robot$<$ Crpi\+Universal $>$ $\ast$}]{ur\+\_\+robot }\end{DoxyParamCaption})}
+
+Moves the robot arm into a position whereby the T\+CP is over the ld payload structure and ~\newline
+the ld can safely move when robot is placed in this position. Series of intermediate points used to establish~\newline
+stow position.~\newline
+Constants defined in \mbox{\hyperlink{ur5__control_8h}{ur5\+\_\+control.\+h}}~\newline
+Arm must not already be in stow position.~\newline
+If the robot arm drifts from the stow position, and thus cannot be staged, manually jog the robot arm as if it is accessing the R\+M\+MA~\newline
+Then execute this function to properly send the robot arm to the stow point within the tolerances needed for this control program. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em ur\+\_\+robot} & C\+R\+PI robot object that allows control of the manipulator over T\+C\+P/\+IP socket. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+C\+R\+PI canonical return that indicates if an error occurred while attempting to move the robot. 
+\end{DoxyReturn}
+
+
+Definition at line 497 of file ur5\+\_\+control.\+cpp.
+
+\mbox{\Hypertarget{ur5__control_8cpp_ac489e85a4c7e9d9e91b4f70b7525e34f}\label{ur5__control_8cpp_ac489e85a4c7e9d9e91b4f70b7525e34f}} 
+\index{ur5\+\_\+control.\+cpp@{ur5\+\_\+control.\+cpp}!time\+\_\+since@{time\+\_\+since}}
+\index{time\+\_\+since@{time\+\_\+since}!ur5\+\_\+control.\+cpp@{ur5\+\_\+control.\+cpp}}
+\subsubsection{\texorpdfstring{time\+\_\+since()}{time\_since()}}
+{\footnotesize\ttfamily double time\+\_\+since (\begin{DoxyParamCaption}\item[{int}]{seconds }\end{DoxyParamCaption})}
+
+Compute the time elapsed since a given start time. From mobmanmain by S. Legowik 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em seconds} & Start time \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Elapsed time since start time. 
+\end{DoxyReturn}
+
+
+Definition at line 132 of file ur5\+\_\+control.\+cpp.
+
+\mbox{\Hypertarget{ur5__control_8cpp_a715e713702c1940bc3b56d92ba1a50ac}\label{ur5__control_8cpp_a715e713702c1940bc3b56d92ba1a50ac}} 
+\index{ur5\+\_\+control.\+cpp@{ur5\+\_\+control.\+cpp}!vertical\+\_\+pan@{vertical\+\_\+pan}}
+\index{vertical\+\_\+pan@{vertical\+\_\+pan}!ur5\+\_\+control.\+cpp@{ur5\+\_\+control.\+cpp}}
+\subsubsection{\texorpdfstring{vertical\+\_\+pan()}{vertical\_pan()}}
+{\footnotesize\ttfamily bool vertical\+\_\+pan (\begin{DoxyParamCaption}\item[{Crpi\+Robot$<$ Crpi\+Universal $>$ $\ast$}]{arm,  }\item[{robot\+Pose \&}]{pose,  }\item[{double}]{step\+Size1,  }\item[{double}]{step\+Size2,  }\item[{double}]{max\+\_\+x,  }\item[{int $\ast$}]{step\+Count,  }\item[{double $\ast$}]{search\+Time }\end{DoxyParamCaption})}
+
+Code and comments from scan\+Utils.\+cpp by S. Legowik\+: Bisect the current target to find the center more accurately. Detects target when dio\mbox{[}8\mbox{]} is false; 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em arm} & Pointer to robot control data structure \\
+\hline
+\mbox{\tt in}  & {\em pose} & Returns pose of long table edge. Use X component to get the X component of table corner. \\
+\hline
+\mbox{\tt in}  & {\em step\+Size1} & Initial large step size to used when incrementing along vertical pan. Used to speed up search. \\
+\hline
+\mbox{\tt out}  & {\em step\+Size2} & Initial smaller step size to used when incrementing along vertical pan. Used to more precisely detect location of table edge. \\
+\hline
+\mbox{\tt out}  & {\em step\+Count} & Stores number of steps taken in vertical pan. \\
+\hline
+\mbox{\tt out}  & {\em search\+Time} & Stores time it took to complete the vertical pan. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 2476 of file ur5\+\_\+control.\+cpp.
+

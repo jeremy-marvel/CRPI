@@ -1,0 +1,19 @@
+﻿Build started 3/8/2017 11:00:31 AM.
+     1>Project "C:\ISD_CollabLab_Code\CRPI\Applications\MobileManipulator\MobManipAR\MobManipAR.vcxproj" on node 2 (build target(s)).
+     1>InitializeBuildStatus:
+         Creating "Debug\MobManipAR.unsuccessfulbuild" because "AlwaysCreate" was specified.
+       ClCompile:
+         All outputs are up-to-date.
+         All outputs are up-to-date.
+     1>C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\Microsoft.CppBuild.targets(990,5): warning MSB8012: TargetPath(C:\ISD_CollabLab_Code\CRPI\Applications\MobileManipulator\Debug\MobManipAR.exe) does not match the Linker's OutputFile property value (C:\ISD_CollabLab_Code\CRPI\Debug\MobManipAR.exe). This may cause your project to build incorrectly. To correct this, please make sure that $(OutDir), $(TargetName) and $(TargetExt) property values match the value specified in %(Link.OutputFile).
+       Link:
+         All outputs are up-to-date.
+         MobManipAR.vcxproj -> C:\ISD_CollabLab_Code\CRPI\Applications\MobileManipulator\Debug\MobManipAR.exe
+       FinalizeBuildStatus:
+         Deleting file "Debug\MobManipAR.unsuccessfulbuild".
+         Touching "Debug\MobManipAR.lastbuildstate".
+     1>Done Building Project "C:\ISD_CollabLab_Code\CRPI\Applications\MobileManipulator\MobManipAR\MobManipAR.vcxproj" (build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:00.14

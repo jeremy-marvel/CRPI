@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.example.jta2.yumicontroller.MainActivity">
+
+    <!--Welcome message-->
+
+    <ImageView
+        android:layout_width="325dp"
+        android:layout_height="175dp"
+        android:background="@drawable/abblogo"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/welcome_message"
+        android:layout_marginTop="50dp"
+        android:layout_marginBottom="100dp" />
+
+    <!--Some random shape -->
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/welcome_message"
+        android:background="@drawable/panel">
+
+        <!--Start Button-->
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:minWidth="200dp"
+            android:background="@drawable/standard_button"
+            android:id="@+id/start_button"
+            android:textSize="15dp"
+            android:text="Start"/>
+
+        <!--About Button -->
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:minWidth="200dp"
+            android:background="@drawable/standard_button"
+            android:layout_below="@id/start_button"
+            android:layout_marginTop="10dp"
+            android:id="@+id/about_button"
+            android:textSize="15dp"
+            android:text="About"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:minWidth="200dp"
+            android:background="@drawable/standard_button"
+            android:layout_below="@id/about_button"
+            android:layout_marginTop="10dp"
+            android:id="@+id/network_test_button"
+            android:textSize="15dp"
+            android:text="Test Network"/>
+
+
+
+
+    </RelativeLayout>
+
+
+
+</RelativeLayout>

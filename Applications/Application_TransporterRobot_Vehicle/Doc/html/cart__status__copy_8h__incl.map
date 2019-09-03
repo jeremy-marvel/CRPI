@@ -1,0 +1,4 @@
+<map id="C:/Users/oya/Desktop/TortoiseSVN/Applications/Application_TransporterRobot_Vehicle/cart_status_copy.h" name="C:/Users/oya/Desktop/TortoiseSVN/Applications/Application_TransporterRobot_Vehicle/cart_status_copy.h">
+<area shape="rect" id="node3" href="$ld__comm_8h.html" title="Interface for managing ARCL connections to the Omron Adept ld mobile robot platform. Based on: agv_comm.h by J. Marvel, S. Legowik References: &quot;_ftime, _ftime32, _ftime64 from MSDN&quot; https://docs.microsoft.com/en&#45;us/cpp/c&#45;runtime&#45;library/reference/ftime&#45;ftime32&#45;ftime64. " alt="" coords="60,124,147,151"/>
+<area shape="rect" id="node4" href="$ld__msg_8h.html" title="Definitions for data structures storing ld status and pose info. " alt="" coords="147,199,222,225"/>
+</map>

@@ -1,0 +1,388 @@
+\hypertarget{classcart__config}{}\section{cart\+\_\+config Class Reference}
+\label{classcart__config}\index{cart\+\_\+config@{cart\+\_\+config}}
+
+
+{\ttfamily \#include $<$cart\+\_\+config.\+h$>$}
+
+
+
+Collaboration diagram for cart\+\_\+config\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{classcart__config__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classcart__config_a080069ffff0306121fc494e37b05fdd7}{cart\+\_\+config}} (int select\+\_\+path)
+\item 
+\mbox{\hyperlink{classcart__config_ae9aafdb5141c1e8851700c72d083fc9b}{$\sim$cart\+\_\+config}} ()
+\item 
+void \mbox{\hyperlink{classcart__config_a2e952dab59fce74b82bad81a3cf41ee2}{clear\+\_\+data}} ()
+\item 
+void \mbox{\hyperlink{classcart__config_a0b51cf14079dce155ac292ff43869c69}{read\+\_\+file}} ()
+\item 
+void \mbox{\hyperlink{classcart__config_afda8f2022ce8e2bb9a79f99cadad670c}{write\+\_\+file}} ()
+\item 
+void \mbox{\hyperlink{classcart__config_a1bd9d29b6529a9ada7404f1829da58a8}{update\+\_\+large\+\_\+points}} (int dock\+\_\+num, P\+M\+\_\+\+C\+A\+R\+T\+E\+S\+I\+AN large\+\_\+point1, P\+M\+\_\+\+C\+A\+R\+T\+E\+S\+I\+AN large\+\_\+point2)
+\item 
+\mbox{\Hypertarget{classcart__config_ab5f34a358566d6149efda9429eba9123}\label{classcart__config_ab5f34a358566d6149efda9429eba9123}} 
+void {\bfseries update\+\_\+edge\+\_\+points} (int dock\+\_\+num, P\+M\+\_\+\+C\+A\+R\+T\+E\+S\+I\+AN edge\+\_\+point)
+\item 
+void \mbox{\hyperlink{classcart__config_ad35fbb7f1aa613931ef059b40c94832b}{avg\+\_\+large\+\_\+points}} (int dock\+\_\+num, P\+M\+\_\+\+C\+A\+R\+T\+E\+S\+I\+AN large\+\_\+point1, P\+M\+\_\+\+C\+A\+R\+T\+E\+S\+I\+AN large\+\_\+point2)
+\item 
+int \mbox{\hyperlink{classcart__config_a3f52caad207b08c3b48554fcb2abb8a3}{get\+\_\+count}} ()
+\item 
+void \mbox{\hyperlink{classcart__config_ab4ae31c21f8865a8fe0db542c5de0a15}{get\+\_\+config}} (\mbox{\hyperlink{structconfig__data}{config\+\_\+data}} $\ast$copy)
+\item 
+void \mbox{\hyperlink{classcart__config_ae51db45ded29529cbb52878fddc001f7}{print\+\_\+file}} ()
+\item 
+int \mbox{\hyperlink{classcart__config_a4a9bcdd8b2ca21ea2a8622923aa32ea2}{get\+\_\+err}} ()
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classcart__config_a3de41943f6230959d80159eb591cc9ef}\label{classcart__config_a3de41943f6230959d80159eb591cc9ef}} 
+char $\ast$ {\bfseries file\+\_\+name}
+\item 
+int \mbox{\hyperlink{classcart__config_a7ad70584604bd971e639efb74a1552ec}{runs}}
+\item 
+int \mbox{\hyperlink{classcart__config_a54560028df17adebca7d034b3b246f45}{task\+\_\+count}}
+\item 
+int \mbox{\hyperlink{classcart__config_a5b331a578d28d3abec6625ac8952fe37}{err}}
+\item 
+fstream $\ast$ \mbox{\hyperlink{classcart__config_a471d3cd9fe8d8722e43194c55a45e976}{config\+\_\+file}}
+\item 
+streampos \mbox{\hyperlink{classcart__config_af683646edbe7260d8b12bc4fe4f885db}{first\+\_\+task}}
+\item 
+char $\ast$ \mbox{\hyperlink{classcart__config_a353c41c44acad0ec6620f92d01942e7f}{start}}
+\item 
+char $\ast$$\ast$ \mbox{\hyperlink{classcart__config_a3b73d8e5b48ba87502d77028ec765023}{dock\+\_\+list}}
+\item 
+\mbox{\hyperlink{structld__msg__pose}{ld\+\_\+msg\+\_\+pose}} $\ast$$\ast$ \mbox{\hyperlink{classcart__config_ac484fbaf3da5c3fcbf6b0b338ebf7812}{goal\+\_\+list}}
+\item 
+P\+M\+\_\+\+C\+A\+R\+T\+E\+S\+I\+AN $\ast$$\ast$ \mbox{\hyperlink{classcart__config_ae86eebedcace9bd7afabc6f264051ceb}{large\+\_\+point1\+\_\+list}}
+\item 
+P\+M\+\_\+\+C\+A\+R\+T\+E\+S\+I\+AN $\ast$$\ast$ \mbox{\hyperlink{classcart__config_a8f71e861e41c9f8fee2c05f2bad2d31e}{large\+\_\+point2\+\_\+list}}
+\item 
+\mbox{\Hypertarget{classcart__config_ad48da65aaea1760122f798fb19d44453}\label{classcart__config_ad48da65aaea1760122f798fb19d44453}} 
+P\+M\+\_\+\+C\+A\+R\+T\+E\+S\+I\+AN $\ast$$\ast$ {\bfseries edge\+\_\+start\+\_\+list}
+\item 
+int $\ast$ \mbox{\hyperlink{classcart__config_a79325b64754bf4e6135d77234c85e2d8}{no\+\_\+arm\+\_\+list}}
+\item 
+P\+M\+\_\+\+C\+A\+R\+T\+E\+S\+I\+AN $\ast$$\ast$ \mbox{\hyperlink{classcart__config_a4bafa2b778c01f3648df8f24b24e59bb}{sum1}}
+\item 
+P\+M\+\_\+\+C\+A\+R\+T\+E\+S\+I\+AN $\ast$$\ast$ \mbox{\hyperlink{classcart__config_aa45f914752bd0cdfa4d7473be5d15a78}{sum2}}
+\item 
+int $\ast$ \mbox{\hyperlink{classcart__config_a68c64182da792f9eb4475705a228aae0}{update\+\_\+count}}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+An object containing data to access the configuration file and store a copy of its configuration values in main memory. Also contains functions for opening, reading and writing to the file. As well as functions for managing access and modification of the configuration values. 
+
+Definition at line 120 of file cart\+\_\+config.\+h.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classcart__config_a080069ffff0306121fc494e37b05fdd7}\label{classcart__config_a080069ffff0306121fc494e37b05fdd7}} 
+\index{cart\+\_\+config@{cart\+\_\+config}!cart\+\_\+config@{cart\+\_\+config}}
+\index{cart\+\_\+config@{cart\+\_\+config}!cart\+\_\+config@{cart\+\_\+config}}
+\subsubsection{\texorpdfstring{cart\+\_\+config()}{cart\_config()}}
+{\footnotesize\ttfamily cart\+\_\+config\+::cart\+\_\+config (\begin{DoxyParamCaption}\item[{int}]{select\+\_\+path }\end{DoxyParamCaption})}
+
+Constructor 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em select\+\_\+path} & Integer variable to indicate which file path to choose. A value of zero indicates the configuration file path stored in config\+\_\+path.\+txt will be opened.~\newline
+ While any other value indicates the configuration file path stored in config\+\_\+path2.\+txt will be opened. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 268 of file cart\+\_\+config.\+cpp.
+
+\mbox{\Hypertarget{classcart__config_ae9aafdb5141c1e8851700c72d083fc9b}\label{classcart__config_ae9aafdb5141c1e8851700c72d083fc9b}} 
+\index{cart\+\_\+config@{cart\+\_\+config}!````~cart\+\_\+config@{$\sim$cart\+\_\+config}}
+\index{````~cart\+\_\+config@{$\sim$cart\+\_\+config}!cart\+\_\+config@{cart\+\_\+config}}
+\subsubsection{\texorpdfstring{$\sim$cart\+\_\+config()}{~cart\_config()}}
+{\footnotesize\ttfamily cart\+\_\+config\+::$\sim$cart\+\_\+config (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Destructor 
+
+Definition at line 392 of file cart\+\_\+config.\+cpp.
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classcart__config_ad35fbb7f1aa613931ef059b40c94832b}\label{classcart__config_ad35fbb7f1aa613931ef059b40c94832b}} 
+\index{cart\+\_\+config@{cart\+\_\+config}!avg\+\_\+large\+\_\+points@{avg\+\_\+large\+\_\+points}}
+\index{avg\+\_\+large\+\_\+points@{avg\+\_\+large\+\_\+points}!cart\+\_\+config@{cart\+\_\+config}}
+\subsubsection{\texorpdfstring{avg\+\_\+large\+\_\+points()}{avg\_large\_points()}}
+{\footnotesize\ttfamily void cart\+\_\+config\+::avg\+\_\+large\+\_\+points (\begin{DoxyParamCaption}\item[{int}]{dock\+\_\+num,  }\item[{P\+M\+\_\+\+C\+A\+R\+T\+E\+S\+I\+AN}]{large\+\_\+point1,  }\item[{P\+M\+\_\+\+C\+A\+R\+T\+E\+S\+I\+AN}]{large\+\_\+point2 }\end{DoxyParamCaption})}
+
+Updates the pose of the large reflectors within the data structure using the average of previously recorded actual poses. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em dock\+\_\+num} & Index into large\+\_\+point1\+\_\+list and large\+\_\+point2\+\_\+list to select which point to update. \\
+\hline
+\mbox{\tt in}  & {\em large\+\_\+point1} & New point for the first large reflector to incorperate into the average. \\
+\hline
+\mbox{\tt in}  & {\em large\+\_\+point2} & New point for the second large reflector to incorperate into the average. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 1032 of file cart\+\_\+config.\+cpp.
+
+\mbox{\Hypertarget{classcart__config_a2e952dab59fce74b82bad81a3cf41ee2}\label{classcart__config_a2e952dab59fce74b82bad81a3cf41ee2}} 
+\index{cart\+\_\+config@{cart\+\_\+config}!clear\+\_\+data@{clear\+\_\+data}}
+\index{clear\+\_\+data@{clear\+\_\+data}!cart\+\_\+config@{cart\+\_\+config}}
+\subsubsection{\texorpdfstring{clear\+\_\+data()}{clear\_data()}}
+{\footnotesize\ttfamily void cart\+\_\+config\+::clear\+\_\+data (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Deallocates memory of the data structure while keeping the config file open. Used to clear the structure before re-\/reading the contents of the file. 
+
+Definition at line 544 of file cart\+\_\+config.\+cpp.
+
+\mbox{\Hypertarget{classcart__config_ab4ae31c21f8865a8fe0db542c5de0a15}\label{classcart__config_ab4ae31c21f8865a8fe0db542c5de0a15}} 
+\index{cart\+\_\+config@{cart\+\_\+config}!get\+\_\+config@{get\+\_\+config}}
+\index{get\+\_\+config@{get\+\_\+config}!cart\+\_\+config@{cart\+\_\+config}}
+\subsubsection{\texorpdfstring{get\+\_\+config()}{get\_config()}}
+{\footnotesize\ttfamily void cart\+\_\+config\+::get\+\_\+config (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structconfig__data}{config\+\_\+data}} $\ast$}]{copy }\end{DoxyParamCaption})}
+
+Accessor 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt out}  & {\em copy} & A copy of all the data structure contents. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 1077 of file cart\+\_\+config.\+cpp.
+
+\mbox{\Hypertarget{classcart__config_a3f52caad207b08c3b48554fcb2abb8a3}\label{classcart__config_a3f52caad207b08c3b48554fcb2abb8a3}} 
+\index{cart\+\_\+config@{cart\+\_\+config}!get\+\_\+count@{get\+\_\+count}}
+\index{get\+\_\+count@{get\+\_\+count}!cart\+\_\+config@{cart\+\_\+config}}
+\subsubsection{\texorpdfstring{get\+\_\+count()}{get\_count()}}
+{\footnotesize\ttfamily int cart\+\_\+config\+::get\+\_\+count (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Accessor \begin{DoxyReturn}{Returns}
+The contents of task\+\_\+count (Number of assembly tasks stored in the file. 
+\end{DoxyReturn}
+
+
+Definition at line 1072 of file cart\+\_\+config.\+cpp.
+
+\mbox{\Hypertarget{classcart__config_a4a9bcdd8b2ca21ea2a8622923aa32ea2}\label{classcart__config_a4a9bcdd8b2ca21ea2a8622923aa32ea2}} 
+\index{cart\+\_\+config@{cart\+\_\+config}!get\+\_\+err@{get\+\_\+err}}
+\index{get\+\_\+err@{get\+\_\+err}!cart\+\_\+config@{cart\+\_\+config}}
+\subsubsection{\texorpdfstring{get\+\_\+err()}{get\_err()}}
+{\footnotesize\ttfamily int cart\+\_\+config\+::get\+\_\+err (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Accessor \begin{DoxyReturn}{Returns}
+The contents of err, which indicates if there was error reading or writing to the file. 
+\end{DoxyReturn}
+
+
+Definition at line 1276 of file cart\+\_\+config.\+cpp.
+
+\mbox{\Hypertarget{classcart__config_ae51db45ded29529cbb52878fddc001f7}\label{classcart__config_ae51db45ded29529cbb52878fddc001f7}} 
+\index{cart\+\_\+config@{cart\+\_\+config}!print\+\_\+file@{print\+\_\+file}}
+\index{print\+\_\+file@{print\+\_\+file}!cart\+\_\+config@{cart\+\_\+config}}
+\subsubsection{\texorpdfstring{print\+\_\+file()}{print\_file()}}
+{\footnotesize\ttfamily void cart\+\_\+config\+::print\+\_\+file (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Prints the contents of the file. 
+
+Definition at line 1150 of file cart\+\_\+config.\+cpp.
+
+\mbox{\Hypertarget{classcart__config_a0b51cf14079dce155ac292ff43869c69}\label{classcart__config_a0b51cf14079dce155ac292ff43869c69}} 
+\index{cart\+\_\+config@{cart\+\_\+config}!read\+\_\+file@{read\+\_\+file}}
+\index{read\+\_\+file@{read\+\_\+file}!cart\+\_\+config@{cart\+\_\+config}}
+\subsubsection{\texorpdfstring{read\+\_\+file()}{read\_file()}}
+{\footnotesize\ttfamily void cart\+\_\+config\+::read\+\_\+file (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Reads the information stored in the file and populates the private fields of the data structure with the values. 
+
+Definition at line 608 of file cart\+\_\+config.\+cpp.
+
+\mbox{\Hypertarget{classcart__config_a1bd9d29b6529a9ada7404f1829da58a8}\label{classcart__config_a1bd9d29b6529a9ada7404f1829da58a8}} 
+\index{cart\+\_\+config@{cart\+\_\+config}!update\+\_\+large\+\_\+points@{update\+\_\+large\+\_\+points}}
+\index{update\+\_\+large\+\_\+points@{update\+\_\+large\+\_\+points}!cart\+\_\+config@{cart\+\_\+config}}
+\subsubsection{\texorpdfstring{update\+\_\+large\+\_\+points()}{update\_large\_points()}}
+{\footnotesize\ttfamily void cart\+\_\+config\+::update\+\_\+large\+\_\+points (\begin{DoxyParamCaption}\item[{int}]{dock\+\_\+num,  }\item[{P\+M\+\_\+\+C\+A\+R\+T\+E\+S\+I\+AN}]{large\+\_\+point1,  }\item[{P\+M\+\_\+\+C\+A\+R\+T\+E\+S\+I\+AN}]{large\+\_\+point2 }\end{DoxyParamCaption})}
+
+Updates the pose of the large reflectors within the data structure. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em dock\+\_\+num} & Index into large\+\_\+point1\+\_\+list and large\+\_\+point2\+\_\+list to select which point to update. \\
+\hline
+\mbox{\tt in}  & {\em large\+\_\+point1} & New point for the first large reflector. \\
+\hline
+\mbox{\tt in}  & {\em large\+\_\+point2} & New point for the second large reflector. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 999 of file cart\+\_\+config.\+cpp.
+
+\mbox{\Hypertarget{classcart__config_afda8f2022ce8e2bb9a79f99cadad670c}\label{classcart__config_afda8f2022ce8e2bb9a79f99cadad670c}} 
+\index{cart\+\_\+config@{cart\+\_\+config}!write\+\_\+file@{write\+\_\+file}}
+\index{write\+\_\+file@{write\+\_\+file}!cart\+\_\+config@{cart\+\_\+config}}
+\subsubsection{\texorpdfstring{write\+\_\+file()}{write\_file()}}
+{\footnotesize\ttfamily void cart\+\_\+config\+::write\+\_\+file (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Writes the contents of the data structure back into the file. 
+
+Definition at line 837 of file cart\+\_\+config.\+cpp.
+
+
+
+\subsection{Member Data Documentation}
+\mbox{\Hypertarget{classcart__config_a471d3cd9fe8d8722e43194c55a45e976}\label{classcart__config_a471d3cd9fe8d8722e43194c55a45e976}} 
+\index{cart\+\_\+config@{cart\+\_\+config}!config\+\_\+file@{config\+\_\+file}}
+\index{config\+\_\+file@{config\+\_\+file}!cart\+\_\+config@{cart\+\_\+config}}
+\subsubsection{\texorpdfstring{config\+\_\+file}{config\_file}}
+{\footnotesize\ttfamily fstream$\ast$ cart\+\_\+config\+::config\+\_\+file\hspace{0.3cm}{\ttfamily [private]}}
+
+A pointer to a filestream object used to read the configuration file. 
+
+Definition at line 150 of file cart\+\_\+config.\+h.
+
+\mbox{\Hypertarget{classcart__config_a3b73d8e5b48ba87502d77028ec765023}\label{classcart__config_a3b73d8e5b48ba87502d77028ec765023}} 
+\index{cart\+\_\+config@{cart\+\_\+config}!dock\+\_\+list@{dock\+\_\+list}}
+\index{dock\+\_\+list@{dock\+\_\+list}!cart\+\_\+config@{cart\+\_\+config}}
+\subsubsection{\texorpdfstring{dock\+\_\+list}{dock\_list}}
+{\footnotesize\ttfamily char$\ast$$\ast$ cart\+\_\+config\+::dock\+\_\+list\hspace{0.3cm}{\ttfamily [private]}}
+
+A list of goal names in the vehicle map that the cart will travel to. 
+
+Definition at line 168 of file cart\+\_\+config.\+h.
+
+\mbox{\Hypertarget{classcart__config_a5b331a578d28d3abec6625ac8952fe37}\label{classcart__config_a5b331a578d28d3abec6625ac8952fe37}} 
+\index{cart\+\_\+config@{cart\+\_\+config}!err@{err}}
+\index{err@{err}!cart\+\_\+config@{cart\+\_\+config}}
+\subsubsection{\texorpdfstring{err}{err}}
+{\footnotesize\ttfamily int cart\+\_\+config\+::err\hspace{0.3cm}{\ttfamily [private]}}
+
+An error integer indicating if there was an error reading or writing to a file. A value of 0 indicates no error occurred. 
+
+Definition at line 144 of file cart\+\_\+config.\+h.
+
+\mbox{\Hypertarget{classcart__config_af683646edbe7260d8b12bc4fe4f885db}\label{classcart__config_af683646edbe7260d8b12bc4fe4f885db}} 
+\index{cart\+\_\+config@{cart\+\_\+config}!first\+\_\+task@{first\+\_\+task}}
+\index{first\+\_\+task@{first\+\_\+task}!cart\+\_\+config@{cart\+\_\+config}}
+\subsubsection{\texorpdfstring{first\+\_\+task}{first\_task}}
+{\footnotesize\ttfamily streampos cart\+\_\+config\+::first\+\_\+task\hspace{0.3cm}{\ttfamily [private]}}
+
+Pointer to the first task 
+
+Definition at line 156 of file cart\+\_\+config.\+h.
+
+\mbox{\Hypertarget{classcart__config_ac484fbaf3da5c3fcbf6b0b338ebf7812}\label{classcart__config_ac484fbaf3da5c3fcbf6b0b338ebf7812}} 
+\index{cart\+\_\+config@{cart\+\_\+config}!goal\+\_\+list@{goal\+\_\+list}}
+\index{goal\+\_\+list@{goal\+\_\+list}!cart\+\_\+config@{cart\+\_\+config}}
+\subsubsection{\texorpdfstring{goal\+\_\+list}{goal\_list}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structld__msg__pose}{ld\+\_\+msg\+\_\+pose}}$\ast$$\ast$ cart\+\_\+config\+::goal\+\_\+list\hspace{0.3cm}{\ttfamily [private]}}
+
+A list 2D poses that correspond to the goals listed in dock\+\_\+list. Used for coordinate system transformations adjusting the registration. 
+
+Definition at line 174 of file cart\+\_\+config.\+h.
+
+\mbox{\Hypertarget{classcart__config_ae86eebedcace9bd7afabc6f264051ceb}\label{classcart__config_ae86eebedcace9bd7afabc6f264051ceb}} 
+\index{cart\+\_\+config@{cart\+\_\+config}!large\+\_\+point1\+\_\+list@{large\+\_\+point1\+\_\+list}}
+\index{large\+\_\+point1\+\_\+list@{large\+\_\+point1\+\_\+list}!cart\+\_\+config@{cart\+\_\+config}}
+\subsubsection{\texorpdfstring{large\+\_\+point1\+\_\+list}{large\_point1\_list}}
+{\footnotesize\ttfamily P\+M\+\_\+\+C\+A\+R\+T\+E\+S\+I\+AN$\ast$$\ast$ cart\+\_\+config\+::large\+\_\+point1\+\_\+list\hspace{0.3cm}{\ttfamily [private]}}
+
+A list of initial search positions for the first large reflector used when bisecting. 
+
+Definition at line 180 of file cart\+\_\+config.\+h.
+
+\mbox{\Hypertarget{classcart__config_a8f71e861e41c9f8fee2c05f2bad2d31e}\label{classcart__config_a8f71e861e41c9f8fee2c05f2bad2d31e}} 
+\index{cart\+\_\+config@{cart\+\_\+config}!large\+\_\+point2\+\_\+list@{large\+\_\+point2\+\_\+list}}
+\index{large\+\_\+point2\+\_\+list@{large\+\_\+point2\+\_\+list}!cart\+\_\+config@{cart\+\_\+config}}
+\subsubsection{\texorpdfstring{large\+\_\+point2\+\_\+list}{large\_point2\_list}}
+{\footnotesize\ttfamily P\+M\+\_\+\+C\+A\+R\+T\+E\+S\+I\+AN$\ast$$\ast$ cart\+\_\+config\+::large\+\_\+point2\+\_\+list\hspace{0.3cm}{\ttfamily [private]}}
+
+A list of initial search positions for the second large reflector used when bisecting. 
+
+Definition at line 186 of file cart\+\_\+config.\+h.
+
+\mbox{\Hypertarget{classcart__config_a79325b64754bf4e6135d77234c85e2d8}\label{classcart__config_a79325b64754bf4e6135d77234c85e2d8}} 
+\index{cart\+\_\+config@{cart\+\_\+config}!no\+\_\+arm\+\_\+list@{no\+\_\+arm\+\_\+list}}
+\index{no\+\_\+arm\+\_\+list@{no\+\_\+arm\+\_\+list}!cart\+\_\+config@{cart\+\_\+config}}
+\subsubsection{\texorpdfstring{no\+\_\+arm\+\_\+list}{no\_arm\_list}}
+{\footnotesize\ttfamily int$\ast$ cart\+\_\+config\+::no\+\_\+arm\+\_\+list\hspace{0.3cm}{\ttfamily [private]}}
+
+A list of integer flags indicating whether or not the arm is to be used at a specific docking location. 0 indicates the arm will be used, 1 indicates the arm is disabled. 
+
+Definition at line 198 of file cart\+\_\+config.\+h.
+
+\mbox{\Hypertarget{classcart__config_a7ad70584604bd971e639efb74a1552ec}\label{classcart__config_a7ad70584604bd971e639efb74a1552ec}} 
+\index{cart\+\_\+config@{cart\+\_\+config}!runs@{runs}}
+\index{runs@{runs}!cart\+\_\+config@{cart\+\_\+config}}
+\subsubsection{\texorpdfstring{runs}{runs}}
+{\footnotesize\ttfamily int cart\+\_\+config\+::runs\hspace{0.3cm}{\ttfamily [private]}}
+
+Stores the number of times a cart will cycle through a sequence of stops. 
+
+Definition at line 132 of file cart\+\_\+config.\+h.
+
+\mbox{\Hypertarget{classcart__config_a353c41c44acad0ec6620f92d01942e7f}\label{classcart__config_a353c41c44acad0ec6620f92d01942e7f}} 
+\index{cart\+\_\+config@{cart\+\_\+config}!start@{start}}
+\index{start@{start}!cart\+\_\+config@{cart\+\_\+config}}
+\subsubsection{\texorpdfstring{start}{start}}
+{\footnotesize\ttfamily char$\ast$ cart\+\_\+config\+::start\hspace{0.3cm}{\ttfamily [private]}}
+
+Stores the goal name in the vehicle map at which the cart is initially parked. 
+
+Definition at line 162 of file cart\+\_\+config.\+h.
+
+\mbox{\Hypertarget{classcart__config_a4bafa2b778c01f3648df8f24b24e59bb}\label{classcart__config_a4bafa2b778c01f3648df8f24b24e59bb}} 
+\index{cart\+\_\+config@{cart\+\_\+config}!sum1@{sum1}}
+\index{sum1@{sum1}!cart\+\_\+config@{cart\+\_\+config}}
+\subsubsection{\texorpdfstring{sum1}{sum1}}
+{\footnotesize\ttfamily P\+M\+\_\+\+C\+A\+R\+T\+E\+S\+I\+AN$\ast$$\ast$ cart\+\_\+config\+::sum1\hspace{0.3cm}{\ttfamily [private]}}
+
+A sum used for computing the average actual position of the first large reflector. Used for adaptive registration. 
+
+Definition at line 204 of file cart\+\_\+config.\+h.
+
+\mbox{\Hypertarget{classcart__config_aa45f914752bd0cdfa4d7473be5d15a78}\label{classcart__config_aa45f914752bd0cdfa4d7473be5d15a78}} 
+\index{cart\+\_\+config@{cart\+\_\+config}!sum2@{sum2}}
+\index{sum2@{sum2}!cart\+\_\+config@{cart\+\_\+config}}
+\subsubsection{\texorpdfstring{sum2}{sum2}}
+{\footnotesize\ttfamily P\+M\+\_\+\+C\+A\+R\+T\+E\+S\+I\+AN$\ast$$\ast$ cart\+\_\+config\+::sum2\hspace{0.3cm}{\ttfamily [private]}}
+
+A sum used for computing the average actual position of the second large reflector. Used for adaptive registration. 
+
+Definition at line 210 of file cart\+\_\+config.\+h.
+
+\mbox{\Hypertarget{classcart__config_a54560028df17adebca7d034b3b246f45}\label{classcart__config_a54560028df17adebca7d034b3b246f45}} 
+\index{cart\+\_\+config@{cart\+\_\+config}!task\+\_\+count@{task\+\_\+count}}
+\index{task\+\_\+count@{task\+\_\+count}!cart\+\_\+config@{cart\+\_\+config}}
+\subsubsection{\texorpdfstring{task\+\_\+count}{task\_count}}
+{\footnotesize\ttfamily int cart\+\_\+config\+::task\+\_\+count\hspace{0.3cm}{\ttfamily [private]}}
+
+Counts the number of task locations that the cart will travel to. The tasks need not be unique stops. 
+
+Definition at line 138 of file cart\+\_\+config.\+h.
+
+\mbox{\Hypertarget{classcart__config_a68c64182da792f9eb4475705a228aae0}\label{classcart__config_a68c64182da792f9eb4475705a228aae0}} 
+\index{cart\+\_\+config@{cart\+\_\+config}!update\+\_\+count@{update\+\_\+count}}
+\index{update\+\_\+count@{update\+\_\+count}!cart\+\_\+config@{cart\+\_\+config}}
+\subsubsection{\texorpdfstring{update\+\_\+count}{update\_count}}
+{\footnotesize\ttfamily int$\ast$ cart\+\_\+config\+::update\+\_\+count\hspace{0.3cm}{\ttfamily [private]}}
+
+Counts the number of registration points recorded for computing the average actual position of the large reflectors. 
+
+Definition at line 216 of file cart\+\_\+config.\+h.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{cart__config_8h}{cart\+\_\+config.\+h}}\item 
+\mbox{\hyperlink{cart__config_8cpp}{cart\+\_\+config.\+cpp}}\end{DoxyCompactItemize}

@@ -1,0 +1,7 @@
+<Robot>
+  <TCP_IP Address="127.0.0.1" Port="6007" Client="false"/>
+  <Serial Port="COM7" Rate="57600" Parity="Even" SBits="1" Handshake="None"/>
+  <ComType Val="TCP_IP"/>
+  <Mounting X="0.0" Y="0.0" Z="0.0" XR="0.0" YR="0.0" ZR="0.0"/>
+  <ToWorld X="890.0" Y="890.0" Z="0.0" XR="0.0" YR="0.0" ZR="0.0"/>
+</Robot>

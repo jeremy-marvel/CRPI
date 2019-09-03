@@ -1,0 +1,107 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{D1EB2302-94B0-4A8A-936E-F612C47E2BB3}</ProjectGuid>
+    <RootNamespace>MobManipAR</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v100</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v110</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup />
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <AdditionalIncludeDirectories>../;../posemath;C:\ISD_CollabLab_Code\CRPI\Libraries\CRPI;C:\ISD_CollabLab_Code\CRPI\Libraries\ulapi\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <AssemblerListingLocation>..\..\..\el-robotics-core\nist_core\win32\Debug\</AssemblerListingLocation>
+      <ObjectFileName>..\..\..\el-robotics-core\nist_core\win32\Debug\</ObjectFileName>
+      <ProgramDataBaseFileName>..\..\..\el-robotics-core\nist_core\win32\Debug\</ProgramDataBaseFileName>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>C:\ISD_CollabLab_Code\CRPI\Debug;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>Library_CRPI.lib;Winmm.lib;ulapilib.lib;Serial.lib;MotionPrims.lib</AdditionalDependencies>
+      <OutputFile>../../../Debug/MobManipAR.exe</OutputFile>
+      <ProgramDatabaseFile>../../el-robotics-core\nist_core\win32\Debug/MobileManipulator.pdb</ProgramDatabaseFile>
+      <SubSystem>Console</SubSystem>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="..\ACI_msg.cpp" />
+    <ClCompile Include="..\agv_comm.cpp" />
+    <ClCompile Include="..\agv_status.cpp" />
+    <ClCompile Include="..\AR_Interface.cpp" />
+    <ClCompile Include="..\posemath\posemath.cc" />
+    <ClCompile Include="..\posemath\sincos.c" />
+    <ClCompile Include="..\posemath\_mathprnt.c" />
+    <ClCompile Include="..\posemath\_posemath.c" />
+    <ClCompile Include="..\scanUtils.cpp" />
+    <ClCompile Include="main_AR.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\ACI_msg.h" />
+    <ClInclude Include="..\agv_comm.h" />
+    <ClInclude Include="..\AR_Interface.h" />
+    <ClInclude Include="..\posemath\mathprnt.h" />
+    <ClInclude Include="..\posemath\posemath.h" />
+    <ClInclude Include="..\posemath\sincos.h" />
+    <ClInclude Include="..\scanUtils.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\agv_status.hh">
+      <FileType>Document</FileType>
+    </None>
+    <None Include="..\config.hh">
+      <FileType>Document</FileType>
+    </None>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

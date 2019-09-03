@@ -1,0 +1,126 @@
+\hypertarget{tasks_8h}{}\section{tasks.\+h File Reference}
+\label{tasks_8h}\index{tasks.\+h@{tasks.\+h}}
+
+
+Task interface. Main code wrapped into individual functions. Designed to be easily implemented into threads if needed. ~\newline
+.  
+
+
+{\ttfamily \#include \char`\"{}ulapi.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}cart\+\_\+comm\+\_\+client.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}crpi\+\_\+robot.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}crpi\+\_\+universal.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}cart\+\_\+config.\+h\char`\"{}}\newline
+Include dependency graph for tasks.\+h\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{tasks_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=262pt]{tasks_8h__dep__incl}
+\end{center}
+\end{figure}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structtask__args}{task\+\_\+args}}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{tasks_8h_aa916896f8c8d5c54b8c52d326d2519be}{ur5\+\_\+task\+\_\+code\+\_\+control}} (void $\ast$args)
+\item 
+void \mbox{\hyperlink{tasks_8h_a4dc02c4593e47dbd0c88e7b6ec3c71b2}{cart\+\_\+client\+\_\+connect}} (void $\ast$args)
+\item 
+void \mbox{\hyperlink{tasks_8h_add699fefeb3419fd241d69f3eaf422bc}{actuation\+\_\+test}} (void $\ast$args)
+\item 
+void \mbox{\hyperlink{tasks_8h_a0af19eedadbfd6ae653c669bede4bb00}{actuation\+\_\+test\+\_\+auto\+\_\+update}} (void $\ast$args)
+\item 
+\mbox{\Hypertarget{tasks_8h_ab79fc7fbb88ddfd54755d5fbd984524b}\label{tasks_8h_ab79fc7fbb88ddfd54755d5fbd984524b}} 
+void {\bfseries actuation\+\_\+test\+\_\+edge} (void $\ast$args)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Task interface. Main code wrapped into individual functions. Designed to be easily implemented into threads if needed. ~\newline
+. 
+
+References\+:~\newline
+\char`\"{}\+\_\+ftime, \+\_\+ftime32, \+\_\+ftime64 from M\+S\+D\+N\char`\"{}\+:~\newline
+\href{https://docs.microsoft.com/en-us/cpp/c-runtime-library/reference/ftime-ftime32-ftime64}{\tt https\+://docs.\+microsoft.\+com/en-\/us/cpp/c-\/runtime-\/library/reference/ftime-\/ftime32-\/ftime64} ~\newline
+~\newline
+ \begin{DoxyAuthor}{Author}
+Omar Aboul-\/\+Enein 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+2017-\/06-\/05 
+\end{DoxyDate}
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{tasks_8h_add699fefeb3419fd241d69f3eaf422bc}\label{tasks_8h_add699fefeb3419fd241d69f3eaf422bc}} 
+\index{tasks.\+h@{tasks.\+h}!actuation\+\_\+test@{actuation\+\_\+test}}
+\index{actuation\+\_\+test@{actuation\+\_\+test}!tasks.\+h@{tasks.\+h}}
+\subsubsection{\texorpdfstring{actuation\+\_\+test()}{actuation\_test()}}
+{\footnotesize\ttfamily void actuation\+\_\+test (\begin{DoxyParamCaption}\item[{void $\ast$}]{args }\end{DoxyParamCaption})}
+
+Thread used to test the actuation of the manipulator arm when the cart\+\_\+client\+\_\+connect thread updates the cart status to busy. (Essentially performs the coordinate registration and verification steps) 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em args} & Pointer to data structure containing passed arguments. A pointer to the \mbox{\hyperlink{structtask__args}{task\+\_\+args}} structure that was passed to the cart\+\_\+client\+\_\+connect function should be passed to this function. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 420 of file tasks.\+cpp.
+
+\mbox{\Hypertarget{tasks_8h_a0af19eedadbfd6ae653c669bede4bb00}\label{tasks_8h_a0af19eedadbfd6ae653c669bede4bb00}} 
+\index{tasks.\+h@{tasks.\+h}!actuation\+\_\+test\+\_\+auto\+\_\+update@{actuation\+\_\+test\+\_\+auto\+\_\+update}}
+\index{actuation\+\_\+test\+\_\+auto\+\_\+update@{actuation\+\_\+test\+\_\+auto\+\_\+update}!tasks.\+h@{tasks.\+h}}
+\subsubsection{\texorpdfstring{actuation\+\_\+test\+\_\+auto\+\_\+update()}{actuation\_test\_auto\_update()}}
+{\footnotesize\ttfamily void actuation\+\_\+test\+\_\+auto\+\_\+update (\begin{DoxyParamCaption}\item[{void $\ast$}]{args }\end{DoxyParamCaption})}
+
+Thread used to test the actuation of the manipulator arm when the cart\+\_\+client\+\_\+connect thread updates the cart status to busy. (Essentially performs the coordinate registration and verification steps).~\newline
+This version of the function also dynamically updates the initial search location of the large reflectors as the large reflectors are localized. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em args} & Pointer to data structure containing passed arguments. A pointer to the \mbox{\hyperlink{structtask__args}{task\+\_\+args}} structure that was passed to the cart\+\_\+client\+\_\+connect function should be passed to this function. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 442 of file tasks.\+cpp.
+
+\mbox{\Hypertarget{tasks_8h_a4dc02c4593e47dbd0c88e7b6ec3c71b2}\label{tasks_8h_a4dc02c4593e47dbd0c88e7b6ec3c71b2}} 
+\index{tasks.\+h@{tasks.\+h}!cart\+\_\+client\+\_\+connect@{cart\+\_\+client\+\_\+connect}}
+\index{cart\+\_\+client\+\_\+connect@{cart\+\_\+client\+\_\+connect}!tasks.\+h@{tasks.\+h}}
+\subsubsection{\texorpdfstring{cart\+\_\+client\+\_\+connect()}{cart\_client\_connect()}}
+{\footnotesize\ttfamily void cart\+\_\+client\+\_\+connect (\begin{DoxyParamCaption}\item[{void $\ast$}]{args }\end{DoxyParamCaption})}
+
+Background thread for managing connection to vehicle server process, forwarding information to the vehicle server process, and updating cart status information when when requested by thew vehicle server process. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em args} & Pointer to data structure containing passed arguments. A pointer to a \mbox{\hyperlink{structtask__args}{task\+\_\+args}} structure should be passed. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 382 of file tasks.\+cpp.
+
+\mbox{\Hypertarget{tasks_8h_aa916896f8c8d5c54b8c52d326d2519be}\label{tasks_8h_aa916896f8c8d5c54b8c52d326d2519be}} 
+\index{tasks.\+h@{tasks.\+h}!ur5\+\_\+task\+\_\+code\+\_\+control@{ur5\+\_\+task\+\_\+code\+\_\+control}}
+\index{ur5\+\_\+task\+\_\+code\+\_\+control@{ur5\+\_\+task\+\_\+code\+\_\+control}!tasks.\+h@{tasks.\+h}}
+\subsubsection{\texorpdfstring{ur5\+\_\+task\+\_\+code\+\_\+control()}{ur5\_task\_code\_control()}}
+{\footnotesize\ttfamily void ur5\+\_\+task\+\_\+code\+\_\+control (\begin{DoxyParamCaption}\item[{void $\ast$}]{args }\end{DoxyParamCaption})}
+
+Used to test various functions related to manipulator arm pose transformations and positioning. Can be used to manually initiate the staging and stowing of the arm, as well as test registration methods. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em args} & Pointer to data structure containing passed arguments. No arguments are required for this task, thus N\+U\+LL should be passed. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 41 of file tasks.\+cpp.
+

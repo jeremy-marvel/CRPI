@@ -1,0 +1,471 @@
+\hypertarget{classcart__status}{}\section{cart\+\_\+status Class Reference}
+\label{classcart__status}\index{cart\+\_\+status@{cart\+\_\+status}}
+
+
+{\ttfamily \#include $<$cart\+\_\+status.\+h$>$}
+
+
+
+Collaboration diagram for cart\+\_\+status\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{classcart__status__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classcart__status_ac9302583f7f24fbc6c205a81416ff397}{cart\+\_\+status}} (int stat, int no\+\_\+cart\+\_\+mode, char $\ast$start\+\_\+str, int $\ast$no\+\_\+arm\+\_\+list, char $\ast$$\ast$task\+\_\+list, \mbox{\hyperlink{structld__msg__pose}{ld\+\_\+msg\+\_\+pose}} $\ast$$\ast$goal\+\_\+list, P\+M\+\_\+\+C\+A\+R\+T\+E\+S\+I\+AN $\ast$$\ast$large\+\_\+point1\+\_\+list, P\+M\+\_\+\+C\+A\+R\+T\+E\+S\+I\+AN $\ast$$\ast$large\+\_\+point2\+\_\+list, P\+M\+\_\+\+C\+A\+R\+T\+E\+S\+I\+AN $\ast$$\ast$edge\+\_\+start\+\_\+list, int len, int num\+\_\+runs)
+\item 
+\mbox{\hyperlink{classcart__status_a36ae36b8682afa50ecaa568285b1b32c}{$\sim$cart\+\_\+status}} ()
+\item 
+void \mbox{\hyperlink{classcart__status_a5db1241aff0bd874c8d108666ec8b323}{set\+\_\+status}} (int new\+\_\+stat)
+\item 
+void \mbox{\hyperlink{classcart__status_a25c8b8f4c2d8b516284f9cb463f007a8}{update\+\_\+current\+\_\+dock}} ()
+\item 
+\mbox{\Hypertarget{classcart__status_adec6fe0924beb76adcc53ad15b9a2034}\label{classcart__status_adec6fe0924beb76adcc53ad15b9a2034}} 
+void {\bfseries print\+\_\+no\+\_\+arm\+\_\+list} ()
+\item 
+void \mbox{\hyperlink{classcart__status_ae58ecd2c7d79aa9d35eec0bbfd1c7a32}{print\+\_\+dock\+\_\+list}} ()
+\item 
+void \mbox{\hyperlink{classcart__status_a07d3f2bf7b4e430645ae22ffb46143cb}{print\+\_\+goal\+\_\+list}} ()
+\item 
+void \mbox{\hyperlink{classcart__status_a9decf11bef6e36c350463102401c247e}{print\+\_\+large\+\_\+point1\+\_\+list}} ()
+\item 
+void \mbox{\hyperlink{classcart__status_a8a6a9273616bef95c4d0aeccb2524aaa}{print\+\_\+large\+\_\+point2\+\_\+list}} ()
+\item 
+\mbox{\Hypertarget{classcart__status_a52ef441e0a19a051270909656efbc30e}\label{classcart__status_a52ef441e0a19a051270909656efbc30e}} 
+void {\bfseries print\+\_\+edge\+\_\+start\+\_\+list} ()
+\item 
+char $\ast$ \mbox{\hyperlink{classcart__status_ae7c18dab45a356066eb36b81b985194f}{to\+\_\+string\+\_\+init}} ()
+\item 
+char $\ast$ \mbox{\hyperlink{classcart__status_a555321d8af00245d5d53ec52876e54e7}{to\+\_\+string}} ()
+\item 
+int \mbox{\hyperlink{classcart__status_a0d27f176b4de4131070be2b4e110444c}{get\+\_\+status}} ()
+\item 
+int \mbox{\hyperlink{classcart__status_afcd6d162f250b09bd84770ba3a26921d}{get\+\_\+dock\+\_\+count}} ()
+\item 
+void \mbox{\hyperlink{classcart__status_acacf14bfb0b1be8f32b7bf133facbfa1}{string\+\_\+to\+\_\+pose}} (char $\ast$pose\+\_\+msg)
+\item 
+\mbox{\Hypertarget{classcart__status_aea34e046f1972d7a9cc45063b1561396}\label{classcart__status_aea34e046f1972d7a9cc45063b1561396}} 
+void {\bfseries get\+\_\+current\+\_\+pose} (\mbox{\hyperlink{structld__msg__pose}{ld\+\_\+msg\+\_\+pose}} \&copy\+\_\+pose)
+\item 
+\mbox{\Hypertarget{classcart__status_adb52b5598e35378cd4d3cc50e64edac5}\label{classcart__status_adb52b5598e35378cd4d3cc50e64edac5}} 
+int {\bfseries get\+\_\+no\+\_\+cart} ()
+\item 
+\mbox{\Hypertarget{classcart__status_a2f0a1284983dc6640e418ec94e2db1e3}\label{classcart__status_a2f0a1284983dc6640e418ec94e2db1e3}} 
+int {\bfseries get\+\_\+current\+\_\+no\+\_\+arm} ()
+\item 
+\mbox{\Hypertarget{classcart__status_aaaeb61005dc40d9b7c3a3e95d86c0641}\label{classcart__status_aaaeb61005dc40d9b7c3a3e95d86c0641}} 
+char $\ast$ {\bfseries get\+\_\+current\+\_\+dock} ()
+\item 
+\mbox{\Hypertarget{classcart__status_afb7356320975b8e2878b58eb395e885c}\label{classcart__status_afb7356320975b8e2878b58eb395e885c}} 
+int {\bfseries get\+\_\+current\+\_\+goal} (P\+M\+\_\+\+P\+O\+SE \&copy\+\_\+pose)
+\item 
+\mbox{\Hypertarget{classcart__status_a9181fb75d140e50b31d3364125aa8850}\label{classcart__status_a9181fb75d140e50b31d3364125aa8850}} 
+int {\bfseries get\+\_\+current\+\_\+large\+\_\+point1} (P\+M\+\_\+\+C\+A\+R\+T\+E\+S\+I\+AN \&copy\+\_\+point)
+\item 
+\mbox{\Hypertarget{classcart__status_a894efef3d0a2eaa402132e6868bf7750}\label{classcart__status_a894efef3d0a2eaa402132e6868bf7750}} 
+int {\bfseries get\+\_\+current\+\_\+large\+\_\+point2} (P\+M\+\_\+\+C\+A\+R\+T\+E\+S\+I\+AN \&copy\+\_\+point)
+\item 
+\mbox{\Hypertarget{classcart__status_a5afe131218b60eb58ac3d76964af75ac}\label{classcart__status_a5afe131218b60eb58ac3d76964af75ac}} 
+int {\bfseries get\+\_\+current\+\_\+edge\+\_\+start} (P\+M\+\_\+\+C\+A\+R\+T\+E\+S\+I\+AN \&copy\+\_\+point)
+\item 
+void \mbox{\hyperlink{classcart__status_a41b5c0827d3f6c7bd051668dbd37e21a}{print\+\_\+status}} ()
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{classcart__status_a641a53bcd134b03c70ddbad2309f3e1c}{status}}
+\item 
+int \mbox{\hyperlink{classcart__status_a7ddb73db75439f687289c32c3e10d625}{no\+\_\+cart}}
+\item 
+char $\ast$ \mbox{\hyperlink{classcart__status_a6581ba4998e76807e8837f317ff5630f}{start\+\_\+dock}}
+\item 
+int \mbox{\hyperlink{classcart__status_ad458c08316b2199cbfbe0e1186585432}{current\+\_\+no\+\_\+arm}}
+\item 
+char $\ast$ \mbox{\hyperlink{classcart__status_abee50a181916299e573abd0507fcba47}{current\+\_\+dock}}
+\item 
+P\+M\+\_\+\+P\+O\+SE $\ast$ \mbox{\hyperlink{classcart__status_aa6c952cba3af2fd3ad9c67567ecf419d}{current\+\_\+goal}}
+\item 
+P\+M\+\_\+\+C\+A\+R\+T\+E\+S\+I\+AN $\ast$ \mbox{\hyperlink{classcart__status_ab8c619198ba84c252a3740d2271f530e}{current\+\_\+large\+\_\+point1}}
+\item 
+P\+M\+\_\+\+C\+A\+R\+T\+E\+S\+I\+AN $\ast$ \mbox{\hyperlink{classcart__status_ab17505f9587a0b7c6d3111a8a1d38080}{current\+\_\+large\+\_\+point2}}
+\item 
+\mbox{\Hypertarget{classcart__status_aad004440fb11b544f0bd692ec6d2230a}\label{classcart__status_aad004440fb11b544f0bd692ec6d2230a}} 
+P\+M\+\_\+\+C\+A\+R\+T\+E\+S\+I\+AN $\ast$ {\bfseries current\+\_\+edge\+\_\+start}
+\item 
+\mbox{\Hypertarget{classcart__status_aa7dcfbd13720f8fb6b475174ab72ea3a}\label{classcart__status_aa7dcfbd13720f8fb6b475174ab72ea3a}} 
+int $\ast$ {\bfseries no\+\_\+arm\+\_\+buf}
+\item 
+char $\ast$$\ast$ \mbox{\hyperlink{classcart__status_a8f3151213022c1aab59d0c0dae5e4b4c}{dock\+\_\+buf}}
+\item 
+\mbox{\hyperlink{structld__msg__pose}{ld\+\_\+msg\+\_\+pose}} $\ast$$\ast$ \mbox{\hyperlink{classcart__status_a4912ff0b77258f77f4f7c118ad8345c7}{goal\+\_\+buf}}
+\item 
+P\+M\+\_\+\+C\+A\+R\+T\+E\+S\+I\+AN $\ast$$\ast$ \mbox{\hyperlink{classcart__status_ab22c188f57ded9039c5bf65b56d14967}{large\+\_\+point1\+\_\+buf}}
+\item 
+P\+M\+\_\+\+C\+A\+R\+T\+E\+S\+I\+AN $\ast$$\ast$ \mbox{\hyperlink{classcart__status_aff6cd4f5352a807b290381b103d1fa7a}{large\+\_\+point2\+\_\+buf}}
+\item 
+\mbox{\Hypertarget{classcart__status_ab0947b06cd41da791e41a480c42f795e}\label{classcart__status_ab0947b06cd41da791e41a480c42f795e}} 
+P\+M\+\_\+\+C\+A\+R\+T\+E\+S\+I\+AN $\ast$$\ast$ {\bfseries edge\+\_\+start\+\_\+buf}
+\item 
+int \mbox{\hyperlink{classcart__status_a37e9ce8c21a0d76250866a6fd7550024}{dock\+\_\+count}}
+\item 
+\mbox{\Hypertarget{classcart__status_a0bec0d5ce6fd94ac91633b6594b62f77}\label{classcart__status_a0bec0d5ce6fd94ac91633b6594b62f77}} 
+int {\bfseries runs}
+\item 
+\mbox{\Hypertarget{classcart__status_a3d78cb0d051875d6e139d93cf2eb48f6}\label{classcart__status_a3d78cb0d051875d6e139d93cf2eb48f6}} 
+int {\bfseries progress}
+\item 
+\mbox{\hyperlink{structld__msg__pose}{ld\+\_\+msg\+\_\+pose}} \mbox{\hyperlink{classcart__status_a5fe1250a34605ce2bea020047eb71223}{current\+\_\+pose}}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Class for storing and modifying cart service status. Here \char`\"{}service\char`\"{} refers to an LD vehicle pushing the cart to its desired destination. 
+
+Definition at line 19 of file cart\+\_\+status.\+h.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classcart__status_ac9302583f7f24fbc6c205a81416ff397}\label{classcart__status_ac9302583f7f24fbc6c205a81416ff397}} 
+\index{cart\+\_\+status@{cart\+\_\+status}!cart\+\_\+status@{cart\+\_\+status}}
+\index{cart\+\_\+status@{cart\+\_\+status}!cart\+\_\+status@{cart\+\_\+status}}
+\subsubsection{\texorpdfstring{cart\+\_\+status()}{cart\_status()}}
+{\footnotesize\ttfamily cart\+\_\+status\+::cart\+\_\+status (\begin{DoxyParamCaption}\item[{int}]{stat,  }\item[{int}]{no\+\_\+cart\+\_\+mode,  }\item[{char $\ast$}]{start\+\_\+str,  }\item[{int $\ast$}]{no\+\_\+arm\+\_\+list,  }\item[{char $\ast$$\ast$}]{task\+\_\+list,  }\item[{\mbox{\hyperlink{structld__msg__pose}{ld\+\_\+msg\+\_\+pose}} $\ast$$\ast$}]{goal\+\_\+list,  }\item[{P\+M\+\_\+\+C\+A\+R\+T\+E\+S\+I\+AN $\ast$$\ast$}]{large\+\_\+point1\+\_\+list,  }\item[{P\+M\+\_\+\+C\+A\+R\+T\+E\+S\+I\+AN $\ast$$\ast$}]{large\+\_\+point2\+\_\+list,  }\item[{P\+M\+\_\+\+C\+A\+R\+T\+E\+S\+I\+AN $\ast$$\ast$}]{edge\+\_\+start\+\_\+list,  }\item[{int}]{len,  }\item[{int}]{num\+\_\+runs }\end{DoxyParamCaption})}
+
+Constructor. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em stat} & Initilizes the status field. \\
+\hline
+\mbox{\tt in}  & {\em start\+\_\+str} & Initializes the start\+\_\+dock field. \\
+\hline
+\mbox{\tt in}  & {\em no\+\_\+arm\+\_\+list} & Initializes the no\+\_\+arm\+\_\+buf field. First element also used to initialize current\+\_\+no\+\_\+arm. \\
+\hline
+\mbox{\tt in}  & {\em task\+\_\+list} & Initializes the dock\+\_\+buf field. First element is also used to initialize current\+\_\+dock. \\
+\hline
+\mbox{\tt in}  & {\em goal\+\_\+list} & Initializes the goal\+\_\+buf field. First element is also used to initialize current\+\_\+goal. \\
+\hline
+\mbox{\tt in}  & {\em large\+\_\+point1\+\_\+list} & Initializes large\+\_\+point2\+\_\+buf. First element is also used to initialize current\+\_\+large\+\_\+point1. \\
+\hline
+\mbox{\tt in}  & {\em large\+\_\+point2\+\_\+list} & Initializes large\+\_\+point2\+\_\+buf. First element is also used to initialize current\+\_\+large\+\_\+point2. \\
+\hline
+\mbox{\tt in}  & {\em len} & Initializes dock\+\_\+count. Note that all list inputs should be the same and equal to this size. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 33 of file cart\+\_\+status.\+cpp.
+
+\mbox{\Hypertarget{classcart__status_a36ae36b8682afa50ecaa568285b1b32c}\label{classcart__status_a36ae36b8682afa50ecaa568285b1b32c}} 
+\index{cart\+\_\+status@{cart\+\_\+status}!````~cart\+\_\+status@{$\sim$cart\+\_\+status}}
+\index{````~cart\+\_\+status@{$\sim$cart\+\_\+status}!cart\+\_\+status@{cart\+\_\+status}}
+\subsubsection{\texorpdfstring{$\sim$cart\+\_\+status()}{~cart\_status()}}
+{\footnotesize\ttfamily cart\+\_\+status\+::$\sim$cart\+\_\+status (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Destructor 
+
+Definition at line 109 of file cart\+\_\+status.\+cpp.
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classcart__status_afcd6d162f250b09bd84770ba3a26921d}\label{classcart__status_afcd6d162f250b09bd84770ba3a26921d}} 
+\index{cart\+\_\+status@{cart\+\_\+status}!get\+\_\+dock\+\_\+count@{get\+\_\+dock\+\_\+count}}
+\index{get\+\_\+dock\+\_\+count@{get\+\_\+dock\+\_\+count}!cart\+\_\+status@{cart\+\_\+status}}
+\subsubsection{\texorpdfstring{get\+\_\+dock\+\_\+count()}{get\_dock\_count()}}
+{\footnotesize\ttfamily int cart\+\_\+status\+::get\+\_\+dock\+\_\+count (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Accessor function for the current queue size. \begin{DoxyReturn}{Returns}
+The contents of dock\+\_\+count. 
+\end{DoxyReturn}
+
+
+Definition at line 589 of file cart\+\_\+status.\+cpp.
+
+\mbox{\Hypertarget{classcart__status_a0d27f176b4de4131070be2b4e110444c}\label{classcart__status_a0d27f176b4de4131070be2b4e110444c}} 
+\index{cart\+\_\+status@{cart\+\_\+status}!get\+\_\+status@{get\+\_\+status}}
+\index{get\+\_\+status@{get\+\_\+status}!cart\+\_\+status@{cart\+\_\+status}}
+\subsubsection{\texorpdfstring{get\+\_\+status()}{get\_status()}}
+{\footnotesize\ttfamily int cart\+\_\+status\+::get\+\_\+status (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Accessor function for the current cart status. \begin{DoxyReturn}{Returns}
+The contents of status. 
+\end{DoxyReturn}
+
+
+Definition at line 557 of file cart\+\_\+status.\+cpp.
+
+\mbox{\Hypertarget{classcart__status_ae58ecd2c7d79aa9d35eec0bbfd1c7a32}\label{classcart__status_ae58ecd2c7d79aa9d35eec0bbfd1c7a32}} 
+\index{cart\+\_\+status@{cart\+\_\+status}!print\+\_\+dock\+\_\+list@{print\+\_\+dock\+\_\+list}}
+\index{print\+\_\+dock\+\_\+list@{print\+\_\+dock\+\_\+list}!cart\+\_\+status@{cart\+\_\+status}}
+\subsubsection{\texorpdfstring{print\+\_\+dock\+\_\+list()}{print\_dock\_list()}}
+{\footnotesize\ttfamily void cart\+\_\+status\+::print\+\_\+dock\+\_\+list (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Prints the contents of dock\+\_\+buf to the standard output. 
+
+Definition at line 446 of file cart\+\_\+status.\+cpp.
+
+\mbox{\Hypertarget{classcart__status_a07d3f2bf7b4e430645ae22ffb46143cb}\label{classcart__status_a07d3f2bf7b4e430645ae22ffb46143cb}} 
+\index{cart\+\_\+status@{cart\+\_\+status}!print\+\_\+goal\+\_\+list@{print\+\_\+goal\+\_\+list}}
+\index{print\+\_\+goal\+\_\+list@{print\+\_\+goal\+\_\+list}!cart\+\_\+status@{cart\+\_\+status}}
+\subsubsection{\texorpdfstring{print\+\_\+goal\+\_\+list()}{print\_goal\_list()}}
+{\footnotesize\ttfamily void cart\+\_\+status\+::print\+\_\+goal\+\_\+list (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Prints the contents of goal\+\_\+buf to the standard output. 
+
+Definition at line 466 of file cart\+\_\+status.\+cpp.
+
+\mbox{\Hypertarget{classcart__status_a9decf11bef6e36c350463102401c247e}\label{classcart__status_a9decf11bef6e36c350463102401c247e}} 
+\index{cart\+\_\+status@{cart\+\_\+status}!print\+\_\+large\+\_\+point1\+\_\+list@{print\+\_\+large\+\_\+point1\+\_\+list}}
+\index{print\+\_\+large\+\_\+point1\+\_\+list@{print\+\_\+large\+\_\+point1\+\_\+list}!cart\+\_\+status@{cart\+\_\+status}}
+\subsubsection{\texorpdfstring{print\+\_\+large\+\_\+point1\+\_\+list()}{print\_large\_point1\_list()}}
+{\footnotesize\ttfamily void cart\+\_\+status\+::print\+\_\+large\+\_\+point1\+\_\+list (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Prints the contents of large\+\_\+point1\+\_\+buf to the standard output. 
+
+Definition at line 476 of file cart\+\_\+status.\+cpp.
+
+\mbox{\Hypertarget{classcart__status_a8a6a9273616bef95c4d0aeccb2524aaa}\label{classcart__status_a8a6a9273616bef95c4d0aeccb2524aaa}} 
+\index{cart\+\_\+status@{cart\+\_\+status}!print\+\_\+large\+\_\+point2\+\_\+list@{print\+\_\+large\+\_\+point2\+\_\+list}}
+\index{print\+\_\+large\+\_\+point2\+\_\+list@{print\+\_\+large\+\_\+point2\+\_\+list}!cart\+\_\+status@{cart\+\_\+status}}
+\subsubsection{\texorpdfstring{print\+\_\+large\+\_\+point2\+\_\+list()}{print\_large\_point2\_list()}}
+{\footnotesize\ttfamily void cart\+\_\+status\+::print\+\_\+large\+\_\+point2\+\_\+list (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Prints the contents of large\+\_\+point2\+\_\+buf to the standard output. 
+
+Definition at line 486 of file cart\+\_\+status.\+cpp.
+
+\mbox{\Hypertarget{classcart__status_a41b5c0827d3f6c7bd051668dbd37e21a}\label{classcart__status_a41b5c0827d3f6c7bd051668dbd37e21a}} 
+\index{cart\+\_\+status@{cart\+\_\+status}!print\+\_\+status@{print\+\_\+status}}
+\index{print\+\_\+status@{print\+\_\+status}!cart\+\_\+status@{cart\+\_\+status}}
+\subsubsection{\texorpdfstring{print\+\_\+status()}{print\_status()}}
+{\footnotesize\ttfamily void cart\+\_\+status\+::print\+\_\+status (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Prints the contents of the status data structure. 
+
+Definition at line 675 of file cart\+\_\+status.\+cpp.
+
+\mbox{\Hypertarget{classcart__status_a5db1241aff0bd874c8d108666ec8b323}\label{classcart__status_a5db1241aff0bd874c8d108666ec8b323}} 
+\index{cart\+\_\+status@{cart\+\_\+status}!set\+\_\+status@{set\+\_\+status}}
+\index{set\+\_\+status@{set\+\_\+status}!cart\+\_\+status@{cart\+\_\+status}}
+\subsubsection{\texorpdfstring{set\+\_\+status()}{set\_status()}}
+{\footnotesize\ttfamily void cart\+\_\+status\+::set\+\_\+status (\begin{DoxyParamCaption}\item[{int}]{new\+\_\+stat }\end{DoxyParamCaption})}
+
+Sets the status to new\+\_\+stat. Mutator function. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em new\+\_\+stat} & The new status value. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 164 of file cart\+\_\+status.\+cpp.
+
+\mbox{\Hypertarget{classcart__status_acacf14bfb0b1be8f32b7bf133facbfa1}\label{classcart__status_acacf14bfb0b1be8f32b7bf133facbfa1}} 
+\index{cart\+\_\+status@{cart\+\_\+status}!string\+\_\+to\+\_\+pose@{string\+\_\+to\+\_\+pose}}
+\index{string\+\_\+to\+\_\+pose@{string\+\_\+to\+\_\+pose}!cart\+\_\+status@{cart\+\_\+status}}
+\subsubsection{\texorpdfstring{string\+\_\+to\+\_\+pose()}{string\_to\_pose()}}
+{\footnotesize\ttfamily void cart\+\_\+status\+::string\+\_\+to\+\_\+pose (\begin{DoxyParamCaption}\item[{char $\ast$}]{pose\+\_\+msg }\end{DoxyParamCaption})}
+
+Parsing function to store pose info contained in a string format. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em pose\+\_\+msg} & A character array of the format \char`\"{}x, y, th\char`\"{} \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 562 of file cart\+\_\+status.\+cpp.
+
+\mbox{\Hypertarget{classcart__status_a555321d8af00245d5d53ec52876e54e7}\label{classcart__status_a555321d8af00245d5d53ec52876e54e7}} 
+\index{cart\+\_\+status@{cart\+\_\+status}!to\+\_\+string@{to\+\_\+string}}
+\index{to\+\_\+string@{to\+\_\+string}!cart\+\_\+status@{cart\+\_\+status}}
+\subsubsection{\texorpdfstring{to\+\_\+string()}{to\_string()}}
+{\footnotesize\ttfamily char $\ast$ cart\+\_\+status\+::to\+\_\+string (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Formats contents of status object to a string to be transmitted to the vehicle process using T\+C\+P/\+IP. \begin{DoxyReturn}{Returns}
+A pointer to a character array containing the formatted message. 
+\end{DoxyReturn}
+
+
+Definition at line 535 of file cart\+\_\+status.\+cpp.
+
+\mbox{\Hypertarget{classcart__status_ae7c18dab45a356066eb36b81b985194f}\label{classcart__status_ae7c18dab45a356066eb36b81b985194f}} 
+\index{cart\+\_\+status@{cart\+\_\+status}!to\+\_\+string\+\_\+init@{to\+\_\+string\+\_\+init}}
+\index{to\+\_\+string\+\_\+init@{to\+\_\+string\+\_\+init}!cart\+\_\+status@{cart\+\_\+status}}
+\subsubsection{\texorpdfstring{to\+\_\+string\+\_\+init()}{to\_string\_init()}}
+{\footnotesize\ttfamily char $\ast$ cart\+\_\+status\+::to\+\_\+string\+\_\+init (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Formats contents of status object to a string to be transmitted to the vehicle process using T\+C\+P/\+IP. This function converts additional status info that is needed To initialize the data structures on the server side (such as the initial dock point of the cart). \begin{DoxyReturn}{Returns}
+Character array containing status info. 
+\end{DoxyReturn}
+
+
+Definition at line 506 of file cart\+\_\+status.\+cpp.
+
+\mbox{\Hypertarget{classcart__status_a25c8b8f4c2d8b516284f9cb463f007a8}\label{classcart__status_a25c8b8f4c2d8b516284f9cb463f007a8}} 
+\index{cart\+\_\+status@{cart\+\_\+status}!update\+\_\+current\+\_\+dock@{update\+\_\+current\+\_\+dock}}
+\index{update\+\_\+current\+\_\+dock@{update\+\_\+current\+\_\+dock}!cart\+\_\+status@{cart\+\_\+status}}
+\subsubsection{\texorpdfstring{update\+\_\+current\+\_\+dock()}{update\_current\_dock()}}
+{\footnotesize\ttfamily void cart\+\_\+status\+::update\+\_\+current\+\_\+dock (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Updates the current dock point, goal pose, and large reflector poses to the next one in the queue. Essentially, a single dequeue function for all buf members. 
+
+Definition at line 170 of file cart\+\_\+status.\+cpp.
+
+
+
+\subsection{Member Data Documentation}
+\mbox{\Hypertarget{classcart__status_abee50a181916299e573abd0507fcba47}\label{classcart__status_abee50a181916299e573abd0507fcba47}} 
+\index{cart\+\_\+status@{cart\+\_\+status}!current\+\_\+dock@{current\+\_\+dock}}
+\index{current\+\_\+dock@{current\+\_\+dock}!cart\+\_\+status@{cart\+\_\+status}}
+\subsubsection{\texorpdfstring{current\+\_\+dock}{current\_dock}}
+{\footnotesize\ttfamily char$\ast$ cart\+\_\+status\+::current\+\_\+dock\hspace{0.3cm}{\ttfamily [private]}}
+
+Specifies the next dock point, or destination for the manipulator-\/on-\/cart. Corresponds to the name of a goal point stored on LD vehicle map. 
+
+Definition at line 61 of file cart\+\_\+status.\+h.
+
+\mbox{\Hypertarget{classcart__status_aa6c952cba3af2fd3ad9c67567ecf419d}\label{classcart__status_aa6c952cba3af2fd3ad9c67567ecf419d}} 
+\index{cart\+\_\+status@{cart\+\_\+status}!current\+\_\+goal@{current\+\_\+goal}}
+\index{current\+\_\+goal@{current\+\_\+goal}!cart\+\_\+status@{cart\+\_\+status}}
+\subsubsection{\texorpdfstring{current\+\_\+goal}{current\_goal}}
+{\footnotesize\ttfamily P\+M\+\_\+\+P\+O\+SE$\ast$ cart\+\_\+status\+::current\+\_\+goal\hspace{0.3cm}{\ttfamily [private]}}
+
+Commanded pose for next dock point which corresponds to the pose of a goal point stored on LD vehicle map. 
+
+Definition at line 67 of file cart\+\_\+status.\+h.
+
+\mbox{\Hypertarget{classcart__status_ab8c619198ba84c252a3740d2271f530e}\label{classcart__status_ab8c619198ba84c252a3740d2271f530e}} 
+\index{cart\+\_\+status@{cart\+\_\+status}!current\+\_\+large\+\_\+point1@{current\+\_\+large\+\_\+point1}}
+\index{current\+\_\+large\+\_\+point1@{current\+\_\+large\+\_\+point1}!cart\+\_\+status@{cart\+\_\+status}}
+\subsubsection{\texorpdfstring{current\+\_\+large\+\_\+point1}{current\_large\_point1}}
+{\footnotesize\ttfamily P\+M\+\_\+\+C\+A\+R\+T\+E\+S\+I\+AN$\ast$ cart\+\_\+status\+::current\+\_\+large\+\_\+point1\hspace{0.3cm}{\ttfamily [private]}}
+
+Specifies the expected, or trained, pose that the manipulator assumes when performing bisection localization at the first bisect reflector. 
+
+Definition at line 73 of file cart\+\_\+status.\+h.
+
+\mbox{\Hypertarget{classcart__status_ab17505f9587a0b7c6d3111a8a1d38080}\label{classcart__status_ab17505f9587a0b7c6d3111a8a1d38080}} 
+\index{cart\+\_\+status@{cart\+\_\+status}!current\+\_\+large\+\_\+point2@{current\+\_\+large\+\_\+point2}}
+\index{current\+\_\+large\+\_\+point2@{current\+\_\+large\+\_\+point2}!cart\+\_\+status@{cart\+\_\+status}}
+\subsubsection{\texorpdfstring{current\+\_\+large\+\_\+point2}{current\_large\_point2}}
+{\footnotesize\ttfamily P\+M\+\_\+\+C\+A\+R\+T\+E\+S\+I\+AN$\ast$ cart\+\_\+status\+::current\+\_\+large\+\_\+point2\hspace{0.3cm}{\ttfamily [private]}}
+
+Specifies the expected, or trained, pose that the manipulator assumes when performing bisection localization at the second bisect reflector. 
+
+Definition at line 79 of file cart\+\_\+status.\+h.
+
+\mbox{\Hypertarget{classcart__status_ad458c08316b2199cbfbe0e1186585432}\label{classcart__status_ad458c08316b2199cbfbe0e1186585432}} 
+\index{cart\+\_\+status@{cart\+\_\+status}!current\+\_\+no\+\_\+arm@{current\+\_\+no\+\_\+arm}}
+\index{current\+\_\+no\+\_\+arm@{current\+\_\+no\+\_\+arm}!cart\+\_\+status@{cart\+\_\+status}}
+\subsubsection{\texorpdfstring{current\+\_\+no\+\_\+arm}{current\_no\_arm}}
+{\footnotesize\ttfamily int cart\+\_\+status\+::current\+\_\+no\+\_\+arm\hspace{0.3cm}{\ttfamily [private]}}
+
+Integer flag indicating whether or not the arm is to be moved when the cart reaches it\textquotesingle{}s current destination. 0 (false)\+: Move arm 1 (true)\+: Don\textquotesingle{}t move arm 
+
+Definition at line 55 of file cart\+\_\+status.\+h.
+
+\mbox{\Hypertarget{classcart__status_a5fe1250a34605ce2bea020047eb71223}\label{classcart__status_a5fe1250a34605ce2bea020047eb71223}} 
+\index{cart\+\_\+status@{cart\+\_\+status}!current\+\_\+pose@{current\+\_\+pose}}
+\index{current\+\_\+pose@{current\+\_\+pose}!cart\+\_\+status@{cart\+\_\+status}}
+\subsubsection{\texorpdfstring{current\+\_\+pose}{current\_pose}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structld__msg__pose}{ld\+\_\+msg\+\_\+pose}} cart\+\_\+status\+::current\+\_\+pose\hspace{0.3cm}{\ttfamily [private]}}
+
+Stores current position of cart within the LD map. Used to adjust for docking offset when performing coordinate registration. This value is to be updated via messages from the vehicle process. 
+
+Definition at line 128 of file cart\+\_\+status.\+h.
+
+\mbox{\Hypertarget{classcart__status_a8f3151213022c1aab59d0c0dae5e4b4c}\label{classcart__status_a8f3151213022c1aab59d0c0dae5e4b4c}} 
+\index{cart\+\_\+status@{cart\+\_\+status}!dock\+\_\+buf@{dock\+\_\+buf}}
+\index{dock\+\_\+buf@{dock\+\_\+buf}!cart\+\_\+status@{cart\+\_\+status}}
+\subsubsection{\texorpdfstring{dock\+\_\+buf}{dock\_buf}}
+{\footnotesize\ttfamily char$\ast$$\ast$ cart\+\_\+status\+::dock\+\_\+buf\hspace{0.3cm}{\ttfamily [private]}}
+
+List of dock points. Treated as a queue where dock point at the front (index 0) is the next dock point the cart will travel to. 
+
+Definition at line 93 of file cart\+\_\+status.\+h.
+
+\mbox{\Hypertarget{classcart__status_a37e9ce8c21a0d76250866a6fd7550024}\label{classcart__status_a37e9ce8c21a0d76250866a6fd7550024}} 
+\index{cart\+\_\+status@{cart\+\_\+status}!dock\+\_\+count@{dock\+\_\+count}}
+\index{dock\+\_\+count@{dock\+\_\+count}!cart\+\_\+status@{cart\+\_\+status}}
+\subsubsection{\texorpdfstring{dock\+\_\+count}{dock\_count}}
+{\footnotesize\ttfamily int cart\+\_\+status\+::dock\+\_\+count\hspace{0.3cm}{\ttfamily [private]}}
+
+Keeps count of current size for all queues. 
+
+Definition at line 118 of file cart\+\_\+status.\+h.
+
+\mbox{\Hypertarget{classcart__status_a4912ff0b77258f77f4f7c118ad8345c7}\label{classcart__status_a4912ff0b77258f77f4f7c118ad8345c7}} 
+\index{cart\+\_\+status@{cart\+\_\+status}!goal\+\_\+buf@{goal\+\_\+buf}}
+\index{goal\+\_\+buf@{goal\+\_\+buf}!cart\+\_\+status@{cart\+\_\+status}}
+\subsubsection{\texorpdfstring{goal\+\_\+buf}{goal\_buf}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structld__msg__pose}{ld\+\_\+msg\+\_\+pose}}$\ast$$\ast$ cart\+\_\+status\+::goal\+\_\+buf\hspace{0.3cm}{\ttfamily [private]}}
+
+List of goal poses. Treated as a queue where pose at the front (index 0) is the next pose the cart will travel to. 
+
+Definition at line 99 of file cart\+\_\+status.\+h.
+
+\mbox{\Hypertarget{classcart__status_ab22c188f57ded9039c5bf65b56d14967}\label{classcart__status_ab22c188f57ded9039c5bf65b56d14967}} 
+\index{cart\+\_\+status@{cart\+\_\+status}!large\+\_\+point1\+\_\+buf@{large\+\_\+point1\+\_\+buf}}
+\index{large\+\_\+point1\+\_\+buf@{large\+\_\+point1\+\_\+buf}!cart\+\_\+status@{cart\+\_\+status}}
+\subsubsection{\texorpdfstring{large\+\_\+point1\+\_\+buf}{large\_point1\_buf}}
+{\footnotesize\ttfamily P\+M\+\_\+\+C\+A\+R\+T\+E\+S\+I\+AN$\ast$$\ast$ cart\+\_\+status\+::large\+\_\+point1\+\_\+buf\hspace{0.3cm}{\ttfamily [private]}}
+
+List of large reflector poses. Treated as a queue where pose at the front (index 0) is the next pose manipulator will assuem when performing bisection at first bisect reflector. 
+
+Definition at line 105 of file cart\+\_\+status.\+h.
+
+\mbox{\Hypertarget{classcart__status_aff6cd4f5352a807b290381b103d1fa7a}\label{classcart__status_aff6cd4f5352a807b290381b103d1fa7a}} 
+\index{cart\+\_\+status@{cart\+\_\+status}!large\+\_\+point2\+\_\+buf@{large\+\_\+point2\+\_\+buf}}
+\index{large\+\_\+point2\+\_\+buf@{large\+\_\+point2\+\_\+buf}!cart\+\_\+status@{cart\+\_\+status}}
+\subsubsection{\texorpdfstring{large\+\_\+point2\+\_\+buf}{large\_point2\_buf}}
+{\footnotesize\ttfamily P\+M\+\_\+\+C\+A\+R\+T\+E\+S\+I\+AN$\ast$$\ast$ cart\+\_\+status\+::large\+\_\+point2\+\_\+buf\hspace{0.3cm}{\ttfamily [private]}}
+
+List of large reflector poses. Treated as a queue where pose at the front (index 0) is the next pose manipulator will assuem when performing bisection at second bisect reflector. 
+
+Definition at line 110 of file cart\+\_\+status.\+h.
+
+\mbox{\Hypertarget{classcart__status_a7ddb73db75439f687289c32c3e10d625}\label{classcart__status_a7ddb73db75439f687289c32c3e10d625}} 
+\index{cart\+\_\+status@{cart\+\_\+status}!no\+\_\+cart@{no\+\_\+cart}}
+\index{no\+\_\+cart@{no\+\_\+cart}!cart\+\_\+status@{cart\+\_\+status}}
+\subsubsection{\texorpdfstring{no\+\_\+cart}{no\_cart}}
+{\footnotesize\ttfamily int cart\+\_\+status\+::no\+\_\+cart\hspace{0.3cm}{\ttfamily [private]}}
+
+Integer flag used to indicate if no cart is actually present (used to test vehicle control of multiple carts when a second cart is not available).~\newline
+This flag is sent to the vehicle process so vehicle does not try to dock with a cart that is not physically present. 0 (false)\+: Cart present 1 (true)\+: Cart not present 
+
+Definition at line 40 of file cart\+\_\+status.\+h.
+
+\mbox{\Hypertarget{classcart__status_a6581ba4998e76807e8837f317ff5630f}\label{classcart__status_a6581ba4998e76807e8837f317ff5630f}} 
+\index{cart\+\_\+status@{cart\+\_\+status}!start\+\_\+dock@{start\+\_\+dock}}
+\index{start\+\_\+dock@{start\+\_\+dock}!cart\+\_\+status@{cart\+\_\+status}}
+\subsubsection{\texorpdfstring{start\+\_\+dock}{start\_dock}}
+{\footnotesize\ttfamily char$\ast$ cart\+\_\+status\+::start\+\_\+dock\hspace{0.3cm}{\ttfamily [private]}}
+
+Specifies the dock point the vehicle starts at when the test begins. This is included because the vehicle begisn the test with no cart attached and thus needs a start point ~\newline
+needs to know the location of the first cart that is scheduled for pickup. 
+
+Definition at line 47 of file cart\+\_\+status.\+h.
+
+\mbox{\Hypertarget{classcart__status_a641a53bcd134b03c70ddbad2309f3e1c}\label{classcart__status_a641a53bcd134b03c70ddbad2309f3e1c}} 
+\index{cart\+\_\+status@{cart\+\_\+status}!status@{status}}
+\index{status@{status}!cart\+\_\+status@{cart\+\_\+status}}
+\subsubsection{\texorpdfstring{status}{status}}
+{\footnotesize\ttfamily int cart\+\_\+status\+::status\hspace{0.3cm}{\ttfamily [private]}}
+
+Current service status of the manipulator-\/on-\/cart. Is restricted to taking on the following values with corresponding meanings\+:~\newline
+0 (Ready)\+: the manipulator-\/on-\/cart is waiting for a vehicle to commit to transporting the cart to its next destination. ~\newline
+1 (Waiting)\+: the manipulator-\/on-\/cart a vehicle has committed to moving the cart, but the cart is waiting for it to reach its next destination. ~\newline
+2 (Busy)\+: the manipulator is performing work and does not need service. 
+
+Definition at line 30 of file cart\+\_\+status.\+h.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{cart__status_8h}{cart\+\_\+status.\+h}}\item 
+\mbox{\hyperlink{cart__status_8cpp}{cart\+\_\+status.\+cpp}}\end{DoxyCompactItemize}

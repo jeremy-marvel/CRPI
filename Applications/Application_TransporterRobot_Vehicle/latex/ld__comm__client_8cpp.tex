@@ -1,0 +1,59 @@
+\hypertarget{ld__comm__client_8cpp}{}\section{ld\+\_\+comm\+\_\+client.\+cpp File Reference}
+\label{ld__comm__client_8cpp}\index{ld\+\_\+comm\+\_\+client.\+cpp@{ld\+\_\+comm\+\_\+client.\+cpp}}
+
+
+Interface for managing A\+R\+CL connections to the Omron Adept ld mobile robot platform. ~\newline
+This is the standard client / server connection where the ld core functions as the server and ~\newline
+This control program connects as a client. ~\newline
+.  
+
+
+{\ttfamily \#include \char`\"{}ld\+\_\+comm\+\_\+client.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}ulapi.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{ld__comm__client_8cpp_a8ed2e1d5e83a40d07a5d07ee58aacd07}{comm\+\_\+err\+\_\+client} (int err, char $\ast$msg)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Interface for managing A\+R\+CL connections to the Omron Adept ld mobile robot platform. ~\newline
+This is the standard client / server connection where the ld core functions as the server and ~\newline
+This control program connects as a client. ~\newline
+. 
+
+Note that A\+R\+CL commands must be terminated by a newline (\char`\"{}\textbackslash{}n\char`\"{}) character when sent to the A\+R\+CL server. ~\newline
+See A\+R\+CL user guide from Adept or use the \textquotesingle{}help\textquotesingle{} command when connecting via Telnet client to the ld ~\newline
+to see a list of available commands. ~\newline
+ The A\+R\+CL Server Connection parameters can be configured via Mobile Planner under Configuration -\/$>$ Robot Interface -\/$>$ A\+R\+CL Server Setup ~\newline
+ References\+: ~\newline
+ Based on\+: agv\+\_\+comm.\+h by J. Marvel, S. Legowik ~\newline
+ \char`\"{}\+\_\+ftime, \+\_\+ftime32, \+\_\+ftime64 from M\+S\+D\+N\char`\"{} \href{https://docs.microsoft.com/en-us/cpp/c-runtime-library/reference/ftime-ftime32-ftime64}{\tt https\+://docs.\+microsoft.\+com/en-\/us/cpp/c-\/runtime-\/library/reference/ftime-\/ftime32-\/ftime64}
+
+\begin{DoxyAuthor}{Author}
+Omar Aboul-\/\+Enein 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+2018-\/06-\/05 
+\end{DoxyDate}
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{ld__comm__client_8cpp_a8ed2e1d5e83a40d07a5d07ee58aacd07}\label{ld__comm__client_8cpp_a8ed2e1d5e83a40d07a5d07ee58aacd07}} 
+\index{ld\+\_\+comm\+\_\+client.\+cpp@{ld\+\_\+comm\+\_\+client.\+cpp}!comm\+\_\+err\+\_\+client@{comm\+\_\+err\+\_\+client}}
+\index{comm\+\_\+err\+\_\+client@{comm\+\_\+err\+\_\+client}!ld\+\_\+comm\+\_\+client.\+cpp@{ld\+\_\+comm\+\_\+client.\+cpp}}
+\subsubsection{\texorpdfstring{comm\+\_\+err\+\_\+client()}{comm\_err\_client()}}
+{\footnotesize\ttfamily void comm\+\_\+err\+\_\+client (\begin{DoxyParamCaption}\item[{int}]{err,  }\item[{char $\ast$}]{msg }\end{DoxyParamCaption})}
+
+Helper function for printing communication errors. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em err} & Error code returned by ulapi socket \\
+\hline
+\mbox{\tt in}  & {\em msg} & Error message the user desires to print. \\
+\hline
+\end{DoxyParams}

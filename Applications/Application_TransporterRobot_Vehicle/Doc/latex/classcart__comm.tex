@@ -1,0 +1,566 @@
+\hypertarget{classcart__comm}{}\section{cart\+\_\+comm Class Reference}
+\label{classcart__comm}\index{cart\+\_\+comm@{cart\+\_\+comm}}
+
+
+{\ttfamily \#include $<$cart\+\_\+comm.\+h$>$}
+
+
+
+Collaboration diagram for cart\+\_\+comm\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{classcart__comm__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classcart__comm_ab336b3d84b33ef32621e083dd4006b67}{cart\+\_\+comm}} (ulapi\+\_\+integer server\+\_\+port, int num\+\_\+clients, ulapi\+\_\+id key\+\_\+m, ulapi\+\_\+id key\+\_\+s)
+\item 
+\mbox{\hyperlink{classcart__comm_af3b54bc88abece9901b0dc1a535c28f0}{$\sim$cart\+\_\+comm}} ()
+\item 
+int \mbox{\hyperlink{classcart__comm_a331ab61e71d5f94f413de56737322547}{cart\+\_\+comm\+\_\+init}} ()
+\item 
+int \mbox{\hyperlink{classcart__comm_a51c43bf924607212e128f75006defed8}{cart\+\_\+connect}} ()
+\item 
+int \mbox{\hyperlink{classcart__comm_acde9fbf68884955ccfd94a907add2396}{client\+\_\+disconnect}} (ulapi\+\_\+integer client\+\_\+id)
+\item 
+ulapi\+\_\+integer \mbox{\hyperlink{classcart__comm_a9f5d2a267cb9dd82603cea7656ad57fc}{get\+\_\+client\+\_\+id}} (int index)
+\item 
+int \mbox{\hyperlink{classcart__comm_a6dcf8cc0eedecebcd436653da2ab680d}{get\+\_\+client\+\_\+index}} (ulapi\+\_\+integer client\+\_\+id)
+\item 
+int \mbox{\hyperlink{classcart__comm_a33db5a17772cf87452ebdfae4547e152}{get\+\_\+client\+\_\+count}} ()
+\item 
+ulapi\+\_\+integer \mbox{\hyperlink{classcart__comm_acea9c1ef1278323dd0e387b34c5c8015}{simple\+\_\+scheduler}} ()
+\item 
+void \mbox{\hyperlink{classcart__comm_a18d4c10fb7af8cb219460461fa5967f5}{select\+\_\+client}} (int client\+\_\+id, \mbox{\hyperlink{classcart__status__copy}{cart\+\_\+status\+\_\+copy}} $\ast$$\ast$copied\+\_\+client)
+\item 
+void \mbox{\hyperlink{classcart__comm_a00fdba1bcb1d3e7234c83a1b2d692947}{print\+\_\+client\+\_\+ids}} ()
+\item 
+void \mbox{\hyperlink{classcart__comm_a46b117a719b4844c97b570229c82cbc8}{print\+\_\+client\+\_\+status}} ()
+\item 
+int \mbox{\hyperlink{classcart__comm_aa4aa3baa5fae85a6469ae9683a6d2cbc}{update\+\_\+status\+\_\+init}} (\mbox{\hyperlink{classcart__status__copy}{cart\+\_\+status\+\_\+copy}} $\ast$new\+\_\+stat)
+\item 
+void \mbox{\hyperlink{classcart__comm_ac3827fcfb77461137bf7a061471c7feb}{update\+\_\+status}} ()
+\item 
+void \mbox{\hyperlink{classcart__comm_a6724898e4c76e4e802c4bc6b814130bc}{update\+\_\+status}} (\mbox{\hyperlink{structld__msg__pose}{ld\+\_\+msg\+\_\+pose}} $\ast$new\+\_\+pose)
+\item 
+int \mbox{\hyperlink{classcart__comm_a0fd670aab891757e6371a66c4b48b0a3}{send}} (char $\ast$buf, ulapi\+\_\+integer client\+\_\+id)
+\item 
+int \mbox{\hyperlink{classcart__comm_ae135775f8ce91e322bd83ece751552b4}{send\+\_\+init}} (char $\ast$buf, \mbox{\hyperlink{classcart__status__copy}{cart\+\_\+status\+\_\+copy}} $\ast$new\+\_\+stat)
+\item 
+int \mbox{\hyperlink{classcart__comm_ab7f3cc745c6935abadf38a87a00740c8}{recv}} (char $\ast$buf, ulapi\+\_\+integer client\+\_\+id, int len)
+\item 
+int \mbox{\hyperlink{classcart__comm_a36848cb536204242a3ee45d9bb753b8a}{cart\+\_\+comm\+\_\+read}} (char $\ast$$\ast$cart\+\_\+comm\+\_\+recv\+\_\+buf, ulapi\+\_\+integer client\+\_\+id)
+\item 
+int \mbox{\hyperlink{classcart__comm_a9982dd0f466dd95898ebe0cf6fd168c5}{cart\+\_\+comm\+\_\+read\+\_\+init}} (char $\ast$$\ast$cart\+\_\+comm\+\_\+recv\+\_\+buf, \mbox{\hyperlink{classcart__status__copy}{cart\+\_\+status\+\_\+copy}} $\ast$new\+\_\+stat)
+\item 
+void \mbox{\hyperlink{classcart__comm_a90f2c5d14510aabfa28439a05e5bebb6}{update\+\_\+previous\+\_\+dock}} (ulapi\+\_\+integer client\+\_\+id)
+\end{DoxyCompactItemize}
+\subsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classcart__comm_a6ccdb437e38073d80fd3a12163a954c4}{comm\+\_\+err}} (int err, char $\ast$msg)
+\item 
+void \mbox{\hyperlink{classcart__comm_afb6465437c06e86f9272a8886ac58909}{shift\+\_\+clients}} (int start)
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+ulapi\+\_\+integer \mbox{\hyperlink{classcart__comm_a462fbce6dc2408c12ce9de2f4d960f6f}{server\+\_\+id}}
+\item 
+ulapi\+\_\+integer \mbox{\hyperlink{classcart__comm_ac280d2562b45d4f21187f95d573b454a}{port}}
+\item 
+ulapi\+\_\+mutex\+\_\+struct $\ast$ \mbox{\hyperlink{classcart__comm_a02a98a6ee6885d5521590db05650ad41}{mutex}}
+\item 
+void $\ast$ \mbox{\hyperlink{classcart__comm_ab7920bad120f065ea615161aa31c9d7e}{connect\+\_\+sem}}
+\item 
+int \mbox{\hyperlink{classcart__comm_aaba30e6cd9bf524718862b8171dec9b3}{max\+\_\+clients}}
+\item 
+int \mbox{\hyperlink{classcart__comm_ad335e930dcf3978785a97841e8affe52}{client\+\_\+count}}
+\item 
+\mbox{\hyperlink{classcart__status__copy}{cart\+\_\+status\+\_\+copy}} $\ast$$\ast$ \mbox{\hyperlink{classcart__comm_ae5a8dcabaa03d74ec04a5590e738a596}{client\+\_\+arr}}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Class for storing the communication configurations and operating/service status of multiple cart client processes. 
+
+Definition at line 20 of file cart\+\_\+comm.\+h.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classcart__comm_ab336b3d84b33ef32621e083dd4006b67}\label{classcart__comm_ab336b3d84b33ef32621e083dd4006b67}} 
+\index{cart\+\_\+comm@{cart\+\_\+comm}!cart\+\_\+comm@{cart\+\_\+comm}}
+\index{cart\+\_\+comm@{cart\+\_\+comm}!cart\+\_\+comm@{cart\+\_\+comm}}
+\subsubsection{\texorpdfstring{cart\+\_\+comm()}{cart\_comm()}}
+{\footnotesize\ttfamily cart\+\_\+comm\+::cart\+\_\+comm (\begin{DoxyParamCaption}\item[{ulapi\+\_\+integer}]{server\+\_\+port,  }\item[{int}]{num\+\_\+clients,  }\item[{ulapi\+\_\+id}]{key\+\_\+m,  }\item[{ulapi\+\_\+id}]{key\+\_\+s }\end{DoxyParamCaption})}
+
+Constructor 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em server\+\_\+port} & Used to initialize port. \\
+\hline
+\mbox{\tt in}  & {\em num\+\_\+clients} & Used to initialize max\+\_\+clients. \\
+\hline
+\mbox{\tt in}  & {\em key\+\_\+m} & Ulapi key used to initialize mutex. \\
+\hline
+\mbox{\tt in}  & {\em key\+\_\+s} & Ualpi key used to initialize connect\+\_\+sem \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 70 of file cart\+\_\+comm.\+cpp.
+
+\mbox{\Hypertarget{classcart__comm_af3b54bc88abece9901b0dc1a535c28f0}\label{classcart__comm_af3b54bc88abece9901b0dc1a535c28f0}} 
+\index{cart\+\_\+comm@{cart\+\_\+comm}!````~cart\+\_\+comm@{$\sim$cart\+\_\+comm}}
+\index{````~cart\+\_\+comm@{$\sim$cart\+\_\+comm}!cart\+\_\+comm@{cart\+\_\+comm}}
+\subsubsection{\texorpdfstring{$\sim$cart\+\_\+comm()}{~cart\_comm()}}
+{\footnotesize\ttfamily cart\+\_\+comm\+::$\sim$cart\+\_\+comm (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Destructor 
+
+Definition at line 95 of file cart\+\_\+comm.\+cpp.
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classcart__comm_a331ab61e71d5f94f413de56737322547}\label{classcart__comm_a331ab61e71d5f94f413de56737322547}} 
+\index{cart\+\_\+comm@{cart\+\_\+comm}!cart\+\_\+comm\+\_\+init@{cart\+\_\+comm\+\_\+init}}
+\index{cart\+\_\+comm\+\_\+init@{cart\+\_\+comm\+\_\+init}!cart\+\_\+comm@{cart\+\_\+comm}}
+\subsubsection{\texorpdfstring{cart\+\_\+comm\+\_\+init()}{cart\_comm\_init()}}
+{\footnotesize\ttfamily int cart\+\_\+comm\+::cart\+\_\+comm\+\_\+init (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Initializes the server socket. \begin{DoxyReturn}{Returns}
+Integer indicating the error status of the function. A negative number indicates an error occurred while attempting to initialize the socket. 
+\end{DoxyReturn}
+
+
+Definition at line 135 of file cart\+\_\+comm.\+cpp.
+
+\mbox{\Hypertarget{classcart__comm_a36848cb536204242a3ee45d9bb753b8a}\label{classcart__comm_a36848cb536204242a3ee45d9bb753b8a}} 
+\index{cart\+\_\+comm@{cart\+\_\+comm}!cart\+\_\+comm\+\_\+read@{cart\+\_\+comm\+\_\+read}}
+\index{cart\+\_\+comm\+\_\+read@{cart\+\_\+comm\+\_\+read}!cart\+\_\+comm@{cart\+\_\+comm}}
+\subsubsection{\texorpdfstring{cart\+\_\+comm\+\_\+read()}{cart\_comm\_read()}}
+{\footnotesize\ttfamily int cart\+\_\+comm\+::cart\+\_\+comm\+\_\+read (\begin{DoxyParamCaption}\item[{char $\ast$$\ast$}]{cart\+\_\+comm\+\_\+recv\+\_\+buf,  }\item[{ulapi\+\_\+integer}]{client\+\_\+id }\end{DoxyParamCaption})}
+
+Reads responses from the cart clients, expects messages to be delimited by newline with no null terminator. ~\newline
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt out}  & {\em cart\+\_\+comm\+\_\+recv\+\_\+buf} & String pointer to hold the response recieved from the cart client \\
+\hline
+\mbox{\tt in}  & {\em client\+\_\+id} & The socket descriptor for the cart client to receive information from. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+An integer indicating the error status of the ulapi socket. Returns a negative number if an error occurred while attempting to send the message. 
+\end{DoxyReturn}
+
+
+Definition at line 531 of file cart\+\_\+comm.\+cpp.
+
+\mbox{\Hypertarget{classcart__comm_a9982dd0f466dd95898ebe0cf6fd168c5}\label{classcart__comm_a9982dd0f466dd95898ebe0cf6fd168c5}} 
+\index{cart\+\_\+comm@{cart\+\_\+comm}!cart\+\_\+comm\+\_\+read\+\_\+init@{cart\+\_\+comm\+\_\+read\+\_\+init}}
+\index{cart\+\_\+comm\+\_\+read\+\_\+init@{cart\+\_\+comm\+\_\+read\+\_\+init}!cart\+\_\+comm@{cart\+\_\+comm}}
+\subsubsection{\texorpdfstring{cart\+\_\+comm\+\_\+read\+\_\+init()}{cart\_comm\_read\_init()}}
+{\footnotesize\ttfamily int cart\+\_\+comm\+::cart\+\_\+comm\+\_\+read\+\_\+init (\begin{DoxyParamCaption}\item[{char $\ast$$\ast$}]{cart\+\_\+comm\+\_\+recv\+\_\+buf,  }\item[{\mbox{\hyperlink{classcart__status__copy}{cart\+\_\+status\+\_\+copy}} $\ast$}]{new\+\_\+stat }\end{DoxyParamCaption})}
+
+Reads responses from the cart clients, expects messages to be delimited by newline with no null terminator. ~\newline
+(Note to self\+: Not exactly sure how this function differs from cart\+\_\+comm\+\_\+read. May remove this). 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt out}  & {\em cart\+\_\+comm\+\_\+recv\+\_\+buf} & String pointer to hold the response recieved from the cart client \\
+\hline
+\mbox{\tt in}  & {\em client\+\_\+id} & The socket descriptor for the cart client to receive information from. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+An integer indicating the error status of the ulapi socket. Returns a negative number if an error occurred while attempting to send the message. 
+\end{DoxyReturn}
+
+
+Definition at line 572 of file cart\+\_\+comm.\+cpp.
+
+\mbox{\Hypertarget{classcart__comm_a51c43bf924607212e128f75006defed8}\label{classcart__comm_a51c43bf924607212e128f75006defed8}} 
+\index{cart\+\_\+comm@{cart\+\_\+comm}!cart\+\_\+connect@{cart\+\_\+connect}}
+\index{cart\+\_\+connect@{cart\+\_\+connect}!cart\+\_\+comm@{cart\+\_\+comm}}
+\subsubsection{\texorpdfstring{cart\+\_\+connect()}{cart\_connect()}}
+{\footnotesize\ttfamily int cart\+\_\+comm\+::cart\+\_\+connect (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Accepts new client on server, initializes and updates internal data structures. This function is fully mutexed. \begin{DoxyReturn}{Returns}
+Integer indicating the error status of the function. A negative number indicates an error occurred while attempting to initialize the socket. 
+\end{DoxyReturn}
+
+
+Definition at line 148 of file cart\+\_\+comm.\+cpp.
+
+\mbox{\Hypertarget{classcart__comm_acde9fbf68884955ccfd94a907add2396}\label{classcart__comm_acde9fbf68884955ccfd94a907add2396}} 
+\index{cart\+\_\+comm@{cart\+\_\+comm}!client\+\_\+disconnect@{client\+\_\+disconnect}}
+\index{client\+\_\+disconnect@{client\+\_\+disconnect}!cart\+\_\+comm@{cart\+\_\+comm}}
+\subsubsection{\texorpdfstring{client\+\_\+disconnect()}{client\_disconnect()}}
+{\footnotesize\ttfamily int cart\+\_\+comm\+::client\+\_\+disconnect (\begin{DoxyParamCaption}\item[{ulapi\+\_\+integer}]{client\+\_\+id }\end{DoxyParamCaption})}
+
+Disconnects client from server and updates internal data structures to release memory occupied by client status. This function is fully mutexed. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em client\+\_\+id} & The socket descriptor for the client to be disconnected. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Integer indicating the error status of the function. A negative number indicates an error occurred while attempting to initialize the socket. 
+\end{DoxyReturn}
+
+
+Definition at line 190 of file cart\+\_\+comm.\+cpp.
+
+\mbox{\Hypertarget{classcart__comm_a6ccdb437e38073d80fd3a12163a954c4}\label{classcart__comm_a6ccdb437e38073d80fd3a12163a954c4}} 
+\index{cart\+\_\+comm@{cart\+\_\+comm}!comm\+\_\+err@{comm\+\_\+err}}
+\index{comm\+\_\+err@{comm\+\_\+err}!cart\+\_\+comm@{cart\+\_\+comm}}
+\subsubsection{\texorpdfstring{comm\+\_\+err()}{comm\_err()}}
+{\footnotesize\ttfamily void cart\+\_\+comm\+::comm\+\_\+err (\begin{DoxyParamCaption}\item[{int}]{err,  }\item[{char $\ast$}]{msg }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+Helper function to print error messages related to ulapi socket failures. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em err} & Error code to be printed \\
+\hline
+\mbox{\tt in}  & {\em msg} & Character array that contains the message to be printed.\\
+\hline
+\end{DoxyParams}
+Helper function for printing communication errors. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em err} & Error code returned by ulapi socket \\
+\hline
+\mbox{\tt in}  & {\em msg} & Error message the user desires to print. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 36 of file cart\+\_\+comm.\+cpp.
+
+\mbox{\Hypertarget{classcart__comm_a33db5a17772cf87452ebdfae4547e152}\label{classcart__comm_a33db5a17772cf87452ebdfae4547e152}} 
+\index{cart\+\_\+comm@{cart\+\_\+comm}!get\+\_\+client\+\_\+count@{get\+\_\+client\+\_\+count}}
+\index{get\+\_\+client\+\_\+count@{get\+\_\+client\+\_\+count}!cart\+\_\+comm@{cart\+\_\+comm}}
+\subsubsection{\texorpdfstring{get\+\_\+client\+\_\+count()}{get\_client\_count()}}
+{\footnotesize\ttfamily int cart\+\_\+comm\+::get\+\_\+client\+\_\+count (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Accessor function to return the current number of connected clients. This function is fully mutexed. \begin{DoxyReturn}{Returns}
+The number of currently connected clients. 
+\end{DoxyReturn}
+
+
+Definition at line 259 of file cart\+\_\+comm.\+cpp.
+
+\mbox{\Hypertarget{classcart__comm_a9f5d2a267cb9dd82603cea7656ad57fc}\label{classcart__comm_a9f5d2a267cb9dd82603cea7656ad57fc}} 
+\index{cart\+\_\+comm@{cart\+\_\+comm}!get\+\_\+client\+\_\+id@{get\+\_\+client\+\_\+id}}
+\index{get\+\_\+client\+\_\+id@{get\+\_\+client\+\_\+id}!cart\+\_\+comm@{cart\+\_\+comm}}
+\subsubsection{\texorpdfstring{get\+\_\+client\+\_\+id()}{get\_client\_id()}}
+{\footnotesize\ttfamily ulapi\+\_\+integer cart\+\_\+comm\+::get\+\_\+client\+\_\+id (\begin{DoxyParamCaption}\item[{int}]{index }\end{DoxyParamCaption})}
+
+Accessor function to return a client\+\_\+id at a specific index in client\+\_\+arr. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em index} & Integer denoting the element of client\+\_\+arr to return the client\+\_\+id. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The socket descriptor for the client. Reutrns a negative number if no client exists at the location specified. 
+\end{DoxyReturn}
+
+
+Definition at line 228 of file cart\+\_\+comm.\+cpp.
+
+\mbox{\Hypertarget{classcart__comm_a6dcf8cc0eedecebcd436653da2ab680d}\label{classcart__comm_a6dcf8cc0eedecebcd436653da2ab680d}} 
+\index{cart\+\_\+comm@{cart\+\_\+comm}!get\+\_\+client\+\_\+index@{get\+\_\+client\+\_\+index}}
+\index{get\+\_\+client\+\_\+index@{get\+\_\+client\+\_\+index}!cart\+\_\+comm@{cart\+\_\+comm}}
+\subsubsection{\texorpdfstring{get\+\_\+client\+\_\+index()}{get\_client\_index()}}
+{\footnotesize\ttfamily int cart\+\_\+comm\+::get\+\_\+client\+\_\+index (\begin{DoxyParamCaption}\item[{ulapi\+\_\+integer}]{client\+\_\+id }\end{DoxyParamCaption})}
+
+Accessor function to return the location of a client in client\+\_\+arr given a client socket descriptor. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em client\+\_\+id} & Socket descriptor to search for in client\+\_\+arr. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Index into client\+\_\+arr where client\+\_\+id was found. Returns a negative number if the client could not be found. 
+\end{DoxyReturn}
+
+
+Definition at line 240 of file cart\+\_\+comm.\+cpp.
+
+\mbox{\Hypertarget{classcart__comm_a00fdba1bcb1d3e7234c83a1b2d692947}\label{classcart__comm_a00fdba1bcb1d3e7234c83a1b2d692947}} 
+\index{cart\+\_\+comm@{cart\+\_\+comm}!print\+\_\+client\+\_\+ids@{print\+\_\+client\+\_\+ids}}
+\index{print\+\_\+client\+\_\+ids@{print\+\_\+client\+\_\+ids}!cart\+\_\+comm@{cart\+\_\+comm}}
+\subsubsection{\texorpdfstring{print\+\_\+client\+\_\+ids()}{print\_client\_ids()}}
+{\footnotesize\ttfamily void cart\+\_\+comm\+::print\+\_\+client\+\_\+ids (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Prints a list of socket descriptors for all currently connected clients. Fully mutexed. 
+
+Definition at line 419 of file cart\+\_\+comm.\+cpp.
+
+\mbox{\Hypertarget{classcart__comm_a46b117a719b4844c97b570229c82cbc8}\label{classcart__comm_a46b117a719b4844c97b570229c82cbc8}} 
+\index{cart\+\_\+comm@{cart\+\_\+comm}!print\+\_\+client\+\_\+status@{print\+\_\+client\+\_\+status}}
+\index{print\+\_\+client\+\_\+status@{print\+\_\+client\+\_\+status}!cart\+\_\+comm@{cart\+\_\+comm}}
+\subsubsection{\texorpdfstring{print\+\_\+client\+\_\+status()}{print\_client\_status()}}
+{\footnotesize\ttfamily void cart\+\_\+comm\+::print\+\_\+client\+\_\+status (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Prints the contents of all client status structures for all currently connected clients. 
+
+Definition at line 439 of file cart\+\_\+comm.\+cpp.
+
+\mbox{\Hypertarget{classcart__comm_ab7f3cc745c6935abadf38a87a00740c8}\label{classcart__comm_ab7f3cc745c6935abadf38a87a00740c8}} 
+\index{cart\+\_\+comm@{cart\+\_\+comm}!recv@{recv}}
+\index{recv@{recv}!cart\+\_\+comm@{cart\+\_\+comm}}
+\subsubsection{\texorpdfstring{recv()}{recv()}}
+{\footnotesize\ttfamily int cart\+\_\+comm\+::recv (\begin{DoxyParamCaption}\item[{char $\ast$}]{buf,  }\item[{ulapi\+\_\+integer}]{client\+\_\+id,  }\item[{int}]{len }\end{DoxyParamCaption})}
+
+Wraps ulapi calls and error checks to read a message from a client socket. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt out}  & {\em buf} & Character buffer that will store the returned message. \\
+\hline
+\mbox{\tt in}  & {\em client\+\_\+id} & Socket descriptor of client from which the message will be recieved. \\
+\hline
+\mbox{\tt in}  & {\em len} & Size of buf in bytes. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+An integer indicating the error status of the ulapi socket. Returns a negative number if an error occurred while attempting to recieve the message. 
+\end{DoxyReturn}
+
+
+Definition at line 512 of file cart\+\_\+comm.\+cpp.
+
+\mbox{\Hypertarget{classcart__comm_a18d4c10fb7af8cb219460461fa5967f5}\label{classcart__comm_a18d4c10fb7af8cb219460461fa5967f5}} 
+\index{cart\+\_\+comm@{cart\+\_\+comm}!select\+\_\+client@{select\+\_\+client}}
+\index{select\+\_\+client@{select\+\_\+client}!cart\+\_\+comm@{cart\+\_\+comm}}
+\subsubsection{\texorpdfstring{select\+\_\+client()}{select\_client()}}
+{\footnotesize\ttfamily void cart\+\_\+comm\+::select\+\_\+client (\begin{DoxyParamCaption}\item[{int}]{client\+\_\+id,  }\item[{\mbox{\hyperlink{classcart__status__copy}{cart\+\_\+status\+\_\+copy}} $\ast$$\ast$}]{copied\+\_\+client }\end{DoxyParamCaption})}
+
+Copies all the status info for a given client into a separate data structure. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em client\+\_\+id} & The socket descriptor of the client to copy. \\
+\hline
+\mbox{\tt out}  & {\em copied\+\_\+client} & The data structure that will store the copied data. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 296 of file cart\+\_\+comm.\+cpp.
+
+\mbox{\Hypertarget{classcart__comm_a0fd670aab891757e6371a66c4b48b0a3}\label{classcart__comm_a0fd670aab891757e6371a66c4b48b0a3}} 
+\index{cart\+\_\+comm@{cart\+\_\+comm}!send@{send}}
+\index{send@{send}!cart\+\_\+comm@{cart\+\_\+comm}}
+\subsubsection{\texorpdfstring{send()}{send()}}
+{\footnotesize\ttfamily int cart\+\_\+comm\+::send (\begin{DoxyParamCaption}\item[{char $\ast$}]{buf,  }\item[{ulapi\+\_\+integer}]{client\+\_\+id }\end{DoxyParamCaption})}
+
+Sends command messages to a cart client process appending the current LD pose stored in the status internal structure to the message.~\newline
+Messages sent are formatted \char`\"{}\%s\+:(\%f, \%f, \%f)\char`\"{} Where the first string is the command to be sent to the cart client process and each float is the x, y, and theta components~\newline
+of the LD vehicle, repsectively. Intended for use with clients that already have been connected and initialized. Note that if a socket error occurs while attempting to send the message, the client will be disconnected. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em buf} & Contains the command portion of the message. \\
+\hline
+\mbox{\tt in}  & {\em Socket} & descriptor for the client the message will be sent to. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+An integer indicating the error status of the ulapi socket. Returns a negative number if an error occurred while attempting to send the message. 
+\end{DoxyReturn}
+
+
+Definition at line 452 of file cart\+\_\+comm.\+cpp.
+
+\mbox{\Hypertarget{classcart__comm_ae135775f8ce91e322bd83ece751552b4}\label{classcart__comm_ae135775f8ce91e322bd83ece751552b4}} 
+\index{cart\+\_\+comm@{cart\+\_\+comm}!send\+\_\+init@{send\+\_\+init}}
+\index{send\+\_\+init@{send\+\_\+init}!cart\+\_\+comm@{cart\+\_\+comm}}
+\subsubsection{\texorpdfstring{send\+\_\+init()}{send\_init()}}
+{\footnotesize\ttfamily int cart\+\_\+comm\+::send\+\_\+init (\begin{DoxyParamCaption}\item[{char $\ast$}]{buf,  }\item[{\mbox{\hyperlink{classcart__status__copy}{cart\+\_\+status\+\_\+copy}} $\ast$}]{new\+\_\+stat }\end{DoxyParamCaption})}
+
+Sends command messages to a cart client process appending the current LD pose stored in the status internal structure to the message.~\newline
+ Messages sent are formatted \char`\"{}\%s\+:(\%f, \%f, \%f)\char`\"{} Where the first string is the command to be sent to the cart client process and each float is the x, y, and theta components~\newline
+ of the LD vehicle, repsectively. Same as send process but omits an extra error check for newly connected clients since the socket is opened before the~\newline
+ data structures tracking the status of the client are added to the vehicle process\textquotesingle{}s internal data structures.~\newline
+ Note that if a socket error occurs while attempting to send the message, the client will be disconnected.~\newline
+Intended for use with newly connected clients. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em buf} & Contains the command portion of the message. \\
+\hline
+\mbox{\tt in}  & {\em Socket} & descriptor for the client the message will be sent to. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+An integer indicating the error status of the ulapi socket. Returns a negative number if an error occurred while attempting to send the message. 
+\end{DoxyReturn}
+
+
+Definition at line 482 of file cart\+\_\+comm.\+cpp.
+
+\mbox{\Hypertarget{classcart__comm_afb6465437c06e86f9272a8886ac58909}\label{classcart__comm_afb6465437c06e86f9272a8886ac58909}} 
+\index{cart\+\_\+comm@{cart\+\_\+comm}!shift\+\_\+clients@{shift\+\_\+clients}}
+\index{shift\+\_\+clients@{shift\+\_\+clients}!cart\+\_\+comm@{cart\+\_\+comm}}
+\subsubsection{\texorpdfstring{shift\+\_\+clients()}{shift\_clients()}}
+{\footnotesize\ttfamily void cart\+\_\+comm\+::shift\+\_\+clients (\begin{DoxyParamCaption}\item[{int}]{start }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+Helper function that shifts the elements of client\+\_\+arr so no holes in memory occur when a client disconnects and its data is deleted from the array. 
+\begin{DoxyParams}{Parameters}
+{\em start} & Index of deleted element. Starting place in array to begin shifting elements.\\
+\hline
+\end{DoxyParams}
+Helper function used to ensure list of client ids is contiguous. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em start} & An index indicating where shifting should start. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 45 of file cart\+\_\+comm.\+cpp.
+
+\mbox{\Hypertarget{classcart__comm_acea9c1ef1278323dd0e387b34c5c8015}\label{classcart__comm_acea9c1ef1278323dd0e387b34c5c8015}} 
+\index{cart\+\_\+comm@{cart\+\_\+comm}!simple\+\_\+scheduler@{simple\+\_\+scheduler}}
+\index{simple\+\_\+scheduler@{simple\+\_\+scheduler}!cart\+\_\+comm@{cart\+\_\+comm}}
+\subsubsection{\texorpdfstring{simple\+\_\+scheduler()}{simple\_scheduler()}}
+{\footnotesize\ttfamily ulapi\+\_\+integer cart\+\_\+comm\+::simple\+\_\+scheduler (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Scheduling function to select the next client to service. Essentially a First Come First Served scheduling algorithm. \begin{DoxyReturn}{Returns}
+The socket descriptor for the next client to service. 
+\end{DoxyReturn}
+
+
+Definition at line 271 of file cart\+\_\+comm.\+cpp.
+
+\mbox{\Hypertarget{classcart__comm_a90f2c5d14510aabfa28439a05e5bebb6}\label{classcart__comm_a90f2c5d14510aabfa28439a05e5bebb6}} 
+\index{cart\+\_\+comm@{cart\+\_\+comm}!update\+\_\+previous\+\_\+dock@{update\+\_\+previous\+\_\+dock}}
+\index{update\+\_\+previous\+\_\+dock@{update\+\_\+previous\+\_\+dock}!cart\+\_\+comm@{cart\+\_\+comm}}
+\subsubsection{\texorpdfstring{update\+\_\+previous\+\_\+dock()}{update\_previous\_dock()}}
+{\footnotesize\ttfamily void cart\+\_\+comm\+::update\+\_\+previous\+\_\+dock (\begin{DoxyParamCaption}\item[{ulapi\+\_\+integer}]{client\+\_\+id }\end{DoxyParamCaption})}
+
+Updates the previous location of a client so that the vehicle may return to that client when scheduling it for service. 
+\begin{DoxyParams}{Parameters}
+{\em client\+\_\+id} & The socket descriptor of the client to update. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 618 of file cart\+\_\+comm.\+cpp.
+
+\mbox{\Hypertarget{classcart__comm_ac3827fcfb77461137bf7a061471c7feb}\label{classcart__comm_ac3827fcfb77461137bf7a061471c7feb}} 
+\index{cart\+\_\+comm@{cart\+\_\+comm}!update\+\_\+status@{update\+\_\+status}}
+\index{update\+\_\+status@{update\+\_\+status}!cart\+\_\+comm@{cart\+\_\+comm}}
+\subsubsection{\texorpdfstring{update\+\_\+status()}{update\_status()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void cart\+\_\+comm\+::update\+\_\+status (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\begin{DoxyRefDesc}{Deprecated}
+\item[\mbox{\hyperlink{deprecated__deprecated000001}{Deprecated}}]Updates the status of all cart clients. First sends the command \char`\"{}rcstatus\char`\"{} to cart processes, then calls update\+\_\+status on internal data structures to update the data structure. Use of this function is deprecated as the current pose of each client in the vehicle process\textquotesingle{}s internal data structures is not updated. Mainly used for testing communications. \end{DoxyRefDesc}
+
+
+Definition at line 354 of file cart\+\_\+comm.\+cpp.
+
+\mbox{\Hypertarget{classcart__comm_a6724898e4c76e4e802c4bc6b814130bc}\label{classcart__comm_a6724898e4c76e4e802c4bc6b814130bc}} 
+\index{cart\+\_\+comm@{cart\+\_\+comm}!update\+\_\+status@{update\+\_\+status}}
+\index{update\+\_\+status@{update\+\_\+status}!cart\+\_\+comm@{cart\+\_\+comm}}
+\subsubsection{\texorpdfstring{update\+\_\+status()}{update\_status()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void cart\+\_\+comm\+::update\+\_\+status (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structld__msg__pose}{ld\+\_\+msg\+\_\+pose}} $\ast$}]{new\+\_\+pose }\end{DoxyParamCaption})}
+
+Updates the status of all cart clients. First sends the command \char`\"{}rcstatus\char`\"{} to cart processes, then calls update\+\_\+status on internal data structures to update the data structure. This function also updates the current pose contained in the internal data structures. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em new\+\_\+pose} & Pointer to a structure containing the updated pose information for each client. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 384 of file cart\+\_\+comm.\+cpp.
+
+\mbox{\Hypertarget{classcart__comm_aa4aa3baa5fae85a6469ae9683a6d2cbc}\label{classcart__comm_aa4aa3baa5fae85a6469ae9683a6d2cbc}} 
+\index{cart\+\_\+comm@{cart\+\_\+comm}!update\+\_\+status\+\_\+init@{update\+\_\+status\+\_\+init}}
+\index{update\+\_\+status\+\_\+init@{update\+\_\+status\+\_\+init}!cart\+\_\+comm@{cart\+\_\+comm}}
+\subsubsection{\texorpdfstring{update\+\_\+status\+\_\+init()}{update\_status\_init()}}
+{\footnotesize\ttfamily int cart\+\_\+comm\+::update\+\_\+status\+\_\+init (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcart__status__copy}{cart\+\_\+status\+\_\+copy}} $\ast$}]{new\+\_\+stat }\end{DoxyParamCaption})}
+
+Initializes the status of a new cart client. First sends a command to the cart process and updates the contents the internal data structures of this process using the message recieved from the cart process.~\newline
+Sends the \char`\"{}rcstatinit\char`\"{} command to cart process and calls update status to change internal data structures. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em new\+\_\+stat} & Pointer to \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Integer indicating the error status of the function. A negative number is returned if an error occurred. 
+\end{DoxyReturn}
+
+
+Definition at line 329 of file cart\+\_\+comm.\+cpp.
+
+
+
+\subsection{Member Data Documentation}
+\mbox{\Hypertarget{classcart__comm_ae5a8dcabaa03d74ec04a5590e738a596}\label{classcart__comm_ae5a8dcabaa03d74ec04a5590e738a596}} 
+\index{cart\+\_\+comm@{cart\+\_\+comm}!client\+\_\+arr@{client\+\_\+arr}}
+\index{client\+\_\+arr@{client\+\_\+arr}!cart\+\_\+comm@{cart\+\_\+comm}}
+\subsubsection{\texorpdfstring{client\+\_\+arr}{client\_arr}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classcart__status__copy}{cart\+\_\+status\+\_\+copy}}$\ast$$\ast$ cart\+\_\+comm\+::client\+\_\+arr\hspace{0.3cm}{\ttfamily [private]}}
+
+Array that stores the connection and status information for each client. 
+
+Definition at line 65 of file cart\+\_\+comm.\+h.
+
+\mbox{\Hypertarget{classcart__comm_ad335e930dcf3978785a97841e8affe52}\label{classcart__comm_ad335e930dcf3978785a97841e8affe52}} 
+\index{cart\+\_\+comm@{cart\+\_\+comm}!client\+\_\+count@{client\+\_\+count}}
+\index{client\+\_\+count@{client\+\_\+count}!cart\+\_\+comm@{cart\+\_\+comm}}
+\subsubsection{\texorpdfstring{client\+\_\+count}{client\_count}}
+{\footnotesize\ttfamily int cart\+\_\+comm\+::client\+\_\+count\hspace{0.3cm}{\ttfamily [private]}}
+
+Counter variable that keeps track of the number of clients currently connected to the server. 
+
+Definition at line 59 of file cart\+\_\+comm.\+h.
+
+\mbox{\Hypertarget{classcart__comm_ab7920bad120f065ea615161aa31c9d7e}\label{classcart__comm_ab7920bad120f065ea615161aa31c9d7e}} 
+\index{cart\+\_\+comm@{cart\+\_\+comm}!connect\+\_\+sem@{connect\+\_\+sem}}
+\index{connect\+\_\+sem@{connect\+\_\+sem}!cart\+\_\+comm@{cart\+\_\+comm}}
+\subsubsection{\texorpdfstring{connect\+\_\+sem}{connect\_sem}}
+{\footnotesize\ttfamily void$\ast$ cart\+\_\+comm\+::connect\+\_\+sem\hspace{0.3cm}{\ttfamily [private]}}
+
+Ulapi semaphore structure used to send sleep and wakeup signals to the cart\+\_\+connect thread that accepts new clients. 
+
+Definition at line 47 of file cart\+\_\+comm.\+h.
+
+\mbox{\Hypertarget{classcart__comm_aaba30e6cd9bf524718862b8171dec9b3}\label{classcart__comm_aaba30e6cd9bf524718862b8171dec9b3}} 
+\index{cart\+\_\+comm@{cart\+\_\+comm}!max\+\_\+clients@{max\+\_\+clients}}
+\index{max\+\_\+clients@{max\+\_\+clients}!cart\+\_\+comm@{cart\+\_\+comm}}
+\subsubsection{\texorpdfstring{max\+\_\+clients}{max\_clients}}
+{\footnotesize\ttfamily int cart\+\_\+comm\+::max\+\_\+clients\hspace{0.3cm}{\ttfamily [private]}}
+
+Constant that stores the maximum number clients that are permitted to be connected the server at once. 
+
+Definition at line 53 of file cart\+\_\+comm.\+h.
+
+\mbox{\Hypertarget{classcart__comm_a02a98a6ee6885d5521590db05650ad41}\label{classcart__comm_a02a98a6ee6885d5521590db05650ad41}} 
+\index{cart\+\_\+comm@{cart\+\_\+comm}!mutex@{mutex}}
+\index{mutex@{mutex}!cart\+\_\+comm@{cart\+\_\+comm}}
+\subsubsection{\texorpdfstring{mutex}{mutex}}
+{\footnotesize\ttfamily ulapi\+\_\+mutex\+\_\+struct$\ast$ cart\+\_\+comm\+::mutex\hspace{0.3cm}{\ttfamily [private]}}
+
+Ulapi mutex used to ensure safe concurrent access to the shared resources of this structure. Shared resources that require mutexing include the server\+\_\+id, max\+\_\+clients, client\+\_\+count, and client\+\_\+arr. Must be careful in locking this variable to avoid mutexing blocking ulapi calls. 
+
+Definition at line 41 of file cart\+\_\+comm.\+h.
+
+\mbox{\Hypertarget{classcart__comm_ac280d2562b45d4f21187f95d573b454a}\label{classcart__comm_ac280d2562b45d4f21187f95d573b454a}} 
+\index{cart\+\_\+comm@{cart\+\_\+comm}!port@{port}}
+\index{port@{port}!cart\+\_\+comm@{cart\+\_\+comm}}
+\subsubsection{\texorpdfstring{port}{port}}
+{\footnotesize\ttfamily ulapi\+\_\+integer cart\+\_\+comm\+::port\hspace{0.3cm}{\ttfamily [private]}}
+
+Port number used to initialize the server socket to which cart client processes connect. Will be set to 5352. 
+
+Definition at line 34 of file cart\+\_\+comm.\+h.
+
+\mbox{\Hypertarget{classcart__comm_a462fbce6dc2408c12ce9de2f4d960f6f}\label{classcart__comm_a462fbce6dc2408c12ce9de2f4d960f6f}} 
+\index{cart\+\_\+comm@{cart\+\_\+comm}!server\+\_\+id@{server\+\_\+id}}
+\index{server\+\_\+id@{server\+\_\+id}!cart\+\_\+comm@{cart\+\_\+comm}}
+\subsubsection{\texorpdfstring{server\+\_\+id}{server\_id}}
+{\footnotesize\ttfamily ulapi\+\_\+integer cart\+\_\+comm\+::server\+\_\+id\hspace{0.3cm}{\ttfamily [private]}}
+
+Ulapi socket descirptor for the server socket. 
+
+Definition at line 28 of file cart\+\_\+comm.\+h.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/oya/\+Desktop/\+Tortoise\+S\+V\+N/\+Applications/\+Application\+\_\+\+Transporter\+Robot\+\_\+\+Vehicle/\mbox{\hyperlink{cart__comm_8h}{cart\+\_\+comm.\+h}}\item 
+C\+:/\+Users/oya/\+Desktop/\+Tortoise\+S\+V\+N/\+Applications/\+Application\+\_\+\+Transporter\+Robot\+\_\+\+Vehicle/\mbox{\hyperlink{cart__comm_8cpp}{cart\+\_\+comm.\+cpp}}\end{DoxyCompactItemize}

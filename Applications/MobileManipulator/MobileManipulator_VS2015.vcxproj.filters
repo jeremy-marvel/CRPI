@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Include">
+      <UniqueIdentifier>{8fcf41f8-911e-491b-b3c6-950643166d34}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source">
+      <UniqueIdentifier>{2a5ea288-4b90-4272-b662-24530feca7b8}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="mobmanmain.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="ACI_msg.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="agv_comm.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="agv_status.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="AR_Interface.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="scanUtils.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="posemath\_mathprnt.c">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="posemath\_posemath.c">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="posemath\posemath.cc">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="posemath\sincos.c">
+      <Filter>Source</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="ACI_msg.h">
+      <Filter>Include</Filter>
+    </ClInclude>
+    <ClInclude Include="agv_comm.h">
+      <Filter>Include</Filter>
+    </ClInclude>
+    <ClInclude Include="agv_status.hh">
+      <Filter>Include</Filter>
+    </ClInclude>
+    <ClInclude Include="AR_Interface.h">
+      <Filter>Include</Filter>
+    </ClInclude>
+    <ClInclude Include="config.hh">
+      <Filter>Include</Filter>
+    </ClInclude>
+    <ClInclude Include="scanUtils.h">
+      <Filter>Include</Filter>
+    </ClInclude>
+    <ClInclude Include="posemath\mathprnt.h">
+      <Filter>Include</Filter>
+    </ClInclude>
+    <ClInclude Include="posemath\posemath.h">
+      <Filter>Include</Filter>
+    </ClInclude>
+    <ClInclude Include="posemath\sincos.h">
+      <Filter>Include</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

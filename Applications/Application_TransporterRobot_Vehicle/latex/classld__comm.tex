@@ -1,0 +1,135 @@
+\hypertarget{classld__comm}{}\section{ld\+\_\+comm Class Reference}
+\label{classld__comm}\index{ld\+\_\+comm@{ld\+\_\+comm}}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classld__comm_afecf4465db68994a6c4c6024338498c8}{ld\+\_\+comm} (ulapi\+\_\+integer arcl\+\_\+port, bool log)
+\item 
+\hyperlink{classld__comm_af403b74c6732802512b416fdcecef916}{$\sim$ld\+\_\+comm} ()
+\item 
+int \hyperlink{classld__comm_a8cd32085a2ad22929e381ffce3fed103}{ld\+\_\+connect} ()
+\item 
+int \hyperlink{classld__comm_ad9a9140d9e21ae6c991dda317808acce}{client\+\_\+disconnect} ()
+\item 
+int \hyperlink{classld__comm_a735b4f8a86715cd2fde806ae6f7ba6b3}{arcl\+\_\+dsfv\+\_\+pose} (\hyperlink{structld__msg__pose}{ld\+\_\+msg\+\_\+pose} $\ast$pose)
+\item 
+int \hyperlink{classld__comm_a936a049861974c0ffa5d836a1364aa03}{arcl\+\_\+read\+\_\+status} (char $\ast$status\+\_\+string)
+\item 
+int \hyperlink{classld__comm_afaca1d34911ee06e0b8d07efd3a074d3}{arcl\+\_\+read} (char $\ast$$\ast$arcl\+\_\+recv\+\_\+buf)
+\item 
+void \hyperlink{classld__comm_aceb15ae4635e8033ec46cb1a54a99c1f}{print\+\_\+pose} (\hyperlink{structld__msg__pose}{ld\+\_\+msg\+\_\+pose} $\ast$msg)
+\item 
+void \hyperlink{classld__comm_a1219ef460b9a510a448704f57ce0412e}{log\+\_\+pose} (\hyperlink{structld__msg__pose}{ld\+\_\+msg\+\_\+pose} $\ast$msg)
+\item 
+void \hyperlink{classld__comm_ad47e957c7397e42e82128ee143d8b143}{log\+\_\+comment} (char $\ast$msg)
+\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classld__comm_afecf4465db68994a6c4c6024338498c8}\label{classld__comm_afecf4465db68994a6c4c6024338498c8}} 
+\index{ld\+\_\+comm@{ld\+\_\+comm}!ld\+\_\+comm@{ld\+\_\+comm}}
+\index{ld\+\_\+comm@{ld\+\_\+comm}!ld\+\_\+comm@{ld\+\_\+comm}}
+\subsubsection{\texorpdfstring{ld\+\_\+comm()}{ld\_comm()}}
+{\footnotesize\ttfamily ld\+\_\+comm\+::ld\+\_\+comm (\begin{DoxyParamCaption}\item[{ulapi\+\_\+integer}]{arcl\+\_\+port,  }\item[{bool}]{log }\end{DoxyParamCaption})}
+
+Constructor. Initializes variables used to establish ulapi server socket. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em arcl\+\_\+port} & Port number to use for the created server socket. \\
+\hline
+\mbox{\tt in}  & {\em log} & Boolean used to enable or disable logging \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classld__comm_af403b74c6732802512b416fdcecef916}\label{classld__comm_af403b74c6732802512b416fdcecef916}} 
+\index{ld\+\_\+comm@{ld\+\_\+comm}!````~ld\+\_\+comm@{$\sim$ld\+\_\+comm}}
+\index{````~ld\+\_\+comm@{$\sim$ld\+\_\+comm}!ld\+\_\+comm@{ld\+\_\+comm}}
+\subsubsection{\texorpdfstring{$\sim$ld\+\_\+comm()}{~ld\_comm()}}
+{\footnotesize\ttfamily ld\+\_\+comm\+::$\sim$ld\+\_\+comm (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Destructor. Used to safely close server socket. 
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classld__comm_a735b4f8a86715cd2fde806ae6f7ba6b3}\label{classld__comm_a735b4f8a86715cd2fde806ae6f7ba6b3}} 
+\index{ld\+\_\+comm@{ld\+\_\+comm}!arcl\+\_\+dsfv\+\_\+pose@{arcl\+\_\+dsfv\+\_\+pose}}
+\index{arcl\+\_\+dsfv\+\_\+pose@{arcl\+\_\+dsfv\+\_\+pose}!ld\+\_\+comm@{ld\+\_\+comm}}
+\subsubsection{\texorpdfstring{arcl\+\_\+dsfv\+\_\+pose()}{arcl\_dsfv\_pose()}}
+{\footnotesize\ttfamily int ld\+\_\+comm\+::arcl\+\_\+dsfv\+\_\+pose (\begin{DoxyParamCaption}\item[{\hyperlink{structld__msg__pose}{ld\+\_\+msg\+\_\+pose} $\ast$}]{pose }\end{DoxyParamCaption})}
+
+Reads the results of commands that are automatically executed on the vehicle and pushed to the control program. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt out}  & {\em pose} & Data structure to hold the pose and timestamp that is returned. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classld__comm_afaca1d34911ee06e0b8d07efd3a074d3}\label{classld__comm_afaca1d34911ee06e0b8d07efd3a074d3}} 
+\index{ld\+\_\+comm@{ld\+\_\+comm}!arcl\+\_\+read@{arcl\+\_\+read}}
+\index{arcl\+\_\+read@{arcl\+\_\+read}!ld\+\_\+comm@{ld\+\_\+comm}}
+\subsubsection{\texorpdfstring{arcl\+\_\+read()}{arcl\_read()}}
+{\footnotesize\ttfamily int ld\+\_\+comm\+::arcl\+\_\+read (\begin{DoxyParamCaption}\item[{char $\ast$$\ast$}]{arcl\+\_\+recv\+\_\+buf }\end{DoxyParamCaption})}
+
+Reads responses from the A\+R\+CL server, returning responses line by line. Reads A\+R\+CL server messages delmited by newlines. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt out}  & {\em arcl\+\_\+recv\+\_\+buf} & String pointer to hold the response recieved from the A\+R\+CL server. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classld__comm_a936a049861974c0ffa5d836a1364aa03}\label{classld__comm_a936a049861974c0ffa5d836a1364aa03}} 
+\index{ld\+\_\+comm@{ld\+\_\+comm}!arcl\+\_\+read\+\_\+status@{arcl\+\_\+read\+\_\+status}}
+\index{arcl\+\_\+read\+\_\+status@{arcl\+\_\+read\+\_\+status}!ld\+\_\+comm@{ld\+\_\+comm}}
+\subsubsection{\texorpdfstring{arcl\+\_\+read\+\_\+status()}{arcl\_read\_status()}}
+{\footnotesize\ttfamily int ld\+\_\+comm\+::arcl\+\_\+read\+\_\+status (\begin{DoxyParamCaption}\item[{char $\ast$}]{status\+\_\+string }\end{DoxyParamCaption})}
+
+Repetedly polls the socket until a goal arrival message is recieved from the A\+R\+CL server. ~\newline
+Used to pause the program until a specified broadcast message is received from the ld. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em status\+\_\+string} & The broadcast message from the A\+R\+CL server to wait for. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classld__comm_ad9a9140d9e21ae6c991dda317808acce}\label{classld__comm_ad9a9140d9e21ae6c991dda317808acce}} 
+\index{ld\+\_\+comm@{ld\+\_\+comm}!client\+\_\+disconnect@{client\+\_\+disconnect}}
+\index{client\+\_\+disconnect@{client\+\_\+disconnect}!ld\+\_\+comm@{ld\+\_\+comm}}
+\subsubsection{\texorpdfstring{client\+\_\+disconnect()}{client\_disconnect()}}
+{\footnotesize\ttfamily int ld\+\_\+comm\+::client\+\_\+disconnect (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Used to safely disconnect a currently running client connection. \mbox{\Hypertarget{classld__comm_a8cd32085a2ad22929e381ffce3fed103}\label{classld__comm_a8cd32085a2ad22929e381ffce3fed103}} 
+\index{ld\+\_\+comm@{ld\+\_\+comm}!ld\+\_\+connect@{ld\+\_\+connect}}
+\index{ld\+\_\+connect@{ld\+\_\+connect}!ld\+\_\+comm@{ld\+\_\+comm}}
+\subsubsection{\texorpdfstring{ld\+\_\+connect()}{ld\_connect()}}
+{\footnotesize\ttfamily int ld\+\_\+comm\+::ld\+\_\+connect (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Opens the server socket and then waits to accept the ld to connect as a client. \mbox{\Hypertarget{classld__comm_ad47e957c7397e42e82128ee143d8b143}\label{classld__comm_ad47e957c7397e42e82128ee143d8b143}} 
+\index{ld\+\_\+comm@{ld\+\_\+comm}!log\+\_\+comment@{log\+\_\+comment}}
+\index{log\+\_\+comment@{log\+\_\+comment}!ld\+\_\+comm@{ld\+\_\+comm}}
+\subsubsection{\texorpdfstring{log\+\_\+comment()}{log\_comment()}}
+{\footnotesize\ttfamily void ld\+\_\+comm\+::log\+\_\+comment (\begin{DoxyParamCaption}\item[{char $\ast$}]{msg }\end{DoxyParamCaption})}
+
+Enters additional comments into the log. Useful for adding headers to the C\+SV file. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em msg} & Message to be added to the log. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classld__comm_a1219ef460b9a510a448704f57ce0412e}\label{classld__comm_a1219ef460b9a510a448704f57ce0412e}} 
+\index{ld\+\_\+comm@{ld\+\_\+comm}!log\+\_\+pose@{log\+\_\+pose}}
+\index{log\+\_\+pose@{log\+\_\+pose}!ld\+\_\+comm@{ld\+\_\+comm}}
+\subsubsection{\texorpdfstring{log\+\_\+pose()}{log\_pose()}}
+{\footnotesize\ttfamily void ld\+\_\+comm\+::log\+\_\+pose (\begin{DoxyParamCaption}\item[{\hyperlink{structld__msg__pose}{ld\+\_\+msg\+\_\+pose} $\ast$}]{msg }\end{DoxyParamCaption})}
+
+Outputs the contents of a pose message to a log file in C\+SV format. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em msg} & ld\+\_\+pose\+\_\+msg structure to be printed. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classld__comm_aceb15ae4635e8033ec46cb1a54a99c1f}\label{classld__comm_aceb15ae4635e8033ec46cb1a54a99c1f}} 
+\index{ld\+\_\+comm@{ld\+\_\+comm}!print\+\_\+pose@{print\+\_\+pose}}
+\index{print\+\_\+pose@{print\+\_\+pose}!ld\+\_\+comm@{ld\+\_\+comm}}
+\subsubsection{\texorpdfstring{print\+\_\+pose()}{print\_pose()}}
+{\footnotesize\ttfamily void ld\+\_\+comm\+::print\+\_\+pose (\begin{DoxyParamCaption}\item[{\hyperlink{structld__msg__pose}{ld\+\_\+msg\+\_\+pose} $\ast$}]{msg }\end{DoxyParamCaption})}
+
+Outputs the contents of a pose message to the console. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em msg} & ld\+\_\+pose\+\_\+msg structure to be printed. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{ld__comm_8h}{ld\+\_\+comm.\+h}\item 
+\hyperlink{ld__comm_8cpp}{ld\+\_\+comm.\+cpp}\end{DoxyCompactItemize}

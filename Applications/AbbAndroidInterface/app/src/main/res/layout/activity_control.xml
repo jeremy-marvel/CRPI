@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/controller_activity_layout"
+    tools:context="com.example.jta2.yumicontroller.ControlActivity">
+
+    <!--Main live video feed-->
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/main_video_feed"/>
+
+
+    <!--Left Joystick-->
+    <com.example.jta2.yumicontroller.JoystickView
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="25dp"
+        android:layout_marginLeft="25dp"
+        android:id="@+id/left_stick"/>
+
+    <!--Left Grabber Off Button-->
+    <Button
+        android:layout_width="80dp"
+        android:layout_height="50dp"
+        android:text="Let Go"
+        android:background="@drawable/rounded_button"
+        android:layout_above="@id/left_stick"
+        android:layout_marginTop="5dp"
+        android:id="@+id/l_grabber_off"/>
+
+    <!--Left Grabber On Button-->
+    <Button
+        android:layout_width="80dp"
+        android:layout_height="50dp"
+        android:text="Grab"
+        android:background="@drawable/rounded_button"
+        android:layout_above="@id/l_grabber_off"
+        android:id="@+id/l_grabber_on"/>
+
+    <!--Right Joystick-->
+    <com.example.jta2.yumicontroller.JoystickView
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginBottom="25dp"
+        android:layout_marginRight="25dp"
+        android:id="@+id/right_stick"/>
+
+    <!--Right Grabber Off Button-->
+    <Button
+        android:layout_width="80dp"
+        android:layout_height="50dp"
+        android:text="Let Go"
+        android:background="@drawable/rounded_button"
+        android:layout_above="@id/right_stick"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="5dp"
+        android:id="@+id/r_grabber_off"/>
+
+    <!--Right Grabber On Button-->
+    <Button
+        android:layout_width="80dp"
+        android:layout_height="50dp"
+        android:text="Grab"
+        android:background="@drawable/rounded_button"
+        android:layout_alignParentRight="true"
+        android:layout_above="@id/r_grabber_off"
+        android:id="@+id/r_grabber_on"/>
+
+    <!--Left Vertical Axis Control-->
+    <com.example.jta2.yumicontroller.VerticalSeekBar
+        android:layout_width="wrap_content"
+        android:background="@drawable/z_axis_control"
+        android:layout_height="125dp"
+        android:layout_below="@id/l_grabber_off"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="15dp"
+        android:id="@+id/vertical_left"/>
+
+    <!--Right Vertical Axis Control-->
+    <com.example.jta2.yumicontroller.VerticalSeekBar
+        android:layout_width="wrap_content"
+        android:background="@drawable/z_axis_control"
+        android:layout_height="125dp"
+        android:layout_below="@id/r_grabber_off"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="15dp"
+        android:id="@+id/vertical_right"/>
+
+    <!--Edit Interface Button-->
+    <ToggleButton
+        android:layout_width="80dp"
+        android:layout_height="35dp"
+        android:textOff="Edit"
+        android:textOn="Done"
+        android:background="@drawable/rounded_button"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:id="@+id/customize_interface_button" />
+
+</RelativeLayout>

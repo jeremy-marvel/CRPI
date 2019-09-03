@@ -1,0 +1,7 @@
+<Process>
+<RobotPose X="256.546928" Y="690.754488" Z="-214.530638" XRot="-3.028809" YRot="-13.737496" ZRot="-95.091470"/>
+<Cycle Iteration="0" ElapsedTime="0.000000"/>
+<CurStep ID="0" ElapsedTime="0.000000" Description="Move to P1 hover"/>
+<PrevStep ID="7" Description="Retract robot   "/>
+<NextStep ID="1" Description="Move to P1 grasp"/>
+</Process>

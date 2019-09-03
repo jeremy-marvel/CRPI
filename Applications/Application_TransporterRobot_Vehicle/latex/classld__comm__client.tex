@@ -1,0 +1,278 @@
+\hypertarget{classld__comm__client}{}\section{ld\+\_\+comm\+\_\+client Class Reference}
+\label{classld__comm__client}\index{ld\+\_\+comm\+\_\+client@{ld\+\_\+comm\+\_\+client}}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classld__comm__client_abc88de149791710a26470a290de031ef}{ld\+\_\+comm\+\_\+client} (char $\ast$arcl\+\_\+addr, ulapi\+\_\+integer arcl\+\_\+port, char $\ast$arcl\+\_\+passwd, bool log)
+\item 
+\hyperlink{classld__comm__client_a08a4beffb5099ba02edd0acbbcf16187}{$\sim$ld\+\_\+comm\+\_\+client} ()
+\item 
+int \hyperlink{classld__comm__client_a254638599da673cf2f376166a8f9b984}{ld\+\_\+connect} ()
+\item 
+int \hyperlink{classld__comm__client_a9dfef26a96307abc124c780148b2fdd1}{arcl\+\_\+dsfv\+\_\+pose} (\hyperlink{structld__msg__pose}{ld\+\_\+msg\+\_\+pose} $\ast$pose)
+\item 
+int \hyperlink{classld__comm__client_a8fe145161e824738ccd351c5533b9d1e}{arcl\+\_\+dsfv\+\_\+pose\+\_\+encoder} (\hyperlink{structld__msg__pose}{ld\+\_\+msg\+\_\+pose} $\ast$pose)
+\item 
+int \hyperlink{classld__comm__client_a1cbdd2fcd2ea8d7d4072c3953ce5f11d}{arcl\+\_\+dsfv\+\_\+pose\+\_\+interpolated} (\hyperlink{structld__msg__pose}{ld\+\_\+msg\+\_\+pose} $\ast$pose)
+\item 
+int \hyperlink{classld__comm__client_a0b983bc131cfc619e8ab8785daef32e8}{arcl\+\_\+dsfv\+\_\+pose\+\_\+encoder\+\_\+interpolated} (\hyperlink{structld__msg__pose}{ld\+\_\+msg\+\_\+pose} $\ast$pose)
+\item 
+int \hyperlink{classld__comm__client_a9c0159e1ab1f6112e4ee9e14e2ae4975}{arcl\+\_\+dsfv\+\_\+pose\+\_\+localization} (\hyperlink{structld__msg__pose}{ld\+\_\+msg\+\_\+pose} $\ast$pose)
+\item 
+int \hyperlink{classld__comm__client_ac1520245a4281887fc5442933d519bf9}{arcl\+\_\+dsfv\+\_\+pose\+\_\+laser\+\_\+localization} (\hyperlink{structld__msg__pose}{ld\+\_\+msg\+\_\+pose} $\ast$pose)
+\item 
+int \hyperlink{classld__comm__client_a513a0bddf7967271eb3ba45d50f47fe6}{arcl\+\_\+dsfv\+\_\+pose\+\_\+light\+\_\+localization} (\hyperlink{structld__msg__pose}{ld\+\_\+msg\+\_\+pose} $\ast$pose)
+\item 
+int \hyperlink{classld__comm__client_aa6ff20939ad36ccbe390d1c3d9b1b242}{arcl\+\_\+read\+\_\+status} ()
+\item 
+int \hyperlink{classld__comm__client_ad43c866e91c88f9dfd7e50fdec941607}{arcl\+\_\+read} (char $\ast$$\ast$arcl\+\_\+recv\+\_\+buf)
+\item 
+int \hyperlink{classld__comm__client_af044c54c00fe8b8f1528eb094b11ad88}{arcl\+\_\+write} (char $\ast$arcl\+\_\+cmd)
+\item 
+void \hyperlink{classld__comm__client_a29a4395433e6f9d9ec7c3589de7ae211}{print\+\_\+pose} (\hyperlink{structld__msg__pose}{ld\+\_\+msg\+\_\+pose} $\ast$msg)
+\item 
+void \hyperlink{classld__comm__client_a2b9b335282497b7b52b7f9a0e624ffe9}{log\+\_\+pose} (\hyperlink{structld__msg__pose}{ld\+\_\+msg\+\_\+pose} $\ast$msg)
+\item 
+void \hyperlink{classld__comm__client_a8e2124bb6da72ba99ab9d713510e2303}{log\+\_\+comment} (char $\ast$msg)
+\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classld__comm__client_abc88de149791710a26470a290de031ef}\label{classld__comm__client_abc88de149791710a26470a290de031ef}} 
+\index{ld\+\_\+comm\+\_\+client@{ld\+\_\+comm\+\_\+client}!ld\+\_\+comm\+\_\+client@{ld\+\_\+comm\+\_\+client}}
+\index{ld\+\_\+comm\+\_\+client@{ld\+\_\+comm\+\_\+client}!ld\+\_\+comm\+\_\+client@{ld\+\_\+comm\+\_\+client}}
+\subsubsection{\texorpdfstring{ld\+\_\+comm\+\_\+client()}{ld\_comm\_client()}}
+{\footnotesize\ttfamily ld\+\_\+comm\+\_\+client\+::ld\+\_\+comm\+\_\+client (\begin{DoxyParamCaption}\item[{char $\ast$}]{arcl\+\_\+addr,  }\item[{ulapi\+\_\+integer}]{arcl\+\_\+port,  }\item[{char $\ast$}]{arcl\+\_\+passwd,  }\item[{bool}]{log }\end{DoxyParamCaption})}
+
+\hyperlink{classld__comm__client}{ld\+\_\+comm\+\_\+client} Constructor for \hyperlink{classld__comm}{ld\+\_\+comm} object.\+Creates log file for transmitted poses, initializes the ~\newline
+address of the ld A\+R\+Cl server, and password for logging into the server ~\newline
+The values passed into this function are determined by the Adept ld Configuration Parameters. ~\newline
+These can be changed from the vehicle under Interface Options in Mobile Planner. ~\newline
+Then, when calling this constructor, the new parameters can be entered. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em arcl\+\_\+addr} & IP address of the ld A\+R\+CL server \\
+\hline
+\mbox{\tt in}  & {\em arcl\+\_\+port} & port number used when connecting to A\+R\+CL server \\
+\hline
+\mbox{\tt in}  & {\em arcl\+\_\+passwd} & password given to the A\+R\+CL server to login. \\
+\hline
+\mbox{\tt in}  & {\em log} & boolean used to enable logging of A\+R\+CL data. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classld__comm__client_a08a4beffb5099ba02edd0acbbcf16187}\label{classld__comm__client_a08a4beffb5099ba02edd0acbbcf16187}} 
+\index{ld\+\_\+comm\+\_\+client@{ld\+\_\+comm\+\_\+client}!````~ld\+\_\+comm\+\_\+client@{$\sim$ld\+\_\+comm\+\_\+client}}
+\index{````~ld\+\_\+comm\+\_\+client@{$\sim$ld\+\_\+comm\+\_\+client}!ld\+\_\+comm\+\_\+client@{ld\+\_\+comm\+\_\+client}}
+\subsubsection{\texorpdfstring{$\sim$ld\+\_\+comm\+\_\+client()}{~ld\_comm\_client()}}
+{\footnotesize\ttfamily ld\+\_\+comm\+\_\+client\+::$\sim$ld\+\_\+comm\+\_\+client (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Destructor. Safely closes the network connection to the ld. 
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classld__comm__client_a9dfef26a96307abc124c780148b2fdd1}\label{classld__comm__client_a9dfef26a96307abc124c780148b2fdd1}} 
+\index{ld\+\_\+comm\+\_\+client@{ld\+\_\+comm\+\_\+client}!arcl\+\_\+dsfv\+\_\+pose@{arcl\+\_\+dsfv\+\_\+pose}}
+\index{arcl\+\_\+dsfv\+\_\+pose@{arcl\+\_\+dsfv\+\_\+pose}!ld\+\_\+comm\+\_\+client@{ld\+\_\+comm\+\_\+client}}
+\subsubsection{\texorpdfstring{arcl\+\_\+dsfv\+\_\+pose()}{arcl\_dsfv\_pose()}}
+{\footnotesize\ttfamily int ld\+\_\+comm\+\_\+client\+::arcl\+\_\+dsfv\+\_\+pose (\begin{DoxyParamCaption}\item[{\hyperlink{structld__msg__pose}{ld\+\_\+msg\+\_\+pose} $\ast$}]{pose }\end{DoxyParamCaption})}
+
+Sends multiple commands to get the current X, Y, and Theta pose of the vehicle,~\newline
+plus another to get the timestamp. Parses the response and then groups ~\newline
+the data to store within a datastructure. Access pose and status ~\newline
+data within the A\+R\+Cl Data\+Store. This not the best way to monitor the ld ~\newline
+as multiple commands issued in sequence are not guaranteed to return an atomic ~\newline
+response. ~\newline
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt out}  & {\em pose} & datastructure to hold the pose and timestamp that is returned. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+An integer indicating the error status of the function. A negative return value indicates a ulapi socket error. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classld__comm__client_a8fe145161e824738ccd351c5533b9d1e}\label{classld__comm__client_a8fe145161e824738ccd351c5533b9d1e}} 
+\index{ld\+\_\+comm\+\_\+client@{ld\+\_\+comm\+\_\+client}!arcl\+\_\+dsfv\+\_\+pose\+\_\+encoder@{arcl\+\_\+dsfv\+\_\+pose\+\_\+encoder}}
+\index{arcl\+\_\+dsfv\+\_\+pose\+\_\+encoder@{arcl\+\_\+dsfv\+\_\+pose\+\_\+encoder}!ld\+\_\+comm\+\_\+client@{ld\+\_\+comm\+\_\+client}}
+\subsubsection{\texorpdfstring{arcl\+\_\+dsfv\+\_\+pose\+\_\+encoder()}{arcl\_dsfv\_pose\_encoder()}}
+{\footnotesize\ttfamily int ld\+\_\+comm\+\_\+client\+::arcl\+\_\+dsfv\+\_\+pose\+\_\+encoder (\begin{DoxyParamCaption}\item[{\hyperlink{structld__msg__pose}{ld\+\_\+msg\+\_\+pose} $\ast$}]{pose }\end{DoxyParamCaption})}
+
+Same as arcl\+\_\+dsfv\+\_\+pose, but uses a different A\+R\+CL command to access an alternate pose in the data store, see arcl\+\_\+dsfv\+\_\+pose. ~\newline
+Not currently used in performance test. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt out}  & {\em pose} & Datastructure to hold the pose and timestamp that is returned. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+An integer indicating the error status of the function. A negative return value indicates a ulapi socket error. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classld__comm__client_a0b983bc131cfc619e8ab8785daef32e8}\label{classld__comm__client_a0b983bc131cfc619e8ab8785daef32e8}} 
+\index{ld\+\_\+comm\+\_\+client@{ld\+\_\+comm\+\_\+client}!arcl\+\_\+dsfv\+\_\+pose\+\_\+encoder\+\_\+interpolated@{arcl\+\_\+dsfv\+\_\+pose\+\_\+encoder\+\_\+interpolated}}
+\index{arcl\+\_\+dsfv\+\_\+pose\+\_\+encoder\+\_\+interpolated@{arcl\+\_\+dsfv\+\_\+pose\+\_\+encoder\+\_\+interpolated}!ld\+\_\+comm\+\_\+client@{ld\+\_\+comm\+\_\+client}}
+\subsubsection{\texorpdfstring{arcl\+\_\+dsfv\+\_\+pose\+\_\+encoder\+\_\+interpolated()}{arcl\_dsfv\_pose\_encoder\_interpolated()}}
+{\footnotesize\ttfamily int ld\+\_\+comm\+\_\+client\+::arcl\+\_\+dsfv\+\_\+pose\+\_\+encoder\+\_\+interpolated (\begin{DoxyParamCaption}\item[{\hyperlink{structld__msg__pose}{ld\+\_\+msg\+\_\+pose} $\ast$}]{pose }\end{DoxyParamCaption})}
+
+Same as arcl\+\_\+dsfv\+\_\+pose, but uses a different A\+R\+CL command to access an alternate pose in the data store, see arcl\+\_\+dsfv\+\_\+pose. ~\newline
+Not currently used in performance test. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt out}  & {\em pose} & Datastructure to hold the pose and timestamp that is returned. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+An integer indicating the error status of the function. A negative return value indicates a ulapi socket error. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classld__comm__client_a1cbdd2fcd2ea8d7d4072c3953ce5f11d}\label{classld__comm__client_a1cbdd2fcd2ea8d7d4072c3953ce5f11d}} 
+\index{ld\+\_\+comm\+\_\+client@{ld\+\_\+comm\+\_\+client}!arcl\+\_\+dsfv\+\_\+pose\+\_\+interpolated@{arcl\+\_\+dsfv\+\_\+pose\+\_\+interpolated}}
+\index{arcl\+\_\+dsfv\+\_\+pose\+\_\+interpolated@{arcl\+\_\+dsfv\+\_\+pose\+\_\+interpolated}!ld\+\_\+comm\+\_\+client@{ld\+\_\+comm\+\_\+client}}
+\subsubsection{\texorpdfstring{arcl\+\_\+dsfv\+\_\+pose\+\_\+interpolated()}{arcl\_dsfv\_pose\_interpolated()}}
+{\footnotesize\ttfamily int ld\+\_\+comm\+\_\+client\+::arcl\+\_\+dsfv\+\_\+pose\+\_\+interpolated (\begin{DoxyParamCaption}\item[{\hyperlink{structld__msg__pose}{ld\+\_\+msg\+\_\+pose} $\ast$}]{pose }\end{DoxyParamCaption})}
+
+Same as arcl\+\_\+dsfv\+\_\+pose, but uses a different A\+R\+CL command to access an alternate pose in the data store, see arcl\+\_\+dsfv\+\_\+pose. ~\newline
+Not currently used in performance test. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt out}  & {\em pose} & Datastructure to hold the pose and timestamp that is returned. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+An integer indicating the error status of the function. A negative return value indicates a ulapi socket error. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classld__comm__client_ac1520245a4281887fc5442933d519bf9}\label{classld__comm__client_ac1520245a4281887fc5442933d519bf9}} 
+\index{ld\+\_\+comm\+\_\+client@{ld\+\_\+comm\+\_\+client}!arcl\+\_\+dsfv\+\_\+pose\+\_\+laser\+\_\+localization@{arcl\+\_\+dsfv\+\_\+pose\+\_\+laser\+\_\+localization}}
+\index{arcl\+\_\+dsfv\+\_\+pose\+\_\+laser\+\_\+localization@{arcl\+\_\+dsfv\+\_\+pose\+\_\+laser\+\_\+localization}!ld\+\_\+comm\+\_\+client@{ld\+\_\+comm\+\_\+client}}
+\subsubsection{\texorpdfstring{arcl\+\_\+dsfv\+\_\+pose\+\_\+laser\+\_\+localization()}{arcl\_dsfv\_pose\_laser\_localization()}}
+{\footnotesize\ttfamily int ld\+\_\+comm\+\_\+client\+::arcl\+\_\+dsfv\+\_\+pose\+\_\+laser\+\_\+localization (\begin{DoxyParamCaption}\item[{\hyperlink{structld__msg__pose}{ld\+\_\+msg\+\_\+pose} $\ast$}]{pose }\end{DoxyParamCaption})}
+
+Same as arcl\+\_\+dsfv\+\_\+pose, but uses a different A\+R\+CL command to access an alternate pose in the data store, see arcl\+\_\+dsfv\+\_\+pose. ~\newline
+Not currently used in performance test. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt out}  & {\em pose} & Datastructure to hold the pose and timestamp that is returned. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+An integer indicating the error status of the function. A negative return value indicates a ulapi socket error. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classld__comm__client_a513a0bddf7967271eb3ba45d50f47fe6}\label{classld__comm__client_a513a0bddf7967271eb3ba45d50f47fe6}} 
+\index{ld\+\_\+comm\+\_\+client@{ld\+\_\+comm\+\_\+client}!arcl\+\_\+dsfv\+\_\+pose\+\_\+light\+\_\+localization@{arcl\+\_\+dsfv\+\_\+pose\+\_\+light\+\_\+localization}}
+\index{arcl\+\_\+dsfv\+\_\+pose\+\_\+light\+\_\+localization@{arcl\+\_\+dsfv\+\_\+pose\+\_\+light\+\_\+localization}!ld\+\_\+comm\+\_\+client@{ld\+\_\+comm\+\_\+client}}
+\subsubsection{\texorpdfstring{arcl\+\_\+dsfv\+\_\+pose\+\_\+light\+\_\+localization()}{arcl\_dsfv\_pose\_light\_localization()}}
+{\footnotesize\ttfamily int ld\+\_\+comm\+\_\+client\+::arcl\+\_\+dsfv\+\_\+pose\+\_\+light\+\_\+localization (\begin{DoxyParamCaption}\item[{\hyperlink{structld__msg__pose}{ld\+\_\+msg\+\_\+pose} $\ast$}]{pose }\end{DoxyParamCaption})}
+
+Same as arcl\+\_\+dsfv\+\_\+pose, but uses a different A\+R\+CL command to access an alternate pose in the data store, see arcl\+\_\+dsfv\+\_\+pose. ~\newline
+Not currently used in performance test. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt out}  & {\em pose} & Datastructure to hold the pose and timestamp that is returned. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+An integer indicating the error status of the function. A negative return value indicates a ulapi socket error. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classld__comm__client_a9c0159e1ab1f6112e4ee9e14e2ae4975}\label{classld__comm__client_a9c0159e1ab1f6112e4ee9e14e2ae4975}} 
+\index{ld\+\_\+comm\+\_\+client@{ld\+\_\+comm\+\_\+client}!arcl\+\_\+dsfv\+\_\+pose\+\_\+localization@{arcl\+\_\+dsfv\+\_\+pose\+\_\+localization}}
+\index{arcl\+\_\+dsfv\+\_\+pose\+\_\+localization@{arcl\+\_\+dsfv\+\_\+pose\+\_\+localization}!ld\+\_\+comm\+\_\+client@{ld\+\_\+comm\+\_\+client}}
+\subsubsection{\texorpdfstring{arcl\+\_\+dsfv\+\_\+pose\+\_\+localization()}{arcl\_dsfv\_pose\_localization()}}
+{\footnotesize\ttfamily int ld\+\_\+comm\+\_\+client\+::arcl\+\_\+dsfv\+\_\+pose\+\_\+localization (\begin{DoxyParamCaption}\item[{\hyperlink{structld__msg__pose}{ld\+\_\+msg\+\_\+pose} $\ast$}]{pose }\end{DoxyParamCaption})}
+
+Same as arcl\+\_\+dsfv\+\_\+pose, but uses a different A\+R\+CL command to access an alternate pose in the data store, see arcl\+\_\+dsfv\+\_\+pose. ~\newline
+Not currently used in performance test. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt out}  & {\em pose} & Datastructure to hold the pose and timestamp that is returned. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+An integer indicating the error status of the function. A negative return value indicates a ulapi socket error. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classld__comm__client_ad43c866e91c88f9dfd7e50fdec941607}\label{classld__comm__client_ad43c866e91c88f9dfd7e50fdec941607}} 
+\index{ld\+\_\+comm\+\_\+client@{ld\+\_\+comm\+\_\+client}!arcl\+\_\+read@{arcl\+\_\+read}}
+\index{arcl\+\_\+read@{arcl\+\_\+read}!ld\+\_\+comm\+\_\+client@{ld\+\_\+comm\+\_\+client}}
+\subsubsection{\texorpdfstring{arcl\+\_\+read()}{arcl\_read()}}
+{\footnotesize\ttfamily int ld\+\_\+comm\+\_\+client\+::arcl\+\_\+read (\begin{DoxyParamCaption}\item[{char $\ast$$\ast$}]{arcl\+\_\+recv\+\_\+buf }\end{DoxyParamCaption})}
+
+Reads responses from the A\+R\+CL server, returning responses line by line. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt out}  & {\em arcl\+\_\+recv\+\_\+buf} & String pointer to hold the response recieved from the A\+R\+CL server. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+An integer indicating the error status of the function. A negative return value indicates a ulapi socket error. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classld__comm__client_aa6ff20939ad36ccbe390d1c3d9b1b242}\label{classld__comm__client_aa6ff20939ad36ccbe390d1c3d9b1b242}} 
+\index{ld\+\_\+comm\+\_\+client@{ld\+\_\+comm\+\_\+client}!arcl\+\_\+read\+\_\+status@{arcl\+\_\+read\+\_\+status}}
+\index{arcl\+\_\+read\+\_\+status@{arcl\+\_\+read\+\_\+status}!ld\+\_\+comm\+\_\+client@{ld\+\_\+comm\+\_\+client}}
+\subsubsection{\texorpdfstring{arcl\+\_\+read\+\_\+status()}{arcl\_read\_status()}}
+{\footnotesize\ttfamily int ld\+\_\+comm\+\_\+client\+::arcl\+\_\+read\+\_\+status (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+This function is note currently used in performance test, but formed the basis of logic for ~\newline
+the similarly name function in \hyperlink{ld__comm_8cpp}{ld\+\_\+comm.\+cpp}. ~\newline
+Repeatedly polls the A\+R\+CL server, waiting for a broadcast message that specifies the vehicle ~\newline
+has arrived at a goal point. \begin{DoxyReturn}{Returns}
+An integer indicating the error status of the function. A negative return value indicates a ulapi socket error. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classld__comm__client_af044c54c00fe8b8f1528eb094b11ad88}\label{classld__comm__client_af044c54c00fe8b8f1528eb094b11ad88}} 
+\index{ld\+\_\+comm\+\_\+client@{ld\+\_\+comm\+\_\+client}!arcl\+\_\+write@{arcl\+\_\+write}}
+\index{arcl\+\_\+write@{arcl\+\_\+write}!ld\+\_\+comm\+\_\+client@{ld\+\_\+comm\+\_\+client}}
+\subsubsection{\texorpdfstring{arcl\+\_\+write()}{arcl\_write()}}
+{\footnotesize\ttfamily int ld\+\_\+comm\+\_\+client\+::arcl\+\_\+write (\begin{DoxyParamCaption}\item[{char $\ast$}]{arcl\+\_\+cmd }\end{DoxyParamCaption})}
+
+Sends arcl commands to the A\+R\+CL server using U\+L\+A\+PI sockets. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em arcl\+\_\+cmd} & clear text command to be sent to the A\+R\+CL server. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+An integer indicating the error status of the function. A negative return value indicates a ulapi socket error. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classld__comm__client_a254638599da673cf2f376166a8f9b984}\label{classld__comm__client_a254638599da673cf2f376166a8f9b984}} 
+\index{ld\+\_\+comm\+\_\+client@{ld\+\_\+comm\+\_\+client}!ld\+\_\+connect@{ld\+\_\+connect}}
+\index{ld\+\_\+connect@{ld\+\_\+connect}!ld\+\_\+comm\+\_\+client@{ld\+\_\+comm\+\_\+client}}
+\subsubsection{\texorpdfstring{ld\+\_\+connect()}{ld\_connect()}}
+{\footnotesize\ttfamily int ld\+\_\+comm\+\_\+client\+::ld\+\_\+connect (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Connects to the A\+R\+CL server, sends the password login, and discards extra text sent back from the server.~\newline
+ This function establishes the socket connection to the ld A\+R\+CL server. ~\newline
+This includes opening the client socket, sending the password to login to the ld, ~\newline
+and parsing extra input generated by the A\+R\+CL server. ~\newline
+\mbox{\Hypertarget{classld__comm__client_a8e2124bb6da72ba99ab9d713510e2303}\label{classld__comm__client_a8e2124bb6da72ba99ab9d713510e2303}} 
+\index{ld\+\_\+comm\+\_\+client@{ld\+\_\+comm\+\_\+client}!log\+\_\+comment@{log\+\_\+comment}}
+\index{log\+\_\+comment@{log\+\_\+comment}!ld\+\_\+comm\+\_\+client@{ld\+\_\+comm\+\_\+client}}
+\subsubsection{\texorpdfstring{log\+\_\+comment()}{log\_comment()}}
+{\footnotesize\ttfamily void ld\+\_\+comm\+\_\+client\+::log\+\_\+comment (\begin{DoxyParamCaption}\item[{char $\ast$}]{msg }\end{DoxyParamCaption})}
+
+Enters additional comments into the log. Useful for adding headers to csv file. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em msg} & Message to be logged. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+An integer indicating the error status of the function. A negative return value indicates a ulapi socket error. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classld__comm__client_a2b9b335282497b7b52b7f9a0e624ffe9}\label{classld__comm__client_a2b9b335282497b7b52b7f9a0e624ffe9}} 
+\index{ld\+\_\+comm\+\_\+client@{ld\+\_\+comm\+\_\+client}!log\+\_\+pose@{log\+\_\+pose}}
+\index{log\+\_\+pose@{log\+\_\+pose}!ld\+\_\+comm\+\_\+client@{ld\+\_\+comm\+\_\+client}}
+\subsubsection{\texorpdfstring{log\+\_\+pose()}{log\_pose()}}
+{\footnotesize\ttfamily void ld\+\_\+comm\+\_\+client\+::log\+\_\+pose (\begin{DoxyParamCaption}\item[{\hyperlink{structld__msg__pose}{ld\+\_\+msg\+\_\+pose} $\ast$}]{msg }\end{DoxyParamCaption})}
+
+Outputs the contents of a pose message to a log file. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em msg} & Pose msg structure to be logged. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+An integer indicating the error status of the function. A negative return value indicates a ulapi socket error. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classld__comm__client_a29a4395433e6f9d9ec7c3589de7ae211}\label{classld__comm__client_a29a4395433e6f9d9ec7c3589de7ae211}} 
+\index{ld\+\_\+comm\+\_\+client@{ld\+\_\+comm\+\_\+client}!print\+\_\+pose@{print\+\_\+pose}}
+\index{print\+\_\+pose@{print\+\_\+pose}!ld\+\_\+comm\+\_\+client@{ld\+\_\+comm\+\_\+client}}
+\subsubsection{\texorpdfstring{print\+\_\+pose()}{print\_pose()}}
+{\footnotesize\ttfamily void ld\+\_\+comm\+\_\+client\+::print\+\_\+pose (\begin{DoxyParamCaption}\item[{\hyperlink{structld__msg__pose}{ld\+\_\+msg\+\_\+pose} $\ast$}]{msg }\end{DoxyParamCaption})}
+
+Outputs the contents of a pose message to the console. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em msg} & ld\+\_\+pose msg structure to be printed. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+An integer indicating the error status of the function. A negative return value indicates a ulapi socket error. 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{ld__comm__client_8h}{ld\+\_\+comm\+\_\+client.\+h}\item 
+\hyperlink{ld__comm__client_8cpp}{ld\+\_\+comm\+\_\+client.\+cpp}\end{DoxyCompactItemize}

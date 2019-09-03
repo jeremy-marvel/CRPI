@@ -1,0 +1,18 @@
+{
+  "uuid": "8c4590ef-504c-496d-8260-441d7b02c68e",
+  "shortName": "SmartSystem_OperatorMenu",
+  "longName": "SmartSystem_OperatorMenu",
+  "companyName": "nist_isd",
+  "versionLabel": "1.0",
+  "sdkVersion": "3",
+  "targetPlatforms": ["aplite", "basalt"],
+  "watchapp": {
+    "watchface": false
+  },
+  "appKeys": {
+    "dummy": 0
+  },
+  "resources": {
+    "media": []
+  }
+}

@@ -1,0 +1,13 @@
+<Robot>
+  <TCP_IP Address="127.0.0.1" Port="6007" Client="false"/>
+  <Serial Port="COM1" Rate="57600" Parity="Even" SBits="1" Handshake="None"/>
+  <ComType Val="TCP_IP"/>
+  <Mounting X="0.0" Y="0.0" Z="0.0" XR="0.0" YR="0.0" ZR="0.0"/>
+  <ToWorld X="890.0" Y="890.0" Z="0.0" XR="0.0" YR="0.0" ZR="0.0"/>
+  <Tool ID="7" Name="gripper_gear" X="0.0" Y="0.0" Z="185.0" XR="0.0" YR="0.0" ZR="0.0" Mass="0.9" MX="0.0" MY="0.0" MZ="71.0"/>
+  <Tool ID="7" Name="gripper_top_cover" X="0.0" Y="0.0" Z="185.0" XR="0.0" YR="0.0" ZR="0.0" Mass="0.9" MX="0.0" MY="0.0" MZ="71.0"/>
+  <Tool ID="7" Name="gripper_bottom_cover" X="0.0" Y="0.0" Z="185.0" XR="0.0" YR="0.0" ZR="0.0" Mass="0.9" MX="0.0" MY="0.0" MZ="71.0"/>
+  <Tool ID="4" Name="gripper_parallel" X="0.0" Y="0.0" Z="0.0" XR="185.0" YR="0.0" ZR="0.0" Mass="0.9" MX="0.0" MY="0.0" MZ="71.0"/>
+  <Tool ID="3" Name="schunk_hand" X="0.0" Y="0.0" Z="127.0" XR="0.0" YR="0.0" ZR="0.0" Mass="2.2" MX="0.0" MY="0.0" MZ="125.0"/>
+  <Tool ID="5" Name="robotiq" X="0.0" Y="0.0" Z="260.0" XR="0.0" YR="0.0" ZR="0.0" Mass="2.7" MX="0.0" MY="0.0" MZ="125.0"/>
+</Robot>

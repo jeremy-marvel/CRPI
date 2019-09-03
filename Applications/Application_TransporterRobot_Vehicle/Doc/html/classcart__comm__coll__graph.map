@@ -1,0 +1,4 @@
+<map id="cart_comm" name="cart_comm">
+<area shape="rect" id="node2" href="$classcart__status__copy.html" title="{cart_status_copy\n|&#45; client_id\l&#45; status\l&#45; no_cart\l&#45; current_dock\l&#45; previous_dock\l|+ cart_status_copy()\l+ cart_status_copy()\l+ ~cart_status_copy()\l+ update_status_init()\l+ update_status()\l+ update_pose()\l+ update_pose()\l+ get_id()\l+ get_status()\l+ get_no_cart()\l+ get_current_dock()\l+ get_previous_dock()\l+ update_previous_dock()\l+ print_status()\l+ pose_to_string()\l}" alt="" coords="5,263,176,604"/>
+<area shape="rect" id="node3" href="$structld__msg__pose.html" title="{ld_msg_pose\n|+ robot_x\l+ robot_y\l+ robot_th\l+ seconds_since_epoch\l+ server_time\l+ x_recv_time\l+ y_recv_time\l+ th_recv_time\l+ time_recv_time\l|}" alt="" coords="9,5,172,200"/>
+</map>

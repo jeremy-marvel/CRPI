@@ -1,0 +1,173 @@
+\hypertarget{tasks_8cpp}{}\section{C\+:/\+Users/oya/\+Desktop/\+Tortoise\+S\+V\+N/\+Applications/\+Application\+\_\+\+Transporter\+Robot\+\_\+\+Vehicle/tasks.cpp File Reference}
+\label{tasks_8cpp}\index{C\+:/\+Users/oya/\+Desktop/\+Tortoise\+S\+V\+N/\+Applications/\+Application\+\_\+\+Transporter\+Robot\+\_\+\+Vehicle/tasks.\+cpp@{C\+:/\+Users/oya/\+Desktop/\+Tortoise\+S\+V\+N/\+Applications/\+Application\+\_\+\+Transporter\+Robot\+\_\+\+Vehicle/tasks.\+cpp}}
+
+
+Main task code. (e.\+g. thread function definitions) ~\newline
+Also corresponds to the actual tasks each robot performs during registration.  
+
+
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$fstream$>$}\newline
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include $<$sys\textbackslash{}timeb.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}ulapi.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}ld\+\_\+comm.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}ld\+\_\+comm\+\_\+client.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}cart\+\_\+comm.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}tasks.\+h\char`\"{}}\newline
+Include dependency graph for tasks.\+cpp\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{tasks_8cpp__incl}
+\end{center}
+\end{figure}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{tasks_8cpp_ab8816fab70c753223d1c7e238b1055cc}{ld\+\_\+task\+\_\+code}} (void $\ast$args)
+\item 
+void \mbox{\hyperlink{tasks_8cpp_a45696e6a02ab225b46d9543b2e9cb54b}{ld\+\_\+client\+\_\+cmd\+\_\+code}} (void $\ast$args)
+\item 
+void \mbox{\hyperlink{tasks_8cpp_a43892ff0191cf2f2c45998a46db9682d}{cart\+\_\+comm\+\_\+test\+\_\+t}} (void $\ast$args)
+\item 
+void \mbox{\hyperlink{tasks_8cpp_a90d15fc1ea6eefccf4e84aeb884f5e07}{cart\+\_\+comm\+\_\+test}} (void $\ast$args)
+\item 
+void \mbox{\hyperlink{tasks_8cpp_a969fffedf9f2fa5d598c2be9364c0284}{cart\+\_\+dock\+\_\+test\+\_\+t}} (void $\ast$args)
+\item 
+void \mbox{\hyperlink{tasks_8cpp_a05d896773fd2b12080d34e2bfa816c76}{cart\+\_\+latch\+\_\+delayed\+\_\+test\+\_\+t}} (void $\ast$args)
+\item 
+void \mbox{\hyperlink{tasks_8cpp_afcb5d793b66bd95cd50c61e61ed9c49f}{cart\+\_\+connect\+\_\+t}} (void $\ast$args)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Main task code. (e.\+g. thread function definitions) ~\newline
+Also corresponds to the actual tasks each robot performs during registration. 
+
+References\+: ~\newline
+Based on mobmanmain.\+cpp by S. Legowik ~\newline
+Based on unittest.\+cpp by J. Marvel ~\newline
+ \char`\"{}\+\_\+ftime, \+\_\+ftime32, \+\_\+ftime64 from M\+S\+D\+N\char`\"{} \href{https://docs.microsoft.com/en-us/cpp/c-runtime-library/reference/ftime-ftime32-ftime64}{\tt https\+://docs.\+microsoft.\+com/en-\/us/cpp/c-\/runtime-\/library/reference/ftime-\/ftime32-\/ftime64}
+
+\begin{DoxyAuthor}{Author}
+Omar Aboul-\/\+Enein 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+2017-\/06-\/05 
+\end{DoxyDate}
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{tasks_8cpp_a90d15fc1ea6eefccf4e84aeb884f5e07}\label{tasks_8cpp_a90d15fc1ea6eefccf4e84aeb884f5e07}} 
+\index{tasks.\+cpp@{tasks.\+cpp}!cart\+\_\+comm\+\_\+test@{cart\+\_\+comm\+\_\+test}}
+\index{cart\+\_\+comm\+\_\+test@{cart\+\_\+comm\+\_\+test}!tasks.\+cpp@{tasks.\+cpp}}
+\subsubsection{\texorpdfstring{cart\+\_\+comm\+\_\+test()}{cart\_comm\_test()}}
+{\footnotesize\ttfamily void cart\+\_\+comm\+\_\+test (\begin{DoxyParamCaption}\item[{void $\ast$}]{args }\end{DoxyParamCaption})}
+
+Contains code for menu options used for running interprocess communications tests with one or more cart processes. The code defined here~\newline
+allows the user to test the communications for the software independent from the communications with the vehicle hardware. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em args} & Void pointer to a \mbox{\hyperlink{classcart__comm}{cart\+\_\+comm}} object. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 351 of file tasks.\+cpp.
+
+\mbox{\Hypertarget{tasks_8cpp_a43892ff0191cf2f2c45998a46db9682d}\label{tasks_8cpp_a43892ff0191cf2f2c45998a46db9682d}} 
+\index{tasks.\+cpp@{tasks.\+cpp}!cart\+\_\+comm\+\_\+test\+\_\+t@{cart\+\_\+comm\+\_\+test\+\_\+t}}
+\index{cart\+\_\+comm\+\_\+test\+\_\+t@{cart\+\_\+comm\+\_\+test\+\_\+t}!tasks.\+cpp@{tasks.\+cpp}}
+\subsubsection{\texorpdfstring{cart\+\_\+comm\+\_\+test\+\_\+t()}{cart\_comm\_test\_t()}}
+{\footnotesize\ttfamily void cart\+\_\+comm\+\_\+test\+\_\+t (\begin{DoxyParamCaption}\item[{void $\ast$}]{args }\end{DoxyParamCaption})}
+
+Multithreaded version of the interprocess communications tests. Intended to be run with cart\+\_\+connect\+\_\+t in background to connect new cart clients. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em args} & Void pointer to a \mbox{\hyperlink{classcart__comm}{cart\+\_\+comm}} process. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 275 of file tasks.\+cpp.
+
+\mbox{\Hypertarget{tasks_8cpp_afcb5d793b66bd95cd50c61e61ed9c49f}\label{tasks_8cpp_afcb5d793b66bd95cd50c61e61ed9c49f}} 
+\index{tasks.\+cpp@{tasks.\+cpp}!cart\+\_\+connect\+\_\+t@{cart\+\_\+connect\+\_\+t}}
+\index{cart\+\_\+connect\+\_\+t@{cart\+\_\+connect\+\_\+t}!tasks.\+cpp@{tasks.\+cpp}}
+\subsubsection{\texorpdfstring{cart\+\_\+connect\+\_\+t()}{cart\_connect\_t()}}
+{\footnotesize\ttfamily void cart\+\_\+connect\+\_\+t (\begin{DoxyParamCaption}\item[{void $\ast$}]{args }\end{DoxyParamCaption})}
+
+Connects new cart clients as a background thread. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em args} & Void pointer to a \mbox{\hyperlink{classcart__comm}{cart\+\_\+comm}} process. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 845 of file tasks.\+cpp.
+
+\mbox{\Hypertarget{tasks_8cpp_a969fffedf9f2fa5d598c2be9364c0284}\label{tasks_8cpp_a969fffedf9f2fa5d598c2be9364c0284}} 
+\index{tasks.\+cpp@{tasks.\+cpp}!cart\+\_\+dock\+\_\+test\+\_\+t@{cart\+\_\+dock\+\_\+test\+\_\+t}}
+\index{cart\+\_\+dock\+\_\+test\+\_\+t@{cart\+\_\+dock\+\_\+test\+\_\+t}!tasks.\+cpp@{tasks.\+cpp}}
+\subsubsection{\texorpdfstring{cart\+\_\+dock\+\_\+test\+\_\+t()}{cart\_dock\_test\_t()}}
+{\footnotesize\ttfamily void cart\+\_\+dock\+\_\+test\+\_\+t (\begin{DoxyParamCaption}\item[{void $\ast$}]{args }\end{DoxyParamCaption})}
+
+This function implements the vehicle portion of the transporter robot performance test. In this version of the test, the vehicle always undocks~\newline
+with a cart immediately before scheduling its next task. This includes if the vehicle schedules the cart it just dropped off to be picked up again. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em A} & void pointer to a \mbox{\hyperlink{structtask__args}{task\+\_\+args}} structure. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 398 of file tasks.\+cpp.
+
+\mbox{\Hypertarget{tasks_8cpp_a05d896773fd2b12080d34e2bfa816c76}\label{tasks_8cpp_a05d896773fd2b12080d34e2bfa816c76}} 
+\index{tasks.\+cpp@{tasks.\+cpp}!cart\+\_\+latch\+\_\+delayed\+\_\+test\+\_\+t@{cart\+\_\+latch\+\_\+delayed\+\_\+test\+\_\+t}}
+\index{cart\+\_\+latch\+\_\+delayed\+\_\+test\+\_\+t@{cart\+\_\+latch\+\_\+delayed\+\_\+test\+\_\+t}!tasks.\+cpp@{tasks.\+cpp}}
+\subsubsection{\texorpdfstring{cart\+\_\+latch\+\_\+delayed\+\_\+test\+\_\+t()}{cart\_latch\_delayed\_test\_t()}}
+{\footnotesize\ttfamily void cart\+\_\+latch\+\_\+delayed\+\_\+test\+\_\+t (\begin{DoxyParamCaption}\item[{void $\ast$}]{args }\end{DoxyParamCaption})}
+
+This function implements the vehicle portion of the transporter robot performance test. In this version of the test, the vehicle delays the act of undocking ~\newline
+from a cart (also referred to as unlatching) until after the vehicle schedules its next task. This allows the vehicle to function as mobile manipulator if only one cart is being serviced ~\newline
+and eliminates extra moves if the cart that was just taken to its next location is also the next one to be scheduled to be taken to another location. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em A} & void pointer to a \mbox{\hyperlink{structtask__args}{task\+\_\+args}} structure. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 551 of file tasks.\+cpp.
+
+\mbox{\Hypertarget{tasks_8cpp_a45696e6a02ab225b46d9543b2e9cb54b}\label{tasks_8cpp_a45696e6a02ab225b46d9543b2e9cb54b}} 
+\index{tasks.\+cpp@{tasks.\+cpp}!ld\+\_\+client\+\_\+cmd\+\_\+code@{ld\+\_\+client\+\_\+cmd\+\_\+code}}
+\index{ld\+\_\+client\+\_\+cmd\+\_\+code@{ld\+\_\+client\+\_\+cmd\+\_\+code}!tasks.\+cpp@{tasks.\+cpp}}
+\subsubsection{\texorpdfstring{ld\+\_\+client\+\_\+cmd\+\_\+code()}{ld\_client\_cmd\_code()}}
+{\footnotesize\ttfamily void ld\+\_\+client\+\_\+cmd\+\_\+code (\begin{DoxyParamCaption}\item[{void $\ast$}]{args }\end{DoxyParamCaption})}
+
+Contains code for menu options used to test various functions related to the ld A\+R\+CL connections.~\newline
+Currently used to test the Outgoing A\+R\+CL Connection and A\+R\+CL server for sending commands, specifically 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em args} & Void pointer to allow code to be modified to accept arguments. Currently, N\+U\+LL should be passed. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 136 of file tasks.\+cpp.
+
+\mbox{\Hypertarget{tasks_8cpp_ab8816fab70c753223d1c7e238b1055cc}\label{tasks_8cpp_ab8816fab70c753223d1c7e238b1055cc}} 
+\index{tasks.\+cpp@{tasks.\+cpp}!ld\+\_\+task\+\_\+code@{ld\+\_\+task\+\_\+code}}
+\index{ld\+\_\+task\+\_\+code@{ld\+\_\+task\+\_\+code}!tasks.\+cpp@{tasks.\+cpp}}
+\subsubsection{\texorpdfstring{ld\+\_\+task\+\_\+code()}{ld\_task\_code()}}
+{\footnotesize\ttfamily void ld\+\_\+task\+\_\+code (\begin{DoxyParamCaption}\item[{void $\ast$}]{args }\end{DoxyParamCaption})}
+
+Contains code for menu options used to test various functions related to the ld A\+R\+CL connections independently from the iterprocess communciations of the sofwtare. ~\newline
+Currently used to test the Outgoing A\+R\+CL Connection, specifically 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em args} & Void pointer to allow code to be modified to accept arguments. Currently, N\+U\+LL should be passed. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 30 of file tasks.\+cpp.
+

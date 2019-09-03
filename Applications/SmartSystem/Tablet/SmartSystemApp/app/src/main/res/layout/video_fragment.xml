@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#18376A"
+    >
+
+    <LinearLayout
+        android:layout_width="800dp"
+        android:layout_height="640dp"
+        android:background="#dfdfdf"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="35dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/text_background"
+            android:padding="10dp"
+            android:text="Video Stream"
+            android:textColor="#ffffff"
+            android:textSize="25dp" />
+
+        <ImageView
+            android:id="@+id/iv_video"
+            android:layout_width="match_parent"
+            android:layout_height="530dp"
+            android:padding="10dp"/>
+
+        <Button
+            android:id="@+id/video_button"
+            android:layout_width="140dp"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:layout_gravity="center_horizontal"
+            android:background="@drawable/button_border"
+            android:text="Play"
+            android:textSize="20sp" />
+
+    </LinearLayout>
+
+</LinearLayout>

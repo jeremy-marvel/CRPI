@@ -1,0 +1,12 @@
+<ROBOT>
+  <TCP_IP Address="169.254.152.50" Port="30002" Client="true">
+  <ComType Val="TCP_IP"/>
+  <Mounting X="0.0" Y="0.0" Z="0.0" XR="-135.0" YR="0.0" ZR="0.0"/>
+  <ToWorld X="2323.84" Y="464.0" Z="613.0" XR="0.0" YR="0.0" ZR="90.0"/>
+  <Tool ID="7" Name="gripper_gear" X="0.0" Y="0.0" Z="185.0" XR="0.0" YR="0.0" ZR="0.0" Mass="0.9" MX="0.0" MY="0.0" MZ="71.0"/>
+  <Tool ID="7" Name="gripper_top_cover" X="0.0" Y="0.0" Z="185.0" XR="0.0" YR="0.0" ZR="0.0" Mass="0.9" MX="0.0" MY="0.0" MZ="71.0"/>
+  <Tool ID="7" Name="gripper_bottom_cover" X="0.0" Y="0.0" Z="185.0" XR="0.0" YR="0.0" ZR="0.0" Mass="0.9" MX="0.0" MY="0.0" MZ="71.0"/>
+  <Tool ID="4" Name="gripper_parallel" X="0.0" Y="0.0" Z="0.0" XR="185.0" YR="0.0" ZR="0.0" Mass="0.9" MX="0.0" MY="0.0" MZ="71.0"/>
+  <Tool ID="3" Name="schunk_hand" X="0.0" Y="0.0" Z="127.0" XR="0.0" YR="0.0" ZR="0.0" Mass="2.2" MX="0.0" MY="0.0" MZ="125.0"/>
+  <Tool ID="5" Name="robotiq" X="0.0" Y="0.0" Z="260.0" XR="0.0" YR="0.0" ZR="0.0" Mass="2.7" MX="0.0" MY="0.0" MZ="125.0"/>
+</ROBOT>

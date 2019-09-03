@@ -1,0 +1,19 @@
+
+
+<diagnostic>
+
+	<time></time>
+	
+	<tcp>
+		<speed>
+			<actual></actual>
+			<target></target>
+		<toolVector>
+			<actual></actual>
+			<target></target>
+		<force></force>
+	</tcp>
+	
+	<task></task>
+	
+</diagnostic> 

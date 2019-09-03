@@ -1,0 +1,354 @@
+\hypertarget{classcart__status__copy}{}\section{cart\+\_\+status\+\_\+copy Class Reference}
+\label{classcart__status__copy}\index{cart\+\_\+status\+\_\+copy@{cart\+\_\+status\+\_\+copy}}
+
+
+Collaboration diagram for cart\+\_\+status\+\_\+copy\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=208pt]{classcart__status__copy__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classcart__status__copy_a20571920a3d289d2323ad3e34b2b5384}{cart\+\_\+status\+\_\+copy}} (ulapi\+\_\+integer new\+\_\+client, int new\+\_\+stat, int no\+\_\+cart\+\_\+mode, char $\ast$first\+\_\+dock, char $\ast$start\+\_\+dock)
+\item 
+\mbox{\hyperlink{classcart__status__copy_a90c5926fe489811f9ab083de0ff5b058}{cart\+\_\+status\+\_\+copy}} (const \mbox{\hyperlink{classcart__status__copy}{cart\+\_\+status\+\_\+copy}} $\ast$stat)
+\item 
+\mbox{\hyperlink{classcart__status__copy_a82d5b501ba06b8058da51a94672b3ea3}{$\sim$cart\+\_\+status\+\_\+copy}} ()
+\item 
+void \mbox{\hyperlink{classcart__status__copy_ac0af1c110916a2fdd7ab7198bdca183a}{update\+\_\+status\+\_\+init}} (char $\ast$stat\+\_\+str)
+\item 
+void \mbox{\hyperlink{classcart__status__copy_ace79b133b98000c72617917b1f434df8}{update\+\_\+status}} (char $\ast$stat\+\_\+str)
+\item 
+void \mbox{\hyperlink{classcart__status__copy_abc65e581df602a25f173e06ae5d453bf}{update\+\_\+pose}} (\mbox{\hyperlink{classld__comm}{ld\+\_\+comm}} $\ast$vehicle\+\_\+arcl)
+\item 
+void \mbox{\hyperlink{classcart__status__copy_ac688410b9b4a237d6ce6379e10f3c8bb}{update\+\_\+pose}} (\mbox{\hyperlink{structld__msg__pose}{ld\+\_\+msg\+\_\+pose}} $\ast$pose\+\_\+msg)
+\item 
+ulapi\+\_\+integer \mbox{\hyperlink{classcart__status__copy_a30bf6eef16e96b282b4e79ca9ccb36dd}{get\+\_\+id}} ()
+\item 
+int \mbox{\hyperlink{classcart__status__copy_a482b6c7e3bcd3102028c59dacb70ad00}{get\+\_\+status}} ()
+\item 
+int \mbox{\hyperlink{classcart__status__copy_ae9b79c2205e6d9e2c64ac206cf551366}{get\+\_\+no\+\_\+cart}} ()
+\item 
+void \mbox{\hyperlink{classcart__status__copy_abcd7994b919a1a5191df8d29fceacbb3}{get\+\_\+current\+\_\+dock}} (char $\ast$$\ast$stat\+\_\+buf)
+\item 
+void \mbox{\hyperlink{classcart__status__copy_a8341c76c3b3c10809ae24232dbe9b865}{get\+\_\+previous\+\_\+dock}} (char $\ast$$\ast$stat\+\_\+buf)
+\item 
+void \mbox{\hyperlink{classcart__status__copy_a49621a3d5ab294434c04b17668c2d613}{update\+\_\+previous\+\_\+dock}} ()
+\item 
+void \mbox{\hyperlink{classcart__status__copy_a6a05f2781c3c5547b9f5fff2161b829f}{print\+\_\+status}} ()
+\item 
+char $\ast$ \mbox{\hyperlink{classcart__status__copy_a1b4788c35bb97d5447b0a7260a85c40d}{pose\+\_\+to\+\_\+string}} ()
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+ulapi\+\_\+integer \mbox{\hyperlink{classcart__status__copy_a8d8dca2a4a0c35f4676fc7d68254ca05}{client\+\_\+id}}
+\item 
+int \mbox{\hyperlink{classcart__status__copy_a00f9d96ff04b8975c69a263ff15708ec}{status}}
+\item 
+int \mbox{\hyperlink{classcart__status__copy_a33596a12e74edf48fb8c8d1ba03d98dd}{no\+\_\+cart}}
+\item 
+char $\ast$ \mbox{\hyperlink{classcart__status__copy_a771289ffece9eb29e21a9deba5522888}{current\+\_\+dock}}
+\item 
+char $\ast$ \mbox{\hyperlink{classcart__status__copy_a77d6208ab0579618165d77e56a6b8f01}{previous\+\_\+dock}}
+\item 
+\mbox{\hyperlink{structld__msg__pose}{ld\+\_\+msg\+\_\+pose}} \mbox{\hyperlink{classcart__status__copy_a0a127fed372d7db77bc202bcc3e15d76}{current\+\_\+pose}}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+
+
+Definition at line 22 of file cart\+\_\+status\+\_\+copy.\+h.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classcart__status__copy_a20571920a3d289d2323ad3e34b2b5384}\label{classcart__status__copy_a20571920a3d289d2323ad3e34b2b5384}} 
+\index{cart\+\_\+status\+\_\+copy@{cart\+\_\+status\+\_\+copy}!cart\+\_\+status\+\_\+copy@{cart\+\_\+status\+\_\+copy}}
+\index{cart\+\_\+status\+\_\+copy@{cart\+\_\+status\+\_\+copy}!cart\+\_\+status\+\_\+copy@{cart\+\_\+status\+\_\+copy}}
+\subsubsection{\texorpdfstring{cart\+\_\+status\+\_\+copy()}{cart\_status\_copy()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily cart\+\_\+status\+\_\+copy\+::cart\+\_\+status\+\_\+copy (\begin{DoxyParamCaption}\item[{ulapi\+\_\+integer}]{new\+\_\+client,  }\item[{int}]{new\+\_\+stat,  }\item[{int}]{no\+\_\+cart\+\_\+mode,  }\item[{char $\ast$}]{first\+\_\+dock,  }\item[{char $\ast$}]{start\+\_\+dock }\end{DoxyParamCaption})}
+
+Constructor 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em new\+\_\+client} & Used to initialize client\+\_\+id. \\
+\hline
+\mbox{\tt in}  & {\em new\+\_\+stat} & Used to initialize status. \\
+\hline
+\mbox{\tt in}  & {\em no\+\_\+cart\+\_\+mode} & Used to initialize no\+\_\+cart\+\_\+mode. \\
+\hline
+\mbox{\tt in}  & {\em first\+\_\+dock} & Used to initialize first\+\_\+dock. \\
+\hline
+\mbox{\tt in}  & {\em start\+\_\+dock} & Used to initialize start\+\_\+dock. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 15 of file cart\+\_\+status\+\_\+copy.\+cpp.
+
+\mbox{\Hypertarget{classcart__status__copy_a90c5926fe489811f9ab083de0ff5b058}\label{classcart__status__copy_a90c5926fe489811f9ab083de0ff5b058}} 
+\index{cart\+\_\+status\+\_\+copy@{cart\+\_\+status\+\_\+copy}!cart\+\_\+status\+\_\+copy@{cart\+\_\+status\+\_\+copy}}
+\index{cart\+\_\+status\+\_\+copy@{cart\+\_\+status\+\_\+copy}!cart\+\_\+status\+\_\+copy@{cart\+\_\+status\+\_\+copy}}
+\subsubsection{\texorpdfstring{cart\+\_\+status\+\_\+copy()}{cart\_status\_copy()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily cart\+\_\+status\+\_\+copy\+::cart\+\_\+status\+\_\+copy (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classcart__status__copy}{cart\+\_\+status\+\_\+copy}} $\ast$}]{stat }\end{DoxyParamCaption})}
+
+Copy constructor. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em stat} & An object to be copied into a new memory location. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 33 of file cart\+\_\+status\+\_\+copy.\+cpp.
+
+\mbox{\Hypertarget{classcart__status__copy_a82d5b501ba06b8058da51a94672b3ea3}\label{classcart__status__copy_a82d5b501ba06b8058da51a94672b3ea3}} 
+\index{cart\+\_\+status\+\_\+copy@{cart\+\_\+status\+\_\+copy}!````~cart\+\_\+status\+\_\+copy@{$\sim$cart\+\_\+status\+\_\+copy}}
+\index{````~cart\+\_\+status\+\_\+copy@{$\sim$cart\+\_\+status\+\_\+copy}!cart\+\_\+status\+\_\+copy@{cart\+\_\+status\+\_\+copy}}
+\subsubsection{\texorpdfstring{$\sim$cart\+\_\+status\+\_\+copy()}{~cart\_status\_copy()}}
+{\footnotesize\ttfamily cart\+\_\+status\+\_\+copy\+::$\sim$cart\+\_\+status\+\_\+copy (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Destructor. 
+
+Definition at line 50 of file cart\+\_\+status\+\_\+copy.\+cpp.
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classcart__status__copy_abcd7994b919a1a5191df8d29fceacbb3}\label{classcart__status__copy_abcd7994b919a1a5191df8d29fceacbb3}} 
+\index{cart\+\_\+status\+\_\+copy@{cart\+\_\+status\+\_\+copy}!get\+\_\+current\+\_\+dock@{get\+\_\+current\+\_\+dock}}
+\index{get\+\_\+current\+\_\+dock@{get\+\_\+current\+\_\+dock}!cart\+\_\+status\+\_\+copy@{cart\+\_\+status\+\_\+copy}}
+\subsubsection{\texorpdfstring{get\+\_\+current\+\_\+dock()}{get\_current\_dock()}}
+{\footnotesize\ttfamily void cart\+\_\+status\+\_\+copy\+::get\+\_\+current\+\_\+dock (\begin{DoxyParamCaption}\item[{char $\ast$$\ast$}]{stat\+\_\+buf }\end{DoxyParamCaption})}
+
+Accessor. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt out}  & {\em stat\+\_\+buf} & A copy of current\+\_\+dock. A N\+U\+LL pointer should be passed for argument. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 171 of file cart\+\_\+status\+\_\+copy.\+cpp.
+
+\mbox{\Hypertarget{classcart__status__copy_a30bf6eef16e96b282b4e79ca9ccb36dd}\label{classcart__status__copy_a30bf6eef16e96b282b4e79ca9ccb36dd}} 
+\index{cart\+\_\+status\+\_\+copy@{cart\+\_\+status\+\_\+copy}!get\+\_\+id@{get\+\_\+id}}
+\index{get\+\_\+id@{get\+\_\+id}!cart\+\_\+status\+\_\+copy@{cart\+\_\+status\+\_\+copy}}
+\subsubsection{\texorpdfstring{get\+\_\+id()}{get\_id()}}
+{\footnotesize\ttfamily ulapi\+\_\+integer cart\+\_\+status\+\_\+copy\+::get\+\_\+id (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Accessor. \begin{DoxyReturn}{Returns}
+The contents of client\+\_\+id. 
+\end{DoxyReturn}
+
+
+Definition at line 156 of file cart\+\_\+status\+\_\+copy.\+cpp.
+
+\mbox{\Hypertarget{classcart__status__copy_ae9b79c2205e6d9e2c64ac206cf551366}\label{classcart__status__copy_ae9b79c2205e6d9e2c64ac206cf551366}} 
+\index{cart\+\_\+status\+\_\+copy@{cart\+\_\+status\+\_\+copy}!get\+\_\+no\+\_\+cart@{get\+\_\+no\+\_\+cart}}
+\index{get\+\_\+no\+\_\+cart@{get\+\_\+no\+\_\+cart}!cart\+\_\+status\+\_\+copy@{cart\+\_\+status\+\_\+copy}}
+\subsubsection{\texorpdfstring{get\+\_\+no\+\_\+cart()}{get\_no\_cart()}}
+{\footnotesize\ttfamily int cart\+\_\+status\+\_\+copy\+::get\+\_\+no\+\_\+cart (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Accessor. \begin{DoxyReturn}{Returns}
+The contents of no\+\_\+cart. 
+\end{DoxyReturn}
+
+
+Definition at line 166 of file cart\+\_\+status\+\_\+copy.\+cpp.
+
+\mbox{\Hypertarget{classcart__status__copy_a8341c76c3b3c10809ae24232dbe9b865}\label{classcart__status__copy_a8341c76c3b3c10809ae24232dbe9b865}} 
+\index{cart\+\_\+status\+\_\+copy@{cart\+\_\+status\+\_\+copy}!get\+\_\+previous\+\_\+dock@{get\+\_\+previous\+\_\+dock}}
+\index{get\+\_\+previous\+\_\+dock@{get\+\_\+previous\+\_\+dock}!cart\+\_\+status\+\_\+copy@{cart\+\_\+status\+\_\+copy}}
+\subsubsection{\texorpdfstring{get\+\_\+previous\+\_\+dock()}{get\_previous\_dock()}}
+{\footnotesize\ttfamily void cart\+\_\+status\+\_\+copy\+::get\+\_\+previous\+\_\+dock (\begin{DoxyParamCaption}\item[{char $\ast$$\ast$}]{stat\+\_\+buf }\end{DoxyParamCaption})}
+
+Accessor. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt out}  & {\em stat\+\_\+buf} & A copy of current\+\_\+dock. A N\+U\+LL pointer should be passed for argument. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 178 of file cart\+\_\+status\+\_\+copy.\+cpp.
+
+\mbox{\Hypertarget{classcart__status__copy_a482b6c7e3bcd3102028c59dacb70ad00}\label{classcart__status__copy_a482b6c7e3bcd3102028c59dacb70ad00}} 
+\index{cart\+\_\+status\+\_\+copy@{cart\+\_\+status\+\_\+copy}!get\+\_\+status@{get\+\_\+status}}
+\index{get\+\_\+status@{get\+\_\+status}!cart\+\_\+status\+\_\+copy@{cart\+\_\+status\+\_\+copy}}
+\subsubsection{\texorpdfstring{get\+\_\+status()}{get\_status()}}
+{\footnotesize\ttfamily int cart\+\_\+status\+\_\+copy\+::get\+\_\+status (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Accessor. \begin{DoxyReturn}{Returns}
+The contents of status. 
+\end{DoxyReturn}
+
+
+Definition at line 161 of file cart\+\_\+status\+\_\+copy.\+cpp.
+
+\mbox{\Hypertarget{classcart__status__copy_a1b4788c35bb97d5447b0a7260a85c40d}\label{classcart__status__copy_a1b4788c35bb97d5447b0a7260a85c40d}} 
+\index{cart\+\_\+status\+\_\+copy@{cart\+\_\+status\+\_\+copy}!pose\+\_\+to\+\_\+string@{pose\+\_\+to\+\_\+string}}
+\index{pose\+\_\+to\+\_\+string@{pose\+\_\+to\+\_\+string}!cart\+\_\+status\+\_\+copy@{cart\+\_\+status\+\_\+copy}}
+\subsubsection{\texorpdfstring{pose\+\_\+to\+\_\+string()}{pose\_to\_string()}}
+{\footnotesize\ttfamily char $\ast$ cart\+\_\+status\+\_\+copy\+::pose\+\_\+to\+\_\+string (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Converts the current pose of the vehicle to a string which can be sent over a socket to a cart client process. 
+
+Definition at line 217 of file cart\+\_\+status\+\_\+copy.\+cpp.
+
+\mbox{\Hypertarget{classcart__status__copy_a6a05f2781c3c5547b9f5fff2161b829f}\label{classcart__status__copy_a6a05f2781c3c5547b9f5fff2161b829f}} 
+\index{cart\+\_\+status\+\_\+copy@{cart\+\_\+status\+\_\+copy}!print\+\_\+status@{print\+\_\+status}}
+\index{print\+\_\+status@{print\+\_\+status}!cart\+\_\+status\+\_\+copy@{cart\+\_\+status\+\_\+copy}}
+\subsubsection{\texorpdfstring{print\+\_\+status()}{print\_status()}}
+{\footnotesize\ttfamily void cart\+\_\+status\+\_\+copy\+::print\+\_\+status (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Prints the contents of the status data structure. 
+
+Definition at line 199 of file cart\+\_\+status\+\_\+copy.\+cpp.
+
+\mbox{\Hypertarget{classcart__status__copy_abc65e581df602a25f173e06ae5d453bf}\label{classcart__status__copy_abc65e581df602a25f173e06ae5d453bf}} 
+\index{cart\+\_\+status\+\_\+copy@{cart\+\_\+status\+\_\+copy}!update\+\_\+pose@{update\+\_\+pose}}
+\index{update\+\_\+pose@{update\+\_\+pose}!cart\+\_\+status\+\_\+copy@{cart\+\_\+status\+\_\+copy}}
+\subsubsection{\texorpdfstring{update\+\_\+pose()}{update\_pose()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void cart\+\_\+status\+\_\+copy\+::update\+\_\+pose (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classld__comm}{ld\+\_\+comm}} $\ast$}]{vehicle\+\_\+arcl }\end{DoxyParamCaption})}
+
+Wrapper function to transmit the current vehicle pose from the A\+R\+CL server. Result is stored in current\+\_\+pose. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em An} & object that contains socket descriptors and function definitions for communicating with the vehilce. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 142 of file cart\+\_\+status\+\_\+copy.\+cpp.
+
+\mbox{\Hypertarget{classcart__status__copy_ac688410b9b4a237d6ce6379e10f3c8bb}\label{classcart__status__copy_ac688410b9b4a237d6ce6379e10f3c8bb}} 
+\index{cart\+\_\+status\+\_\+copy@{cart\+\_\+status\+\_\+copy}!update\+\_\+pose@{update\+\_\+pose}}
+\index{update\+\_\+pose@{update\+\_\+pose}!cart\+\_\+status\+\_\+copy@{cart\+\_\+status\+\_\+copy}}
+\subsubsection{\texorpdfstring{update\+\_\+pose()}{update\_pose()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void cart\+\_\+status\+\_\+copy\+::update\+\_\+pose (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structld__msg__pose}{ld\+\_\+msg\+\_\+pose}} $\ast$}]{pose\+\_\+msg }\end{DoxyParamCaption})}
+
+Wrapper function to transmit the current vehicle pose from the A\+R\+CL server. Result is stored in an external structure. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt out}  & {\em A} & structure that will be populated with the current vehicle pose information. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 147 of file cart\+\_\+status\+\_\+copy.\+cpp.
+
+\mbox{\Hypertarget{classcart__status__copy_a49621a3d5ab294434c04b17668c2d613}\label{classcart__status__copy_a49621a3d5ab294434c04b17668c2d613}} 
+\index{cart\+\_\+status\+\_\+copy@{cart\+\_\+status\+\_\+copy}!update\+\_\+previous\+\_\+dock@{update\+\_\+previous\+\_\+dock}}
+\index{update\+\_\+previous\+\_\+dock@{update\+\_\+previous\+\_\+dock}!cart\+\_\+status\+\_\+copy@{cart\+\_\+status\+\_\+copy}}
+\subsubsection{\texorpdfstring{update\+\_\+previous\+\_\+dock()}{update\_previous\_dock()}}
+{\footnotesize\ttfamily void cart\+\_\+status\+\_\+copy\+::update\+\_\+previous\+\_\+dock (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Mutator. Uppdates the vallue of previous\+\_\+dock to current\+\_\+dock. 
+
+Definition at line 185 of file cart\+\_\+status\+\_\+copy.\+cpp.
+
+\mbox{\Hypertarget{classcart__status__copy_ace79b133b98000c72617917b1f434df8}\label{classcart__status__copy_ace79b133b98000c72617917b1f434df8}} 
+\index{cart\+\_\+status\+\_\+copy@{cart\+\_\+status\+\_\+copy}!update\+\_\+status@{update\+\_\+status}}
+\index{update\+\_\+status@{update\+\_\+status}!cart\+\_\+status\+\_\+copy@{cart\+\_\+status\+\_\+copy}}
+\subsubsection{\texorpdfstring{update\+\_\+status()}{update\_status()}}
+{\footnotesize\ttfamily void cart\+\_\+status\+\_\+copy\+::update\+\_\+status (\begin{DoxyParamCaption}\item[{char $\ast$}]{stat\+\_\+str }\end{DoxyParamCaption})}
+
+Parses cart message that provides a status update for a cart. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em stat\+\_\+str} & A special formatted string that contains the status information to store in the datastructure. Specifically the string format is \char`\"{}\%d\%s\char`\"{} ~\newline
+ where the first integer is the single-\/digit status code (0, 1, or 2), and the first string indicating the next docking position of the cart (corresponding to a vehicle map goal name). \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 105 of file cart\+\_\+status\+\_\+copy.\+cpp.
+
+\mbox{\Hypertarget{classcart__status__copy_ac0af1c110916a2fdd7ab7198bdca183a}\label{classcart__status__copy_ac0af1c110916a2fdd7ab7198bdca183a}} 
+\index{cart\+\_\+status\+\_\+copy@{cart\+\_\+status\+\_\+copy}!update\+\_\+status\+\_\+init@{update\+\_\+status\+\_\+init}}
+\index{update\+\_\+status\+\_\+init@{update\+\_\+status\+\_\+init}!cart\+\_\+status\+\_\+copy@{cart\+\_\+status\+\_\+copy}}
+\subsubsection{\texorpdfstring{update\+\_\+status\+\_\+init()}{update\_status\_init()}}
+{\footnotesize\ttfamily void cart\+\_\+status\+\_\+copy\+::update\+\_\+status\+\_\+init (\begin{DoxyParamCaption}\item[{char $\ast$}]{stat\+\_\+str }\end{DoxyParamCaption})}
+
+Parses cart message that provides the first status update for a cart. This function takes special consideration to parsing the starting location of a cart. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em stat\+\_\+str} & A special formatted string that contains the status information to store in the datastructure. Specifically the string format is \char`\"{}\%d\%d\%s\+:\%s\char`\"{} ~\newline
+ where the first integer is the single-\/digit status code (0, 1, or 2), the second integer is a single-\/digit flag indicating if a cart is present, the first string is the starting location of the cart (corresponding to a vehicle map goal name), and the second string indicating the next docking position of the cart (corresponding to a vehicle map goal name). \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 65 of file cart\+\_\+status\+\_\+copy.\+cpp.
+
+
+
+\subsection{Member Data Documentation}
+\mbox{\Hypertarget{classcart__status__copy_a8d8dca2a4a0c35f4676fc7d68254ca05}\label{classcart__status__copy_a8d8dca2a4a0c35f4676fc7d68254ca05}} 
+\index{cart\+\_\+status\+\_\+copy@{cart\+\_\+status\+\_\+copy}!client\+\_\+id@{client\+\_\+id}}
+\index{client\+\_\+id@{client\+\_\+id}!cart\+\_\+status\+\_\+copy@{cart\+\_\+status\+\_\+copy}}
+\subsubsection{\texorpdfstring{client\+\_\+id}{client\_id}}
+{\footnotesize\ttfamily ulapi\+\_\+integer cart\+\_\+status\+\_\+copy\+::client\+\_\+id\hspace{0.3cm}{\ttfamily [private]}}
+
+Socket Descriptor for connecting to the particular cart client. 
+
+Definition at line 30 of file cart\+\_\+status\+\_\+copy.\+h.
+
+\mbox{\Hypertarget{classcart__status__copy_a771289ffece9eb29e21a9deba5522888}\label{classcart__status__copy_a771289ffece9eb29e21a9deba5522888}} 
+\index{cart\+\_\+status\+\_\+copy@{cart\+\_\+status\+\_\+copy}!current\+\_\+dock@{current\+\_\+dock}}
+\index{current\+\_\+dock@{current\+\_\+dock}!cart\+\_\+status\+\_\+copy@{cart\+\_\+status\+\_\+copy}}
+\subsubsection{\texorpdfstring{current\+\_\+dock}{current\_dock}}
+{\footnotesize\ttfamily char$\ast$ cart\+\_\+status\+\_\+copy\+::current\+\_\+dock\hspace{0.3cm}{\ttfamily [private]}}
+
+Specifies the next dock point, or destination for a manipulator-\/on-\/cart. Corresponds to the name of a goal point stored on LD vehicle map. 
+
+Definition at line 54 of file cart\+\_\+status\+\_\+copy.\+h.
+
+\mbox{\Hypertarget{classcart__status__copy_a0a127fed372d7db77bc202bcc3e15d76}\label{classcart__status__copy_a0a127fed372d7db77bc202bcc3e15d76}} 
+\index{cart\+\_\+status\+\_\+copy@{cart\+\_\+status\+\_\+copy}!current\+\_\+pose@{current\+\_\+pose}}
+\index{current\+\_\+pose@{current\+\_\+pose}!cart\+\_\+status\+\_\+copy@{cart\+\_\+status\+\_\+copy}}
+\subsubsection{\texorpdfstring{current\+\_\+pose}{current\_pose}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structld__msg__pose}{ld\+\_\+msg\+\_\+pose}} cart\+\_\+status\+\_\+copy\+::current\+\_\+pose\hspace{0.3cm}{\ttfamily [private]}}
+
+Stores current position of cart within the LD map. Sent to cart process over socket to adjust for docking offset when performing coordinate registration. 
+
+Definition at line 66 of file cart\+\_\+status\+\_\+copy.\+h.
+
+\mbox{\Hypertarget{classcart__status__copy_a33596a12e74edf48fb8c8d1ba03d98dd}\label{classcart__status__copy_a33596a12e74edf48fb8c8d1ba03d98dd}} 
+\index{cart\+\_\+status\+\_\+copy@{cart\+\_\+status\+\_\+copy}!no\+\_\+cart@{no\+\_\+cart}}
+\index{no\+\_\+cart@{no\+\_\+cart}!cart\+\_\+status\+\_\+copy@{cart\+\_\+status\+\_\+copy}}
+\subsubsection{\texorpdfstring{no\+\_\+cart}{no\_cart}}
+{\footnotesize\ttfamily int cart\+\_\+status\+\_\+copy\+::no\+\_\+cart\hspace{0.3cm}{\ttfamily [private]}}
+
+Integer flag used to indicate if no cart is actually present (used to test vehicle control of multiple carts when a second cart is not available).~\newline
+This flag is checked so vehicle does not try to dock with a cart that is not physically present. 0 (false)\+: Cart present 1 (true)\+: Cart not present 
+
+Definition at line 48 of file cart\+\_\+status\+\_\+copy.\+h.
+
+\mbox{\Hypertarget{classcart__status__copy_a77d6208ab0579618165d77e56a6b8f01}\label{classcart__status__copy_a77d6208ab0579618165d77e56a6b8f01}} 
+\index{cart\+\_\+status\+\_\+copy@{cart\+\_\+status\+\_\+copy}!previous\+\_\+dock@{previous\+\_\+dock}}
+\index{previous\+\_\+dock@{previous\+\_\+dock}!cart\+\_\+status\+\_\+copy@{cart\+\_\+status\+\_\+copy}}
+\subsubsection{\texorpdfstring{previous\+\_\+dock}{previous\_dock}}
+{\footnotesize\ttfamily char$\ast$ cart\+\_\+status\+\_\+copy\+::previous\+\_\+dock\hspace{0.3cm}{\ttfamily [private]}}
+
+Specifies the last dock point, or destination for a manipulator-\/on-\/cart. The vehicle uses this field to return to a cart for pick-\/up. 
+
+Definition at line 60 of file cart\+\_\+status\+\_\+copy.\+h.
+
+\mbox{\Hypertarget{classcart__status__copy_a00f9d96ff04b8975c69a263ff15708ec}\label{classcart__status__copy_a00f9d96ff04b8975c69a263ff15708ec}} 
+\index{cart\+\_\+status\+\_\+copy@{cart\+\_\+status\+\_\+copy}!status@{status}}
+\index{status@{status}!cart\+\_\+status\+\_\+copy@{cart\+\_\+status\+\_\+copy}}
+\subsubsection{\texorpdfstring{status}{status}}
+{\footnotesize\ttfamily int cart\+\_\+status\+\_\+copy\+::status\hspace{0.3cm}{\ttfamily [private]}}
+
+Current service status of a manipulator -\/ on -\/ cart. Is restricted to taking on the following values with corresponding meanings \+: ~\newline
+ 0 (Ready) \+: the manipulator -\/ on -\/ cart is waiting for a vehicle to commit to transporting the cart to its next destination. ~\newline
+ 1 (Waiting) \+: the manipulator -\/ on -\/ cart a vehicle has committed to moving the cart, but the cart is waiting for it to reach its next destination. ~\newline
+ 2 (Busy) \+: the manipulator is performing work and does not need service. 
+
+Definition at line 39 of file cart\+\_\+status\+\_\+copy.\+h.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/oya/\+Desktop/\+Tortoise\+S\+V\+N/\+Applications/\+Application\+\_\+\+Transporter\+Robot\+\_\+\+Vehicle/\mbox{\hyperlink{cart__status__copy_8h}{cart\+\_\+status\+\_\+copy.\+h}}\item 
+C\+:/\+Users/oya/\+Desktop/\+Tortoise\+S\+V\+N/\+Applications/\+Application\+\_\+\+Transporter\+Robot\+\_\+\+Vehicle/\mbox{\hyperlink{cart__status__copy_8cpp}{cart\+\_\+status\+\_\+copy.\+cpp}}\end{DoxyCompactItemize}

@@ -1,0 +1,320 @@
+<robot_program>
+  <assembly id=“1” description=“Final Assembly”>
+    <subassembly id=“1” description=“Insert P1 Into Base” dependent=“-1”>
+      <subsubassembly id=“1” description=“Move to hover P1”>
+        <action type=“MoveTo”>
+          <motion type=“Cartesian”>
+            <pose x=“0000” y=“0000” z=“0000” xrot=“0000” yrot=“0000” zrot=“0000” status=“1” turns=“12”/>
+          </motion>
+        </action>
+      </subsubassembly>
+      <subsubassembly id=“2” description=“Open gripper”>
+        <action type=“Gripper”>
+          <motion type=“open”/>
+        </action>
+      </subsubassembly>
+      <subsubassembly id=“3” description=“Move to acquire P1”>
+        <action type=“MoveStraightTo”>
+          <motion type=“Cartesian”>
+            <pose x=“0000” y=“0000” z=“0000” xrot=“0000” yrot=“0000” zrot=“0000” status=“1” turns=“12”/>
+          </motion>
+        </action>
+      </subsubassembly>
+      <subsubassembly id=“4” description=“Acquire P1”>
+        <action type=“Gripper”>
+          <motion type=“close”/>
+        </action>
+      </subsubassembly>
+      <subsubassembly id=“5” description=“Retract P1”>
+        <action type=“MoveStraightTo”>
+          <motion type=“Cartesian”>
+            <pose x=“0000” y=“0000” z=“0000” xrot=“0000” yrot=“0000” zrot=“0000” status=“1” turns=“12”/>
+          </motion>
+        </action>
+      </subsubassembly>
+      <subsubassembly id=“6” description=“Move to hover fixture”>
+        <action type=“MoveTo”>
+          <motion type=“Cartesian”>
+            <pose x=“0000” y=“0000” z=“0000” xrot=“0000” yrot=“0000” zrot=“0000” status=“1” turns=“12”/>
+          </motion>
+        </action>
+      </subsubassembly>      
+      <subsubassembly id=“7” description=“Insert P1”>
+        <action type=“MoveStraightTo”>
+          <motion type=“Cartesian”>
+            <pose x=“0000” y=“0000” z=“0000” xrot=“0000” yrot=“0000” zrot=“0000” status=“1” turns=“12”/>
+          </motion>
+        </action>
+      </subsubassembly>
+      <subsubassembly id=“8” description=“Release P1”>
+        <action type=“Gripper”>
+          <motion type=“open”/>
+        </action>
+      </subsubassembly>
+      <subsubassembly id=“9” description=“Retract”>
+        <action type=“MoveStraightTo”>
+          <motion type=“Cartesian”>
+            <pose x=“0000” y=“0000” z=“0000” xrot=“0000” yrot=“0000” zrot=“0000” status=“1” turns=“12”/>
+          </motion>
+        </action>
+      </subsubassembly>
+    </subassembly>
+    <subassembly id=“2” description=“Insert P2P3 Into P1” dependent=“-1”>
+      <subsubassembly id=“1” description=“Move to hover P2P3”>
+        <action type=“MoveTo”>
+          <motion type=“Cartesian”>
+            <pose x=“0000” y=“0000” z=“0000” xrot=“0000” yrot=“0000” zrot=“0000” status=“1” turns=“12”/>
+          </motion>
+        </action>
+      </subsubassembly>
+      <subsubassembly id=“2” description=“Open gripper”>
+        <action type=“Gripper”>
+          <motion type=“open”/>
+        </action>
+      </subsubassembly>
+      <subsubassembly id=“3” description=“Move to acquire P2P3”>
+        <action type=“MoveStraightTo”>
+          <motion type=“Cartesian”>
+            <pose x=“0000” y=“0000” z=“0000” xrot=“0000” yrot=“0000” zrot=“0000” status=“1” turns=“12”/>
+          </motion>
+        </action>
+      </subsubassembly>
+      <subsubassembly id=“4” description=“Acquire P2P3”>
+        <action type=“Gripper”>
+          <motion type=“close”/>
+        </action>
+      </subsubassembly>
+      <subsubassembly id=“5” description=“Retract P2P3”>
+        <action type=“MoveStraightTo”>
+          <motion type=“Cartesian”>
+            <pose x=“0000” y=“0000” z=“0000” xrot=“0000” yrot=“0000” zrot=“0000” status=“1” turns=“12”/>
+          </motion>
+        </action>
+      </subsubassembly>
+      <subsubassembly id=“6” description=“Move to hover P1”>
+        <action type=“MoveTo”>
+          <motion type=“Cartesian”>
+            <pose x=“0000” y=“0000” z=“0000” xrot=“0000” yrot=“0000” zrot=“0000” status=“1” turns=“12”/>
+          </motion>
+        </action>
+      </subsubassembly>      
+      <subsubassembly id=“7” description=“Insert P2P3”>
+        <action type=“MoveStraightTo”>
+          <motion type=“Cartesian”>
+            <pose x=“0000” y=“0000” z=“0000” xrot=“0000” yrot=“0000” zrot=“0000” status=“1” turns=“12”/>
+          </motion>
+        </action>
+      </subsubassembly>
+      <subsubassembly id=“8” description=“Release P2P3”>
+        <action type=“Gripper”>
+          <motion type=“open”/>
+        </action>
+      </subsubassembly>
+      <subsubassembly id=“9” description=“Retract #1”>
+        <action type=“MoveStraightTo”>
+          <motion type=“Cartesian”>
+            <pose x=“0000” y=“0000” z=“0000” xrot=“0000” yrot=“0000” zrot=“0000” status=“1” turns=“12”/>
+          </motion>
+        </action>
+      </subsubassembly>
+      <subsubassembly id=“10” description=“Close Gripper”>
+        <action type=“Gripper”>
+          <motion type=“close”/>
+        </action>
+      </subsubassembly>
+      <subsubassembly id=“9” description=“Push Part”>
+        <action type=“MoveStraightTo”>
+          <motion type=“Cartesian”>
+            <pose x=“0000” y=“0000” z=“0000” xrot=“0000” yrot=“0000” zrot=“0000” status=“1” turns=“12”/>
+          </motion>
+        </action>
+      </subsubassembly>
+      <subsubassembly id=“9” description=“Retract #2”>
+        <action type=“MoveStraightTo”>
+          <motion type=“Cartesian”>
+            <pose x=“0000” y=“0000” z=“0000” xrot=“0000” yrot=“0000” zrot=“0000” status=“1” turns=“12”/>
+          </motion>
+        </action>
+      </subsubassembly>
+    </subassembly>
+    <subassembly id=“3” description=“Insert P4 Into P1”  dependent=“-1”>
+      <subsubassembly id=“1” description=“Move to hover P4”>
+        <action type=“MoveTo”>
+          <motion type=“Cartesian”>
+            <pose x=“0000” y=“0000” z=“0000” xrot=“0000” yrot=“0000” zrot=“0000” status=“1” turns=“12”/>
+          </motion>
+        </action>
+      </subsubassembly>
+      <subsubassembly id=“2” description=“Open gripper”>
+        <action type=“Gripper”>
+          <motion type=“open”/>
+        </action>
+      </subsubassembly>
+      <subsubassembly id=“3” description=“Move to acquire P4”>
+        <action type=“MoveStraightTo”>
+          <motion type=“Cartesian”>
+            <pose x=“0000” y=“0000” z=“0000” xrot=“0000” yrot=“0000” zrot=“0000” status=“1” turns=“12”/>
+          </motion>
+        </action>
+      </subsubassembly>
+      <subsubassembly id=“4” description=“Acquire P4”>
+        <action type=“Gripper”>
+          <motion type=“close”/>
+        </action>
+      </subsubassembly>
+      <subsubassembly id=“5” description=“Retract P4”>
+        <action type=“MoveStraightTo”>
+          <motion type=“Cartesian”>
+            <pose x=“0000” y=“0000” z=“0000” xrot=“0000” yrot=“0000” zrot=“0000” status=“1” turns=“12”/>
+          </motion>
+        </action>
+      </subsubassembly>
+      <subsubassembly id=“6” description=“Move to hover P1”>
+        <action type=“MoveTo”>
+          <motion type=“Cartesian”>
+            <pose x=“0000” y=“0000” z=“0000” xrot=“0000” yrot=“0000” zrot=“0000” status=“1” turns=“12”/>
+          </motion>
+        </action>
+      </subsubassembly>      
+      <subsubassembly id=“7” description=“Insert P4”>
+        <action type=“MoveStraightTo”>
+          <motion type=“Cartesian”>
+            <pose x=“0000” y=“0000” z=“0000” xrot=“0000” yrot=“0000” zrot=“0000” status=“1” turns=“12”/>
+          </motion>
+        </action>
+      </subsubassembly>
+    </subassembly>
+    <subassembly id=“4” description=“Insert P5 Into P1” dependent=“-1”>
+      <subsubassembly id=“1” description=“Move to hover P5”>
+        <action type=“MoveTo”>
+          <motion type=“Cartesian”>
+            <pose x=“0000” y=“0000” z=“0000” xrot=“0000” yrot=“0000” zrot=“0000” status=“1” turns=“12”/>
+          </motion>
+        </action>
+      </subsubassembly>
+      <subsubassembly id=“2” description=“Open gripper”>
+        <action type=“Gripper”>
+          <motion type=“open”/>
+        </action>
+      </subsubassembly>
+      <subsubassembly id=“3” description=“Move to acquire P5”>
+        <action type=“MoveStraightTo”>
+          <motion type=“Cartesian”>
+            <pose x=“0000” y=“0000” z=“0000” xrot=“0000” yrot=“0000” zrot=“0000” status=“1” turns=“12”/>
+          </motion>
+        </action>
+      </subsubassembly>
+      <subsubassembly id=“4” description=“Acquire P5”>
+        <action type=“Gripper”>
+          <motion type=“close”/>
+        </action>
+      </subsubassembly>
+      <subsubassembly id=“5” description=“Retract P5”>
+        <action type=“MoveStraightTo”>
+          <motion type=“Cartesian”>
+            <pose x=“0000” y=“0000” z=“0000” xrot=“0000” yrot=“0000” zrot=“0000” status=“1” turns=“12”/>
+          </motion>
+        </action>
+      </subsubassembly>
+      <subsubassembly id=“6” description=“Move to hover P1”>
+        <action type=“MoveTo”>
+          <motion type=“Cartesian”>
+            <pose x=“0000” y=“0000” z=“0000” xrot=“0000” yrot=“0000” zrot=“0000” status=“1” turns=“12”/>
+          </motion>
+        </action>
+      </subsubassembly>      
+      <subsubassembly id=“7” description=“Insert P5”>
+        <action type=“MoveStraightTo”>
+          <motion type=“Cartesian”>
+            <pose x=“0000” y=“0000” z=“0000” xrot=“0000” yrot=“0000” zrot=“0000” status=“1” turns=“12”/>
+          </motion>
+        </action>
+      </subsubassembly>
+      <subsubassembly id=“8” description=“Release P5”>
+        <action type=“Gripper”>
+          <motion type=“open”/>
+        </action>
+      </subsubassembly>
+      <subsubassembly id=“9” description=“Retract”>
+        <action type=“MoveStraightTo”>
+          <motion type=“Cartesian”>
+            <pose x=“0000” y=“0000” z=“0000” xrot=“0000” yrot=“0000” zrot=“0000” status=“1” turns=“12”/>
+          </motion>
+        </action>
+      </subsubassembly>
+    </subassembly>
+    <subassembly id=“5” description=“Retract Robot” dependent=“3”>
+      <subsubassembly id=“1” description=“Release P4”>
+        <action type=“Gripper”>
+          <motion type=“open”/>
+        </action>
+      </subsubassembly>
+      <subsubassembly id=“2” description=“Retract”>
+        <action type=“MoveStraightTo”>
+          <motion type=“Cartesian”>
+            <pose x=“0000” y=“0000” z=“0000” xrot=“0000” yrot=“0000” zrot=“0000” status=“1” turns=“12”/>
+          </motion>
+        </action>
+      </subsubassembly>
+    </subassembly>
+    <subassembly id=“6” description=“Remove final assembly” dependent=“-1”>
+      <subsubassembly id=“1” description=“Move to hover P1P2P3P4P5”>
+        <action type=“MoveTo”>
+          <motion type=“Cartesian”>
+            <pose x=“0000” y=“0000” z=“0000” xrot=“0000” yrot=“0000” zrot=“0000” status=“1” turns=“12”/>
+          </motion>
+        </action>
+      </subsubassembly>
+      <subsubassembly id=“2” description=“Open gripper”>
+        <action type=“Gripper”>
+          <motion type=“open”/>
+        </action>
+      </subsubassembly>
+      <subsubassembly id=“3” description=“Move to acquire P1P2P3P4P5”>
+        <action type=“MoveStraightTo”>
+          <motion type=“Cartesian”>
+            <pose x=“0000” y=“0000” z=“0000” xrot=“0000” yrot=“0000” zrot=“0000” status=“1” turns=“12”/>
+          </motion>
+        </action>
+      </subsubassembly>
+      <subsubassembly id=“4” description=“Acquire P1P2P3P4P5”>
+        <action type=“Gripper”>
+          <motion type=“close”/>
+        </action>
+      </subsubassembly>
+      <subsubassembly id=“5” description=“Retract P1P2P3P4P5”>
+        <action type=“MoveStraightTo”>
+          <motion type=“Cartesian”>
+            <pose x=“0000” y=“0000” z=“0000” xrot=“0000” yrot=“0000” zrot=“0000” status=“1” turns=“12”/>
+          </motion>
+        </action>
+      </subsubassembly>
+      <subsubassembly id=“6” description=“Move to hover”>
+        <action type=“MoveTo”>
+          <motion type=“Cartesian”>
+            <pose x=“0000” y=“0000” z=“0000” xrot=“0000” yrot=“0000” zrot=“0000” status=“1” turns=“12”/>
+          </motion>
+        </action>
+      </subsubassembly>      
+      <subsubassembly id=“7” description=“Place P1P2P3P4P5”>
+        <action type=“MoveStraightTo”>
+          <motion type=“Cartesian”>
+            <pose x=“0000” y=“0000” z=“0000” xrot=“0000” yrot=“0000” zrot=“0000” status=“1” turns=“12”/>
+          </motion>
+        </action>
+      </subsubassembly>
+      <subsubassembly id=“8” description=“Release P1P2P3P4P5”>
+        <action type=“Gripper”>
+          <motion type=“open”/>
+        </action>
+      </subsubassembly>
+      <subsubassembly id=“9” description=“Retract”>
+        <action type=“MoveStraightTo”>
+          <motion type=“Cartesian”>
+            <pose x=“0000” y=“0000” z=“0000” xrot=“0000” yrot=“0000” zrot=“0000” status=“1” turns=“12”/>
+          </motion>
+        </action>
+      </subsubassembly>
+    </subassembly>
+  </assembly>
+</robot_program>

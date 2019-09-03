@@ -1,0 +1,37 @@
+\hypertarget{ld__comm_8cpp}{}\section{ld\+\_\+comm.\+cpp File Reference}
+\label{ld__comm_8cpp}\index{ld\+\_\+comm.\+cpp@{ld\+\_\+comm.\+cpp}}
+
+
+Function implementation for managing A\+R\+CL connections to the Omron Adept ld mobile robot platform. ~\newline
+This code is for the outgoing arcl connection, whereby this control program opens ~\newline
+a server connection and the ld core connects as a client. ~\newline
+.  
+
+
+{\ttfamily \#include \char`\"{}ld\+\_\+comm.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}ulapi.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$time.\+h$>$}\newline
+
+
+\subsection{Detailed Description}
+Function implementation for managing A\+R\+CL connections to the Omron Adept ld mobile robot platform. ~\newline
+This code is for the outgoing arcl connection, whereby this control program opens ~\newline
+a server connection and the ld core connects as a client. ~\newline
+. 
+
+The Outgoing arcl connection can be configured in Mobile Planner uncer Configuration-\/$>$Robot Interface-\/$>$Outgoing A\+R\+CL Connection Setup and should ~\newline
+be given the address and port number used on this machine to establish the server socket. ~\newline
+ For details about the Outgoing A\+R\+CL connection, see the A\+R\+CL User Guide by Adept, and personal notes that summarizes communications. ~\newline
+ Based on\+: agv\+\_\+comm.\+h by J. Marvel, S. Legowik ~\newline
+ \char`\"{}\+\_\+ftime, \+\_\+ftime32, \+\_\+ftime64 from M\+S\+D\+N\char`\"{} \href{https://docs.microsoft.com/en-us/cpp/c-runtime-library/reference/ftime-ftime32-ftime64}{\tt https\+://docs.\+microsoft.\+com/en-\/us/cpp/c-\/runtime-\/library/reference/ftime-\/ftime32-\/ftime64}
+
+\begin{DoxyAuthor}{Author}
+Omar Aboul-\/\+Enein 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+2018-\/06-\/05 
+\end{DoxyDate}

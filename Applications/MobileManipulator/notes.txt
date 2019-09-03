@@ -1,0 +1,8 @@
+aac90859235953a63352537b895e67f5f8ac77c2  broken head
+
+9b6abc9717ea3093ce779b93a37d132546cce032 averaging
+
+ 54aa339 Test settup for new code, which is not presently working.
+
+870df5c has recenter fix
+

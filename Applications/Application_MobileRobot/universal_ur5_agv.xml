@@ -1,0 +1,7 @@
+<ROBOT>
+ <TCP_IP Address="10.0.127.34" Port="30002" Client="true"/>
+  <ComType Val="TCP_IP"/>
+  <Mounting X="0" Y="0" Z="0" XR="0" YR="0" ZR="135"/>
+  <ToWorld X="0" Y="0" Z="0" XR="0" YR="0" ZR="0" M00="1" M01="0" M02="0" M03="0" M10="0" M11="1" M12="0" M13="0" M20="-0" M21="0" M22="1" M23="0" M30="0" M31="0" M32="0" M33="0"/>
+  <Tool ID="1" Name="laser" X="0" Y="0" Z="115" XR="0" YR="0" ZR="0" Mass="1" MX="0" MY="0" MZ="0"/>
+</ROBOT>

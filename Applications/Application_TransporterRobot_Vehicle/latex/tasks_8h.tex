@@ -1,0 +1,221 @@
+\hypertarget{tasks_8h}{}\section{tasks.\+h File Reference}
+\label{tasks_8h}\index{tasks.\+h@{tasks.\+h}}
+
+
+Task interface. Main code wrapped into individual functions. Designed to be easily implemented into threads if needed. References\+:~\newline
+\+\_\+ftime, \+\_\+ftime32, \+\_\+ftime64 from M\+S\+DN ~\newline
+\href{https://docs.microsoft.com/en-us/cpp/c-runtime-library/reference/ftime-ftime32-ftime64}{\tt https\+://docs.\+microsoft.\+com/en-\/us/cpp/c-\/runtime-\/library/reference/ftime-\/ftime32-\/ftime64}.  
+
+
+{\ttfamily \#include \char`\"{}ulapi.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}cart\+\_\+comm.\+h\char`\"{}}\newline
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structtask__args}{task\+\_\+args}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{tasks_8h_ab8816fab70c753223d1c7e238b1055cc}{ld\+\_\+task\+\_\+code} (void $\ast$args)
+\item 
+void \hyperlink{tasks_8h_a45696e6a02ab225b46d9543b2e9cb54b}{ld\+\_\+client\+\_\+cmd\+\_\+code} (void $\ast$args)
+\item 
+void \hyperlink{tasks_8h_a90d15fc1ea6eefccf4e84aeb884f5e07}{cart\+\_\+comm\+\_\+test} (void $\ast$args)
+\item 
+void \hyperlink{tasks_8h_a43892ff0191cf2f2c45998a46db9682d}{cart\+\_\+comm\+\_\+test\+\_\+t} (void $\ast$args)
+\item 
+void \hyperlink{tasks_8h_afcb5d793b66bd95cd50c61e61ed9c49f}{cart\+\_\+connect\+\_\+t} (void $\ast$args)
+\item 
+void \hyperlink{tasks_8h_a969fffedf9f2fa5d598c2be9364c0284}{cart\+\_\+dock\+\_\+test\+\_\+t} (void $\ast$args)
+\item 
+void \hyperlink{tasks_8h_a05d896773fd2b12080d34e2bfa816c76}{cart\+\_\+latch\+\_\+delayed\+\_\+test\+\_\+t} (void $\ast$args)
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+const char \hyperlink{tasks_8h_a3ceb9d2947d10ec349973056b65c7168}{cart\+\_\+cap} \mbox{[}$\,$\mbox{]} = \char`\"{}Completed doing task cart\+Capture\char`\"{}
+\item 
+const char \hyperlink{tasks_8h_a7ea6185f33006ef871633a35c7b1f844}{cart\+\_\+release} \mbox{[}$\,$\mbox{]} = \char`\"{}Completed doing task cart\+Release\char`\"{}
+\item 
+const char \hyperlink{tasks_8h_abdca53da1c1dc9fed1fa20337ba3176b}{move\+\_\+back} \mbox{[}$\,$\mbox{]} = \char`\"{}Completed doing task move -\/1000 150 25 25 30 0 0 0 0 0 1\char`\"{}
+\item 
+const char \hyperlink{tasks_8h_a3420a0b07801c888c39a88aac52ff419}{move\+\_\+forward} \mbox{[}$\,$\mbox{]} = \char`\"{}Completed doing task move 1000 150 25 25 30 0 0 0 0 0 1\char`\"{}
+\item 
+const char \hyperlink{tasks_8h_a84e49bf995d18f3df0e2e53e281dd848}{square\+\_\+goal1} \mbox{[}$\,$\mbox{]} = \char`\"{}Arrived at Goal3\char`\"{}
+\item 
+const char \hyperlink{tasks_8h_a5437d31e7f42ecd795e8ca4422dfb401}{square\+\_\+goal2} \mbox{[}$\,$\mbox{]} = \char`\"{}Arrived at Goal5\char`\"{}
+\item 
+const char \hyperlink{tasks_8h_af25e92ed276a15d8ab9c64ea8d8b2edb}{square\+\_\+route1} \mbox{[}$\,$\mbox{]} = \char`\"{}Finished patrolling route Route-\/Goal3\char`\"{}
+\item 
+const char \hyperlink{tasks_8h_ae47749644d0bdb454aa37686690b6eae}{square\+\_\+route2} \mbox{[}$\,$\mbox{]} = \char`\"{}Finished patrolling route Route-\/Goal5\char`\"{}
+\item 
+const char \hyperlink{tasks_8h_a046fb564b3b7ab060dea949e9550c10f}{stage\+\_\+route} \mbox{[}$\,$\mbox{]} = \char`\"{}Finished patrolling route Route-\/Stage\char`\"{}
+\item 
+const char \hyperlink{tasks_8h_a4ca79dd636daf803ef69589db58d0020}{dock\+\_\+route} \mbox{[}$\,$\mbox{]} = \char`\"{}Finished patrolling route Route-\/Dock\+Help\char`\"{}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Task interface. Main code wrapped into individual functions. Designed to be easily implemented into threads if needed. References\+:~\newline
+\+\_\+ftime, \+\_\+ftime32, \+\_\+ftime64 from M\+S\+DN ~\newline
+\href{https://docs.microsoft.com/en-us/cpp/c-runtime-library/reference/ftime-ftime32-ftime64}{\tt https\+://docs.\+microsoft.\+com/en-\/us/cpp/c-\/runtime-\/library/reference/ftime-\/ftime32-\/ftime64}. 
+
+\begin{DoxyAuthor}{Author}
+Omar Aboul-\/\+Enein 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+2018-\/06-\/14 
+\end{DoxyDate}
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{tasks_8h_a90d15fc1ea6eefccf4e84aeb884f5e07}\label{tasks_8h_a90d15fc1ea6eefccf4e84aeb884f5e07}} 
+\index{tasks.\+h@{tasks.\+h}!cart\+\_\+comm\+\_\+test@{cart\+\_\+comm\+\_\+test}}
+\index{cart\+\_\+comm\+\_\+test@{cart\+\_\+comm\+\_\+test}!tasks.\+h@{tasks.\+h}}
+\subsubsection{\texorpdfstring{cart\+\_\+comm\+\_\+test()}{cart\_comm\_test()}}
+{\footnotesize\ttfamily void cart\+\_\+comm\+\_\+test (\begin{DoxyParamCaption}\item[{void $\ast$}]{args }\end{DoxyParamCaption})}
+
+Contains code for menu options used for running interprocess communications tests with one or more cart processes. The code defined here~\newline
+allows the user to test the communications for the software independent from the communications with the vehicle hardware. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em args} & Void pointer to a \hyperlink{classcart__comm}{cart\+\_\+comm} object. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{tasks_8h_a43892ff0191cf2f2c45998a46db9682d}\label{tasks_8h_a43892ff0191cf2f2c45998a46db9682d}} 
+\index{tasks.\+h@{tasks.\+h}!cart\+\_\+comm\+\_\+test\+\_\+t@{cart\+\_\+comm\+\_\+test\+\_\+t}}
+\index{cart\+\_\+comm\+\_\+test\+\_\+t@{cart\+\_\+comm\+\_\+test\+\_\+t}!tasks.\+h@{tasks.\+h}}
+\subsubsection{\texorpdfstring{cart\+\_\+comm\+\_\+test\+\_\+t()}{cart\_comm\_test\_t()}}
+{\footnotesize\ttfamily void cart\+\_\+comm\+\_\+test\+\_\+t (\begin{DoxyParamCaption}\item[{void $\ast$}]{args }\end{DoxyParamCaption})}
+
+Multithreaded version of the interprocess communications tests. Intended to be run with cart\+\_\+connect\+\_\+t in background to connect new cart clients. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em args} & Void pointer to a \hyperlink{classcart__comm}{cart\+\_\+comm} process. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{tasks_8h_afcb5d793b66bd95cd50c61e61ed9c49f}\label{tasks_8h_afcb5d793b66bd95cd50c61e61ed9c49f}} 
+\index{tasks.\+h@{tasks.\+h}!cart\+\_\+connect\+\_\+t@{cart\+\_\+connect\+\_\+t}}
+\index{cart\+\_\+connect\+\_\+t@{cart\+\_\+connect\+\_\+t}!tasks.\+h@{tasks.\+h}}
+\subsubsection{\texorpdfstring{cart\+\_\+connect\+\_\+t()}{cart\_connect\_t()}}
+{\footnotesize\ttfamily void cart\+\_\+connect\+\_\+t (\begin{DoxyParamCaption}\item[{void $\ast$}]{args }\end{DoxyParamCaption})}
+
+Connects new cart clients as a background thread. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em args} & Void pointer to a \hyperlink{classcart__comm}{cart\+\_\+comm} process. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{tasks_8h_a969fffedf9f2fa5d598c2be9364c0284}\label{tasks_8h_a969fffedf9f2fa5d598c2be9364c0284}} 
+\index{tasks.\+h@{tasks.\+h}!cart\+\_\+dock\+\_\+test\+\_\+t@{cart\+\_\+dock\+\_\+test\+\_\+t}}
+\index{cart\+\_\+dock\+\_\+test\+\_\+t@{cart\+\_\+dock\+\_\+test\+\_\+t}!tasks.\+h@{tasks.\+h}}
+\subsubsection{\texorpdfstring{cart\+\_\+dock\+\_\+test\+\_\+t()}{cart\_dock\_test\_t()}}
+{\footnotesize\ttfamily void cart\+\_\+dock\+\_\+test\+\_\+t (\begin{DoxyParamCaption}\item[{void $\ast$}]{args }\end{DoxyParamCaption})}
+
+This function implements the vehicle portion of the transporter robot performance test. In this version of the test, the vehicle always undocks~\newline
+with a cart immediately before scheduling its next task. This includes if the vehicle schedules the cart it just dropped off to be picked up again. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em A} & void pointer to a \hyperlink{structtask__args}{task\+\_\+args} structure. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{tasks_8h_a05d896773fd2b12080d34e2bfa816c76}\label{tasks_8h_a05d896773fd2b12080d34e2bfa816c76}} 
+\index{tasks.\+h@{tasks.\+h}!cart\+\_\+latch\+\_\+delayed\+\_\+test\+\_\+t@{cart\+\_\+latch\+\_\+delayed\+\_\+test\+\_\+t}}
+\index{cart\+\_\+latch\+\_\+delayed\+\_\+test\+\_\+t@{cart\+\_\+latch\+\_\+delayed\+\_\+test\+\_\+t}!tasks.\+h@{tasks.\+h}}
+\subsubsection{\texorpdfstring{cart\+\_\+latch\+\_\+delayed\+\_\+test\+\_\+t()}{cart\_latch\_delayed\_test\_t()}}
+{\footnotesize\ttfamily void cart\+\_\+latch\+\_\+delayed\+\_\+test\+\_\+t (\begin{DoxyParamCaption}\item[{void $\ast$}]{args }\end{DoxyParamCaption})}
+
+This function implements the vehicle portion of the transporter robot performance test. In this version of the test, the vehicle delays the act of undocking ~\newline
+from a cart (also referred to as unlatching) until after the vehicle schedules its next task. This allows the vehicle to function as mobile manipulator if only one cart is being serviced ~\newline
+and eliminates extra moves if the cart that was just taken to its next location is also the next one to be scheduled to be taken to another location. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em A} & void pointer to a \hyperlink{structtask__args}{task\+\_\+args} structure. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{tasks_8h_a45696e6a02ab225b46d9543b2e9cb54b}\label{tasks_8h_a45696e6a02ab225b46d9543b2e9cb54b}} 
+\index{tasks.\+h@{tasks.\+h}!ld\+\_\+client\+\_\+cmd\+\_\+code@{ld\+\_\+client\+\_\+cmd\+\_\+code}}
+\index{ld\+\_\+client\+\_\+cmd\+\_\+code@{ld\+\_\+client\+\_\+cmd\+\_\+code}!tasks.\+h@{tasks.\+h}}
+\subsubsection{\texorpdfstring{ld\+\_\+client\+\_\+cmd\+\_\+code()}{ld\_client\_cmd\_code()}}
+{\footnotesize\ttfamily void ld\+\_\+client\+\_\+cmd\+\_\+code (\begin{DoxyParamCaption}\item[{void $\ast$}]{args }\end{DoxyParamCaption})}
+
+Contains code for menu options used to test various functions related to the ld A\+R\+CL connections.~\newline
+Currently used to test the Outgoing A\+R\+CL Connection and A\+R\+CL server for sending commands, specifically 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em args} & Void pointer to allow code to be modified to accept arguments. Currently, N\+U\+LL should be passed. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{tasks_8h_ab8816fab70c753223d1c7e238b1055cc}\label{tasks_8h_ab8816fab70c753223d1c7e238b1055cc}} 
+\index{tasks.\+h@{tasks.\+h}!ld\+\_\+task\+\_\+code@{ld\+\_\+task\+\_\+code}}
+\index{ld\+\_\+task\+\_\+code@{ld\+\_\+task\+\_\+code}!tasks.\+h@{tasks.\+h}}
+\subsubsection{\texorpdfstring{ld\+\_\+task\+\_\+code()}{ld\_task\_code()}}
+{\footnotesize\ttfamily void ld\+\_\+task\+\_\+code (\begin{DoxyParamCaption}\item[{void $\ast$}]{args }\end{DoxyParamCaption})}
+
+Contains code for menu options used to test various functions related to the ld A\+R\+CL connections independently from the iterprocess communciations of the sofwtare. ~\newline
+Currently used to test the Outgoing A\+R\+CL Connection, specifically 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em args} & Void pointer to allow code to be modified to accept arguments. Currently, N\+U\+LL should be passed. \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Variable Documentation}
+\mbox{\Hypertarget{tasks_8h_a3ceb9d2947d10ec349973056b65c7168}\label{tasks_8h_a3ceb9d2947d10ec349973056b65c7168}} 
+\index{tasks.\+h@{tasks.\+h}!cart\+\_\+cap@{cart\+\_\+cap}}
+\index{cart\+\_\+cap@{cart\+\_\+cap}!tasks.\+h@{tasks.\+h}}
+\subsubsection{\texorpdfstring{cart\+\_\+cap}{cart\_cap}}
+{\footnotesize\ttfamily const char cart\+\_\+cap\mbox{[}$\,$\mbox{]} = \char`\"{}Completed doing task cart\+Capture\char`\"{}}
+
+This message is generated and sent from the ld core when the vehicle completes the process of docking with a cart. \mbox{\Hypertarget{tasks_8h_a7ea6185f33006ef871633a35c7b1f844}\label{tasks_8h_a7ea6185f33006ef871633a35c7b1f844}} 
+\index{tasks.\+h@{tasks.\+h}!cart\+\_\+release@{cart\+\_\+release}}
+\index{cart\+\_\+release@{cart\+\_\+release}!tasks.\+h@{tasks.\+h}}
+\subsubsection{\texorpdfstring{cart\+\_\+release}{cart\_release}}
+{\footnotesize\ttfamily const char cart\+\_\+release\mbox{[}$\,$\mbox{]} = \char`\"{}Completed doing task cart\+Release\char`\"{}}
+
+This message is generated and sent from the ld core when the vehicle completes the process of undocking with a cart. \mbox{\Hypertarget{tasks_8h_a4ca79dd636daf803ef69589db58d0020}\label{tasks_8h_a4ca79dd636daf803ef69589db58d0020}} 
+\index{tasks.\+h@{tasks.\+h}!dock\+\_\+route@{dock\+\_\+route}}
+\index{dock\+\_\+route@{dock\+\_\+route}!tasks.\+h@{tasks.\+h}}
+\subsubsection{\texorpdfstring{dock\+\_\+route}{dock\_route}}
+{\footnotesize\ttfamily const char dock\+\_\+route\mbox{[}$\,$\mbox{]} = \char`\"{}Finished patrolling route Route-\/Dock\+Help\char`\"{}}
+
+Message sent from ld Core. Used to determine when to start robot arm search. From old mobile robot code and is not currently used. \mbox{\Hypertarget{tasks_8h_abdca53da1c1dc9fed1fa20337ba3176b}\label{tasks_8h_abdca53da1c1dc9fed1fa20337ba3176b}} 
+\index{tasks.\+h@{tasks.\+h}!move\+\_\+back@{move\+\_\+back}}
+\index{move\+\_\+back@{move\+\_\+back}!tasks.\+h@{tasks.\+h}}
+\subsubsection{\texorpdfstring{move\+\_\+back}{move\_back}}
+{\footnotesize\ttfamily const char move\+\_\+back\mbox{[}$\,$\mbox{]} = \char`\"{}Completed doing task move -\/1000 150 25 25 30 0 0 0 0 0 1\char`\"{}}
+
+This message is generated and sent from the ld core when the vehicle completes a \char`\"{}move\char`\"{} command. The move command uses specific parameters to allow the~\newline
+vehicle to safely undock with an object directly in front of its laser sensors. The clearance is set so that rotation of the mobile robot does not cause its side sensors to strike the docking structure that the vehicle is trying to move away from. \mbox{\Hypertarget{tasks_8h_a3420a0b07801c888c39a88aac52ff419}\label{tasks_8h_a3420a0b07801c888c39a88aac52ff419}} 
+\index{tasks.\+h@{tasks.\+h}!move\+\_\+forward@{move\+\_\+forward}}
+\index{move\+\_\+forward@{move\+\_\+forward}!tasks.\+h@{tasks.\+h}}
+\subsubsection{\texorpdfstring{move\+\_\+forward}{move\_forward}}
+{\footnotesize\ttfamily const char move\+\_\+forward\mbox{[}$\,$\mbox{]} = \char`\"{}Completed doing task move 1000 150 25 25 30 0 0 0 0 0 1\char`\"{}}
+
+This message is generated and sent from the ld core when the vehicle completes a \char`\"{}move\char`\"{} command. The move command uses specific parameters to allow the~\newline
+vehicle to dock with an object directly in front of its laser sensors without the sensors preventing a safety stop in the vehicle. \mbox{\Hypertarget{tasks_8h_a84e49bf995d18f3df0e2e53e281dd848}\label{tasks_8h_a84e49bf995d18f3df0e2e53e281dd848}} 
+\index{tasks.\+h@{tasks.\+h}!square\+\_\+goal1@{square\+\_\+goal1}}
+\index{square\+\_\+goal1@{square\+\_\+goal1}!tasks.\+h@{tasks.\+h}}
+\subsubsection{\texorpdfstring{square\+\_\+goal1}{square\_goal1}}
+{\footnotesize\ttfamily const char square\+\_\+goal1\mbox{[}$\,$\mbox{]} = \char`\"{}Arrived at Goal3\char`\"{}}
+
+Message sent from ld Core. Used to determine when to start robot arm search. From old mobile robot code and is not currently used. \mbox{\Hypertarget{tasks_8h_a5437d31e7f42ecd795e8ca4422dfb401}\label{tasks_8h_a5437d31e7f42ecd795e8ca4422dfb401}} 
+\index{tasks.\+h@{tasks.\+h}!square\+\_\+goal2@{square\+\_\+goal2}}
+\index{square\+\_\+goal2@{square\+\_\+goal2}!tasks.\+h@{tasks.\+h}}
+\subsubsection{\texorpdfstring{square\+\_\+goal2}{square\_goal2}}
+{\footnotesize\ttfamily const char square\+\_\+goal2\mbox{[}$\,$\mbox{]} = \char`\"{}Arrived at Goal5\char`\"{}}
+
+Message sent from ld Core. Used to determine when to start robot arm search. From old mobile robot code and is not currently used. \mbox{\Hypertarget{tasks_8h_af25e92ed276a15d8ab9c64ea8d8b2edb}\label{tasks_8h_af25e92ed276a15d8ab9c64ea8d8b2edb}} 
+\index{tasks.\+h@{tasks.\+h}!square\+\_\+route1@{square\+\_\+route1}}
+\index{square\+\_\+route1@{square\+\_\+route1}!tasks.\+h@{tasks.\+h}}
+\subsubsection{\texorpdfstring{square\+\_\+route1}{square\_route1}}
+{\footnotesize\ttfamily const char square\+\_\+route1\mbox{[}$\,$\mbox{]} = \char`\"{}Finished patrolling route Route-\/Goal3\char`\"{}}
+
+Message sent from ld Core. Used to determine when to start robot arm search. From old mobile robot code and is not currently used. \mbox{\Hypertarget{tasks_8h_ae47749644d0bdb454aa37686690b6eae}\label{tasks_8h_ae47749644d0bdb454aa37686690b6eae}} 
+\index{tasks.\+h@{tasks.\+h}!square\+\_\+route2@{square\+\_\+route2}}
+\index{square\+\_\+route2@{square\+\_\+route2}!tasks.\+h@{tasks.\+h}}
+\subsubsection{\texorpdfstring{square\+\_\+route2}{square\_route2}}
+{\footnotesize\ttfamily const char square\+\_\+route2\mbox{[}$\,$\mbox{]} = \char`\"{}Finished patrolling route Route-\/Goal5\char`\"{}}
+
+Message sent from ld Core. Used to determine when to start robot arm search. From old mobile robot code and is not currently used. \mbox{\Hypertarget{tasks_8h_a046fb564b3b7ab060dea949e9550c10f}\label{tasks_8h_a046fb564b3b7ab060dea949e9550c10f}} 
+\index{tasks.\+h@{tasks.\+h}!stage\+\_\+route@{stage\+\_\+route}}
+\index{stage\+\_\+route@{stage\+\_\+route}!tasks.\+h@{tasks.\+h}}
+\subsubsection{\texorpdfstring{stage\+\_\+route}{stage\_route}}
+{\footnotesize\ttfamily const char stage\+\_\+route\mbox{[}$\,$\mbox{]} = \char`\"{}Finished patrolling route Route-\/Stage\char`\"{}}
+
+Message sent from ld Core. Used to determine when to start robot arm search. From old mobile robot code and is not currently used. 

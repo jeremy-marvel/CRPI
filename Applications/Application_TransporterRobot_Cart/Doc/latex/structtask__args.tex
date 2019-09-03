@@ -1,0 +1,73 @@
+\hypertarget{structtask__args}{}\section{task\+\_\+args Struct Reference}
+\label{structtask__args}\index{task\+\_\+args@{task\+\_\+args}}
+
+
+{\ttfamily \#include $<$tasks.\+h$>$}
+
+
+
+Collaboration diagram for task\+\_\+args\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{structtask__args__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+void $\ast$ \mbox{\hyperlink{structtask__args_ac7e725b0ffef940a29047c83bde81aa6}{actuate}}
+\item 
+\mbox{\hyperlink{classcart__comm__client}{cart\+\_\+comm\+\_\+client}} $\ast$ \mbox{\hyperlink{structtask__args_a94ff8387005d356c9677adfea4301967}{cart\+\_\+client}}
+\item 
+Crpi\+Robot$<$ Crpi\+Universal $>$ $\ast$ \mbox{\hyperlink{structtask__args_a8097f89f57e14fb26dd96ccc8bb29fea}{ur5}}
+\item 
+\mbox{\Hypertarget{structtask__args_a1484fa373dc33c045bf450933d675ba6}\label{structtask__args_a1484fa373dc33c045bf450933d675ba6}} 
+\mbox{\hyperlink{classcart__config}{cart\+\_\+config}} $\ast$ {\bfseries saved\+\_\+config}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+A structure encapsulating all data structures to be shared between threads. 
+
+Definition at line 30 of file tasks.\+h.
+
+
+
+\subsection{Member Data Documentation}
+\mbox{\Hypertarget{structtask__args_ac7e725b0ffef940a29047c83bde81aa6}\label{structtask__args_ac7e725b0ffef940a29047c83bde81aa6}} 
+\index{task\+\_\+args@{task\+\_\+args}!actuate@{actuate}}
+\index{actuate@{actuate}!task\+\_\+args@{task\+\_\+args}}
+\subsubsection{\texorpdfstring{actuate}{actuate}}
+{\footnotesize\ttfamily void$\ast$ task\+\_\+args\+::actuate}
+
+A ulapi semaphore used to control a sleep and wakeup signal for the actuation\+\_\+test thread. 
+
+Definition at line 36 of file tasks.\+h.
+
+\mbox{\Hypertarget{structtask__args_a94ff8387005d356c9677adfea4301967}\label{structtask__args_a94ff8387005d356c9677adfea4301967}} 
+\index{task\+\_\+args@{task\+\_\+args}!cart\+\_\+client@{cart\+\_\+client}}
+\index{cart\+\_\+client@{cart\+\_\+client}!task\+\_\+args@{task\+\_\+args}}
+\subsubsection{\texorpdfstring{cart\+\_\+client}{cart\_client}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classcart__comm__client}{cart\+\_\+comm\+\_\+client}}$\ast$ task\+\_\+args\+::cart\+\_\+client}
+
+A data structure containing socket connection infor for connecting to a vehicle server process and status information about the cart. 
+
+Definition at line 42 of file tasks.\+h.
+
+\mbox{\Hypertarget{structtask__args_a8097f89f57e14fb26dd96ccc8bb29fea}\label{structtask__args_a8097f89f57e14fb26dd96ccc8bb29fea}} 
+\index{task\+\_\+args@{task\+\_\+args}!ur5@{ur5}}
+\index{ur5@{ur5}!task\+\_\+args@{task\+\_\+args}}
+\subsubsection{\texorpdfstring{ur5}{ur5}}
+{\footnotesize\ttfamily Crpi\+Robot$<$Crpi\+Universal$>$$\ast$ task\+\_\+args\+::ur5}
+
+A C\+R\+PI datastructure that manages the connection to U\+R5 script. Allows for control of the U\+R5 robot. 
+
+Definition at line 48 of file tasks.\+h.
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{tasks_8h}{tasks.\+h}}\end{DoxyCompactItemize}

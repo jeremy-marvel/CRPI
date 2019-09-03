@@ -1,0 +1,9 @@
+
+HEAP CORRUPTION DETECTED: before Normal block (#1) at 0x007CFA08.
+CRT detected that the application wrote to memory before start of heap buffer.
+
+Exception thrown: read access violation.
+it was 0x2072756F.
+
+
+HEAP[ARInterface.exe]: Invalid address specified to RtlValidateHeap( 007B0000, 007EEA88 )

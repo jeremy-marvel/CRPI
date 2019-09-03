@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">PebbleDummy</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+
+
+    <string-array name="user_groups">
+        <item>Visitor</item>
+        <item>Operator</item>
+        <item>Worker</item>
+        <item>Maintenance</item>
+    </string-array>
+
+</resources>
