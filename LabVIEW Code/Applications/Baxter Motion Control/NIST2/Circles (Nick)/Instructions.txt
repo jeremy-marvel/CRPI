@@ -1,0 +1,38 @@
+To run Pivots
+
+1) Open "Initialize Function.vi"
+   Select "Right Arm" and "Left Arm"
+   Run
+
+2) Open & run "Status.vi"
+
+3) Open "Pivot Bar.vi"
+   Set Angles ("start" and "end"), speed, radius, & center
+   Run
+   Program will complain if it can't find an IK solution
+   Save data when requested
+
+4) Open "Run File.vi"
+   Browse for file from last step
+   Run 
+   Arms will go through one cycle and stop at 'start' points.
+
+5) Attach measuring bar.
+   If bar doesn't fit, repeat steps 4&5 with different radius
+
+There are three ways to run the routine
+
+A) Select "Right&Left" arms and 0 delay in "Run File.vi"
+   This is the "best" cooperation. Arms run simultaneous motions.
+
+B) Select "Right&Left" arms and #>0 delay in "Run File.vi"
+   This delays the motion of the right arm causing incremental errors.
+
+C) Run a setup cycle using (A) above.
+   Open "Follow.vi"
+   Set "Idle Left" to FALSE (light off)
+   Run "Follow.vi" - right arm will follow the left arm
+   Select "Left" arm and 0 delay in "Run File.vi"
+   The arms will run as Leader/Follower (i.e., Master/Slave)
+   This version would be most like an industrial use.
+   

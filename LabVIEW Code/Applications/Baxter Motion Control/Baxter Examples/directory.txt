@@ -1,0 +1,17 @@
+C:\Program Files\Labview\user.lib\ROSforLV_0.1\Devices\Baxter\Baxter Examples\directory.txt
+          
+AllThingsBaxter_ROS.vi
+Arm Globals.vi
+Ex1 head.vi
+Ex2 gripper.vi
+Ex2a gripper.vi
+Ex3.vi
+Ex4 arms.vi
+Gripper.vi
+ImageReader.vi
+Initialize Functions.vi
+MainBaxterDemo.vi
+Move to Cartisean.vi
+Simple Playback Controller.vi
+TeachAndPlay.vi
+TeachAndPlay_old.vi

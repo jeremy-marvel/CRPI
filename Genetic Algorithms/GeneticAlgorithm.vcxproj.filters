@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="GeneticAlgorithm.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="SimulatorInterface.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\Program Files\Microsoft Visual Studio\VC98\Include\BASETSD.H">
+      <Filter>Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Libraries\Math\VectorMath.h">
+      <Filter>Include</Filter>
+    </ClInclude>
+    <ClInclude Include="GeneticAlgorithm.h">
+      <Filter>Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Libraries\Math\NumericalMath.h">
+      <Filter>Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\portable.h">
+      <Filter>Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Libraries\Reporter\reporter.h">
+      <Filter>Include</Filter>
+    </ClInclude>
+    <ClInclude Include="SimulatorInterface.h">
+      <Filter>Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\types.h">
+      <Filter>Include</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Include">
+      <UniqueIdentifier>{0e76e902-405a-4e05-8f62-9ad2348d9204}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source">
+      <UniqueIdentifier>{f5565e1c-b69d-404d-8e21-b0c3b30b5c5a}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>
