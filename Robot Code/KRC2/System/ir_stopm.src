@@ -1,0 +1,62 @@
+&ACCESS R
+&COMMENT HandlerOnRobotFault
+DEF  IR_STOPM ( )
+  ;-----------------------------------
+  ; Error Handling ROBOT CONTROLLER  
+  ; Switch OFF and Switch ON processes
+  ; KRC Version >= V5.5
+  ;-----------------------------------
+  ;FOLD DECLARATIONS
+    ;FOLD USER DECL
+    ; Please insert user defined declarations
+
+    ;ENDFOLD (USER DECL)
+    ;FOLD BASISTECH DECL
+      BOOL APPL_RUN_L
+      DECL CHAR ID[3]
+    ;ENDFOLD (BASISTECH DECL)
+ ;ENDFOLD (DECLARATIONS)
+ ;FOLD BASISTECH INIT
+    INTERRUPT OFF 3
+    STOPM_FLAG=TRUE ;Reflects state of interrupt 3 to activate/deactivate $Stopmess interrupt
+    ID[]="CTL"
+  ;ENDFOLD (BASISTECH INIT) 
+  IF ($STOPMESS==TRUE) THEN
+    BRAKE
+    ;FOLD USER STOP
+    ;Make your modifications here
+
+    ;ENDFOLD (USER STOP)
+    ;FOLD BASISTECH STOP
+      P00 (#EXT_ERR,#PGNO_GET,ID[],128 )
+      APPL_RUN_L=FALSE
+      IF (APPL_RUN>0) THEN
+        IF $OUT[APPL_RUN] THEN
+          APPL_RUN_L=TRUE
+          $OUT[APPL_RUN]=FALSE
+        ENDIF
+      ENDIF
+      REPEAT
+        POWER=SYNC()
+        HALT
+      UNTIL (($STOPMESS==FALSE) AND ($POWER_FAIL==FALSE))
+    ;ENDFOLD (BASISTECH STOP)
+
+    ;FOLD BASISTECH RESTART
+      P00 (#EXT_ERR,#PGNO_GET,ID[],0 )
+      IF APPL_RUN_L THEN
+        IF (APPL_RUN>0) THEN
+          $OUT[APPL_RUN]=TRUE
+        ENDIF
+      ENDIF
+    ;ENDFOLD (BASISTECH RESTART)
+    ;FOLD USER RESTART
+     ;Make your modifications here
+
+    ;ENDFOLD (USER RESTART)
+  ENDIF ;$STOPMESS was TRUE
+  ;FOLD BASISTECH REACTIVATE
+    INTERRUPT ON 3
+    STOPM_FLAG=FALSE ;Reflects state of interrupt 3 to activate/deactivate $Stopmess interrupt
+  ;ENDFOLD (BASISTECH REACTIVATE)
+END

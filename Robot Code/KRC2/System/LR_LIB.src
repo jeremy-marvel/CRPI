@@ -1,0 +1,7 @@
+&ACCESS RVP
+&REL 6
+&PARAM TEMPLATE = C:\KRC\Roboter\Template\vorgabe
+&PARAM EDITMASK = *
+DEF LR_LIB( )
+; space for global LR functions
+END

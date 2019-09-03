@@ -1,0 +1,46 @@
+&ACCESS RVO1
+&REL 30
+&PARAM TEMPLATE = C:\KRC\Roboter\Template\FunctionVorgabe
+&PARAM EDITMASK = *
+DEFFCT BOOL TRIGFORCE( )
+
+DECL INT md_int[16]
+DECL REAL md_real[16]
+DECL INT n
+DECL INT result
+DECL BOOL TEMP
+DECL BOOL HEMP
+
+$TOOL=TOOL_DATA[5]
+$VEL.CP=1.0
+$VEL.ORI1=150
+$VEL.ORI2=100
+$ACC.CP=1.7
+$ACC.ORI1=80
+$ACC.ORI2=80
+
+FOR n=1 TO 16
+md_int[n]=0
+md_real[n]=0
+ENDFOR
+
+md_real[1]=0.05
+
+result=MD_CMD("PAPAS","TRIGBYCONTACT",md_int[],md_real[])
+
+TEMP=SOFTINZ()
+HEMP=FORCE()
+
+$OV_PRO=10
+LIN_REL {Z -5}
+LIN_REL {Y -50}
+
+FOR n=1 TO 16
+md_int[n]=0
+md_real[n]=0
+ENDFOR
+
+result=MD_CMD("PAPAS","DESIREDFORCECLEAR",md_int[],md_real[])
+
+RETURN TRUE
+ENDFCT

@@ -1,0 +1,23 @@
+&ACCESS RVP
+&REL 134
+&PARAM TEMPLATE = C:\KRC\Roboter\Template\FunctionVorgabe
+&PARAM EDITMASK = *
+DEFFCT BOOL CLEAR_FORCES( )
+
+DECL INT md_int[16]
+DECL REAL md_real[16]
+DECL INT n
+DECL INT result
+
+FOR N=1 TO 16
+
+ md_int[n] = 0
+ md_real[n] = 0
+
+ENDFOR
+
+result = MD_CMD("PAPAS", "DESIREDFORCCLEAR", md_int[], md_real[])
+
+RETURN TRUE
+
+ENDFCT

@@ -1,0 +1,84 @@
+&ACCESS RO
+&REL 61
+&PARAM TEMPLATE = C:\KRC\Roboter\Template\FunctionVorgabe
+&PARAM EDITMASK = *
+DEFFCT BOOL RESPOND( HANDLE:IN, TYPE:IN )
+; Returns desired data to serial port as a 6-part float array
+; Parameters:   handle:  serial port handle
+;               type:    type of data to send
+;                        - 'C' for Cartesian position
+;                        - 'A' for joint angles
+;                        - 'T' for torques
+;                        - 'F' for forces
+;                        - 'S' for timestamp
+
+INT HANDLE
+CHAR TYPE
+DECL STATE_T SW_T
+DECL INT OFF_T
+DECL MODUS_T MW_T
+DECL CHAR MSSG[91]
+
+MW_T=#SYNC
+OFF_T=0
+
+IF TYPE == "C" THEN
+  ; Get Cartesian position at the TCP
+  IF USE_SERIAL THEN
+    CWRITE (HANDLE, SW_T, MW_T, "%+#10.4f %+#10.4f %+#10.4f %+#10.4f %+#10.4f %+#10.4f %d %d %s", $POS_ACT_MES.X, $POS_ACT_MES.Y, $POS_ACT_MES.Z, $POS_ACT_MES.A, $POS_ACT_MES.B, $POS_ACT_MES.C, $POS_ACT_MES.S, $POS_ACT_MES.T, "@" )
+  ELSE
+    SWRITE (MSSG[], SW_T, OFF_T, "%+#5.3f %+#5.3f %+#5.3f %+#5.3f %+#5.3f %+#5.3f %d %d %s", $POS_ACT_MES.X, $POS_ACT_MES.Y, $POS_ACT_MES.Z, $POS_ACT_MES.A, $POS_ACT_MES.B, $POS_ACT_MES.C, $POS_ACT_MES.S, $POS_ACT_MES.T, "@" )
+  ENDIF
+ELSE
+  IF TYPE == "A" THEN
+    ; Get axis angles for A1-A2,E1,A3-A6 (J1, J2, J3, J4, J5, J6, J7)
+    IF USE_SERIAL THEN
+      CWRITE (HANDLE, SW_T, MW_T, "%+#10.4f %+#10.4f %+#10.4f %+#10.4f %+#10.4f %+#10.4f %+#10.4f %s", $AXIS_ACT_MES.A1, $AXIS_ACT_MES.A2, $AXIS_ACT_MES.E1, $AXIS_ACT_MES.A3, $AXIS_ACT_MES.A4, $AXIS_ACT_MES.A5, $AXIS_ACT_MES.A6, "@" )
+    ELSE
+      SWRITE (MSSG[], SW_T, OFF_T, "%+#5.3f %+#5.3f %+#5.3f %+#5.3f %+#5.3f %+#5.3f %+#5.3f %s", $AXIS_ACT_MES.A1, $AXIS_ACT_MES.A2, $AXIS_ACT_MES.E1, $AXIS_ACT_MES.A3, $AXIS_ACT_MES.A4, $AXIS_ACT_MES.A5, $AXIS_ACT_MES.A6, "@" )
+      
+    ENDIF
+  ELSE
+    IF TYPE == "T" THEN
+      ; Get joint torques
+      IF USE_SERIAL THEN
+        CWRITE (HANDLE, SW_T, MW_T, "%+#10.4f %+#10.4f %+#10.4f %+#10.4f %+#10.4f %+#10.4f %s", $TORQUE_AXIS_ACT.A1, $TORQUE_AXIS_ACT.A2, $TORQUE_AXIS_ACT.E1, $TORQUE_AXIS_ACT.A3, $TORQUE_AXIS_ACT.A4, $TORQUE_AXIS_ACT.A5, $TORQUE_AXIS_ACT.A6, "@" )
+      ELSE
+        SWRITE (MSSG[], SW_T, OFF_T, "%+#6.4f %+#6.4f %+#6.4f %+#6.4f %+#6.4f %+#6.4f %+#6.4f %s", $TORQUE_AXIS_ACT.A1, $TORQUE_AXIS_ACT.A2, $TORQUE_AXIS_ACT.E1, $TORQUE_AXIS_ACT.A3, $TORQUE_AXIS_ACT.A4, $TORQUE_AXIS_ACT.A5, $TORQUE_AXIS_ACT.A6, "@" )
+      ENDIF
+    ELSE
+      IF TYPE == "F" THEN
+        ; Get forces at the TCP
+        IF USE_SERIAL THEN
+          CWRITE (HANDLE, SW_T, MW_T, "%+#10.4f %+#10.4f %+#10.4f %+#10.4f %+#10.4f %+#10.4f 0 0 %s", $TORQUE_TCP_EST.FT.X, $TORQUE_TCP_EST.FT.Y, $TORQUE_TCP_EST.FT.Z, $TORQUE_TCP_EST.FT.A, $TORQUE_TCP_EST.FT.B, $TORQUE_TCP_EST.FT.C, "@" )
+        ELSE
+          SWRITE (MSSG[], SW_T, OFF_T, "%+#6.4f %+#6.4f %+#6.4f %+#6.4f %+#6.4f %+#6.4f 0 0 %s", $TORQUE_TCP_EST.FT.X, $TORQUE_TCP_EST.FT.Y, $TORQUE_TCP_EST.FT.Z, $TORQUE_TCP_EST.FT.A, $TORQUE_TCP_EST.FT.B, $TORQUE_TCP_EST.FT.C, "@" )
+        ENDIF
+      ELSE
+        IF TYPE == "S" THEN
+          ; Get current speed override setting
+          IF USE_SERIAL THEN
+            CWRITE (HANDLE, SW_T, MW_T, "%#10d %#10d %#10d %#10d %#10d %#10d %s", $OV_PRO, 0, 0, 0, 0, 0, "@" )
+          ELSE
+            SWRITE (MSSG[], SW_T, OFF_T, "%#10d %#10d %#10d %#10d %#10d %#10d %s", $OV_PRO, 0, 0, 0, 0, 0, "@" )
+          ENDIF
+        ELSE
+          RETURN(FALSE)
+        ENDIF
+      ENDIF
+    ENDIF
+  ENDIF
+ENDIF
+
+IF NOT USE_SERIAL THEN
+  ; Send message stored in MSSG over Ethernet
+  
+  errint = EKX_writeline(CRPI_SENSOR_NAME[], MSSG[])
+  IF errint == eioc_error THEN
+    ;HALT
+  ENDIF
+ENDIF
+
+RETURN(TRUE)
+
+ENDFCT

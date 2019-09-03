@@ -1,0 +1,75 @@
+&ACCESS RVO1
+&REL 65
+&PARAM TEMPLATE = C:\KRC\Roboter\Template\FunctionVorgabe
+&PARAM EDITMASK = *
+DEFFCT BOOL STARTIMPEDANCE(STARTIMPED:IN)
+
+  ;FOLD DECLARE FUNCTION ARGUMENTS
+  DECL BOOL STARTIMPED
+
+  ;ENDFOLD
+  ; ------------------------------------------------------
+  ; AUTHOR:    JEREMY MARVEL
+  ; SYSTEM:    KUKA ASSEMBLY PRIMITIVES
+  ; SUBSYSTEM: HELPER FUNCTIONS
+  ; FILE:      INIT_SEARCH.SRC
+  ;
+  ; Add a predefined search motion to the motion list
+  ; -----------------------------------------------------
+  DECL VAR_STATE RESULT
+  BOOL RETURNME
+  INT x
+  INT res
+  DECL INT md_int[16]
+  DECL REAL md_real[16]
+  RETURNME = TRUE
+
+  RESULT = VARSTATE("ORIGSTIFF")
+  IF RESULT <> #INITIALIZED THEN
+    ;ORIGSTIFF={STRATEGY 0, FRAMETYPE #BASE, TOOL #TOOL, CPSTIFFNESS {FRAME: x 0, y 0, z 0, a 0, b 0, c 0}, CPDAMPING {FRAME: x 0.7, y 0.7, z 0.7, a 0.7, b 0.7, c 0.7}, CPMAXDELTA {FRAME: x 99, y 99, z 99, a 380, b 380, c 380}, MAXFORCE {FRAME: x -1, y -1, z -1, a -1, b -1, c -1} }
+
+    ORIGSTIFF.strategy = 0
+    ORIGSTIFF.frametype = #BASE
+    ORIGSTIFF.tool = $TOOL
+    ORIGSTIFF.cpstiffness = {x 2000, y 2000, z 2000, a 0, b 0, c 0}
+    ORIGSTIFF.cpdamping = {X 0.7, Y 0.7, Z 0.7, A 0.7, B 0.7, C 0.7}
+    ORIGSTIFF.cpmaxdelta = {X 99, Y 99, Z 99, A 380, B 380, C 380}
+    ORIGSTIFF.maxforce = {X -1, Y -1, Z -1, A -1, B -1, C -1}
+  ENDIF
+
+  IF STARTIMPED THEN
+    ; Set up Impedance Control
+    NEWSTIFF = $STIFFNESS
+    ORIGSTIFF = $STIFFNESS
+
+
+    NEWSTIFF.strategy = 20
+    NEWSTIFF.frametype = #TOOL
+    NEWSTIFF.tool = $TOOL
+    ;NEWSTIFF.cpstiffness = {X 2000, Y 2000, Z 1000, A 100, B 100, C 100}
+
+    NEWSTIFF.cpstiffness = {X 0, Y 0, Z 0, A 0, B 0.0, C 0.0}
+    NEWSTIFF.cpdamping = {X 0.3, Y 0.3, Z 0.3, A 0.7, B 0.7, C 0.7}
+    NEWSTIFF.cpmaxdelta = {X 2000, Y 2000, Z 2000, A 300, B 360, C 360}
+    NEWSTIFF.maxforce = {X 9001, Y 9001, Z 9001, A 100, B 100, C 100}
+    ;NEWSTIFF.axisstiffness = {A1 2000.0, A2 2000.0, A3 2000.0, A4 2000.0, A5 2000.0, A6 2000.0, E1 2000.0}
+
+    NEWSTIFF.axisstiffness = {A1 0.0, A2 0.0, A3 0.0, A4 0.0, A5 0.0, A6 0.0, E1 10.0}
+    NEWSTIFF.axisdamping = {A1 0.7, A2 0.7, A3 0.7, A4 0.7, A5 0.7, A6 0.7, E1 0.7}
+    NEWSTIFF.axismaxdelta = {A1 360.0, A2 360.0, A3 360.0, A4 360.0, A5 360.0, A6 360.0, E1 360.0}
+    NEWSTIFF.axismaxdeltatrq = {A1 2.0, A2 2.0, A3 2.0, A4 2.0, A5 2.0, A6 2.0, E1 2.0}
+
+
+    $STIFFNESS = NEWSTIFF
+    $VEL.cp = 0.2
+    LIN_REL {X 0, Y 0, Z 0}
+
+  ELSE
+
+    ORIGSTIFF.strategy = 10
+    $stiffness = ORIGSTIFF
+  ENDIF
+
+
+  RETURN(RETURNME)
+ENDFCT

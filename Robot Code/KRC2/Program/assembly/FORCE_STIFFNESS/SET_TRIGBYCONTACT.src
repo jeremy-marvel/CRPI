@@ -1,0 +1,38 @@
+&ACCESS RVP2
+&REL 47
+&PARAM TEMPLATE = C:\KRC\Roboter\Template\FunctionVorgabe
+&PARAM EDITMASK = *
+DEFFCT BOOL SET_TRIGBYCONTACT( MODE:IN, FORCE:IN)
+
+INT MODE
+REAL FORCE
+
+
+DECL INT md_int[16]
+DECL REAL md_real[16]
+DECL INT n
+DECL INT result
+
+FOR n=1 TO 16
+ md_int[n] = 0
+ md_real[n] = 0
+ENDFOR
+
+IF ((MODE <= 0) AND (FORCE > 3)) THEN
+ md_int[1] = 0
+ELSE
+ md_int[1] = MODE
+ENDIF
+
+IF ((FORCE <= 0) AND (FORCE > 10)) THEN
+ md_real[1] = 0.1
+ELSE
+ md_real[1] = FORCE
+ENDIF
+
+
+result = MD_CMD("PAPAS", "TRIGBYCONTACT", md_int[], md_real[])
+
+RETURN TRUE
+
+ENDFCT

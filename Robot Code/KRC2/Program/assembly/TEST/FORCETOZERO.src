@@ -1,0 +1,33 @@
+&ACCESS RVP
+&REL 5
+&PARAM TEMPLATE = C:\KRC\Roboter\Template\FunctionVorgabe
+&PARAM EDITMASK = *
+DEFFCT BOOL FORCETOZERO( )
+
+DECL INT md_int[16]
+DECL REAL md_real[16]
+DECL INT n
+DECL INT result
+
+FOR n=1 TO 16
+md_int[n]=0
+md_int[n]=0
+md_real[n]=0
+ENDFOR
+
+md_int[1]=1
+md_int[2]=0
+md_int[3]=0
+md_real[1]=0
+md_real[2]=50.0
+md_real[3]=100.0
+md_real[4]=0.05
+md_real[5]=1.0
+md_real[6]=0.0
+md_real[7]=0.0
+
+result=MD_CMD("PAPAS","DESIREDFORCEZ",md_int[],md_real[])
+result=MD_CMD("PAPAS","DESIREDFORCESTART",md_int[],md_real[])
+
+RETURN TRUE
+ENDFCT

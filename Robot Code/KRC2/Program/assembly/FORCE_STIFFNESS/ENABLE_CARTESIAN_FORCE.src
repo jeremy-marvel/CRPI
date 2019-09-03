@@ -1,0 +1,21 @@
+&ACCESS RVO2
+&REL 4
+&PARAM TEMPLATE = C:\KRC\Roboter\Template\FunctionVorgabe
+&PARAM EDITMASK = *
+DEFFCT BOOL ENABLE_CARTESIAN_FORCE( )
+
+DECL INT md_int[16]
+DECL REAL md_real[16]
+DECL INT n
+DECL INT result
+
+FOR n=1 TO 16
+ md_int[n] = 0
+ md_real[n] = 0
+ENDFOR
+
+result = MD_CMD("PAPAS", "DESIREDFORCESTART", md_int[], md_real[])
+
+RETURN TRUE
+
+ENDFCT

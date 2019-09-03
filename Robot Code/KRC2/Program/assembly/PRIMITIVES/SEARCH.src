@@ -1,0 +1,125 @@
+&ACCESS RVO1
+&REL 40
+&PARAM TEMPLATE = C:\KRC\Roboter\Template\FunctionVorgabe
+&PARAM EDITMASK = *
+DEFFCT RESULT_TYPE SEARCH()
+  ; -------------------------------------------------------
+  ; AUTHOR:    JEREMY MARVEL
+  ; SYSTEM:    KUKA ASSEMBLY PRIMITIVES
+  ; SUBSYSTEM: HELPER FUNCTIONS
+  ; FILE:      SEARCH.SRC
+  ;
+  ; Execute the defined search functions
+  ; -------------------------------------------------------
+
+  REAL X, Y, Z, Z_ROT
+  INT COUNTER, VAL
+  BOOL STATE
+  DECL RESULT_TYPE RETURNME
+
+  LAST_KNOWN_FREQ = GET_FREQ(10, NEW_SEARCH)
+
+  STATE = TRUE
+  RETURNME = #RUNNING
+
+  IF NUM_TERM_CONDITS <= 0 THEN
+    ; At least one termination condition must be defined
+    STATE = FALSE
+  ENDIF
+
+  IF STATE THEN
+    IF NEW_SEARCH THEN
+      SEARCH_INIT_POS = $POS_ACT_MES
+      UPDATEPOSE = TRUE
+      FOR COUNTER = 1 TO NUM_TERM_CONDITS
+        SWITCH TERMINATORS[COUNTER].TTYPE
+        CASE #DISTANCE
+          TERMINATORS[COUNTER].ORIGIN_ = SEARCH_INIT_POS
+        CASE #ALARMCLOCK,#PROGTIME
+          $TIMER_STOP[TERMINATORS[COUNTER].TIMER_NO_] = TRUE
+          $TIMER[TERMINATORS[COUNTER].TIMER_NO_] = TERMINATORS[COUNTER].BEGIN_TIME_
+          $TIMER_STOP[TERMINATORS[COUNTER].TIMER_NO_] = FALSE
+        ENDSWITCH
+      ENDFOR
+      SEARCH_COUNTER = 0
+    ENDIF
+    NEW_SEARCH = FALSE
+  ENDIF
+
+  IF STATE THEN
+    X = SEARCH_INIT_POS.X
+    Y = SEARCH_INIT_POS.Y
+    Z = SEARCH_INIT_POS.Z
+    Z_ROT = SEARCH_INIT_POS.A
+
+    FOR COUNTER = 1 TO NUM_SEARCH_PARAMS
+      STATE = STATE AND APPLY_OFFSET(SEARCH_COUNTER, X, Y, Z, Z_ROT, SEARCHES[COUNTER])
+    ENDFOR
+  ENDIF
+
+  IF STATE THEN
+    STATE = STATE AND TEST_TERM()
+  ELSE
+    RETURNME = #ERROR
+  ENDIF
+
+  IF STATE THEN
+    ; Still searching
+    targetpos.x = X
+    targetpos.y = Y
+    targetpos.z = z
+    targetpos.A = Z_ROT
+
+    $APO.CPTP = 90
+    PTP targetpos c_ptp
+
+    SEARCH_COUNTER = SEARCH_COUNTER + 1
+  ELSE
+    ; Search terminated (error, success, or fail)
+    UPDATEPOSE = FALSE
+    FOR COUNTER = 1 TO NUM_TERM_CONDITS
+      IF TERMINATORS[COUNTER].RESULT_ THEN
+        IF RETURNME == #FAIL THEN
+          RETURNME = #FAIL
+          VAL = COUNTER
+        ELSE
+          RETURNME = TERMINATORS[COUNTER].RTYPE
+          VAL = COUNTER
+        ENDIF
+      ENDIF
+    ENDFOR
+ ;   $MSG_T = EMPTY_MSG
+    $MSG_T.MODUL[] = "USER"
+    MSG_TXT[] = "                            "
+    SWITCH RETURNME
+    CASE #SUCCESS
+      MSG_TXT[] = "Search was successful"
+    CASE #FAIL
+      MSG_TXT[] = "Search failed"
+    CASE #ERROR
+      MSG_TXT[] = "Error running search"
+    ENDSWITCH
+;    IF RETURNME <> #ERROR THEN
+;      SWITCH TERMINATORS[VAL].TTYPE
+;      CASE #DISTANCE
+;        MSG_TXT[] = MSG_TXT + ": DISTANCE"
+;      CASE #ALARMCLOCK
+;        MSG_TXT[] = MSG_TXT + ": ALARMCLOCK"
+;      CASE #PROGTIME
+;        MSG_TXT[] = MSG_TXT + ": PROGTIME"
+;      CASE #CONTACT
+;        MSG_TXT[] = MSG_TXT + ": CONTACT"
+;      CASE #EXTSIGNAL
+;        MSG_TXT[] = MSG_TXT + ": EXTSIGNAL"
+;      DEFAULT
+;        MSG_TXT[] = "UNKNOWN"
+;      ENDSWITCH
+ ;   ENDIF
+    $MSG_T.KEY[] = MSG_TXT[]
+    $MSG_T.PARAM_TYP = #VALUE
+    $MSG_T.TYP = #NOTIFY
+    $MSG_T.VALID = TRUE
+  ENDIF
+
+  RETURN(RETURNME)
+ENDFCT

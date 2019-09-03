@@ -1,0 +1,77 @@
+&ACCESS RVO1
+&REL 55
+&PARAM TEMPLATE = C:\KRC\Roboter\Template\FunctionVorgabe
+&PARAM EDITMASK = *
+DEFFCT BOOL ABS_ANG( ANGS[]:OUT )
+; Function performs desired angle movement
+; ARGS: REAL ANGS[] = axes target angle
+; RETURN: BOOL = whether target angles are safe and viable
+
+REAL ANGS[]
+;DECL AXIS   TANG ; Target angles as axis
+DECL E6AXIS ANG6
+DECL E6POS  POS6 ; Target position coordinates
+DECL FRAME  TPOS 
+DECL INT    ERR
+
+; Convert target angles to axis
+;TANG.A1 = ANGS[1]
+;TANG.A2 = ANGS[2]
+;TANG.E1 = ANGS[3]
+;TANG.A3 = ANGS[4]
+;TANG.A4 = ANGS[5]
+;TANG.A5 = ANGS[6]
+;TANG.A6 = ANGS[7]
+
+ANG6 = $AXIS_ACT_MES
+;ANG6.A1 = TANG.A1
+;ANG6.A2 = TANG.A2
+;ANG6.A3 = TANG.A3
+;ANG6.A4 = TANG.A4
+;ANG6.A5 = TANG.A5
+;ANG6.A6 = TANG.A6
+ANG6.A1 = ANGS[1]
+ANG6.A2 = ANGS[2]
+ANG6.E1 = ANGS[3]
+ANG6.A3 = ANGS[4]
+ANG6.A4 = ANGS[5]
+ANG6.A5 = ANGS[6]
+ANG6.A6 = ANGS[7]
+ANG6.E2 = 0.0
+ANG6.E3 = 0.0
+ANG6.E4 = 0.0
+ANG6.E5 = 0.0
+ANG6.E6 = 0.0
+
+; Find if final angle positions exceed workspace
+ERR    = 0
+POS6   = FORWARD( ANG6, ERR )
+POS6.E1 = ANGS[3]
+
+IF ERR==0 THEN
+  TPOS.X = POS6.X
+  TPOS.Y = POS6.Y
+  TPOS.Z = POS6.Z
+  TPOS.A = POS6.A
+  TPOS.B = POS6.B
+  TPOS.C = POS6.C
+
+
+  ; Check if target point is valid
+  ; If so, execute PTP move and return TRUE
+  ; If not, return FALSE
+;  IF ( (ANGVER(ANG6)==FALSE) OR (PTVER(TPOS)==FALSE) ) THEN
+;  IF ( (PTVER(TPOS)==FALSE) ) THEN
+;    HALT
+;    RETURN(FALSE)
+;  ELSE
+    ;BAS(#PTP_PARAMS, SER_SPEED_PER)
+    ;PTP TANG
+    PTP ANG6
+    RETURN(TRUE)
+;  ENDIF
+ELSE
+  RETURN(FALSE)
+ENDIF
+
+ENDFCT

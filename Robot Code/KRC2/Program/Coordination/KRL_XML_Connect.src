@@ -1,0 +1,25 @@
+&ACCESS RVP
+&REL 4
+&PARAM TEMPLATE = C:\KRC\Roboter\Template\FunctionVorgabe
+&PARAM EDITMASK = *
+DEFFCT BOOL KRL_XML_Connect( )
+  ;FOLD DECLARE FUNCTION PARAMETERS
+
+  ;ENDFOLD
+  ; ------------------------------------------------------
+  ; AUTHOR:    J. MARVEL
+  ; SYSTEM:    COLLABORATIVE ROBOTICS
+  ; SUBSYSTEM: KRL XML COORDINATION
+  ; FILE:      KRL_XML_CONNECT.SRC
+  ;
+  ; Connect to an external server for robot state sharing
+  ; -----------------------------------------------------
+
+  BOOL RETURNME
+  RETURNME = TRUE
+
+  ;! JAM:  To do:  add functionality here
+
+
+  RETURN(RETURNME)
+ENDFCT

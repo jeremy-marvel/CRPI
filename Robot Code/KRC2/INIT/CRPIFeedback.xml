@@ -1,0 +1,15 @@
+<Elements>
+  <Element Tag="CRPIData" Type="STRUCTTAG" Stacksize="1" />
+   <Element Tag="CRPIData.CMD" Type="STRING" Size="81" Stacksize="1" />
+   <Element Tag="CRPIData.Values" Type="STRUCTTAG" Stacksize="10" />
+      <Element Tag="CRPIData.Values.V1" Type="REAL" Stacksize="6" />
+      <Element Tag="CRPIData.Values.V2" Type="REAL" Stacksize="6" />
+      <Element Tag="CRPIData.Values.V3" Type="REAL" Stacksize="6" />
+      <Element Tag="CRPIData.Values.V4" Type="REAL" Stacksize="6" />
+      <Element Tag="CRPIData.Values.V5" Type="REAL" Stacksize="6" />
+      <Element Tag="CRPIData.Values.V6" Type="REAL" Stacksize="6" />
+      <Element Tag="CRPIData.Values.V7" Type="REAL" Stacksize="6" />
+      <Element Tag="CRPIData.Values.V8" Type="REAL" Stacksize="6" />
+      <Element Tag="CRPIData.Values.V9" Type="REAL" Stacksize="6" />
+      <Element Tag="CRPIData.Values.V10" Type="REAL" Stacksize="6" />
+</Elements>

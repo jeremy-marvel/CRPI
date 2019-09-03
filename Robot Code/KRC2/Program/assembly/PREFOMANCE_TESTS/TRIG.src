@@ -1,0 +1,22 @@
+&ACCESS RVP1
+&REL 10
+&PARAM TEMPLATE = C:\KRC\Roboter\Template\FunctionVorgabe
+&PARAM EDITMASK = *
+DEFFCT BOOL TRIG( )
+DECL INT md_int[16]
+DECL REAL md_real[16]
+DECL INT n
+DECL INT result
+DECL BOOL TEMP
+
+FOR n=1 TO 16
+md_int[n]=0
+md_real[n]=0
+ENDFOR
+
+md_real[1]=0.05
+
+result=MD_CMD("PAPAS","TRIGBYCONTACT",md_int[],md_real[])
+
+RETURN TRUE
+ENDFCT

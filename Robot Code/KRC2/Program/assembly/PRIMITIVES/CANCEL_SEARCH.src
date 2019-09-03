@@ -1,0 +1,36 @@
+&ACCESS RVP
+&REL 4
+&PARAM TEMPLATE = C:\KRC\Roboter\Template\FunctionVorgabe
+&PARAM EDITMASK = *
+DEFFCT BOOL CANCEL_SEARCH()
+  ;FOLD DECLARE FUNCTION ARGUMENTS
+  ;ENDFOLD
+  ; ------------------------------------------------------
+  ; AUTHOR:    JEREMY MARVEL
+  ; SYSTEM:    KUKA ASSEMBLY PRIMITIVES
+  ; SUBSYSTEM: HELPER FUNCTIONS
+  ; FILE:      INIT_SEARCH.SRC
+  ;
+  ; Reset all search parameters and termination
+  ; conditions to their default values
+  ; -----------------------------------------------------
+
+  INT X
+  BOOL STATE
+
+  STATE = TRUE
+
+  FOR X = 1 TO NUM_SEARCH_PARAMS
+    STATE = STATE AND CLEAR_SEARCH(SEARCHES[X])
+  ENDFOR
+  NUM_SEARCH_PARAMS = 0
+
+  FOR X = 1 TO NUM_TERM_CONDITS
+    STATE = STATE AND CLEAR_TERM(TERMINATORS[X])
+  ENDFOR
+  NUM_TERM_CONDITS = 0
+
+  NEW_SEARCH = TRUE
+
+  RETURN(TRUE)
+ENDFCT

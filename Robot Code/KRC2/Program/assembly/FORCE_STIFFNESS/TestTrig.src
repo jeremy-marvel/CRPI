@@ -1,0 +1,63 @@
+&ACCESS RVP
+&REL 15
+&PARAM TEMPLATE = C:\KRC\Roboter\Template\vorgabe
+&PARAM EDITMASK = *
+DEF TestTrig( )
+
+
+DECL INT n, runs, result
+DECL BOOL status
+DECL FRAME RETURN_PT
+
+
+DECL INT md_int[16]
+DECL REAL md_real[16]
+
+runs = 10
+
+;FOLD INI
+  ;FOLD BASISTECH INI
+    GLOBAL INTERRUPT DECL 3 WHEN $STOPMESS==TRUE DO IR_STOPM ( )
+    INTERRUPT ON 3 
+    BAS (#INITMOV,0 )
+  ;ENDFOLD (BASISTECH INI)
+  ;FOLD USER INI
+    ;Make your modifications here
+
+  ;ENDFOLD (USER INI)
+;ENDFOLD (INI)
+$ADVANCE = 0
+;FOLD PTP P1 Vel=100 % PDAT1 Tool[4]:Pneumatic_gripper Base[0];%{PE}%R 5.6.11,%MKUKATPBASIS,%CMOVE,%VPTP,%P 1:PTP, 2:P1, 3:, 5:100, 7:PDAT1
+$BWDSTART=FALSE
+PDAT_ACT=PPDAT1
+FDAT_ACT=FP1
+BAS(#PTP_PARAMS,100)
+PTP XP1 
+;ENDFOLD
+
+;status = SET_TRIGBYCONTACT(2, 0.01)
+
+
+FOR n=1 TO 16
+md_int[n]=0
+md_real[n]=0
+ENDFOR
+
+md_real[1]=0.05
+md_int[1]=2
+
+result=MD_CMD("PAPAS","COLLDETECTION",md_int[],md_real[])
+
+$VEL.cp = 0.5
+
+RETURN_PT = $POS_ACT_MES
+
+FOR n = 1 TO runs STEP 1
+
+LIN_REL {X 0, Y 0, Z -100}
+
+LIN RETURN_PT
+
+ENDFOR
+
+END

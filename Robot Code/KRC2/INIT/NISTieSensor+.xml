@@ -1,0 +1,18 @@
+<Robot>
+ <Data>
+  <ActPos   X="" Y="" Z="" A="" B="" C="" />
+  <LastPos  X="" Y="" Z="" A="" B="" C="" />
+ </Data>
+ <Status />
+ <Mode />
+ <Complex>
+  <Tickcount />
+ </Complex>
+ <RobotType>
+  <Robot>
+   <Type></Type>
+   <Serial></Serial>
+  </Robot>
+ </RobotType>
+ <Any A="" B="" C="" />
+</Robot>

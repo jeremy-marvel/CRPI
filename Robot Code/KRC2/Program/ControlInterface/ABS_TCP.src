@@ -1,0 +1,69 @@
+&ACCESS RVO1
+&REL 53
+&PARAM TEMPLATE = C:\KRC\Roboter\Template\FunctionVorgabe
+&PARAM EDITMASK = *
+DEFFCT BOOL ABS_TCP( CART[]:OUT, MODE:IN )
+; Function performs desired move to target absolute point
+; ARGS: REAL CART[] = target Cartesian point
+;       CHAR MODE   = desired movement mode
+;                     'P' for PTP, 'L' for LIN
+; RETURN: BOOL = whether target point is safe and viable
+
+REAL CART[]
+CHAR MODE
+DECL FRAME  TARG  ; Target Cartesian point as frame
+;DECL E6POS  TARG6
+DECL AXIS   TARGA ; Target position joint angles
+DECL E6AXIS TARGA6
+DECL INT    ERR
+
+; Convert target Cartesian point to frame
+TARG.X = CART[1]
+TARG.Y = CART[2]
+TARG.Z = CART[3]
+TARG.A = CART[4]
+TARG.B = CART[5]
+TARG.C = CART[6]
+;TARG.S = CART[7]
+;TARG.T = CART[8]
+
+
+TARG6 = $POS_ACT_MES
+TARG6.X = TARG.X
+TARG6.Y = TARG.Y
+TARG6.Z = TARG.Z
+TARG6.A = TARG.A
+TARG6.B = TARG.B
+TARG6.C = TARG.C
+;TARG6.S = CART[7]
+;TARG6.T = CART[8]
+
+; Convert endpoint Cartesian frame to joint angles
+ERR      = 0
+;TARGA6   = INVERSE( TARG6, XHOME, ERR)
+
+; Check if target point is valid
+; If so, move to point and return TRUE
+; If not, return FALSE
+; IF (PTVER(TARG)==FALSE) THEN
+
+;  HALT
+;  RETURN(FALSE)
+;ELSE
+  IF MODE=="P" THEN
+;      BAS(#PTP_PARAMS, SER_SPEED_PER)
+    PTP TARG
+
+  ELSE
+    IF MODE=="L" THEN
+      ;$vel.cp=SER_SPEED_ACT
+      LIN TARG6
+
+    ELSE
+      RETURN(FALSE)
+    ENDIF
+  ENDIF
+  RETURN(TRUE)
+;ENDIF
+
+ENDFCT

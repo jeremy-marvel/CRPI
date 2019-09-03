@@ -1,0 +1,39 @@
+&ACCESS RVO1
+&REL 9
+&PARAM TEMPLATE = C:\KRC\Roboter\Template\FunctionVorgabe
+&PARAM EDITMASK = *
+DEFFCT BOOL TOOL_ACT( MODE:IN, VAL:IN )
+; Function performs tool actuation
+; ARGS: CHAR MODE = desired actuation type (B/A)
+;       REAL VAL  = desired actuation value [0, 1] 
+; RETURN: BOOL = whether actuation command was accepted
+
+CHAR MODE
+REAL VAL
+INT IVAL
+
+IF MODE=="B" THEN
+  IF VAL < 0.5 THEN
+    $OUT[1] = FALSE
+  ELSE 
+    $OUT[1] = TRUE
+  ENDIF
+  RETURN(TRUE)
+ELSE
+  IF MODE=="A" THEN
+    ; TO DO: ANALOG OUTPUT
+    RETURN(FALSE)
+  ELSE
+    IF MODE=="D" THEN
+      IVAL = VAL
+      $TOOL = TOOL_DATA[IVAL]
+      RETURN(TRUE)
+    ELSE
+
+      RETURN(FALSE)
+    ENDIF
+  ENDIF
+ENDIF
+
+
+ENDFCT

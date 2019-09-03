@@ -1,0 +1,48 @@
+&ACCESS RO
+&REL 18
+&PARAM TEMPLATE = C:\KRC\Roboter\Template\FunctionVorgabe
+&PARAM EDITMASK = *
+DEFFCT BOOL SETFORCE(DIRECTION:IN,FZ:IN )
+
+DECL INT md_int[16]
+DECL REAL md_real[16]
+DECL INT n
+DECL INT result
+DECL CHAR FORCE[13]
+CHAR DIRECTION
+REAL FZ
+
+FOR n=1 TO 16
+md_int[n]=0
+md_real[n]=0
+ENDFOR
+
+
+
+md_int[1]=1
+md_int[2]=0
+md_int[3]=0
+md_real[1]=FZ
+md_real[2]=50.0
+md_real[3]=-1 ;50
+md_real[4]=-1 ;0.5
+md_real[5]=0.5 ;1.0
+md_real[6]=0.0
+md_real[7]=0.0
+
+IF DIRECTION=="X" THEN
+  FORCE[]="DESIREDFORCEX"
+ENDIF
+IF DIRECTION=="Y" THEN
+  FORCE[]="DESIREDFORCEY"
+ENDIF
+IF DIRECTION=="Z" THEN
+  FORCE[]="DESIREDFORCEZ"
+ENDIF
+
+result=MD_CMD("PAPAS",FORCE[],md_int[],md_real[])
+result=MD_CMD("PAPAS","DESIREDFORCESTART",md_int[],md_real[])
+
+RETURN TRUE
+
+ENDFCT

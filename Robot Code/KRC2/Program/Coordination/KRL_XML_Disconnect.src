@@ -1,0 +1,28 @@
+&ACCESS RVP
+&REL 1
+&PARAM TEMPLATE = C:\KRC\Roboter\Template\FunctionVorgabe
+&PARAM EDITMASK = *
+DEFFCT BOOL KRL_XML_Disconnect( )
+  ;FOLD DECLARE FUNCTION PARAMETERS
+
+  ;ENDFOLD
+  ; ------------------------------------------------------
+  ; AUTHOR:    J. MARVEL
+  ; SYSTEM:    COLLABORATIVE ROBOTICS
+  ; SUBSYSTEM: KRL XML COORDINATION
+  ; FILE:      KRL_XML_DISCONNECT.SRC
+  ;
+  ; Disconnect from the external server
+  ; -----------------------------------------------------
+
+  BOOL RETURNME
+  RETURNME = TRUE
+
+  IF SERVERCONNECTED THEN
+    ;! JAM:  To do:  add functionality here
+  ELSE
+    RETURNME = FALSE
+  ENDIF
+
+  RETURN(RETURNME)
+ENDFCT

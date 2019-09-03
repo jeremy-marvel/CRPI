@@ -1,0 +1,133 @@
+&ACCESS RVP
+&REL 102
+&PARAM TEMPLATE = C:\KRC\Roboter\Template\vorgabe
+&PARAM EDITMASK = *
+DEF RUNFILE( )
+
+DECL BOOL RESPONSE
+DECL INT HANDLE
+DECL STATE_T SC_T
+DECL INT J
+
+;FOLD INI
+  ;FOLD BASISTECH INI
+    GLOBAL INTERRUPT DECL 3 WHEN $STOPMESS==TRUE DO IR_STOPM ( )
+    INTERRUPT ON 3 
+    BAS (#INITMOV,0 )
+  ;ENDFOLD (BASISTECH INI)
+  ;FOLD USER INI
+    ;Make your modifications here
+  ;ENDFOLD (USER INI)
+;ENDFOLD (INI)
+
+
+;$BASE=BASE_DATA[1]
+;$TOOL=TOOL_DATA[7]
+
+
+;FOR J=1 TO 6
+;  $ACC_AXIS[J]=25
+;  $VEL_AXIS[J]=25
+;ENDFOR
+
+;$STIFFNESS.strategy = 10
+;$STIFFNESS.commit = TRUE
+
+
+RESPONSE = STARTIMPEDANCE(FALSE)
+
+PTP $POS_ACT_MES
+
+
+TCP_CONNECTED = FALSE
+FCACTIVE = FALSE    ; force a reset of force control
+
+;CCLOSE(HANDLE,SC_T)
+IF USE_SERIAL THEN
+  ; Open serial connection
+  COPEN(:SER_3, HANDLE)
+  IF HANDLE==0 THEN
+    HALT
+  ENDIF
+ELSE
+  ; receive structure
+  CRPI_REC_TEXT[1].s[] = "CRPICommand.CRPIData.CMD"
+  CRPI_REC_TEXT[2].s[] = "CRPICommand.CRPIData.Values.V1"
+  CRPI_REC_TEXT[3].s[] = "CRPICommand.CRPIData.Values.V2"
+  CRPI_REC_TEXT[4].s[] = "CRPICommand.CRPIData.Values.V3"
+  CRPI_REC_TEXT[5].s[] = "CRPICommand.CRPIData.Values.V4"
+  CRPI_REC_TEXT[6].s[] = "CRPICommand.CRPIData.Values.V5"
+  CRPI_REC_TEXT[7].s[] = "CRPICommand.CRPIData.Values.V6"
+  CRPI_REC_TEXT[8].s[] = "CRPICommand.CRPIData.Values.V7"
+  CRPI_REC_TEXT[9].s[] = "CRPICommand.CRPIData.Values.V8"
+  CRPI_REC_TEXT[10].s[] = "CRPICommand.CRPIData.Values.V9"
+  CRPI_REC_TEXT[11].s[] = "CRPICommand.CRPIData.Values.V10"
+  CRPI_REC_TEXT[12].s[] = "CRPICommand.CRPIData"
+  CRPI_SENSOR_NAME[]="CRPICommand"
+
+  ; Open Ethernet connection
+  IF NOT USE_SERIAL THEN
+    WHILE NOT TCP_CONNECTED
+      errint = EKX_open(CRPI_SENSOR_NAME[])
+      ;EKX_handleerror(errint)
+      IF errint == eioc_error THEN
+        ; USED TO BE HALT
+      ELSE
+        TCP_CONNECTED = TRUE
+      ENDIF
+    ENDWHILE
+  ENDIF
+
+;  errint = EKX_open(CRPI_SENSOR_NAME[])
+;  EKX_handleerror(errint)
+;  IF errint == eioc_error THEN
+;    HALT
+;  ELSE
+;    TCP_CONNECTED = TRUE
+;  ENDIF
+
+  HANDLE = 0
+ENDIF
+
+LOOP
+  RESPONSE = LISTEN( HANDLE )
+
+  IF NOT USE_SERIAL THEN
+    WHILE NOT TCP_CONNECTED
+      errint = EKX_open(CRPI_SENSOR_NAME[])
+      ;EKX_handleerror(errint)
+      IF errint == eioc_error THEN
+        ; USED TO BE HALT
+      ELSE
+        TCP_CONNECTED = TRUE
+      ENDIF
+    ENDWHILE
+  ENDIF
+   
+ENDLOOP
+
+IF USE_SERIAL THEN
+  ; Close serial connection
+  CCLOSE( HANDLE, SC_T )
+ELSE
+  ; Close Ethernet connection
+  errbl = EKX_close(CRPI_SENSOR_NAME[])
+  IF errbl == FALSE THEN
+    HALT
+  ENDIF
+ENDIF
+
+IF SC_T.RET1<>#CMD_OK THEN
+  HALT
+ENDIF
+
+;FOLD PTP HOME  Vel= 100 % DEFAULT;%{PE}%MKUKATPBASIS,%CMOVE,%VPTP,%P 1:PTP, 2:HOME, 3:, 5:100, 7:DEFAULT
+$BWDSTART = FALSE
+PDAT_ACT=PDEFAULT
+FDAT_ACT=FHOME
+BAS (#PTP_PARAMS,100 )
+$H_POS=XHOME
+PTP  XHOME
+;ENDFOLD
+
+END

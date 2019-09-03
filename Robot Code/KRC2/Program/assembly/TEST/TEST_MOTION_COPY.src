@@ -1,0 +1,150 @@
+&ACCESS RVP
+&REL 5
+&PARAM TEMPLATE = C:\KRC\Roboter\Template\vorgabe
+&PARAM EDITMASK = *
+DEF TEST_MOTION_COPY( )
+
+FRAME POINT
+INT COUNTER
+BOOL STATE
+DECL IPO_MODE LAST_IPO
+
+;FOLD INI
+  ;FOLD BASISTECH INI
+    GLOBAL INTERRUPT DECL 3 WHEN $STOPMESS==TRUE DO IR_STOPM ( )
+    INTERRUPT ON 3 
+    BAS (#INITMOV,0 )
+  ;ENDFOLD (BASISTECH INI)
+  ;FOLD USER INI
+    ;Make your modifications here
+
+  ;ENDFOLD (USER INI)
+;ENDFOLD (INI)
+
+; Set the advance run pointer to the maximum value
+$ADVANCE = 5
+
+
+; Note that this program was originally written for
+; a demonstration of the search functionality without
+; having a real gripper in place.  If a new program is
+; written based on this function, note that the tool
+; used in this program is a plastic bumper, and that
+; all TP-programmed points were based on that tool
+; definition.  Modifying Tool[2] in any way will require
+; these points to be redefined.
+
+;FOLD PTP P2 Vel=100 % PDAT2 Tool[2]:post Base[0];%{PE}%R 5.6.11,%MKUKATPBASIS,%CMOVE,%VPTP,%P 1:PTP, 2:P2, 3:, 5:100, 7:PDAT2
+$BWDSTART=FALSE
+PDAT_ACT=PPDAT2
+FDAT_ACT=FP2
+BAS(#PTP_PARAMS,100)
+PTP XP2 
+;ENDFOLD
+POINT=GETPOINT("Z", -1)
+PTP POINT
+LIN_REL{X -40}
+LIN_REL{Z -20}
+
+; Instead of editing Tool[2], just define a new tool
+; and set it appropriately here.
+$TOOL = TOOL_DATA[5]
+
+; Switch the coordinate frame to that of the tool
+; (the Z axis is that in which the tool flange is
+; pointing)
+LAST_IPO = $IPO_MODE
+$IPO_MODE = #TCP
+
+; Set up Impedance Control
+STATE = STARTIMPEDANCE(TRUE)
+;$STIFFNESS = NEWSTIFF
+
+; JAM: what am I doing here?
+$VEL.cp = 0.2
+
+; Clear all search parameters
+STATE = CANCEL_SEARCH()
+
+; Functional tests.  Each test should be assigned
+; a value (passed, failed, pending) depending on
+; where it is in the evaluation queue.
+; =================================================
+; INDIVIDUAL SEARCH TESTS
+; =================================================
+; Spiral Test:  Passed
+;BOOL ADDSEARCHSPIRAL(INT TURNS, REAL RADIUS, REAL SPEED)
+STATE = STATE AND ADDSEARCHSPIRAL(5, 20.0, 180.0)
+
+; Raster Test:  Passed
+;BOOL ADDSEARCHRASTER(REAL RASTERS, REAL LENGTH, REAL WIDTH, REAL SPEED)
+;STATE = STATE AND ADDSEARCHRASTER(6, 50.0, 50.0, 100.0)
+
+; Rotate Test:  Passed
+;BOOL ADDSEARCHROTATION(REAL RANGE, REAL SPEED)
+;STATE = STATE AND ADDSEARCHROTATION(20.0, 40.0)
+
+; Circle Test:  Passed
+;BOOL ADDSEARCHCIRCLE(REAL RADIUS, REAL SPEED)
+;STATE = STATE AND ADDSEARCHCIRCLE(25.0, 20.0)
+
+; Hop Test   :  Passed
+;BOOL ADDSEARCHHOP(REAL MAGNITUDE, REAL FREQUENCY) 
+;STATE = STATE AND ADDSEARCHHOP(20.0, 5.0)
+
+; Linear Test:  Passed
+;BOOL ADDSEARCHLINEAR(REAL X_OFFSET, REAL Y_OFFSET, REAL Z_OFFSET, REAL SPEED)
+;STATE = STATE AND ADDSEARCHLINEAR(0.0, 0.0, -100.0, 10.0)
+
+; Constant Offset Test:  PASSED
+;BOOL ADDSEARCHCONSTOFFSET(REAL X_OFFSET, REAL Y_OFFSET, REAL Z_OFFSET)
+;STATE = STATE AND ADDSEARCHCONSTOFFSET(0.0, 0.0, -50.0)
+
+; =================================================
+; COMBINATORIAL SEARCH TEST
+; =================================================
+; Linear + Rotation Test:  Passed
+;STATE = STATE AND ADDSEARCHLINEAR(50.0, -10.0, 20.0, 2.0)
+;STATE = STATE AND ADDSEARCHROTATION(20.0, 100.0)
+
+; =================================================
+; TERMINATION CONDITION TESTS
+; =================================================
+; Alarm clock test:  Passed
+STATE = STATE AND ADDTERMCLOCK(#ALARMCLOCK, #FAIL, 10000.0, 5)
+
+; Program timer test:  Passed
+;STATE = STATE AND ADDTERMCLOCK(#PROGTIME, #FAIL, 20000.0, 5)
+
+; Distance test:  Pending
+STATE = STATE AND ADDTERMDISTANCE(#SUCCESS, 0.0, 0.0, 80.0, 0.0)
+
+; Digital input test:  Pending
+;STATE = STATE AND ADDTERMSIGNAL(#EXTSIGNAL, #SUCCESS, 5)
+
+; Contact threshold test:  Pending
+;STATE = STATE AND ADDTERMSIGNAL(#CONTACT, #SUCCESS, 2.0)
+
+; ==========================================
+; ~~~    RUN DAT SWEET, SWEET SEARCH     ~~~
+; ==========================================
+WHILE STATE
+  STATE = (SEARCH() == #RUNNING)
+ENDWHILE
+; ==========================================
+
+; Go back to position control and clear all search
+; parameters
+STATE = STARTIMPEDANCE(FALSE)
+STATE = CANCEL_SEARCH()
+
+; Back out of the insertion point in position control
+targetpos = $POS_ACT_MES
+targetpos.z = targetpos.z + 100.0
+PTP targetpos
+
+; Switch back to the original coordinate frame
+$IPO_MODE = LAST_IPO
+
+
+END

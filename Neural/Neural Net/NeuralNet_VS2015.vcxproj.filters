@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="RBFClassification.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="RadialBasisFunctions.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="FeedForward.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Blackbox.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="NumericTangent.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Naysayer.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="AnalyticTangent.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="RBFClassification.h">
+      <Filter>Include</Filter>
+    </ClInclude>
+    <ClInclude Include="RadialBasisFunctions.h">
+      <Filter>Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\types.h">
+      <Filter>Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\portable.h">
+      <Filter>Include</Filter>
+    </ClInclude>
+    <ClInclude Include="NeuralNet.h">
+      <Filter>Include</Filter>
+    </ClInclude>
+    <ClInclude Include="NetCommon.h">
+      <Filter>Include</Filter>
+    </ClInclude>
+    <ClInclude Include="Models.h">
+      <Filter>Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Clustering\Patterns\Pattern.h">
+      <Filter>Include</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Include">
+      <UniqueIdentifier>{7a1f3a2f-b75d-44b4-a82e-b3b08bcb8b84}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source">
+      <UniqueIdentifier>{ec9593ba-5989-4e01-8970-ebe9ae1fcf73}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

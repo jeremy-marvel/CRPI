@@ -1,0 +1,31 @@
+&ACCESS RVP
+&REL 8
+&PARAM TEMPLATE = C:\KRC\Roboter\Template\vorgabe
+&PARAM EDITMASK = *
+DEF KRL_XML_Test( )
+;FOLD INI
+  ;FOLD BASISTECH INI
+    GLOBAL INTERRUPT DECL 3 WHEN $STOPMESS==TRUE DO IR_STOPM ( )
+    INTERRUPT ON 3 
+    BAS (#INITMOV,0 )
+  ;ENDFOLD (BASISTECH INI)
+  ;FOLD USER INI
+    ;Make your modifications here
+
+  ;ENDFOLD (USER INI)
+;ENDFOLD (INI)
+
+PTP $POS_ACT_MEAS
+
+;! Turn on the pose and torque automatic updates using the
+;! submit interpreter
+;! JAM:  Be sure to turn these off again!
+UPDATEPOSE = TRUE
+UPDATETORQUE = TRUE
+
+SERVERCONNECTED = KRL_XML_CONNECT()
+
+UPDATEPOSE = FALSE
+UPDATETORQUE = FALSE
+
+END

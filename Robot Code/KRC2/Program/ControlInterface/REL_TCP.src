@@ -1,0 +1,70 @@
+&ACCESS RVO
+&REL 22
+&PARAM TEMPLATE = C:\KRC\Roboter\Template\FunctionVorgabe
+&PARAM EDITMASK = *
+DEFFCT BOOL REL_TCP( DELTA[]:OUT, MODE:IN )
+; Function performs desired position change
+; ARGS: REAL DELTA[]  = Cartesian position change
+;       CHAR  MODE    = Desired movement mode
+;                       'P' for PTP, 'L' for LIN
+; RETURN: BOOL = whether target point is safe and viable
+
+REAL DELTA[]
+CHAR MODE
+DECL FRAME  DPOS  ; Delta position as a frame
+DECL FRAME  ENDPT ; Calculated endpoint
+DECL E6POS  TARG6
+DECL AXIS   TARGA ; Target position joint angles
+DECL E6AXIS TARGA6
+DECL INT    ERR
+
+; Convert position delta to frame
+DPOS.X = DELTA[1]
+DPOS.Y = DELTA[2]
+DPOS.Z = DELTA[3]
+DPOS.A = DELTA[4]
+DPOS.B = DELTA[5]
+DPOS.C = DELTA[6]
+
+; Calculate endpoint
+ENDPT.X = DPOS.X + $POS_ACT_MES.X
+ENDPT.Y = DPOS.Y + $POS_ACT_MES.Y
+ENDPT.Z = DPOS.Z + $POS_ACT_MES.Z
+ENDPT.A = DPOS.A + $POS_ACT_MES.A
+ENDPT.B = DPOS.B + $POS_ACT_MES.B
+ENDPT.C = DPOS.C + $POS_ACT_MES.C
+
+TARG6 = $POS_ACT_MES
+TARG6.X = ENDPT.X
+TARG6.Y = ENDPT.Y
+TARG6.Z = ENDPT.Z
+TARG6.A = ENDPT.A
+TARG6.B = ENDPT.B
+TARG6.C = ENDPT.C
+
+; Convert endpoint Cartesian frame to joint angles
+ERR      = 0
+
+; Check if target point is valid
+; If so, perform move and return TRUE
+; If not, return FALSE
+;    IF ( (PTVER(ENDPT)==FALSE) OR (ANGVER(TARGA)==FALSE) ) THEN
+IF (PTVER(ENDPT)==FALSE) THEN
+  RETURN(FALSE)
+ELSE
+  IF MODE=="P" THEN
+    BAS(#PTP_PARAMS, SER_SPEED_PER)
+    PTP_REL DPOS
+  ELSE
+    IF MODE=="L" THEN
+      $vel.cp=SER_SPEED_ACT
+      LIN_REL DPOS
+    ELSE
+      RETURN(FALSE)
+    ENDIF
+  ENDIF
+
+  RETURN(TRUE)
+ENDIF
+
+ENDFCT

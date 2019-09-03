@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<!-- KUKA Roboter GmbH                                                       -->
+<!--                                                                         -->
+<!-- 'InitOnce'   use false only                                             -->
+<!-- 'Channel'    represents a connection to a Sensor. Every channel has     -->
+<!--              the following parameters                                   -->
+<!-- 'SensorName' is the name you give to a sensor. In KRL it serves         -->
+<!--              as a handle to this channel. If the sensor                 -->
+<!--              name, for example, is 'StackCam' there has to be a file    -->
+<!--              called 'StackCam.XML' witch holds the information of the   -->
+<!--              associated  ring buffers  (XML tags)                       -->
+<!-- 'SensorType' is the type or the model name of a sensor.                 -->
+<!-- 'TCP_IP'     holds information about the type of connection, TCP/IP,    -->
+<!--              No other then TCP_IP is realized jet.        		     -->
+<!-- 'IP'         holds the IP of the sensor.                                -->
+<!-- 'Port'       holds the sensor port number of the port you want to       -->
+<!--              connect to.                                                -->
+<!-- 'Route'      if set to 'true' the connection will use ROUTE.EXE. If     -->
+<!--              set to 'false' it will establish a direct connection.      -->
+<!-- 'MapPort'    up to now should be always the same as 'Port'.             -->
+<!--                                                                         -->
+<XmlApiConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="XMLCommunicationSetup.xsd">
+<!--   -->
+<!--   -->
+<XmlApiParam InitOnce="false"/>
+<!--   -->
+<!--   -->
+<!-- Edit these lines with the IP address of your computer. -->
+<!-- The important one is CRPICommand. -->
+<!--   -->
+<!-- J Money's laptop:  169.254.152.10 -->
+<!-- K Dawg's laptop:  169.254.152.64 -->
+<!-- GRASP desktop: 169.254.152.100 -->
+<!-- MARK Laptop: 169.254.152.38 -->
+<Channel SensorName="CRPICommand" SensorType="SXT">
+	<TCP_IP IP="169.254.152.38" Port="6007" Route="false" MapPort="6007"/>
+</Channel>
+<Channel SensorName="CRPIFeedback" SensorType="SXT">
+	<TCP_IP IP="169.254.152.38" Port="6008" Route="false" MapPort="6008"/>
+</Channel>
+<!-- END DEMO -->
+</XmlApiConfig>

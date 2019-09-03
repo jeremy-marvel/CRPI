@@ -1,0 +1,48 @@
+&ACCESS RO
+&REL 13
+&PARAM TEMPLATE = C:\KRC\Roboter\Template\FunctionVorgabe
+&PARAM EDITMASK = *
+DEFFCT BOOL BOOLRESPOND( HANDLE:IN, INPUT:IN )
+; Sends boolean variable over serial to respond for success/failure
+; Parameters:   handle:  serial port handle
+;               INPUT:   boolean response
+
+INT HANDLE
+BOOL INPUT
+DECL STATE_T SW_T
+DECL MODUS_T MW_T
+DECL INT OFF_T
+DECL CHAR MSSG[81]
+
+MW_T=#SYNC
+OFF_T = 0
+
+IF INPUT == TRUE THEN
+  IF USE_SERIAL THEN
+    CWRITE (HANDLE, SW_T, MW_T, "%d", 1 )
+  ELSE
+    SWRITE (MSSG[], SW_T, OFF_T, "%d", 1 )
+  ENDIF
+ELSE
+  IF INPUT == FALSE THEN
+    IF USE_SERIAL THEN
+      CWRITE (HANDLE, SW_T, MW_T, "%d", 0 )
+    ELSE
+      SWRITE (MSSG[], SW_T, OFF_T, "%d", 0 )
+    ENDIF
+  ELSE
+    RETURN(FALSE)
+  ENDIF
+ENDIF
+
+IF NOT USE_SERIAL THEN
+  ; Send message stored in MSSG over Ethernet
+  errint = EKX_writeline(CRPI_SENSOR_NAME[], MSSG[])
+  IF errint == eioc_error THEN
+    ;HALT
+  ENDIF
+ENDIF
+
+RETURN(TRUE)
+
+ENDFCT

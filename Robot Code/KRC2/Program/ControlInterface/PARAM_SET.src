@@ -1,0 +1,27 @@
+&ACCESS RVO
+&REL 4
+&PARAM TEMPLATE = C:\KRC\Roboter\Template\FunctionVorgabe
+&PARAM EDITMASK = *
+DEFFCT BOOL PARAM_SET( MODE:IN, VAL:IN )
+; Function sets parameters for motion control
+; ARGS: CHAR MODE = A(cceleration)
+;                   S(speed)
+;       REAL VAL  = desired parameter value [0.0, 1.0] 
+; RETURN: BOOL = whether actuation command was accepted
+
+CHAR MODE
+REAL VAL
+INT IVAL
+
+SWITCH MODE
+CASE "A"
+  ROB_ACCEL = VAL
+  RETURN(TRUE)
+CASE "S"
+  ROB_SPEED = VAL
+  RETURN(TRUE)
+DEFAULT
+  RETURN(FALSE)
+ENDSWITCH
+
+ENDFCT

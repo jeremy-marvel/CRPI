@@ -1,0 +1,220 @@
+&ACCESS RVP
+&REL 128
+&COMMENT PLC on control
+DEF  SPS ( )
+  ;FOLD DECLARATIONS
+  ;FOLD BASISTECH DECL
+  ;Automatik extern
+  DECL STATE_T STAT
+  DECL MODUS_T MODE
+  ;ENDFOLD (BASISTECH DECL)
+  ;FOLD USER DECL
+  ; Please insert user defined declarations
+
+  DECL REAL TESTME
+  DECL BOOL GOODTOGO
+  DECL BOOL RESPONSE
+  DECL INT HANDLE
+  DECL STATE_T SW_T, SR_T, SC_T
+  DECL MODUS_T MW_T, MR_T
+  DECL BOOL STARTED
+  DECL CHAR MSSG[91]
+  DECL CHAR COMM[1]
+  DECL REAL TIMEOUT
+  DECL INT OFFSET
+  DECL INT dumb
+  DECL INT OFF_T
+
+  DECL CHAR CRPI_FEEDBACK_NAME[40]
+  DECL BOOL SPS_TCP_CONNECTED
+  DECL INT SPS_errint
+
+  ;ENDFOLD (USER DECL)
+  ;ENDFOLD (DECLARATIONS)
+  ;FOLD INI
+  ;FOLD DEFAULT MSG_T 
+  $MSG_T={MSG_T: VALID FALSE,RELEASE FALSE,TYP #NOTIFY,MODUL[] " ",KEY[] " ",PARAM_TYP #VALUE,PARAM[] " ",DLG_FORMAT[] " ",ANSWER 0}
+  ;ENDFOLD (DEFAULT MSG_T)
+  ;FOLD AUTOEXT INIT
+  INTERRUPT DECL 91 WHEN $PRO_STATE1==#P_FREE DO RESET_OUT ()
+  INTERRUPT ON 91
+  $LOOP_MSG[]="                                                            "
+  MODE=#SYNC
+  $H_POS=$H_POS
+  ;Automatik extern
+  IF $MODE_OP==#EX THEN
+    CWRITE($CMD,STAT,MODE,"RUN /R1/CELL()")
+  ENDIF
+  ;ENDFOLD (AUTOEXT INIT)
+  ;FOLD USER INIT
+  ; Please insert user defined initialization commands
+  STARTED = FALSE
+  TIMEOUT = 0.1
+  COMM[] = "#"
+  OFFSET = 0
+  MR_T = #ABS
+  GOODTOGO = FALSE
+
+  IF LOGROBOTDATA THEN
+    IF SERVERCONNECTED THEN
+      IF TCPCONNECTION THEN
+        ;! TCP/IP connection via KRL XML
+      ELSE
+        ;! Serial connection
+        COPEN(:SER_3, HANDLE)
+        MW_T=#SYNC
+        STARTED = TRUE
+      ENDIF
+    ENDIF
+  ENDIF
+  ;ENDFOLD (USER INIT)
+  ;ENDFOLD (INI)
+  
+  OFF_T = 0
+  STARTED = FALSE
+  SPS_TCP_CONNECTED = FALSE
+  CRPI_FEEDBACK_NAME[]="CRPIFeedback"
+  LOOP
+
+  WAIT FOR NOT($POWER_FAIL)
+  TORQUE_MONITORING()
+
+  ;FOLD USER PLC
+  ;Make your modifications here
+  ;Set outputs for light tower
+  ;OUT[1012] == Drive contact on
+  $OUT[2] = $OUT[1012]
+  ;IN[1025] == TRUE
+  $OUT[3] = $IN[1025]
+
+  IF OVERRIDE_SPEED THEN
+    IF MAX_SPEED > 100 THEN
+      MAX_SPEED = 100
+    ENDIF
+
+    IF MAX_SPEED < 0 THEN
+      MAX_SPEED = 0
+    ENDIF
+
+    IF $IN[6] THEN
+      $OV_PRO = MAX_SPEED
+      $OUT[1] = false
+    ELSE
+      $OV_PRO = 0
+      $OUT[1] = true
+    ENDIF
+  ELSE
+    $OV_PRO = MAX_SPEED
+    IF MOVE_PERMISSION THEN
+      IF $IN[2] THEN
+        OK_GO = TRUE
+      ELSE
+        OK_GO = FALSE
+      ENDIF
+    ENDIF
+  ENDIF
+
+  ON_ERROR_PROCEED
+  TESTME = $TOOL.Z
+
+  IF ($ERR.NUMBER > 0) THEN
+    ERR_CLEAR($ERR)
+    GOODTOGO = FALSE
+  ELSE
+    GOODTOGO = TRUE
+  ENDIF
+
+  ;IF ($ACT_TOOL > 0) THEN
+  ;  GOODTOGO = TRUE
+  ;ENDIF
+
+  ;IF $TOOL.Z > 0 THEN
+  IF (GOODTOGO == TRUE) THEN
+    IF UPDATEPOSE THEN
+      IF $ACT_TOOL >= 0 THEN
+        IF $ACT_BASE >= 0 THEN
+          CURRENT_POS = $POS_ACT_MES
+        ENDIF
+      ENDIF
+    ENDIF
+    IF UPDATETORQUE THEN
+      CURRENT_TORQUE = $TORQUE_TCP_EST
+    ENDIF
+  ELSE
+    CURRENT_POS.X = 0.0
+    CURRENT_POS.Y = 0.0
+    CURRENT_POS.Z = 0.0
+    CURRENT_POS.A = 0.0
+    CURRENT_POS.B = 0.0
+    CURRENT_POS.C = 0.0
+
+    CURRENT_TORQUE.FT.X = 0.0
+    CURRENT_TORQUE.FT.Y = 0.0
+    CURRENT_TORQUE.FT.Z = 0.0
+    CURRENT_TORQUE.FT.A = 0.0
+    CURRENT_TORQUE.FT.B = 0.0
+    CURRENT_TORQUE.FT.C = 0.0
+  ENDIF
+
+  IF LOGROBOTDATA THEN
+    IF STARTED THEN
+      ;! Serial connection
+      IF (GOODTOGO == TRUE) THEN
+        CREAD (HANDLE, SR_T, MR_T, TIMEOUT, OFFSET, "%s", COMM[])
+        ;CWRITE (HANDLE, SW_T, MW_T, "0.12345@")
+        CWRITE (HANDLE, SW_T, MW_T, "P,%#9.4f,%#9.4f,%#9.4f,%#9.4f,%#9.4f,%#9.4f,", $POS_ACT_MES.X, $POS_ACT_MES.Y, $POS_ACT_MES.Z, $POS_ACT_MES.A, $POS_ACT_MES.B, $POS_ACT_MES.C )
+        CWRITE (HANDLE, SW_T, MW_T, "A,%#9.4f,%#9.4f,%#9.4f,%#9.4f,%#9.4f,%#9.4f,", $AXIS_ACT_MES.A1, $AXIS_ACT_MES.A2, $AXIS_ACT_MES.A3, $AXIS_ACT_MES.A4, $AXIS_ACT_MES.A5, $AXIS_ACT_MES.A6 )
+        CWRITE (HANDLE, SW_T, MW_T, "T,%#9.4f,%#9.4f,%#9.4f,%#9.4f,%#9.4f,%#9.4f,", $TORQUE_AXIS_ACT.A1, $TORQUE_AXIS_ACT.A2, $TORQUE_AXIS_ACT.A3, $TORQUE_AXIS_ACT.A4, $TORQUE_AXIS_ACT.A5, $TORQUE_AXIS_ACT.A6 )
+        CWRITE (HANDLE, SW_T, MW_T, "F,%#9.4f,%#9.4f,%#9.4f,%#9.4f,%#9.4f,%#9.4f,", $TORQUE_TCP_EST.FT.X, $TORQUE_TCP_EST.FT.Y, $TORQUE_TCP_EST.FT.Z, $TORQUE_TCP_EST.FT.A, $TORQUE_TCP_EST.FT.B, $TORQUE_TCP_EST.FT.C)
+        CWRITE (HANDLE, SW_T, MW_T, "E,%#9.4f,%#9.4f,%#9.4f,%#9.4f,%#9.4f,%#9.4f@", $POS_ACT_MES.E1, $TORQUE_AXIS_ACT.E1, 0, 0, 0, 0 )
+      ELSE
+        ;CWRITE (HANDLE, SW_T, MW_T, "9.87654@")
+        CWRITE (HANDLE, SW_T, MW_T, "P,%#9.4f,%#9.4f,%#9.4f,%#9.4f,%#9.4f,%#9.4f,", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0 )
+        CWRITE (HANDLE, SW_T, MW_T, "A,%#9.4f,%#9.4f,%#9.4f,%#9.4f,%#9.4f,%#9.4f,", $AXIS_ACT_MES.A1, $AXIS_ACT_MES.A2, $AXIS_ACT_MES.A3, $AXIS_ACT_MES.A4, $AXIS_ACT_MES.A5, $AXIS_ACT_MES.A6 )
+        CWRITE (HANDLE, SW_T, MW_T, "T,%#9.4f,%#9.4f,%#9.4f,%#9.4f,%#9.4f,%#9.4f,", $TORQUE_AXIS_ACT.A1, $TORQUE_AXIS_ACT.A2, $TORQUE_AXIS_ACT.A3, $TORQUE_AXIS_ACT.A4, $TORQUE_AXIS_ACT.A5, $TORQUE_AXIS_ACT.A6 )
+        CWRITE (HANDLE, SW_T, MW_T, "F,%#9.4f,%#9.4f,%#9.4f,%#9.4f,%#9.4f,%#9.4f,", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0)
+        CWRITE (HANDLE, SW_T, MW_T, "E,%#9.4f,%#9.4f,%#9.4f,%#9.4f,%#9.4f,%#9.4f@", 0.0, $TORQUE_AXIS_ACT.E1, 0, 0, 0, 0 )
+      ENDIF
+    ELSE
+      ;! Start serial connection
+      COPEN(:SER_3, HANDLE)
+      MW_T=#SYNC
+      STARTED = TRUE
+    ENDIF
+  ENDIF
+
+  ;ENDFOLD (USER PLC)
+  ENDLOOP
+
+  IF STARTED THEN
+    CCLOSE( HANDLE, SC_T )
+  ENDIF
+
+  ;FOLD ;%{H}
+  ;FOLD
+END
+  ;ENDFOLD
+
+
+DEF  RESET_OUT ( )
+  INT N
+  $LOOP_MSG[]="                                                            "
+  IF REFLECT_PROG_NR == 1 THEN
+    FOR N = 0 TO PGNO_LENGTH - 1
+      $OUT[PGNO_FBIT_REFL + N] = FALSE
+    ENDFOR
+  ENDIF
+  IF (PGNO_REQ>0) THEN
+    $OUT[PGNO_REQ]=FALSE
+  ELSE
+    IF (PGNO_REQ<0) THEN
+      $OUT[-PGNO_REQ]=TRUE
+    ENDIF
+  ENDIF
+END
+
+;FOLD USER SUBROUTINE
+; Integrate your user defined subroutines
+
+;ENDFOLD (USER SUBROUTINE)
+;ENDFOLD

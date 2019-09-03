@@ -1,0 +1,74 @@
+&ACCESS RVO
+&REL 24
+&PARAM TEMPLATE = C:\KRC\Roboter\Template\FunctionVorgabe
+&PARAM EDITMASK = *
+DEFFCT BOOL REL_ANG( ANGS[]:OUT )
+; Function performs desired angle change
+; ARGS: REAL ANGS[] = axes angle change
+;                     [A1,A2,A3,A4,A5,A6]
+; RETURN: BOOL = whether target point is safe and viable
+
+REAL ANGS[]
+DECL E6AXIS   DANG    ; Delta for each angle
+DECL E6AXIS   ENDANG  ; Calculated end angle
+DECL E6AXIS ANG6
+DECL FRAME  TPOS  ; Ending Cartesian position
+DECL E6POS  POS6
+DECL INT    ERR
+
+; Convert array of values to AXIS
+DANG.A1 = ANGS[1]
+DANG.A2 = ANGS[2]
+DANG.E1 = ANGS[3]
+DANG.A3 = ANGS[4]
+DANG.A4 = ANGS[5]
+DANG.A5 = ANGS[6]
+DANG.A6 = ANGS[7]
+
+ANG6 = $AXIS_ACT_MES
+
+; Find end angle orientation
+ENDANG.A1 = DANG.A1 + ANG6.A1
+ENDANG.A2 = DANG.A2 + ANG6.A2
+ENDANG.E1 = DANG.E1 + ANG6.E1
+ENDANG.A3 = DANG.A3 + ANG6.A3
+ENDANG.A4 = DANG.A4 + ANG6.A4
+ENDANG.A5 = DANG.A5 + ANG6.A5
+ENDANG.A6 = DANG.A6 + ANG6.A6
+
+ANG6.A1 = ENDANG.A1
+ANG6.A2 = ENDANG.A2
+ANG6.E1 = ENDANG.E1
+ANG6.A3 = ENDANG.A3
+ANG6.A4 = ENDANG.A4
+ANG6.A5 = ENDANG.A5
+ANG6.A6 = ENDANG.A6
+
+; Find if final angle positions exceed workspace
+ERR    = 0
+POS6   = FORWARD( ANG6, ERR )
+
+IF ERR==0 THEN
+  TPOS.X = POS6.X
+  TPOS.Y = POS6.Y
+  TPOS.Z = POS6.Z
+  TPOS.A = POS6.A
+  TPOS.B = POS6.B
+  TPOS.C = POS6.C
+
+  ; Check if target point is valid
+  ; If so, execute PTP move and return TRUE
+  ; If not, return FALSE
+  ;IF ( (ANGVER(ENDANG)==FALSE) OR (PTVER(TPOS)==FALSE) ) THEN
+  IF ( (PTVER(TPOS)==FALSE) ) THEN
+    RETURN(FALSE)
+  ELSE
+    BAS(#PTP_PARAMS, SER_SPEED_PER)
+    PTP_REL DANG
+    RETURN(TRUE)
+  ENDIF
+ELSE
+  RETURN(FALSE)
+ENDIF
+
+ENDFCT

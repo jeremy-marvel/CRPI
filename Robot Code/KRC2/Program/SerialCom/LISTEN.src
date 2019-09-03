@@ -1,0 +1,151 @@
+&ACCESS RVO1
+&REL 134
+&PARAM TEMPLATE = C:\KRC\Roboter\Template\FunctionVorgabe
+&PARAM EDITMASK = *
+DEFFCT BOOL LISTEN( HANDLE:IN )
+; Listens for a message from the host and
+; executes desired commands accordingly.
+; Parameters:  HANDLE: serial connection handle
+; Returns:     BOOL:   success (true) or failure (false)
+;                      of executing desired commands
+
+
+INT HANDLE
+DECL BOOL    RESP
+DECL BOOL    AOK
+DECL BOOL    bnew
+
+DECL STATE_T SR_T
+DECL MODUS_T MR_T
+DECL REAL    TIMEOUT
+DECL REAL    DATA[10]
+DECL CHAR    COMM[3]
+DECL CHAR    dummy[81]
+DECL INT     OFFSET
+DECL INT     X
+DECL CHAR    D1[6], D2[6], D3[6], D4[6], D5[6], D6[6], D7[6], D8[6], D9[6], D10[6]
+
+TIMEOUT = 5.0
+OFFSET  = 0
+MR_T    = #ABS
+COMM[]  = "###"
+D1[]    = "#    #"
+;FCACTIVE = FALSE    ; force a reset of force control
+
+IF USE_SERIAL THEN
+  ; Read from the serial buffer
+;  CREAD (HANDLE, SR_T, MR_T, TIMEOUT, OFFSET, "%s", COMM[])
+  CREAD (HANDLE, SR_T, MR_T, TIMEOUT, OFFSET, "%s %s %s %s %s %s %s %s %s %s", COMM[], D1[], D2[], D3[], D4[], D5[], D6[], D7[], D8[], D9[])
+;  CREAD (HANDLE, SR_T, MR_T, TIMEOUT, OFFSET, "%s", D10[])
+
+  IF (D1[1]<>"#") AND (D1[6]<>"#") THEN
+    RESP = STRTOREAL(D1[], DATA[1])
+    RESP = STRTOREAL(D2[], DATA[2])
+    RESP = STRTOREAL(D3[], DATA[3])
+    RESP = STRTOREAL(D4[], DATA[4])
+    RESP = STRTOREAL(D5[], DATA[5])
+    RESP = STRTOREAL(D6[], DATA[6])
+    RESP = STRTOREAL(D7[], DATA[7])
+    RESP = STRTOREAL(D8[], DATA[8])
+    RESP = STRTOREAL(D9[], DATA[9])
+ ;   RESP = STRTOREAL(D10[], DATA[10])
+  ENDIF
+ELSE
+  ; Read from the TCP/IP buffer
+
+  errbl = EKX_WaitForSensorData(0, CRPI_REC_TEXT[12].s[], 30000)
+  IF errbl == FALSE THEN
+    ; Timeout
+    TCP_CONNECTED = FALSE
+    IF NOT TCP_KEEP_ALIVE THEN
+      HALT
+    ENDIF
+    RETURN (FALSE)
+  ENDIF
+
+  ; Get CMD buffer
+  bnew=STRCOPY(dummy[], CRPI_REC_TEXT[1].s[])
+  errbl = EKX_GetStringElement(0, dummy[], bnew)
+  IF errbl == FALSE THEN
+    ;HALT
+  ELSE
+    COMM[1] = dummy[1]
+    COMM[2] = dummy[2]
+    COMM[3] = dummy[3]
+  ENDIF
+
+  ; Get CMD arguments
+  FOR X=1 TO 10
+    errbl = EKX_GetRealElement(0, CRPI_REC_TEXT[1+X].s[], DATA[X], bnew)
+    IF errbl == FALSE THEN
+      ;HALT
+    ENDIF
+  ENDFOR
+
+ENDIF
+
+IF ( ( COMM[1]<>"#") AND ( COMM[3]<>"#" ) ) THEN
+  IF COMM[1] == "T" THEN
+    RETURN( BOOLRESPOND( HANDLE, TOOL_ACT( COMM[2], DATA[1] ) ) )
+  ELSE
+    IF COMM[1] == "V" THEN
+      RETURN( BOOLRESPOND (HANDLE, PARAM_SET(COMM[2], DATA[1] ) ) )
+    ELSE
+      SWITCH COMM[2]
+      CASE "A"
+        IF FCACTIVE THEN
+          AOK = STARTIMPEDANCE(FALSE)
+          FCACTIVE = FALSE
+        ENDIF
+        IF COMM[3] == "A" THEN
+          RETURN( BOOLRESPOND( HANDLE, ABS_ANG( DATA[] ) ) )
+        ELSE
+          IF COMM[3] == "R" THEN
+            RETURN( BOOLRESPOND( HANDLE, REL_ANG( DATA[] ) ) )
+          ELSE
+            RETURN( FALSE )
+          ENDIF
+        ENDIF
+      CASE "C"
+        IF FCACTIVE THEN
+          AOK = STARTIMPEDANCE(FALSE)
+          FCACTIVE = FALSE
+        ENDIF
+
+        IF COMM[3] == "A" THEN
+          RETURN( BOOLRESPOND( HANDLE, ABS_TCP( DATA[], COMM[1] ) ) )
+        ELSE
+          IF COMM[3] == "R" THEN
+            RETURN( BOOLRESPOND( HANDLE, REL_TCP( DATA[], COMM[1] ) ) )
+          ELSE
+            RETURN( FALSE )
+          ENDIF
+        ENDIF
+      CASE "F"
+        IF NOT FCACTIVE THEN
+          AOK = STARTIMPEDANCE(TRUE)
+          FCACTIVE = TRUE
+        ENDIF
+        IF COMM[3] == "A" THEN
+          RETURN( BOOLRESPOND( HANDLE, ABS_TCP( DATA[], COMM[1] ) ) )
+        ELSE
+          IF COMM[3] == "R" THEN
+            RETURN( BOOLRESPOND( HANDLE, REL_TCP( DATA[], COMM[1] ) ) )
+          ELSE
+            RETURN( FALSE )
+          ENDIF
+        ENDIF
+      DEFAULT
+        RETURN( RESPOND( HANDLE, COMM[1] ) )
+      ENDSWITCH    
+    ENDIF
+  ENDIF
+ELSE
+  IF DEBUG_CODE THEN
+    HALT
+  ENDIF
+ENDIF
+
+RETURN( FALSE )
+
+ENDFCT
