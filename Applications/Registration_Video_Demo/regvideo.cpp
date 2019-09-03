@@ -60,12 +60,18 @@ void main()
   arm.Couple("flange_ring");
 #endif 
 
-  robotPose poseMe, tarPose, curPose, forceMe;
+  robotPose poseMe, tarPose, startPose, curPose, forceMe;
   robotAxes curAxes, tarAxes;
 
   vector<robotPose> posVec;
   vector<robotPose> tempPosVec;
   vector<robotPose>::iterator posVecIter;
+
+  vector<Math::point> markers;
+  vector<Math::point>::iterator markerIter;
+
+  vector<MoCapSubject> subjects;
+  vector<MoCapSubject>::iterator subjectIter;
 
   string str, otip, vip;
   ifstream in;
@@ -212,8 +218,25 @@ void main()
         cout << "Storing test results to " << str.c_str();
         out.open(str.c_str());
 
-        //! TODO:  Add MoCap to the output
-        out << "Trial, TarX, TarY, TarZ, TarXRot, TarYRot, TarZRot, CurX, CurY, CurZ, CurXRot, CurYRot, CurZRot, CurJ1, CurJ2, CurJ3, CurJ4, CurJ5, CurJ6, ActX, ActY, ActZ, ActXRot, ActYRot, ActZRot, J1, J2, J3, J4, J5, J6, Result" << endl;
+        //! Write labels to csv file
+        out << "Trial, TarX, TarY, TarZ, TarXRot, TarYRot, TarZRot, CurX, CurY, CurZ, CurXRot, CurYRot, CurZRot, CurJ1, CurJ2, CurJ3, CurJ4, CurJ5, CurJ6, Result";
+
+        if (mocapoption != 0)
+        {
+          out << ", MoCapPoses";
+        }
+        out << endl;
+        
+        //! Query number of samples to take
+        do
+        {
+          cout << "How many samples at each pose would you like to take? ";
+          cin >> samplesize;
+          if (samplesize < 1)
+          {
+            cout << "Invalid entry." << endl;
+          }
+        } while (samplesize < 1);
 
         //!  Move to first pose
         while (posVecIter != posVec.end())
@@ -222,14 +245,45 @@ void main()
 
 #ifdef ENABLEROBOT
           arm.moveStraightTo(tarPose);
-          arm.GetRobotPose(&curPose);
-          arm.GetRobotAxes(&curAxes);
 #endif
-          //! Record record number, target pose, read pose, read joints
-          out << startNum << ", " << tarPose.x << ", " << tarPose.y << ", " << tarPose.z << ", " << tarPose.xrot << ", " << tarPose.yrot << ", "
+
+          for (int x = 0; x < samplesize; ++x)
+          {
+
+#ifdef ENABLEROBOT
+            arm.GetRobotPose(&startPose);
+            arm.GetRobotAxes(&curAxes);
+#endif
+            //! Record record number, target pose, read pose, read joints
+            out << startNum << ", " << tarPose.x << ", " << tarPose.y << ", " << tarPose.z << ", " << tarPose.xrot << ", " << tarPose.yrot << ", "
               << tarPose.zrot << ", " << curPose.x << ", " << curPose.y << ", " << curPose.z << ", " << curPose.xrot << ", " << curPose.yrot << ", "
               << curPose.zrot << ", " << curAxes.axis[0] << ", " << curAxes.axis[1] << ", " << curAxes.axis[2] << ", " << curAxes.axis[3] << ", "
-              << curAxes.axis[4] << ", " << curAxes.axis[5] << ", ";
+              << curAxes.axis[4] << ", " << curAxes.axis[5] << ", null";
+
+            markers.clear();
+            if (mocapoption != 0)
+            {
+              if (mocapoption == 1)
+              {
+                //! Vicon
+                vtest->GetUnlabeledMarkers(markers);
+              }
+              else if (mocapoption == 2)
+              {
+                //! OptiTrack
+                ottest->GetUnlabeledMarkers(markers);
+              }
+            }
+
+            //! Spit out individual markers
+            for (markerIter = markers.begin(); markerIter != markers.end(); ++markerIter)
+            {
+              out << ", " << markerIter->x << ", " << markerIter->y << ", " << markerIter->z;
+            }
+
+            out << endl;
+
+          } // for (x = 0; x < samplesize; ++x)
 
           bool flag;
 
@@ -246,22 +300,55 @@ void main()
             arm.GetRobotAxes(&curAxes);
             flag = (fabs(forceMe.z) <= forceThresh);
           } while (flag && curPose.z > (tarPose.z - insertDepth));
+#endif
+          for (int x = 0; x < samplesize; ++x)
+          {
 
+#ifdef ENABLEROBOT
+            do
+            {
+              arm.GetRobotPose(&curPose);
+              arm.GetRobotAxes(&curAxes);
+#endif
+            //! Record record number, target pose, read pose, read joints
+            out << startNum << ", " << poseMe.x << ", " << poseMe.y << ", " << poseMe.z << ", " << poseMe.xrot << ", " << poseMe.yrot << ", "
+                << poseMe.zrot << ", " << curPose.x << ", " << curPose.y << ", " << curPose.z << ", " << curPose.xrot << ", " << curPose.yrot << ", "
+                << curPose.zrot << ", " << curAxes.axis[0] << ", " << curAxes.axis[1] << ", " << curAxes.axis[2] << ", " << curAxes.axis[3] << ", "
+                << curAxes.axis[4] << ", " << curAxes.axis[5] << ", " << (flag ? "true" : "false");
+
+            markers.clear();
+            if (mocapoption != 0)
+            {
+              if (mocapoption == 1)
+              {
+                //! Vicon
+                vtest->GetUnlabeledMarkers(markers);
+              }
+              else if (mocapoption == 2)
+              {
+                //! OptiTrack
+                ottest->GetUnlabeledMarkers(markers);
+              }
+            }
+
+            //! Spit out individual markers
+            for (markerIter = markers.begin(); markerIter != markers.end(); ++markerIter)
+            {
+              out << ", " << markerIter->x << ", " << markerIter->y << ", " << markerIter->z;
+            }
+
+            out << endl;
+
+            //!  Record final pose, final joints, result
+            //out << curPose.x << ", " << curPose.y << ", " << curPose.z << ", " << curPose.xrot << ", " << curPose.yrot << ", " << curPose.zrot
+            //  << ", " << curAxes.axis[0] << ", " << curAxes.axis[1] << ", " << curAxes.axis[2] << ", " << curAxes.axis[3] << ", "
+            //  << curAxes.axis[4] << ", " << curAxes.axis[5] << ", " << (flag ? "true" : "false");
+            //out << endl;
+          } // for (int x = 0; x < samplesize; ++x)
+#ifdef ENABLEROBOT
           //! Retract
           arm.moveStraightTo(tarPose);
 #endif
-
-          //!  Record final pose, final joints, result
-          out << curPose.x << ", " << curPose.y << ", " << curPose.z << ", " << curPose.xrot << ", " << curPose.yrot << ", " << curPose.zrot
-              << ", " << curAxes.axis[0] << ", " << curAxes.axis[1] << ", " << curAxes.axis[2] << ", " << curAxes.axis[3] << ", "
-              << curAxes.axis[4] << ", " << curAxes.axis[5] << ", " << (flag ? "true" : "false");
-
-          if (mocapoption != 0)
-          {
-            //! JAM: TODO
-          }
-
-          out << endl;
 
           //!  Increase counter
           startNum++;
@@ -280,8 +367,6 @@ void main()
   else
   {
     //! Capture robot & mocap data
-    vector<MoCapSubject> vec;
-    vector<MoCapSubject>::iterator iter;
     double curtime;
 
     cout << "Enter name of output file: ";
@@ -298,10 +383,8 @@ void main()
     }
     else
     {
-      out << "timestamp, rob_x, rob_y, rob_z, rob_rx, rob_ry, rob_rz, rob_j1, rob_j2, rob_j3, rob_j4, rob_j5, rob_j6, mocap_obj, mocap_x, mocap_y, mocap_z, mocap_rx, mocap_ry, mocap_rz, mocap objects XYZ" << endl;
+      out << "timestamp, rob_x, rob_y, rob_z, rob_rx, rob_ry, rob_rz, rob_j1, rob_j2, rob_j3, rob_j4, rob_j5, rob_j6, mocap_obj, mocap_x, mocap_y, mocap_z, mocap_rx, mocap_ry, mocap_rz, MoCapPoses" << endl;
     }
-
-    vector<MoCapSubject>::iterator vec_iter;
 
     //! Query number of samples to take
     do
@@ -323,36 +406,40 @@ void main()
       arm.GetRobotAxes(&curAxes);
 #endif
 
+      subjects.clear();
+      markers.clear();
       if (mocapoption == 1)
       {
         //! Vicon
-        vtest->GetCurrentSubjects(vec);
+        vtest->GetCurrentSubjects(subjects);
+        vtest->GetUnlabeledMarkers(markers);
       }
       else if (mocapoption == 2)
       {
         //! OptiTrack
-        ottest->GetCurrentSubjects(vec);
-      }
-      else
-      {
-        vec.clear();
+        ottest->GetCurrentSubjects(subjects);
+        ottest->GetUnlabeledMarkers(markers);
       }
 
-      if (!vec.empty())
+      if (!subjects.empty())
       {
         //! Print robot and mocap information
-        for (vec_iter = vec.begin(); vec_iter != vec.end(); ++vec_iter)
+        for (subjectIter = subjects.begin(); subjectIter != subjects.end(); ++subjectIter)
         {
           out << curtime << ", " << curPose.x << ", " << curPose.y << ", " << curPose.z << ", " << curPose.xrot << ", "
               << curPose.yrot << ", " << curPose.zrot << ", " << curAxes.axis.at(0) << ", " << curAxes.axis.at(1) << ", "
               << curAxes.axis.at(2) << ", " << curAxes.axis.at(3) << ", " << curAxes.axis.at(4) << ", "
               << curAxes.axis.at(5) << ", ";
 
-          out << vec_iter->name << ", " << vec_iter->pose.x << ", " << vec_iter->pose.y << ", "
-              << vec_iter->pose.z << ", " << vec_iter->pose.xr << ", " << vec_iter->pose.yr << ", "
-              << vec_iter->pose.zr;
+          out << subjectIter->name << ", " << subjectIter->pose.x << ", " << subjectIter->pose.y << ", "
+              << subjectIter->pose.z << ", " << subjectIter->pose.xr << ", " << subjectIter->pose.yr << ", "
+              << subjectIter->pose.zr;
           
-          //! TODO:  Spit out individual markers here
+          //! Spit out individual markers here
+          for (markerIter = markers.begin(); markerIter != markers.end(); ++markerIter)
+          {
+            out << ", " << markerIter->x << ", " << markerIter->y << ", " << markerIter->z;
+          }
 
           out << endl;
         }
