@@ -1,0 +1,152 @@
+///////////////////////////////////////////////////////////////////////////////
+//
+//  Original System: CRPI
+//  Subsystem:       Motion Capture Sensor
+//  Workfile:        OptiTrack.h
+//  Revision:        1.0 - 11 April, 2016
+//  Author:          J. Marvel
+//
+//  Description
+//  ===========
+//  Interface library for the OptiTrack Duo and Trio motion capture systems
+//
+//  To enable streaming from the Motive interface, select View->Data Streaming
+//  Check the box labeled Broadcast Frame Data, and select all streams to be
+//    broadcast.
+//  Note that you may have to adjust the Local Interface option to get data
+//    streaming to work properly for a localost connection.
+//  Currently, this version only supports unicast.  Make sure the "Type" value
+//    under the Advanced Network Settings is set to "Unicast."
+//
+///////////////////////////////////////////////////////////////////////////////
+
+#ifndef OPTITRACK_H
+#define OPTITRACK_H
+
+#include <ulapi.h>
+#include <crpi.h>
+#include <vector>
+
+#include <string.h>
+#include "MatrixMath.h"
+
+#include "NatNetTypes.h"
+#include "NatNetClient.h"
+
+#pragma warning( disable : 4996 )
+
+using namespace std;
+using namespace Math;
+
+namespace Sensor
+{
+  //! @brief Rigid body identified by the OptiTrack motion capture system
+  //!
+  typedef LIBRARY_API struct OptiTrackSubject_
+  {
+
+    //! @brief The name of the subject identified
+    std::string name;
+
+    //! @brief 
+    //!
+    Math::pose pose;
+
+    //! @brief The 
+    Math::matrix rotation;
+
+    vector<point> labeledMarkers;
+    bool valid;
+
+    OptiTrackSubject_()
+    {
+      rotation.resize(3, 3);
+//      rotation = new matrix(3, 3);
+      labeledMarkers.clear();
+      valid = false;
+    }
+
+    ~OptiTrackSubject_()
+    {
+      if (this != NULL)
+      {
+        labeledMarkers.clear();
+      }
+      valid = false;
+    }
+  } OptiTrackSubject;
+
+
+  typedef LIBRARY_API struct OTPointer_
+  {
+    //! @brief 
+    vector<OptiTrackSubject> subjects;
+    vector<point>            markers;
+    NatNetClient             *client;
+    ulapi_mutex_struct       *handle;
+    bool                     runThread;
+
+    //! @brief Default constructor
+    //!
+    OTPointer_()
+    {
+      runThread = true;
+    }
+
+    //! @brief Default destructor
+    //!
+    ~OTPointer_()
+    {
+      markers.clear();
+    }
+  } OTPointer;
+
+
+  //! @ingroup Sensor
+  //!
+  //! @brief   Interface class for the OptiTrack motion capture system
+  //!
+  class LIBRARY_API OptiTrack
+  {
+  public:
+
+    //! @brief Default constructor
+    //!
+    OptiTrack(char *ipAddress);
+
+    //! @brief Default destructor
+    //!
+    ~OptiTrack();
+
+    //! @brief Query the motion capture tracking software for a list of identified rigid objects in the scene
+    //!
+    //! @param subjects Vector populated by the function with OptiTrackSubject objects
+    //!
+    void GetCurrentSubjects(vector<OptiTrackSubject> &subjects);
+
+    //! @brief Query the motion capture tracking software for a list of unlabeled markers found in the scene
+    //!
+    //! @param markers Vector populated by the function with point objects
+    //!
+    void GetUnlabeledMarkers(vector<point> &markers);
+    
+  private:
+    //! @brief TODO
+    //!
+    void *task_;
+
+    //! @brief TODO
+    //!
+    OTPointer *otp_;
+
+    //! @brief TODO
+    //!
+    point ptemp;
+
+    //! @brief
+    //!
+    NatNetClient* Client_;
+  }; // OptiTrack
+} // Sensor namespace
+
+#endif

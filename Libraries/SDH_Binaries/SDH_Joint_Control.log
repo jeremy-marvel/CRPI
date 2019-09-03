@@ -1,0 +1,41 @@
+﻿Build started 2/9/2016 8:47:11 AM.
+     1>Project "C:\Users\knv\Karl_Dev\SDH_Joint_Control\SDH_Joint_Control.vcxproj" on node 2 (build target(s)).
+     1>InitializeBuildStatus:
+         Creating "Debug\SDH_Joint_Control.unsuccessfulbuild" because "AlwaysCreate" was specified.
+       ClCompile:
+         All outputs are up-to-date.
+         c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /IC:\Users\knv\Karl_Dev\Schunk_Hand_Control\sdh /IC:\Users\knv\Karl_Dev\Schunk_Hand_Control\resource /IC:\Users\knv\Karl_Dev\boost_1_55_0\boost_1_55_0 /I"C:\ISD_KUKA_Testbed\ISD_CRCL_Interface\el-robotics-core\ulapi\src" /IC:\Users\knv\Karl_Dev\Schunk_Hand_Control\src /IC:\Users\knv\Karl_Dev\Schunk_Hand_Control /IC:\Users\knv\Karl_Dev\Schunk_Hand_Control\include /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt SDH_Joint_Control.cpp
+         SDH_Joint_Control.cpp
+     1>c:\users\knv\karl_dev\schunk_hand_control\sdh\sdh.h(4147): warning C4251: 'SDH::cSDH::release_firmware' : class 'std::basic_string<_Elem,_Traits,_Ax>' needs to have dll-interface to be used by clients of class 'SDH::cSDH'
+                 with
+                 [
+                     _Elem=char,
+                     _Traits=std::char_traits<char>,
+                     _Ax=std::allocator<char>
+                 ]
+     1>c:\users\knv\karl_dev\boost_1_55_0\boost_1_55_0\boost\lexical_cast.hpp(1707): warning C4995: 'swprintf': name was marked as #pragma deprecated
+     1>c:\users\knv\karl_dev\boost_1_55_0\boost_1_55_0\boost\lexical_cast.hpp(1717): warning C4995: 'swprintf': name was marked as #pragma deprecated
+     1>c:\users\knv\karl_dev\boost_1_55_0\boost_1_55_0\boost\lexical_cast.hpp(1725): warning C4995: 'swprintf': name was marked as #pragma deprecated
+     1>c:\users\knv\karl_dev\sdh_joint_control\sdh_joint_control.cpp(70): warning C4800: 'int' : forcing value to bool 'true' or 'false' (performance warning)
+     1>c:\users\knv\karl_dev\sdh_joint_control\sdh_joint_control.cpp(141): warning C4101: 'outbuffer' : unreferenced local variable
+       Link:
+         c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\knv\Karl_Dev\SDH_Joint_Control\Debug\SDH_Joint_Control.exe" /INCREMENTAL:NO /NOLOGO /LIBPATH:C:\Users\knv\Karl_Dev\Schunk_Hand_Control\include /LIBPATH:C:\Users\knv\Karl_Dev\Schunk_Hand_Control\lib /LIBPATH:C:\ISD_KUKA_Testbed\ISD_CRCL_Interface\Debug /LIBPATH:C:\Users\knv\Karl_Dev\boost_1_55_0\boost_1_55_0\stage\lib ulapilib.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /ManifestFile:"Debug\SDH_Joint_Control.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"C:\Users\knv\Karl_Dev\SDH_Joint_Control\Debug\SDH_Joint_Control.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\knv\Karl_Dev\SDH_Joint_Control\Debug\SDH_Joint_Control.lib" /MACHINE:X86 Debug\cheetah.obj
+         Debug\dsaboost.obj
+         Debug\getopt.obj
+         Debug\getopt1.obj
+         Debug\sdhoptions.obj
+         Debug\SDH_Joint_Control.obj
+         ..\Schunk_Hand_Control\lib\SDHLibrary.lib
+     1>cheetah.obj : warning LNK4075: ignoring '/EDITANDCONTINUE' due to '/INCREMENTAL:NO' specification
+     1>LINK : warning LNK4098: defaultlib 'LIBCMT' conflicts with use of other libs; use /NODEFAULTLIB:library
+         SDH_Joint_Control.vcxproj -> C:\Users\knv\Karl_Dev\SDH_Joint_Control\Debug\SDH_Joint_Control.exe
+       Manifest:
+         C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\mt.exe /nologo /verbose /outputresource:"C:\Users\knv\Karl_Dev\SDH_Joint_Control\Debug\SDH_Joint_Control.exe;#1" /manifest Debug\SDH_Joint_Control.exe.intermediate.manifest
+       FinalizeBuildStatus:
+         Deleting file "Debug\SDH_Joint_Control.unsuccessfulbuild".
+         Touching "Debug\SDH_Joint_Control.lastbuildstate".
+     1>Done Building Project "C:\Users\knv\Karl_Dev\SDH_Joint_Control\SDH_Joint_Control.vcxproj" (build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:05.61

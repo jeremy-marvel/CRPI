@@ -1,0 +1,15 @@
+C:/CRPI/Libraries/Estimate_Pose_Aruco/aruco-1.2.4/build/CMakeFiles/uninstall.dir
+C:/CRPI/Libraries/Estimate_Pose_Aruco/aruco-1.2.4/build/CMakeFiles/INSTALL.dir
+C:/CRPI/Libraries/Estimate_Pose_Aruco/aruco-1.2.4/build/CMakeFiles/ALL_BUILD.dir
+C:/CRPI/Libraries/Estimate_Pose_Aruco/aruco-1.2.4/build/CMakeFiles/ZERO_CHECK.dir
+C:/CRPI/Libraries/Estimate_Pose_Aruco/aruco-1.2.4/build/src/CMakeFiles/aruco.dir
+C:/CRPI/Libraries/Estimate_Pose_Aruco/aruco-1.2.4/build/src/CMakeFiles/INSTALL.dir
+C:/CRPI/Libraries/Estimate_Pose_Aruco/aruco-1.2.4/build/utils/CMakeFiles/aruco_test.dir
+C:/CRPI/Libraries/Estimate_Pose_Aruco/aruco-1.2.4/build/utils/CMakeFiles/aruco_board_pix2meters.dir
+C:/CRPI/Libraries/Estimate_Pose_Aruco/aruco-1.2.4/build/utils/CMakeFiles/aruco_simple.dir
+C:/CRPI/Libraries/Estimate_Pose_Aruco/aruco-1.2.4/build/utils/CMakeFiles/aruco_create_marker.dir
+C:/CRPI/Libraries/Estimate_Pose_Aruco/aruco-1.2.4/build/utils/CMakeFiles/aruco_create_board.dir
+C:/CRPI/Libraries/Estimate_Pose_Aruco/aruco-1.2.4/build/utils/CMakeFiles/aruco_test_board.dir
+C:/CRPI/Libraries/Estimate_Pose_Aruco/aruco-1.2.4/build/utils/CMakeFiles/aruco_selectoptimalmarkers.dir
+C:/CRPI/Libraries/Estimate_Pose_Aruco/aruco-1.2.4/build/utils/CMakeFiles/aruco_simple_board.dir
+C:/CRPI/Libraries/Estimate_Pose_Aruco/aruco-1.2.4/build/utils/CMakeFiles/INSTALL.dir

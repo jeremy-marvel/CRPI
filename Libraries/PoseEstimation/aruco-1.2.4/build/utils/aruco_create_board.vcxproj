@@ -1,0 +1,325 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="MinSizeRel|Win32">
+      <Configuration>MinSizeRel</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="RelWithDebInfo|Win32">
+      <Configuration>RelWithDebInfo</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGUID>{20CBBD31-4938-3678-9146-88600F4E212F}</ProjectGUID>
+    <Keyword>Win32Proj</Keyword>
+    <Platform>Win32</Platform>
+    <ProjectName>aruco_create_board</ProjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseOfMfc>false</UseOfMfc>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v100</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseOfMfc>false</UseOfMfc>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v100</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseOfMfc>false</UseOfMfc>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v100</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseOfMfc>false</UseOfMfc>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v100</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+    <PropertyGroup>
+      <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
+      <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">C:\CRPI\Libraries\Estimate_Pose_Aruco\aruco-1.2.4\build\bin\Debug\</OutDir>
+      <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">aruco_create_board.dir\Debug\</IntDir>
+      <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">aruco_create_board</TargetName>
+      <TargetExt Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.exe</TargetExt>
+      <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</LinkIncremental>
+      <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</GenerateManifest>
+      <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">C:\CRPI\Libraries\Estimate_Pose_Aruco\aruco-1.2.4\build\bin\Release\</OutDir>
+      <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">aruco_create_board.dir\Release\</IntDir>
+      <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">aruco_create_board</TargetName>
+      <TargetExt Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">.exe</TargetExt>
+      <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</LinkIncremental>
+      <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</GenerateManifest>
+      <OutDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">C:\CRPI\Libraries\Estimate_Pose_Aruco\aruco-1.2.4\build\bin\MinSizeRel\</OutDir>
+      <IntDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">aruco_create_board.dir\MinSizeRel\</IntDir>
+      <TargetName Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">aruco_create_board</TargetName>
+      <TargetExt Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">.exe</TargetExt>
+      <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">false</LinkIncremental>
+      <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">true</GenerateManifest>
+      <OutDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">C:\CRPI\Libraries\Estimate_Pose_Aruco\aruco-1.2.4\build\bin\RelWithDebInfo\</OutDir>
+      <IntDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">aruco_create_board.dir\RelWithDebInfo\</IntDir>
+      <TargetName Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">aruco_create_board</TargetName>
+      <TargetExt Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">.exe</TargetExt>
+      <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">true</LinkIncremental>
+      <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">true</GenerateManifest>
+    </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\bin;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\include;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\include\opencv;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\modules\core\include;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\modules\flann\include;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\modules\imgproc\include;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\modules\highgui\include;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\modules\features2d\include;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\modules\calib3d\include;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\modules\ml\include;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\modules\video\include;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\modules\legacy\include;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\modules\objdetect\include;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\modules\photo\include;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\modules\gpu\include;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\modules\ocl\include;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\modules\nonfree\include;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\modules\contrib\include;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\modules\stitching\include;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\modules\superres\include;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\modules\ts\include;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\modules\videostab\include;C:\CRPI\Libraries\Estimate_Pose_Aruco\aruco-1.2.4\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>Debug/</AssemblerListingLocation>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <CompileAs>CompileAsCpp</CompileAs>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <InlineFunctionExpansion>Disabled</InlineFunctionExpansion>
+      <Optimization>Disabled</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;_DEBUG;CMAKE_INTDIR="Debug";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;_DEBUG;CMAKE_INTDIR=\"Debug\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\bin;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\include;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\include\opencv;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\modules\core\include;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\modules\flann\include;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\modules\imgproc\include;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\modules\highgui\include;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\modules\features2d\include;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\modules\calib3d\include;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\modules\ml\include;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\modules\video\include;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\modules\legacy\include;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\modules\objdetect\include;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\modules\photo\include;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\modules\gpu\include;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\modules\ocl\include;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\modules\nonfree\include;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\modules\contrib\include;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\modules\stitching\include;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\modules\superres\include;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\modules\ts\include;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\modules\videostab\include;C:\CRPI\Libraries\Estimate_Pose_Aruco\aruco-1.2.4\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\bin;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\include;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\include\opencv;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\modules\core\include;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\modules\flann\include;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\modules\imgproc\include;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\modules\highgui\include;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\modules\features2d\include;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\modules\calib3d\include;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\modules\ml\include;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\modules\video\include;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\modules\legacy\include;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\modules\objdetect\include;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\modules\photo\include;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\modules\gpu\include;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\modules\ocl\include;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\modules\nonfree\include;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\modules\contrib\include;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\modules\stitching\include;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\modules\superres\include;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\modules\ts\include;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\modules\videostab\include;C:\CRPI\Libraries\Estimate_Pose_Aruco\aruco-1.2.4\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Link>
+      <AdditionalOptions> /machine:X86 %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib;..\bin\Debug\aruco124.lib;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\bin\lib\Debug\opencv_videostab2413d.lib;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\bin\lib\Debug\opencv_ts2413d.lib;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\bin\lib\Debug\opencv_superres2413d.lib;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\bin\lib\Debug\opencv_stitching2413d.lib;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\bin\lib\Debug\opencv_contrib2413d.lib;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\bin\lib\Debug\opencv_nonfree2413d.lib;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\bin\lib\Debug\opencv_ocl2413d.lib;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\bin\lib\Debug\opencv_gpu2413d.lib;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\bin\lib\Debug\opencv_photo2413d.lib;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\bin\lib\Debug\opencv_objdetect2413d.lib;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\bin\lib\Debug\opencv_legacy2413d.lib;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\bin\lib\Debug\opencv_video2413d.lib;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\bin\lib\Debug\opencv_ml2413d.lib;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\bin\lib\Debug\opencv_calib3d2413d.lib;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\bin\lib\Debug\opencv_features2d2413d.lib;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\bin\lib\Debug\opencv_highgui2413d.lib;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\bin\lib\Debug\opencv_imgproc2413d.lib;comctl32.lib;gdi32.lib;ole32.lib;setupapi.lib;ws2_32.lib;vfw32.lib;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\bin\lib\Debug\opencv_flann2413d.lib;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\bin\lib\Debug\opencv_core2413d.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImportLibrary>C:/CRPI/Libraries/Estimate_Pose_Aruco/aruco-1.2.4/build/bin/Debug/aruco_create_board.lib</ImportLibrary>
+      <ProgramDataBaseFile>C:/CRPI/Libraries/Estimate_Pose_Aruco/aruco-1.2.4/build/bin/Debug/aruco_create_board.pdb</ProgramDataBaseFile>
+      <SubSystem>Console</SubSystem>
+      <Version></Version>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\bin;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\include;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\include\opencv;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\modules\core\include;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\modules\flann\include;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\modules\imgproc\include;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\modules\highgui\include;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\modules\features2d\include;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\modules\calib3d\include;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\modules\ml\include;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\modules\video\include;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\modules\legacy\include;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\modules\objdetect\include;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\modules\photo\include;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\modules\gpu\include;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\modules\ocl\include;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\modules\nonfree\include;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\modules\contrib\include;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\modules\stitching\include;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\modules\superres\include;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\modules\ts\include;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\modules\videostab\include;C:\CRPI\Libraries\Estimate_Pose_Aruco\aruco-1.2.4\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>Release/</AssemblerListingLocation>
+      <CompileAs>CompileAsCpp</CompileAs>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <Optimization>MaxSpeed</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;CMAKE_INTDIR="Release";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <DebugInformationFormat></DebugInformationFormat>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;CMAKE_INTDIR=\"Release\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\bin;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\include;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\include\opencv;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\modules\core\include;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\modules\flann\include;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\modules\imgproc\include;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\modules\highgui\include;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\modules\features2d\include;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\modules\calib3d\include;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\modules\ml\include;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\modules\video\include;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\modules\legacy\include;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\modules\objdetect\include;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\modules\photo\include;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\modules\gpu\include;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\modules\ocl\include;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\modules\nonfree\include;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\modules\contrib\include;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\modules\stitching\include;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\modules\superres\include;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\modules\ts\include;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\modules\videostab\include;C:\CRPI\Libraries\Estimate_Pose_Aruco\aruco-1.2.4\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\bin;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\include;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\include\opencv;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\modules\core\include;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\modules\flann\include;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\modules\imgproc\include;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\modules\highgui\include;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\modules\features2d\include;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\modules\calib3d\include;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\modules\ml\include;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\modules\video\include;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\modules\legacy\include;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\modules\objdetect\include;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\modules\photo\include;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\modules\gpu\include;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\modules\ocl\include;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\modules\nonfree\include;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\modules\contrib\include;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\modules\stitching\include;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\modules\superres\include;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\modules\ts\include;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\modules\videostab\include;C:\CRPI\Libraries\Estimate_Pose_Aruco\aruco-1.2.4\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Link>
+      <AdditionalOptions> /machine:X86 %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib;..\bin\Release\aruco124.lib;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\bin\lib\Release\opencv_videostab2413.lib;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\bin\lib\Release\opencv_ts2413.lib;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\bin\lib\Release\opencv_superres2413.lib;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\bin\lib\Release\opencv_stitching2413.lib;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\bin\lib\Release\opencv_contrib2413.lib;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\bin\lib\Release\opencv_nonfree2413.lib;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\bin\lib\Release\opencv_ocl2413.lib;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\bin\lib\Release\opencv_gpu2413.lib;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\bin\lib\Release\opencv_photo2413.lib;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\bin\lib\Release\opencv_objdetect2413.lib;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\bin\lib\Release\opencv_legacy2413.lib;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\bin\lib\Release\opencv_video2413.lib;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\bin\lib\Release\opencv_ml2413.lib;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\bin\lib\Release\opencv_calib3d2413.lib;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\bin\lib\Release\opencv_features2d2413.lib;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\bin\lib\Release\opencv_highgui2413.lib;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\bin\lib\Release\opencv_imgproc2413.lib;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\bin\lib\Release\opencv_flann2413.lib;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\bin\lib\Release\opencv_core2413.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImportLibrary>C:/CRPI/Libraries/Estimate_Pose_Aruco/aruco-1.2.4/build/bin/Release/aruco_create_board.lib</ImportLibrary>
+      <ProgramDataBaseFile>C:/CRPI/Libraries/Estimate_Pose_Aruco/aruco-1.2.4/build/bin/Release/aruco_create_board.pdb</ProgramDataBaseFile>
+      <SubSystem>Console</SubSystem>
+      <Version></Version>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\bin;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\include;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\include\opencv;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\modules\core\include;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\modules\flann\include;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\modules\imgproc\include;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\modules\highgui\include;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\modules\features2d\include;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\modules\calib3d\include;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\modules\ml\include;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\modules\video\include;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\modules\legacy\include;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\modules\objdetect\include;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\modules\photo\include;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\modules\gpu\include;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\modules\ocl\include;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\modules\nonfree\include;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\modules\contrib\include;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\modules\stitching\include;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\modules\superres\include;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\modules\ts\include;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\modules\videostab\include;C:\CRPI\Libraries\Estimate_Pose_Aruco\aruco-1.2.4\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>MinSizeRel/</AssemblerListingLocation>
+      <CompileAs>CompileAsCpp</CompileAs>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+      <Optimization>MinSpace</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;CMAKE_INTDIR="MinSizeRel";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <DebugInformationFormat></DebugInformationFormat>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;CMAKE_INTDIR=\"MinSizeRel\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\bin;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\include;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\include\opencv;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\modules\core\include;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\modules\flann\include;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\modules\imgproc\include;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\modules\highgui\include;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\modules\features2d\include;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\modules\calib3d\include;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\modules\ml\include;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\modules\video\include;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\modules\legacy\include;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\modules\objdetect\include;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\modules\photo\include;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\modules\gpu\include;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\modules\ocl\include;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\modules\nonfree\include;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\modules\contrib\include;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\modules\stitching\include;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\modules\superres\include;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\modules\ts\include;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\modules\videostab\include;C:\CRPI\Libraries\Estimate_Pose_Aruco\aruco-1.2.4\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\bin;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\include;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\include\opencv;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\modules\core\include;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\modules\flann\include;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\modules\imgproc\include;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\modules\highgui\include;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\modules\features2d\include;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\modules\calib3d\include;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\modules\ml\include;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\modules\video\include;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\modules\legacy\include;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\modules\objdetect\include;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\modules\photo\include;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\modules\gpu\include;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\modules\ocl\include;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\modules\nonfree\include;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\modules\contrib\include;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\modules\stitching\include;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\modules\superres\include;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\modules\ts\include;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\modules\videostab\include;C:\CRPI\Libraries\Estimate_Pose_Aruco\aruco-1.2.4\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Link>
+      <AdditionalOptions> /machine:X86 %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib;..\bin\MinSizeRel\aruco124.lib;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\bin\lib\Debug\opencv_videostab2413d.lib;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\bin\lib\Debug\opencv_ts2413d.lib;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\bin\lib\Debug\opencv_superres2413d.lib;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\bin\lib\Debug\opencv_stitching2413d.lib;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\bin\lib\Debug\opencv_contrib2413d.lib;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\bin\lib\Debug\opencv_nonfree2413d.lib;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\bin\lib\Debug\opencv_ocl2413d.lib;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\bin\lib\Debug\opencv_gpu2413d.lib;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\bin\lib\Debug\opencv_photo2413d.lib;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\bin\lib\Debug\opencv_objdetect2413d.lib;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\bin\lib\Debug\opencv_legacy2413d.lib;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\bin\lib\Debug\opencv_video2413d.lib;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\bin\lib\Debug\opencv_ml2413d.lib;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\bin\lib\Debug\opencv_calib3d2413d.lib;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\bin\lib\Debug\opencv_features2d2413d.lib;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\bin\lib\Debug\opencv_highgui2413d.lib;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\bin\lib\Debug\opencv_imgproc2413d.lib;comctl32.lib;gdi32.lib;ole32.lib;setupapi.lib;ws2_32.lib;vfw32.lib;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\bin\lib\Debug\opencv_flann2413d.lib;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\bin\lib\Debug\opencv_core2413d.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImportLibrary>C:/CRPI/Libraries/Estimate_Pose_Aruco/aruco-1.2.4/build/bin/MinSizeRel/aruco_create_board.lib</ImportLibrary>
+      <ProgramDataBaseFile>C:/CRPI/Libraries/Estimate_Pose_Aruco/aruco-1.2.4/build/bin/MinSizeRel/aruco_create_board.pdb</ProgramDataBaseFile>
+      <SubSystem>Console</SubSystem>
+      <Version></Version>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\bin;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\include;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\include\opencv;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\modules\core\include;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\modules\flann\include;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\modules\imgproc\include;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\modules\highgui\include;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\modules\features2d\include;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\modules\calib3d\include;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\modules\ml\include;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\modules\video\include;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\modules\legacy\include;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\modules\objdetect\include;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\modules\photo\include;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\modules\gpu\include;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\modules\ocl\include;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\modules\nonfree\include;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\modules\contrib\include;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\modules\stitching\include;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\modules\superres\include;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\modules\ts\include;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\modules\videostab\include;C:\CRPI\Libraries\Estimate_Pose_Aruco\aruco-1.2.4\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>RelWithDebInfo/</AssemblerListingLocation>
+      <CompileAs>CompileAsCpp</CompileAs>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+      <Optimization>MaxSpeed</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;CMAKE_INTDIR="RelWithDebInfo";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;CMAKE_INTDIR=\"RelWithDebInfo\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\bin;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\include;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\include\opencv;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\modules\core\include;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\modules\flann\include;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\modules\imgproc\include;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\modules\highgui\include;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\modules\features2d\include;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\modules\calib3d\include;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\modules\ml\include;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\modules\video\include;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\modules\legacy\include;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\modules\objdetect\include;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\modules\photo\include;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\modules\gpu\include;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\modules\ocl\include;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\modules\nonfree\include;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\modules\contrib\include;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\modules\stitching\include;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\modules\superres\include;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\modules\ts\include;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\modules\videostab\include;C:\CRPI\Libraries\Estimate_Pose_Aruco\aruco-1.2.4\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\bin;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\include;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\include\opencv;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\modules\core\include;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\modules\flann\include;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\modules\imgproc\include;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\modules\highgui\include;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\modules\features2d\include;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\modules\calib3d\include;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\modules\ml\include;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\modules\video\include;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\modules\legacy\include;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\modules\objdetect\include;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\modules\photo\include;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\modules\gpu\include;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\modules\ocl\include;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\modules\nonfree\include;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\modules\contrib\include;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\modules\stitching\include;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\modules\superres\include;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\modules\ts\include;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\modules\videostab\include;C:\CRPI\Libraries\Estimate_Pose_Aruco\aruco-1.2.4\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Link>
+      <AdditionalOptions> /machine:X86 %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib;..\bin\RelWithDebInfo\aruco124.lib;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\bin\lib\Debug\opencv_videostab2413d.lib;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\bin\lib\Debug\opencv_ts2413d.lib;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\bin\lib\Debug\opencv_superres2413d.lib;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\bin\lib\Debug\opencv_stitching2413d.lib;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\bin\lib\Debug\opencv_contrib2413d.lib;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\bin\lib\Debug\opencv_nonfree2413d.lib;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\bin\lib\Debug\opencv_ocl2413d.lib;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\bin\lib\Debug\opencv_gpu2413d.lib;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\bin\lib\Debug\opencv_photo2413d.lib;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\bin\lib\Debug\opencv_objdetect2413d.lib;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\bin\lib\Debug\opencv_legacy2413d.lib;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\bin\lib\Debug\opencv_video2413d.lib;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\bin\lib\Debug\opencv_ml2413d.lib;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\bin\lib\Debug\opencv_calib3d2413d.lib;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\bin\lib\Debug\opencv_features2d2413d.lib;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\bin\lib\Debug\opencv_highgui2413d.lib;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\bin\lib\Debug\opencv_imgproc2413d.lib;comctl32.lib;gdi32.lib;ole32.lib;setupapi.lib;ws2_32.lib;vfw32.lib;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\bin\lib\Debug\opencv_flann2413d.lib;C:\CRPI\Libraries\ThirdParty\OpenCV2413\sources\bin\lib\Debug\opencv_core2413d.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImportLibrary>C:/CRPI/Libraries/Estimate_Pose_Aruco/aruco-1.2.4/build/bin/RelWithDebInfo/aruco_create_board.lib</ImportLibrary>
+      <ProgramDataBaseFile>C:/CRPI/Libraries/Estimate_Pose_Aruco/aruco-1.2.4/build/bin/RelWithDebInfo/aruco_create_board.pdb</ProgramDataBaseFile>
+      <SubSystem>Console</SubSystem>
+      <Version></Version>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <CustomBuild Include="..\..\utils\CMakeLists.txt">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Building Custom Rule C:/CRPI/Libraries/Estimate_Pose_Aruco/aruco-1.2.4/utils/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">setlocal
+"C:\Program Files (x86)\CMake\bin\cmake.exe" -HC:/CRPI/Libraries/Estimate_Pose_Aruco/aruco-1.2.4 -BC:/CRPI/Libraries/Estimate_Pose_Aruco/aruco-1.2.4/build --check-stamp-file C:\CRPI\Libraries\Estimate_Pose_Aruco\aruco-1.2.4\build\utils\CMakeFiles\generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">C:/CRPI/Libraries/Estimate_Pose_Aruco/aruco-1.2.4/utils/CMakeLists.txt;C:\CRPI\Libraries\Estimate_Pose_Aruco\aruco-1.2.4\utils\CMakeLists.txt;C:\CRPI\Libraries\Estimate_Pose_Aruco\aruco-1.2.4\utils\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">C:\CRPI\Libraries\Estimate_Pose_Aruco\aruco-1.2.4\build\utils\CMakeFiles\generate.stamp</Outputs>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Building Custom Rule C:/CRPI/Libraries/Estimate_Pose_Aruco/aruco-1.2.4/utils/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">setlocal
+"C:\Program Files (x86)\CMake\bin\cmake.exe" -HC:/CRPI/Libraries/Estimate_Pose_Aruco/aruco-1.2.4 -BC:/CRPI/Libraries/Estimate_Pose_Aruco/aruco-1.2.4/build --check-stamp-file C:\CRPI\Libraries\Estimate_Pose_Aruco\aruco-1.2.4\build\utils\CMakeFiles\generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">C:/CRPI/Libraries/Estimate_Pose_Aruco/aruco-1.2.4/utils/CMakeLists.txt;C:\CRPI\Libraries\Estimate_Pose_Aruco\aruco-1.2.4\utils\CMakeLists.txt;C:\CRPI\Libraries\Estimate_Pose_Aruco\aruco-1.2.4\utils\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">C:\CRPI\Libraries\Estimate_Pose_Aruco\aruco-1.2.4\build\utils\CMakeFiles\generate.stamp</Outputs>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">Building Custom Rule C:/CRPI/Libraries/Estimate_Pose_Aruco/aruco-1.2.4/utils/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">setlocal
+"C:\Program Files (x86)\CMake\bin\cmake.exe" -HC:/CRPI/Libraries/Estimate_Pose_Aruco/aruco-1.2.4 -BC:/CRPI/Libraries/Estimate_Pose_Aruco/aruco-1.2.4/build --check-stamp-file C:\CRPI\Libraries\Estimate_Pose_Aruco\aruco-1.2.4\build\utils\CMakeFiles\generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">C:/CRPI/Libraries/Estimate_Pose_Aruco/aruco-1.2.4/utils/CMakeLists.txt;C:\CRPI\Libraries\Estimate_Pose_Aruco\aruco-1.2.4\utils\CMakeLists.txt;C:\CRPI\Libraries\Estimate_Pose_Aruco\aruco-1.2.4\utils\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">C:\CRPI\Libraries\Estimate_Pose_Aruco\aruco-1.2.4\build\utils\CMakeFiles\generate.stamp</Outputs>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">Building Custom Rule C:/CRPI/Libraries/Estimate_Pose_Aruco/aruco-1.2.4/utils/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">setlocal
+"C:\Program Files (x86)\CMake\bin\cmake.exe" -HC:/CRPI/Libraries/Estimate_Pose_Aruco/aruco-1.2.4 -BC:/CRPI/Libraries/Estimate_Pose_Aruco/aruco-1.2.4/build --check-stamp-file C:\CRPI\Libraries\Estimate_Pose_Aruco\aruco-1.2.4\build\utils\CMakeFiles\generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">C:/CRPI/Libraries/Estimate_Pose_Aruco/aruco-1.2.4/utils/CMakeLists.txt;C:\CRPI\Libraries\Estimate_Pose_Aruco\aruco-1.2.4\utils\CMakeLists.txt;C:\CRPI\Libraries\Estimate_Pose_Aruco\aruco-1.2.4\utils\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">C:\CRPI\Libraries\Estimate_Pose_Aruco\aruco-1.2.4\build\utils\CMakeFiles\generate.stamp</Outputs>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\utils\aruco_create_board.cpp"  />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="C:/CRPI/Libraries/Estimate_Pose_Aruco/aruco-1.2.4/build/ZERO_CHECK.vcxproj">
+      <Project>9FBEE8DA-A615-320A-A5B4-DC980CF6A55C</Project>
+    </ProjectReference>
+    <ProjectReference Include="C:/CRPI/Libraries/Estimate_Pose_Aruco/aruco-1.2.4/build/src/aruco.vcxproj">
+      <Project>6849B3B2-877C-36B5-95C7-961460A2AFB5</Project>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
