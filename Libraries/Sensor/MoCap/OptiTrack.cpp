@@ -227,7 +227,7 @@ namespace Sensor
     do
     {
       //! Initialize client
-      result = Client_->Initialize(myIPAddress, ipAddress);
+      result = Client_->Initialize(ipAddress, ipAddress);
       if (result != ErrorCode_OK)
       {
         printf("Could not connect to OptiTrack server.");
