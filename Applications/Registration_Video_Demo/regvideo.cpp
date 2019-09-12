@@ -89,7 +89,7 @@ void main()
     ur5->SetLengthUnits("mm");
 
     cout << "coupling tool" << endl;
-    ur5->Couple("flange_ring");
+    ur5->Couple("reg_probe");
   }
   else if (robChoice == 2)
   {
@@ -99,7 +99,7 @@ void main()
     lwr->SetLengthUnits("mm");
 
     cout << "coupling tool" << endl;
-    lwr->Couple("flange_ring");
+    lwr->Couple("reg_probe");
   }
 
   //! Read configuration file
