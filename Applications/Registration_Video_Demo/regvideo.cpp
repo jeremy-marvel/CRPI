@@ -124,9 +124,10 @@ void main()
     return;
   }
 
+  cout << endl;
   do
   {
-    cout << "Using 0) None 1) Vicon or 2) OptiTrack: ";
+    cout << "Using which sensor?  0) None 1) Vicon or 2) OptiTrack: ";
     cin >> mocapoption;
     if (mocapoption < 0 || mocapoption > 2)
     {
@@ -307,6 +308,7 @@ void main()
         while (posVecIter != posVec.end())
         {
           tarPose = *posVecIter;
+          tarPose.z += insertDepth;
 
           if (robChoice == 1)
           {
@@ -392,6 +394,7 @@ void main()
                 lwr->GetRobotPose(&curPose);
                 lwr->GetRobotAxes(&curAxes);
               }
+              Sleep(500);
               flag = (fabs(forceMe.z) <= forceThresh);
             } while (flag && curPose.z > (tarPose.z - insertDepth));
             for (int x = 0; x < samplesize; ++x)

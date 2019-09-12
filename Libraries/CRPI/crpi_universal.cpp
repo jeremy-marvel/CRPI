@@ -24,7 +24,7 @@
 //#define UNIVERSAL_NOISY
 #define distthresh 0.01f
 #define angthresh 7.0f
-#define timethresh 20
+#define timethresh 40
 
 using namespace std;
 
