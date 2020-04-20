@@ -42,13 +42,13 @@
 
 //#define TESTROBOTIQ
 //#define TESTSDH
-//#define MANUALDEMO
+#define MANUALDEMO
 //#define URFORCEMEASTEST
 //#define SDHTEST
 //#define XMLDEMO
 //#define REGISTRATIONTEST
 //#define MATHTEST
-#define SENSORTEST
+//#define SENSORTEST
 //#define DATADEMO
 //#define FT_TEST
 //#define REGISTERTEST
@@ -298,7 +298,15 @@ void main ()
   //arm.Couple("gripper_parallel");
   //arm.Couple("flange_ring");
   //arm.Couple("gripper_parallel_plastic");
-  arm.Couple("robotiq");
+  
+  if (arm.Couple("robotiq") == CANON_SUCCESS)
+  {
+    cout << "OKay!" << endl;
+  }
+  else
+  {
+    cout << "Oops!" << endl;
+  }
   //arm.Couple("robotiq_laser");
   //arm.Couple("flange");
 
@@ -380,7 +388,7 @@ void main ()
       pin.at(1,0) = poseMe.y;
       pin.at(2,0) = poseMe.z;
 
-      if (arm.MoveAttractor(poseMe) == CANON_SUCCESS)
+      if (arm.MoveStraightTo(poseMe) == CANON_SUCCESS)
       {
       }
 //        curPose = poseMe;

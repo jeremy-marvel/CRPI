@@ -580,6 +580,8 @@ namespace crpi_robot
       }
     }
 
+    Sleep(500);
+
     target.clear();
     target.push_back (itr->mass);
     target.push_back (itr->centerMass.x / 1000.0f);
@@ -600,7 +602,6 @@ namespace crpi_robot
         return CANON_FAILURE;
       }
     }
-
 
     return CANON_SUCCESS;
   }
@@ -640,6 +641,7 @@ namespace crpi_robot
     target.push_back (temp.xrot);
     target.push_back (temp.yrot);
     target.push_back (temp.zrot);
+    pose.print();
 
     //! LIN, Cartesian, Absolute
     if (generateMove ('L', 'C', 'A', target))
@@ -704,7 +706,6 @@ namespace crpi_robot
       //! Error generating motion message
       return CANON_FAILURE;
     }
-
     return CANON_SUCCESS;
   }
 
@@ -1375,7 +1376,6 @@ namespace crpi_robot
     if (!state)
     {
       //! Invalid arguments generating move
-      cout << "bad move" << endl;
       return false;
     }
     
@@ -1481,7 +1481,6 @@ namespace crpi_robot
     case 'F':
       if (handle_.curTool < 0)
       {
-        cout << "bad tool" << endl;
         //! Cannot initiate force control without tool definition
         return false;
       }

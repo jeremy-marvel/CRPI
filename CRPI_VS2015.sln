@@ -184,6 +184,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Application_Registration_Vi
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Library_Sensor_HRI", "Libraries\Sensor\HRI\HRI_VS2015.vcxproj", "{203FFBFB-263C-4A7D-A008-80A0EB035227}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Demo_SimpleTest", "Applications\Demo SimpleTest\SimpleTest_VS2015.vcxproj", "{03B4E6C8-FF2E-4A72-A42C-BA9AFD2A2412}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -438,6 +440,14 @@ Global
 		{203FFBFB-263C-4A7D-A008-80A0EB035227}.Release|Win32.Build.0 = Release|Win32
 		{203FFBFB-263C-4A7D-A008-80A0EB035227}.Release|x64.ActiveCfg = Release|x64
 		{203FFBFB-263C-4A7D-A008-80A0EB035227}.Release|x64.Build.0 = Release|x64
+		{03B4E6C8-FF2E-4A72-A42C-BA9AFD2A2412}.Debug|Win32.ActiveCfg = Debug|Win32
+		{03B4E6C8-FF2E-4A72-A42C-BA9AFD2A2412}.Debug|Win32.Build.0 = Debug|Win32
+		{03B4E6C8-FF2E-4A72-A42C-BA9AFD2A2412}.Debug|x64.ActiveCfg = Debug|x64
+		{03B4E6C8-FF2E-4A72-A42C-BA9AFD2A2412}.Debug|x64.Build.0 = Debug|x64
+		{03B4E6C8-FF2E-4A72-A42C-BA9AFD2A2412}.Release|Win32.ActiveCfg = Release|Win32
+		{03B4E6C8-FF2E-4A72-A42C-BA9AFD2A2412}.Release|Win32.Build.0 = Release|Win32
+		{03B4E6C8-FF2E-4A72-A42C-BA9AFD2A2412}.Release|x64.ActiveCfg = Release|x64
+		{03B4E6C8-FF2E-4A72-A42C-BA9AFD2A2412}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

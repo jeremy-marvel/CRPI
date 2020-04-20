@@ -310,6 +310,9 @@ void main()
           tarPose = *posVecIter;
           tarPose.z += insertDepth;
 
+          cout << "Moving to position " << startNum << ": ";
+          tarPose.print();
+
           if (robChoice == 1)
           {
             ur5->MoveStraightTo(tarPose);
@@ -318,9 +321,12 @@ void main()
           {
             lwr->MoveStraightTo(tarPose);
           }
+          Sleep(1000);
 
           for (int x = 0; x < samplesize; ++x)
           {
+            cout << "Taking sample " << (x + 1) << endl;
+            cout << "Collecting robot data" << endl;
             if (robChoice == 1)
             {
               ur5->GetRobotPose(&startPose);
@@ -343,6 +349,7 @@ void main()
             }
             out << ", null";
 
+            cout << "Collecting MoCap data" << endl;
             markers.clear();
             if (mocapoption != 0)
             {
@@ -357,7 +364,11 @@ void main()
                 ottest->GetUnlabeledMarkers(markers);
               }
             }
-
+            else
+            {
+              cout << "MoCap disabled" << endl;
+            }
+            
             //! Spit out individual markers
             for (markerIter = markers.begin(); markerIter != markers.end(); ++markerIter)
             {
@@ -365,12 +376,13 @@ void main()
             }
 
             out << endl;
-
+            Sleep(1000);
           } // for (x = 0; x < samplesize; ++x)
 
           //! If we're not running the assembly, don't bother with this.
           if (runAssembly)
           {
+            cout << "Running assembly" << endl;
             bool flag;
 
             poseMe = tarPose;
@@ -523,6 +535,8 @@ void main()
 
       for (int x = 0; x < samplesize; ++x)
       {
+        cout << "Taking sample " << (x + 1) << endl;
+        cout << "Reading robot pose" << endl;
         if (robChoice == 1)
         {
           ur5->GetRobotPose(&curPose);
@@ -534,6 +548,7 @@ void main()
           lwr->GetRobotAxes(&curAxes);
         }
 
+        cout << "Reading MoCap pose" << endl;
         subjects.clear();
         markers.clear();
         if (mocapoption == 1)
@@ -548,6 +563,8 @@ void main()
           ottest->GetCurrentSubjects(subjects);
           ottest->GetUnlabeledMarkers(markers);
         }
+
+        cout << "Found " << subjects.size() << " objects and " << markers.size() << " markers" << endl;
 
         if (!subjects.empty())
         {
@@ -601,6 +618,7 @@ void main()
 
           out << endl;
         } // if (!subjects.empty()) ... else
+        Sleep(1000);
       } // for (int x = 0; x < samplesize; ++x)
     } // while (true)
 
