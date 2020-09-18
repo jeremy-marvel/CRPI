@@ -1,0 +1,3 @@
+seconds_since_epoch,  Client ID, Goal, robot_x, robot_y, robot_th
+1564441196.994000, 488, RMMASq2, 3258.000000, 136.000000, 1.300000
+1564441277.691000, 556, TestPoint1, 4101.000000, -4083.000000, -89.300000
