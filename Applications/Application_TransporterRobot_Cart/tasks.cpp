@@ -122,6 +122,8 @@ void ur5_task_code_control(void* args)
 		cout << "17. Raise Feet" << endl;
 		cout << "18. Test Continuous Vertical Pan" << endl;
 		cout << "19. Test Continuous Horizontal Pan" << endl;
+		cout << "20. Test Edge Registration (Side 1)" << endl;
+		cout << "21. Test Edge Registration (Side 2)" << endl;
 		cout << "Enter -1 to quit" << endl;
 		cin >> user_in;
 
@@ -357,6 +359,24 @@ void ur5_task_code_control(void* args)
 			{
 				cout << "Error in vertical pan" << endl;
 			}//end if
+		case 20:
+
+			setPosition(check_pose, stage_3, sensor_rot);
+			ur5.GetRobotPose(&cur_pose);
+
+			if (cur_pose.distance(check_pose) < 0.1)
+				square_edge_short_cont2(&ur5, rob2cart(cur_pose), 10, 4 * 25.4, 2, 9 * 25.4, numIters, mytime_seconds, "TEST", true);
+			else
+				cout << "Could not start edge registration test. Pose check failed" << endl;
+		case 21:
+
+			setPosition(check_pose, stage_3, sensor_rot);
+			ur5.GetRobotPose(&cur_pose);
+
+			if (cur_pose.distance(check_pose) < 0.1)
+				square_edge_short_cont2(&ur5, rob2cart(cur_pose), -10, 4 * 25.4, 2, 9 * 25.4, numIters, mytime_seconds, "TEST", true);
+			else
+				cout << "Could not start edge registration test. Pose check failed" << endl;
 		case -1:
 			cout << "Stopping..." << endl;
 			break;
@@ -389,12 +409,12 @@ void cart_client_connect(void* args)
 	{
 		start_flag = 0;
 
-		passed_args->cart_client->print_info();
+		//passed_args->cart_client->print_info();
 
 		if ((err = passed_args->cart_client->cart_comm_client_read(&vehicle_server_buf)) <= 0)
 			exit(err);
 
-		cout << "Recieved Message: '" << vehicle_server_buf << "'" << endl;
+		//cout << "Recieved Message: '" << vehicle_server_buf << "'" << endl;
 
 		if (strstr(vehicle_server_buf, "rcupdate2") !=NULL && passed_args->cart_client->get_stat_value() == 1)
 			start_flag = 1;
@@ -427,7 +447,7 @@ void actuation_test(void* args)
 		if (passed_args->cart_client->get_stat_value() == 2)
 		{
 			cout << "STARTING TEST SQUARE" << endl;
-			passed_args->cart_client->test_square(passed_args->ur5, false);
+			passed_args->cart_client->test_square(passed_args->ur5, true);
 			passed_args->cart_client->local_command("lcupdatedock");
 			passed_args->cart_client->local_command("lcupdate0");
 		}//end if
@@ -456,7 +476,9 @@ void actuation_test_auto_update(void* args)
 			cout << "STARTING TEST SQUARE" << endl;
 			bisect_check = 0;
 			passed_args->cart_client->test_square_auto_update(passed_args->ur5, &updated_large1, &updated_large2, &bisect_check);
-
+			//Note: You could modify this to work better. You need to remember to also update the vehicle pose at the time of registration.
+			//Remember that in the config file, you found out that the vehicle pose should not be the ideal goal pose, but the actual vehicle pose
+			//at the time of training the initial search points.
 			if (bisect_check == 0)
 			{
 				//CODE TO AVERAGE OR OTHERWISE ADJUST LARGE POINT LOCATION PREDICTION
@@ -533,6 +555,28 @@ void actuation_test_edge_cont2(void* args)
 		{
 			cout << "STARTING TEST EDGE" << endl;
 			passed_args->cart_client->test_edge_cont2(passed_args->ur5, true);
+			passed_args->cart_client->local_command("lcupdatedock");
+			passed_args->cart_client->local_command("lcupdate0");
+		}//end if
+
+	}//end while
+}//end actuation test
+
+void actuation_test_edge_bisect(void* args)
+{
+	int err;
+	task_args* passed_args = (task_args*)args;
+
+	while (passed_args->cart_client->get_stat_count() > 0)
+	{
+
+		ulapi_sem_take(passed_args->actuate);
+		cout << "Waiting for semaphore to signal a status change has occurred..." << endl;
+
+		if (passed_args->cart_client->get_stat_value() == 2)
+		{
+			cout << "STARTING TEST EDGE" << endl;
+			passed_args->cart_client->test_edge_cont_bisect(passed_args->ur5, true);
 			passed_args->cart_client->local_command("lcupdatedock");
 			passed_args->cart_client->local_command("lcupdate0");
 		}//end if

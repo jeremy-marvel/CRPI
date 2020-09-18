@@ -108,13 +108,19 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:ae7aa5e3ce2b4192163d24fee40191411"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af857bf6da9431c0ebfa1862bf54ba912"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcart__comm__client.html#af857bf6da9431c0ebfa1862bf54ba912">get_stat_count</a> ()</td></tr>
 <tr class="separator:af857bf6da9431c0ebfa1862bf54ba912"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0b5e6c07fa231bc4c1475934d90775fe"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcart__comm__client.html#a0b5e6c07fa231bc4c1475934d90775fe">test_square</a> (CrpiRobot&lt; CrpiUniversal &gt; *ur_robot)</td></tr>
-<tr class="separator:a0b5e6c07fa231bc4c1475934d90775fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4ea2b789160e7d1580e6d47d31561f28"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcart__comm__client.html#a4ea2b789160e7d1580e6d47d31561f28">test_square</a> (CrpiRobot&lt; CrpiUniversal &gt; *ur_robot, bool level_pause)</td></tr>
+<tr class="separator:a4ea2b789160e7d1580e6d47d31561f28"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aaa588482b9a7b89a473bd88125aa833a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcart__comm__client.html#aaa588482b9a7b89a473bd88125aa833a">test_square_auto_update</a> (CrpiRobot&lt; CrpiUniversal &gt; *ur_robot, PM_CARTESIAN *update1, PM_CARTESIAN *update2, int *bisect_stat)</td></tr>
 <tr class="separator:aaa588482b9a7b89a473bd88125aa833a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afbb6d5ec314d688c411a84e24eb0b437"><td class="memItemLeft" align="right" valign="top"><a id="afbb6d5ec314d688c411a84e24eb0b437"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>test_edge</b> (CrpiRobot&lt; CrpiUniversal &gt; *ur_robot)</td></tr>
-<tr class="separator:afbb6d5ec314d688c411a84e24eb0b437"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac90c32ff9efabd33ecf499fa4e5d95cb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcart__comm__client.html#ac90c32ff9efabd33ecf499fa4e5d95cb">test_edge</a> (CrpiRobot&lt; CrpiUniversal &gt; *ur_robot, bool level_pause)</td></tr>
+<tr class="separator:ac90c32ff9efabd33ecf499fa4e5d95cb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad2e607ccbc2c1b02c25c252a2eaea521"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcart__comm__client.html#ad2e607ccbc2c1b02c25c252a2eaea521">test_edge_cont</a> (CrpiRobot&lt; CrpiUniversal &gt; *ur_robot, bool level_pause)</td></tr>
+<tr class="separator:ad2e607ccbc2c1b02c25c252a2eaea521"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac44548dbca7cf94a77e014d3650fd763"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcart__comm__client.html#ac44548dbca7cf94a77e014d3650fd763">test_edge_cont2</a> (CrpiRobot&lt; CrpiUniversal &gt; *ur_robot, bool level_pause)</td></tr>
+<tr class="separator:ac44548dbca7cf94a77e014d3650fd763"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a997c5d40abc9a3ddcd56504f3e9413ea"><td class="memItemLeft" align="right" valign="top"><a id="a997c5d40abc9a3ddcd56504f3e9413ea"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>test_edge_cont_bisect</b> (CrpiRobot&lt; CrpiUniversal &gt; *ur_robot, bool level_pause)</td></tr>
+<tr class="separator:a997c5d40abc9a3ddcd56504f3e9413ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1b98c6cdf26eea214854b6eec41486a8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcart__comm__client.html#a1b98c6cdf26eea214854b6eec41486a8">print_info</a> ()</td></tr>
 <tr class="separator:a1b98c6cdf26eea214854b6eec41486a8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
@@ -470,7 +476,7 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>Wrapper that prints the contents of client_stat with mutexing. </p>
 
-<p class="definition">Definition at line <a class="el" href="cart__comm__client_8cpp_source.html#l00638">638</a> of file <a class="el" href="cart__comm__client_8cpp_source.html">cart_comm_client.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="cart__comm__client_8cpp_source.html#l01015">1015</a> of file <a class="el" href="cart__comm__client_8cpp_source.html">cart_comm_client.cpp</a>.</p>
 
 </div>
 </div>
@@ -570,8 +576,122 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="a0b5e6c07fa231bc4c1475934d90775fe"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0b5e6c07fa231bc4c1475934d90775fe">&#9670;&nbsp;</a></span>test_square()</h2>
+<a id="ac90c32ff9efabd33ecf499fa4e5d95cb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac90c32ff9efabd33ecf499fa4e5d95cb">&#9670;&nbsp;</a></span>test_edge()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void cart_comm_client::test_edge </td>
+          <td>(</td>
+          <td class="paramtype">CrpiRobot&lt; CrpiUniversal &gt; *&#160;</td>
+          <td class="paramname"><em>ur_robot</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>level_pause</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Control code for performance test method. Sends manipulator to an initial stage pose for safe access to the RMMA, then performs pose calculations based on the current vehicle position to adjust for docking offset. <br />
+Finally, calls function to perform edge registration (does not use continuous move, only moves incremented by steps) and spiral search verification. This version was one of several edge registration methods tested with the OTS and was measured on 06-28-2019. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">ur_robot</td><td>A pointer to a CRPI datastructure that manages the connection to the UR5 robot URScript server. Needed to send move commands to control the arm. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">level_pause</td><td>Flag to enable pausing after extending feet to allow for level measurements. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="cart__comm__client_8cpp_source.html#l00531">531</a> of file <a class="el" href="cart__comm__client_8cpp_source.html">cart_comm_client.cpp</a>.</p>
+
+</div>
+</div>
+<a id="ad2e607ccbc2c1b02c25c252a2eaea521"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad2e607ccbc2c1b02c25c252a2eaea521">&#9670;&nbsp;</a></span>test_edge_cont()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void cart_comm_client::test_edge_cont </td>
+          <td>(</td>
+          <td class="paramtype">CrpiRobot&lt; CrpiUniversal &gt; *&#160;</td>
+          <td class="paramname"><em>ur_robot</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>level_pause</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Control code for performance test method. Sends manipulator to an initial stage pose for safe access to the RMMA, then performs pose calculations based on the current vehicle position to adjust for docking offset. <br />
+Finally, calls function to perform edge registration (features a trained, initial search point followed by a single continuous move that is interrupted) and spiral search verification. This version was one of several edge registration methods tested with the OTS and was measured on 07-01-2019. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">ur_robot</td><td>A pointer to a CRPI datastructure that manages the connection to the UR5 robot URScript server. Needed to send move commands to control the arm. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">level_pause</td><td>Flag to enable pausing after extending feet to allow for level measurements. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="cart__comm__client_8cpp_source.html#l00641">641</a> of file <a class="el" href="cart__comm__client_8cpp_source.html">cart_comm_client.cpp</a>.</p>
+
+</div>
+</div>
+<a id="ac44548dbca7cf94a77e014d3650fd763"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac44548dbca7cf94a77e014d3650fd763">&#9670;&nbsp;</a></span>test_edge_cont2()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void cart_comm_client::test_edge_cont2 </td>
+          <td>(</td>
+          <td class="paramtype">CrpiRobot&lt; CrpiUniversal &gt; *&#160;</td>
+          <td class="paramname"><em>ur_robot</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>level_pause</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Control code for performance test method. Sends manipulator to an initial stage pose for safe access to the RMMA, then performs pose calculations based on the current vehicle position to adjust for docking offset. <br />
+Finally, calls function to perform edge registration (features a single continuous move that is interrupted and NO trained initial search point) and spiral search verification. This version was one of several edge registration methods tested with the OTS and was measured on 07-03-2019. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">ur_robot</td><td>A pointer to a CRPI datastructure that manages the connection to the UR5 robot URScript server. Needed to send move commands to control the arm. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">level_pause</td><td>Flag to enable pausing after extending feet to allow for level measurements. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="cart__comm__client_8cpp_source.html#l00754">754</a> of file <a class="el" href="cart__comm__client_8cpp_source.html">cart_comm_client.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a4ea2b789160e7d1580e6d47d31561f28"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4ea2b789160e7d1580e6d47d31561f28">&#9670;&nbsp;</a></span>test_square()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -580,8 +700,18 @@ Private Attributes</h2></td></tr>
           <td class="memname">void cart_comm_client::test_square </td>
           <td>(</td>
           <td class="paramtype">CrpiRobot&lt; CrpiUniversal &gt; *&#160;</td>
-          <td class="paramname"><em>ur_robot</em></td><td>)</td>
+          <td class="paramname"><em>ur_robot</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>level_pause</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -589,6 +719,7 @@ Private Attributes</h2></td></tr>
 Finally, calls function to perform bisect registration and spiral search verification. </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">ur_robot</td><td>A pointer to a CRPI datastructure that manages the connection to the UR5 robot URScript server. Needed to send move commands to control the arm. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">level_pause</td><td>Flag to enable pausing after extending feet to allow for level measurements. </td></tr>
   </table>
   </dd>
 </dl>
@@ -645,7 +776,7 @@ Finally, calls function to perform bisect registration and spiral search verific
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="cart__comm__client_8cpp_source.html#l00435">435</a> of file <a class="el" href="cart__comm__client_8cpp_source.html">cart_comm_client.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="cart__comm__client_8cpp_source.html#l00438">438</a> of file <a class="el" href="cart__comm__client_8cpp_source.html">cart_comm_client.cpp</a>.</p>
 
 </div>
 </div>

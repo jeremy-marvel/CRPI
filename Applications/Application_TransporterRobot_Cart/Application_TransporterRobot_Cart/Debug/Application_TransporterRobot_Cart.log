@@ -1,0 +1,9 @@
+﻿  tasks.cpp
+c:\users\oya\desktop\tortoisesvn\applications\application_transporterrobot_cart\tasks.cpp(43): warning C4101: 'retval': unreferenced local variable
+c:\users\oya\desktop\tortoisesvn\applications\application_transporterrobot_cart\tasks.cpp(438): warning C4101: 'err': unreferenced local variable
+c:\users\oya\desktop\tortoisesvn\applications\application_transporterrobot_cart\tasks.cpp(460): warning C4101: 'err': unreferenced local variable
+c:\users\oya\desktop\tortoisesvn\applications\application_transporterrobot_cart\tasks.cpp(499): warning C4101: 'err': unreferenced local variable
+c:\users\oya\desktop\tortoisesvn\applications\application_transporterrobot_cart\tasks.cpp(521): warning C4101: 'err': unreferenced local variable
+c:\users\oya\desktop\tortoisesvn\applications\application_transporterrobot_cart\tasks.cpp(543): warning C4101: 'err': unreferenced local variable
+c:\users\oya\desktop\tortoisesvn\applications\application_transporterrobot_cart\tasks.cpp(565): warning C4101: 'err': unreferenced local variable
+  Application_TransporterRobot_Cart.vcxproj -> C:\Users\oya\Desktop\TortoiseSVN\Applications\Application_TransporterRobot_Cart\Debug\Application_TransporterRobot_Cart.exe

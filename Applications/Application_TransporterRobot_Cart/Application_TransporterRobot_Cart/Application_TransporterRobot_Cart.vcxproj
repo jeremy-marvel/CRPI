@@ -169,7 +169,6 @@
     <ClCompile Include="..\ur5_control.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <Library Include="..\CRPI_Library.lib" />
     <Library Include="..\dlfuncs.lib" />
     <Library Include="..\MotionPrims.lib" />
     <Library Include="..\ulapi.lib" />

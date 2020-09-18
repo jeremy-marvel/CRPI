@@ -94,4 +94,6 @@ void actuation_test_edge_cont(void* args);
 
 void actuation_test_edge_cont2(void* args);
 
+void actuation_test_edge_bisect(void* args);
+
 #endif

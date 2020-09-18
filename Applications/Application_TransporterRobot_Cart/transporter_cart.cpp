@@ -85,7 +85,8 @@ int main()
 	cout << "5. Manipulator-on-Cart Assembly Tasks with Edge Registration (Cart and Arm Present)" << endl;
 	cout << "6. Manipulator-on-Cart Assembly Tasks with Edge Registration (Continuous move, Cart and Arm Present)" << endl;
 	cout << "7. Manipulator-on-Cart Assembly Tasks with Edge Registration (Improved Continuous move, Cart and Arm Present)" << endl;
-	cout << "8. Test Configuration File Loading" << endl;
+	cout << "8. Manipulator-on-Cart Assembly Tasks with Edge Registration and Bisect Registration" << endl;
+	cout << "9. Test Configuration File Loading" << endl;
 	cout << "Please select an option: " << endl;
 	cin >> user_in;
 
@@ -197,9 +198,9 @@ int main()
 				no_arm_l[1] = 0;
 				no_arm_l[2] = 1;
 
-				args->cart_client = new cart_comm_client(0, "10.0.128.52", 5352, 34, start, no_arm_l, dock_l, goal_l, large_point1_l, large_point2_l, 3);*/
+				args->cart_client = new cart_comm_client(0, "192.168.160.52", 5352, 34, start, no_arm_l, dock_l, goal_l, large_point1_l, large_point2_l, 3);*/
 				
-				//args->cart_client = new cart_comm_client(0, "10.0.128.52", 5352, 34, copy_config->start, copy_config->no_arm_list, copy_config->dock_list, copy_config->goal_list, copy_config->large_point1_list, copy_config->large_point2_list, copy_config->task_count);
+				//args->cart_client = new cart_comm_client(0, "192.168.160.52", 5352, 34, copy_config->start, copy_config->no_arm_list, copy_config->dock_list, copy_config->goal_list, copy_config->large_point1_list, copy_config->large_point2_list, copy_config->task_count);
 				args->actuate = (ulapi_mutex_struct*)malloc(sizeof(ulapi_mutex_struct));
 
 				if ((args->actuate = ulapi_sem_new(35)) == NULL)
@@ -234,7 +235,7 @@ int main()
 					exit(err);
 				}//end if
 				
-				args->cart_client = new cart_comm_client(0, "10.0.128.52", 5352, 34, copy_config->start, copy_config->no_arm_list, copy_config->dock_list, copy_config->goal_list, copy_config->large_point1_list, copy_config->large_point2_list, copy_config->edge_start_list, copy_config->task_count, copy_config->runs);
+				args->cart_client = new cart_comm_client(0, "192.168.160.52", 5352, 34, copy_config->start, copy_config->no_arm_list, copy_config->dock_list, copy_config->goal_list, copy_config->large_point1_list, copy_config->large_point2_list, copy_config->edge_start_list, copy_config->task_count, copy_config->runs);
 
 				//PROBLEM: THIS task still runs after cart_client has been deallocated, need to stop this task
 				if ((err = ulapi_task_start(cart_client_connect_task, cart_client_connect, (void*)args, ulapi_prio_lowest(), 0)) < 0)
@@ -407,9 +408,9 @@ int main()
 			no_arm_l[1] = 0;
 			no_arm_l[2] = 1;
 
-			args->cart_client = new cart_comm_client(0, "10.0.128.52", 5352, 34, start, no_arm_l, dock_l, goal_l, large_point1_l, large_point2_l, 3);*/
+			args->cart_client = new cart_comm_client(0, "192.168.160.52", 5352, 34, start, no_arm_l, dock_l, goal_l, large_point1_l, large_point2_l, 3);*/
 
-			//args->cart_client = new cart_comm_client(0, "10.0.128.52", 5352, 34, copy_config->start, copy_config->no_arm_list, copy_config->dock_list, copy_config->goal_list, copy_config->large_point1_list, copy_config->large_point2_list, copy_config->task_count);
+			//args->cart_client = new cart_comm_client(0, "192.168.160.52", 5352, 34, copy_config->start, copy_config->no_arm_list, copy_config->dock_list, copy_config->goal_list, copy_config->large_point1_list, copy_config->large_point2_list, copy_config->task_count);
 			args->actuate = (ulapi_mutex_struct*)malloc(sizeof(ulapi_mutex_struct));
 
 			if ((args->actuate = ulapi_sem_new(35)) == NULL)
@@ -444,7 +445,7 @@ int main()
 				exit(err);
 			}//end if
 
-			args->cart_client = new cart_comm_client(0, "10.0.128.52", 5352, 34, copy_config->start, copy_config->no_arm_list, copy_config->dock_list, copy_config->goal_list, copy_config->large_point1_list, copy_config->large_point2_list, copy_config->edge_start_list, copy_config->task_count, copy_config->runs);
+			args->cart_client = new cart_comm_client(0, "192.168.160.52", 5352, 34, copy_config->start, copy_config->no_arm_list, copy_config->dock_list, copy_config->goal_list, copy_config->large_point1_list, copy_config->large_point2_list, copy_config->edge_start_list, copy_config->task_count, copy_config->runs);
 
 			if ((err = ulapi_task_start(cart_client_connect_task, cart_client_connect, (void*)args, ulapi_prio_lowest(), 0)) < 0)
 			{
@@ -572,9 +573,9 @@ int main()
 				no_arm_l[0] = 1;
 				no_arm_l[1] = 1;
 
-				args->cart_client = new cart_comm_client(1, "10.0.128.52", 5352, 34, start, no_arm_l, dock_l, goal_l, large_point1_l, large_point2_l, 2);*/
+				args->cart_client = new cart_comm_client(1, "192.168.160.52", 5352, 34, start, no_arm_l, dock_l, goal_l, large_point1_l, large_point2_l, 2);*/
 
-				//args->cart_client = new cart_comm_client(1, "10.0.128.52", 5352, 34, copy_config->start, copy_config->no_arm_list, copy_config->dock_list, copy_config->goal_list, copy_config->large_point1_list, copy_config->large_point2_list, copy_config->task_count);
+				//args->cart_client = new cart_comm_client(1, "192.168.160.52", 5352, 34, copy_config->start, copy_config->no_arm_list, copy_config->dock_list, copy_config->goal_list, copy_config->large_point1_list, copy_config->large_point2_list, copy_config->task_count);
 				args->actuate = (ulapi_mutex_struct*)malloc(sizeof(ulapi_mutex_struct));
 
 				if ((args->actuate = ulapi_sem_new(35)) == NULL)
@@ -609,7 +610,7 @@ int main()
 					exit(err);
 				}//end if
 
-				args->cart_client = new cart_comm_client(1, "10.0.128.52", 5352, 34, copy_config->start, copy_config->no_arm_list, copy_config->dock_list, copy_config->goal_list, copy_config->large_point1_list, copy_config->large_point2_list, copy_config->edge_start_list, copy_config->task_count, copy_config->runs);
+				args->cart_client = new cart_comm_client(1, "192.168.160.52", 5352, 34, copy_config->start, copy_config->no_arm_list, copy_config->dock_list, copy_config->goal_list, copy_config->large_point1_list, copy_config->large_point2_list, copy_config->edge_start_list, copy_config->task_count, copy_config->runs);
 
 				if ((err = ulapi_task_start(cart_client_connect_task, cart_client_connect, (void*)args, ulapi_prio_lowest(), 0)) < 0)
 				{
@@ -736,8 +737,8 @@ int main()
 				no_arm_l[0] = 1;
 				no_arm_l[1] = 1;
 
-				args->cart_client = new cart_comm_client(0, "10.0.128.52", 5352, 34, start, no_arm_l, dock_l, goal_l, large_point1_l, large_point2_l, 2);*/
-				//args->cart_client = new cart_comm_client(0, "10.0.128.52", 5352, 34, copy_config->start, copy_config->no_arm_list, copy_config->dock_list, copy_config->goal_list, copy_config->large_point1_list, copy_config->large_point2_list, copy_config->task_count);
+				args->cart_client = new cart_comm_client(0, "192.168.160.52", 5352, 34, start, no_arm_l, dock_l, goal_l, large_point1_l, large_point2_l, 2);*/
+				//args->cart_client = new cart_comm_client(0, "192.168.160.52", 5352, 34, copy_config->start, copy_config->no_arm_list, copy_config->dock_list, copy_config->goal_list, copy_config->large_point1_list, copy_config->large_point2_list, copy_config->task_count);
 				args->actuate = (ulapi_mutex_struct*)malloc(sizeof(ulapi_mutex_struct));
 
 				if ((args->actuate = ulapi_sem_new(35)) == NULL)
@@ -772,7 +773,7 @@ int main()
 					exit(err);
 				}//end if
 
-				args->cart_client = new cart_comm_client(0, "10.0.128.52", 5352, 34, copy_config->start, copy_config->no_arm_list, copy_config->dock_list, copy_config->goal_list, copy_config->large_point1_list, copy_config->large_point2_list, copy_config->edge_start_list, copy_config->task_count, copy_config->runs);
+				args->cart_client = new cart_comm_client(0, "192.168.160.52", 5352, 34, copy_config->start, copy_config->no_arm_list, copy_config->dock_list, copy_config->goal_list, copy_config->large_point1_list, copy_config->large_point2_list, copy_config->edge_start_list, copy_config->task_count, copy_config->runs);
 
 				if ((err = ulapi_task_start(cart_client_connect_task, cart_client_connect, (void*)args, ulapi_prio_lowest(), 0)) < 0)
 				{
@@ -941,9 +942,9 @@ int main()
 			no_arm_l[1] = 0;
 			no_arm_l[2] = 1;
 
-			args->cart_client = new cart_comm_client(0, "10.0.128.52", 5352, 34, start, no_arm_l, dock_l, goal_l, large_point1_l, large_point2_l, 3);*/
+			args->cart_client = new cart_comm_client(0, "192.168.160.52", 5352, 34, start, no_arm_l, dock_l, goal_l, large_point1_l, large_point2_l, 3);*/
 
-			//args->cart_client = new cart_comm_client(0, "10.0.128.52", 5352, 34, copy_config->start, copy_config->no_arm_list, copy_config->dock_list, copy_config->goal_list, copy_config->large_point1_list, copy_config->large_point2_list, copy_config->task_count);
+			//args->cart_client = new cart_comm_client(0, "192.168.160.52", 5352, 34, copy_config->start, copy_config->no_arm_list, copy_config->dock_list, copy_config->goal_list, copy_config->large_point1_list, copy_config->large_point2_list, copy_config->task_count);
 			args->actuate = (ulapi_mutex_struct*)malloc(sizeof(ulapi_mutex_struct));
 
 			if ((args->actuate = ulapi_sem_new(35)) == NULL)
@@ -978,7 +979,7 @@ int main()
 				exit(err);
 			}//end if
 
-			args->cart_client = new cart_comm_client(0, "10.0.128.52", 5352, 34, copy_config->start, copy_config->no_arm_list, copy_config->dock_list, copy_config->goal_list, copy_config->large_point1_list, copy_config->large_point2_list, copy_config->edge_start_list, copy_config->task_count, copy_config->runs);
+			args->cart_client = new cart_comm_client(0, "192.168.160.52", 5352, 34, copy_config->start, copy_config->no_arm_list, copy_config->dock_list, copy_config->goal_list, copy_config->large_point1_list, copy_config->large_point2_list, copy_config->edge_start_list, copy_config->task_count, copy_config->runs);
 
 			//PROBLEM: THIS task still runs after cart_client has been deallocated, need to stop this task
 			if ((err = ulapi_task_start(cart_client_connect_task, cart_client_connect, (void*)args, ulapi_prio_lowest(), 0)) < 0)
@@ -1151,9 +1152,9 @@ int main()
 			no_arm_l[1] = 0;
 			no_arm_l[2] = 1;
 
-			args->cart_client = new cart_comm_client(0, "10.0.128.52", 5352, 34, start, no_arm_l, dock_l, goal_l, large_point1_l, large_point2_l, 3);*/
+			args->cart_client = new cart_comm_client(0, "192.168.160.52", 5352, 34, start, no_arm_l, dock_l, goal_l, large_point1_l, large_point2_l, 3);*/
 
-			//args->cart_client = new cart_comm_client(0, "10.0.128.52", 5352, 34, copy_config->start, copy_config->no_arm_list, copy_config->dock_list, copy_config->goal_list, copy_config->large_point1_list, copy_config->large_point2_list, copy_config->task_count);
+			//args->cart_client = new cart_comm_client(0, "192.168.160.52", 5352, 34, copy_config->start, copy_config->no_arm_list, copy_config->dock_list, copy_config->goal_list, copy_config->large_point1_list, copy_config->large_point2_list, copy_config->task_count);
 			args->actuate = (ulapi_mutex_struct*)malloc(sizeof(ulapi_mutex_struct));
 
 			if ((args->actuate = ulapi_sem_new(35)) == NULL)
@@ -1188,7 +1189,7 @@ int main()
 				exit(err);
 			}//end if
 
-			args->cart_client = new cart_comm_client(0, "10.0.128.52", 5352, 34, copy_config->start, copy_config->no_arm_list, copy_config->dock_list, copy_config->goal_list, copy_config->large_point1_list, copy_config->large_point2_list, copy_config->edge_start_list, copy_config->task_count, copy_config->runs);
+			args->cart_client = new cart_comm_client(0, "192.168.160.52", 5352, 34, copy_config->start, copy_config->no_arm_list, copy_config->dock_list, copy_config->goal_list, copy_config->large_point1_list, copy_config->large_point2_list, copy_config->edge_start_list, copy_config->task_count, copy_config->runs);
 
 			//PROBLEM: THIS task still runs after cart_client has been deallocated, need to stop this task
 			if ((err = ulapi_task_start(cart_client_connect_task, cart_client_connect, (void*)args, ulapi_prio_lowest(), 0)) < 0)
@@ -1361,9 +1362,9 @@ int main()
 			no_arm_l[1] = 0;
 			no_arm_l[2] = 1;
 
-			args->cart_client = new cart_comm_client(0, "10.0.128.52", 5352, 34, start, no_arm_l, dock_l, goal_l, large_point1_l, large_point2_l, 3);*/
+			args->cart_client = new cart_comm_client(0, "192.168.160.52", 5352, 34, start, no_arm_l, dock_l, goal_l, large_point1_l, large_point2_l, 3);*/
 
-			//args->cart_client = new cart_comm_client(0, "10.0.128.52", 5352, 34, copy_config->start, copy_config->no_arm_list, copy_config->dock_list, copy_config->goal_list, copy_config->large_point1_list, copy_config->large_point2_list, copy_config->task_count);
+			//args->cart_client = new cart_comm_client(0, "192.168.160.52", 5352, 34, copy_config->start, copy_config->no_arm_list, copy_config->dock_list, copy_config->goal_list, copy_config->large_point1_list, copy_config->large_point2_list, copy_config->task_count);
 			args->actuate = (ulapi_mutex_struct*)malloc(sizeof(ulapi_mutex_struct));
 
 			if ((args->actuate = ulapi_sem_new(35)) == NULL)
@@ -1398,7 +1399,7 @@ int main()
 				exit(err);
 			}//end if
 
-			args->cart_client = new cart_comm_client(0, "10.0.128.52", 5352, 34, copy_config->start, copy_config->no_arm_list, copy_config->dock_list, copy_config->goal_list, copy_config->large_point1_list, copy_config->large_point2_list, copy_config->edge_start_list, copy_config->task_count, copy_config->runs);
+			args->cart_client = new cart_comm_client(0, "192.168.160.52", 5352, 34, copy_config->start, copy_config->no_arm_list, copy_config->dock_list, copy_config->goal_list, copy_config->large_point1_list, copy_config->large_point2_list, copy_config->edge_start_list, copy_config->task_count, copy_config->runs);
 
 			//PROBLEM: THIS task still runs after cart_client has been deallocated, need to stop this task
 			if ((err = ulapi_task_start(cart_client_connect_task, cart_client_connect, (void*)args, ulapi_prio_lowest(), 0)) < 0)
@@ -1469,6 +1470,216 @@ int main()
 	}//end else if
 
 	else if (user_in == 8)
+	{
+	task_args* args = (task_args*)malloc(sizeof(task_args));
+	robotPose cur_pose;
+	config_data* copy_config;
+
+	copy_config = new config_data();
+	args->saved_config = new cart_config(0);
+
+	if (args->saved_config->get_err() == 0)
+	{
+
+		args->saved_config->read_file();
+
+		if (args->saved_config->get_err() == 0)
+		{
+
+			args->saved_config->get_config(copy_config);
+
+			cout << "Connecting to UR5 controller..." << endl;
+			args->ur5 = new CrpiRobot<CrpiUniversal>(".\\universal_ur5_agv.xml");//Please note the filename of this xml document
+																  //It contains parameters CRPI uses to initialize and control the robot with.
+																  //The most important of these is the <mount> tag as it has been modified to adjust the mounting angle offset
+																  //of the UR5 so that the coordinate system aligns with the coordinate system of the ld.
+
+			do
+			{
+				cout << "Waiting to connect to the UR5 controller..." << endl;
+				ulapi_sleep(.1);
+				args->ur5->GetRobotPose(&cur_pose);
+			} while (cur_pose.x == 0 && cur_pose.y == 0 && cur_pose.z == 0);
+
+			cout << "Connection established." << endl;
+
+			args->ur5->SetAngleUnits("degree");
+			args->ur5->SetLengthUnits("mm");
+			args->ur5->SetAbsoluteSpeed(.1);
+			args->ur5->SetAbsoluteAcceleration(0.1f);
+			args->ur5->Couple("laser");//Sets a tool that is defined with the xml document.
+
+			cout << "Raising feet..." << endl;
+
+			if ((retval = raise_feet(args->ur5)) != CANON_SUCCESS)
+			{
+				cout << "Error: failed to retract feet." << endl;
+				exit(retval);
+			}//end if
+
+			ulapi_sleep(.1);
+
+			cout << "Feet retracted." << endl;
+
+			ulapi_task_struct* cart_client_connect_task = (ulapi_task_struct*)malloc(sizeof(ulapi_task_struct));
+			ulapi_task_struct* cart_actuate_task = (ulapi_task_struct*)malloc(sizeof(ulapi_task_struct));
+
+			/*char* start = (char*)malloc(sizeof(char)*(strlen("CartDock1") + 1));
+			strcpy_s(start, sizeof(char)*(strlen("CartDock1") + 1), "CartDock1");
+
+			char* task_1 = (char*)malloc(sizeof(char)*(strlen("RMMASq1") + 1));
+			strcpy_s(task_1, sizeof(char)*(strlen("RMMASq1") + 1), "RMMASq1");
+
+			char* task_2 = (char*)malloc(sizeof(char)*(strlen("RMMASq2") + 1));
+			strcpy_s(task_2, sizeof(char)*(strlen("RMMASq2") + 1), "RMMASq2");
+
+			char* task_3 = (char*)malloc(sizeof(char)*(strlen("CartDock1") + 1));
+			strcpy_s(task_3, sizeof(char)*(strlen("CartDock1") + 1), "CartDock1");
+
+			char** dock_l = (char**)(malloc(sizeof(char*) * 3));
+			dock_l[0] = task_1;
+			dock_l[1] = task_2;
+			dock_l[2] = task_3;
+
+			ld_msg_pose** goal_l = (ld_msg_pose**)malloc(sizeof(ld_msg_pose*)*3);
+			goal_l[0] = (ld_msg_pose*)malloc(sizeof(ld_msg_pose));
+			goal_l[0]->robot_th = 0;
+			goal_l[0]->robot_x = 7945 + 1000 * cos(goal_l[0]->robot_th * TO_RAD);
+			goal_l[0]->robot_y = -1757 + 1000 * sin(goal_l[0]->robot_th * TO_RAD);
+
+			goal_l[1] = (ld_msg_pose*)malloc(sizeof(ld_msg_pose));
+			goal_l[1]->robot_th = 90;
+			goal_l[1]->robot_x = 5374 + 1000 * cos(goal_l[1]->robot_th * TO_RAD);
+			goal_l[1]->robot_y = -2069 + 1000 * sin(goal_l[1]->robot_th * TO_RAD);
+
+			goal_l[2] = (ld_msg_pose*)malloc(sizeof(ld_msg_pose));
+			goal_l[2]->robot_th = 180;
+			goal_l[2]->robot_x = 5137 + 1000 * cos(goal_l[1]->robot_th * TO_RAD);
+			goal_l[2]->robot_y = -3341 + 1000 * sin(goal_l[1]->robot_th * TO_RAD);
+
+			PM_CARTESIAN** large_point1_l = new PM_CARTESIAN*[3];
+			large_point1_l[0] = new PM_CARTESIAN(487.139, 249.622, sensor_height);
+			large_point1_l[1] = new PM_CARTESIAN(469.783, 235.600, sensor_height);
+			large_point1_l[2] = new PM_CARTESIAN(465.375, 279.525, sensor_height);
+
+			PM_CARTESIAN** large_point2_l = new PM_CARTESIAN*[3];
+			large_point2_l[0] = new PM_CARTESIAN(478.538, -211.081, sensor_height);
+			large_point2_l[1] = new PM_CARTESIAN(465.595, -222.640, sensor_height);
+			large_point2_l[2] = new PM_CARTESIAN(457.988, -179.663, sensor_height);
+
+			int* no_arm_l = new int[3];
+			no_arm_l[0] = 0;
+			no_arm_l[1] = 0;
+			no_arm_l[2] = 1;
+
+			args->cart_client = new cart_comm_client(0, "192.168.160.52", 5352, 34, start, no_arm_l, dock_l, goal_l, large_point1_l, large_point2_l, 3);*/
+
+			//args->cart_client = new cart_comm_client(0, "192.168.160.52", 5352, 34, copy_config->start, copy_config->no_arm_list, copy_config->dock_list, copy_config->goal_list, copy_config->large_point1_list, copy_config->large_point2_list, copy_config->task_count);
+			args->actuate = (ulapi_mutex_struct*)malloc(sizeof(ulapi_mutex_struct));
+
+			if ((args->actuate = ulapi_sem_new(35)) == NULL)
+			{
+				cout << "Error: could not create ulapi mutex" << endl;
+				exit(-1);
+			}//end if
+
+			//cart_client_connect_task(NULL);
+
+			if ((cart_client_connect_task = ulapi_task_new()) == NULL)
+			{
+				cout << "Error: could not create ulapi task" << endl;
+				exit(-1);
+			}//end if
+
+			if ((cart_actuate_task = ulapi_task_new()) == NULL)
+			{
+				cout << "Error: could not create ulapi task" << endl;
+				exit(-1);
+			}//end if
+
+			if ((err = ulapi_task_init(cart_client_connect_task)) < 0)
+			{
+				cout << "Error: could not initialize ulapi task" << endl;
+				exit(err);
+			}//end if
+
+			if ((err = ulapi_task_init(cart_actuate_task)) < 0)
+			{
+				cout << "Error: could not initialize ulapi task" << endl;
+				exit(err);
+			}//end if
+
+			args->cart_client = new cart_comm_client(0, "192.168.160.52", 5352, 34, copy_config->start, copy_config->no_arm_list, copy_config->dock_list, copy_config->goal_list, copy_config->large_point1_list, copy_config->large_point2_list, copy_config->edge_start_list, copy_config->task_count, copy_config->runs);
+
+			//PROBLEM: THIS task still runs after cart_client has been deallocated, need to stop this task
+			if ((err = ulapi_task_start(cart_client_connect_task, cart_client_connect, (void*)args, ulapi_prio_lowest(), 0)) < 0)
+			{
+				cout << "Error: could not start ulapi task" << endl;
+				exit(err);
+			}//end if
+
+			if ((err = ulapi_task_start(cart_actuate_task, actuation_test_edge_bisect, (void*)args, ulapi_prio_lowest(), 0)) < 0)
+			{
+				cout << "Error: could not start ulapi task" << endl;
+				exit(err);
+			}//end if
+
+			if ((err = ulapi_task_join(cart_actuate_task, NULL)) < 0)
+			{
+				cout << "Error: could not join ulapi task" << endl;
+				exit(err);
+			}//end if
+
+			if ((err = ulapi_task_stop(cart_client_connect_task)) < 0)
+			{
+				cout << "Error: could not stop ulapi task" << endl;
+				exit(err);
+			}//end if
+
+			args->cart_client->~cart_comm_client();
+			args->cart_client = NULL;
+
+			/*
+			if ((err = ulapi_task_join(cart_client_connect_task, NULL)) < 0)
+			{
+				cout << "Error: could not join ulapi task" << endl;
+				exit(err);
+			}//end if
+			*/
+
+			if ((err = ulapi_task_delete(cart_actuate_task)) < 0)
+			{
+				cout << "Error: could not delete ulapi task" << endl;
+				exit(err);
+			}//end if
+
+			if ((err = ulapi_task_delete(cart_client_connect_task)) < 0)
+			{
+				cout << "Error: could not delete ulapi task" << endl;
+				exit(err);
+			}//end if
+
+			if ((ulapi_sem_delete(args->actuate)) < 0)
+			{
+				cout << "Error: could not delete ulapi semaphore" << endl;
+				exit(err);
+			}//end if
+
+			args->saved_config->write_file();
+
+			args->saved_config->~cart_config();
+			copy_config->~config_data();
+			copy_config = NULL;
+
+			//args->cart_client->~cart_comm_client();
+			args->ur5->~CrpiRobot();
+			free(args);
+		}//end if
+	}//end if
+
+	}//end else if
+
+	else if (user_in == 9)
 	{
 
 		PM_CARTESIAN* test_update1 = (PM_CARTESIAN*)malloc(sizeof(PM_CARTESIAN));

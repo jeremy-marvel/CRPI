@@ -1,0 +1,17 @@
+﻿  tasks.cpp
+c:\users\oya\desktop\tortoisesvn\applications\application_transporterrobot_cart\tasks.cpp(43): warning C4101: 'retval': unreferenced local variable
+c:\users\oya\desktop\tortoisesvn\applications\application_transporterrobot_cart\tasks.cpp(428): warning C4101: 'err': unreferenced local variable
+c:\users\oya\desktop\tortoisesvn\applications\application_transporterrobot_cart\tasks.cpp(450): warning C4101: 'err': unreferenced local variable
+c:\users\oya\desktop\tortoisesvn\applications\application_transporterrobot_cart\tasks.cpp(489): warning C4101: 'err': unreferenced local variable
+c:\users\oya\desktop\tortoisesvn\applications\application_transporterrobot_cart\tasks.cpp(511): warning C4101: 'err': unreferenced local variable
+c:\users\oya\desktop\tortoisesvn\applications\application_transporterrobot_cart\tasks.cpp(533): warning C4101: 'err': unreferenced local variable
+ulapi.lib(win32_ulapi.obj) : warning LNK4075: ignoring '/EDITANDCONTINUE' due to '/OPT:ICF' specification
+     Creating library C:\Users\oya\Desktop\TortoiseSVN\Applications\Application_TransporterRobot_Cart\Release\Application_TransporterRobot_Cart.lib and object C:\Users\oya\Desktop\TortoiseSVN\Applications\Application_TransporterRobot_Cart\Release\Application_TransporterRobot_Cart.exp
+LINK : warning LNK4098: defaultlib 'LIBCMT' conflicts with use of other libs; use /NODEFAULTLIB:library
+  Generating code
+  157 of 1022 functions (15.4%) were compiled, the rest were copied from previous compilation.
+    0 functions were new in current compilation
+    1 functions had inline decision re-evaluated but remain unchanged
+  Finished generating code
+ulapi.lib(win32_ulapi.obj) : warning LNK4099: PDB 'ulapi.pdb' was not found with 'ulapi.lib(win32_ulapi.obj)' or at 'C:\Users\oya\Desktop\TortoiseSVN\Applications\Application_TransporterRobot_Cart\Release\ulapi.pdb'; linking object as if no debug info
+  Application_TransporterRobot_Cart.vcxproj -> C:\Users\oya\Desktop\TortoiseSVN\Applications\Application_TransporterRobot_Cart\Release\Application_TransporterRobot_Cart.exe

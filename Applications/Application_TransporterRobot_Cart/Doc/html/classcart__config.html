@@ -94,8 +94,7 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:afda8f2022ce8e2bb9a79f99cadad670c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1bd9d29b6529a9ada7404f1829da58a8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcart__config.html#a1bd9d29b6529a9ada7404f1829da58a8">update_large_points</a> (int dock_num, PM_CARTESIAN large_point1, PM_CARTESIAN large_point2)</td></tr>
 <tr class="separator:a1bd9d29b6529a9ada7404f1829da58a8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab5f34a358566d6149efda9429eba9123"><td class="memItemLeft" align="right" valign="top"><a id="ab5f34a358566d6149efda9429eba9123"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>update_edge_points</b> (int dock_num, PM_CARTESIAN edge_point)</td></tr>
+<tr class="memitem:ab5f34a358566d6149efda9429eba9123"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcart__config.html#ab5f34a358566d6149efda9429eba9123">update_edge_points</a> (int dock_num, PM_CARTESIAN edge_point)</td></tr>
 <tr class="separator:ab5f34a358566d6149efda9429eba9123"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad35fbb7f1aa613931ef059b40c94832b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcart__config.html#ad35fbb7f1aa613931ef059b40c94832b">avg_large_points</a> (int dock_num, PM_CARTESIAN large_point1, PM_CARTESIAN large_point2)</td></tr>
 <tr class="separator:ad35fbb7f1aa613931ef059b40c94832b"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -110,8 +109,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>update_edge_points</b
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
-<tr class="memitem:a3de41943f6230959d80159eb591cc9ef"><td class="memItemLeft" align="right" valign="top"><a id="a3de41943f6230959d80159eb591cc9ef"></a>
-char *&#160;</td><td class="memItemRight" valign="bottom"><b>file_name</b></td></tr>
+<tr class="memitem:a3de41943f6230959d80159eb591cc9ef"><td class="memItemLeft" align="right" valign="top">char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcart__config.html#a3de41943f6230959d80159eb591cc9ef">file_name</a></td></tr>
 <tr class="separator:a3de41943f6230959d80159eb591cc9ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7ad70584604bd971e639efb74a1552ec"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcart__config.html#a7ad70584604bd971e639efb74a1552ec">runs</a></td></tr>
 <tr class="separator:a7ad70584604bd971e639efb74a1552ec"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -148,7 +146,7 @@ PM_CARTESIAN **&#160;</td><td class="memItemRight" valign="bottom"><b>edge_start
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>An object containing data to access the configuration file and store a copy of its configuration values in main memory. Also contains functions for opening, reading and writing to the file. As well as functions for managing access and modification of the configuration values. </p>
 
-<p class="definition">Definition at line <a class="el" href="cart__config_8h_source.html#l00120">120</a> of file <a class="el" href="cart__config_8h_source.html">cart_config.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="cart__config_8h_source.html#l00122">122</a> of file <a class="el" href="cart__config_8h_source.html">cart_config.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a080069ffff0306121fc494e37b05fdd7"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a080069ffff0306121fc494e37b05fdd7">&#9670;&nbsp;</a></span>cart_config()</h2>
@@ -368,6 +366,43 @@ PM_CARTESIAN **&#160;</td><td class="memItemRight" valign="bottom"><b>edge_start
 
 </div>
 </div>
+<a id="ab5f34a358566d6149efda9429eba9123"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab5f34a358566d6149efda9429eba9123">&#9670;&nbsp;</a></span>update_edge_points()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void cart_config::update_edge_points </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>dock_num</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">PM_CARTESIAN&#160;</td>
+          <td class="paramname"><em>edge_point</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Updates the pose of the large reflectors within the data structure. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">dock_num</td><td>Index into large_point1_list and large_point2_list to select which point to update. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">edge_point</td><td>New point for the edge registration </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="cart__config_8cpp_source.html#l01017">1017</a> of file <a class="el" href="cart__config_8cpp_source.html">cart_config.cpp</a>.</p>
+
+</div>
+</div>
 <a id="a1bd9d29b6529a9ada7404f1829da58a8"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a1bd9d29b6529a9ada7404f1829da58a8">&#9670;&nbsp;</a></span>update_large_points()</h2>
 
@@ -454,7 +489,7 @@ PM_CARTESIAN **&#160;</td><td class="memItemRight" valign="bottom"><b>edge_start
 </div><div class="memdoc">
 <p>A pointer to a filestream object used to read the configuration file. </p>
 
-<p class="definition">Definition at line <a class="el" href="cart__config_8h_source.html#l00150">150</a> of file <a class="el" href="cart__config_8h_source.html">cart_config.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="cart__config_8h_source.html#l00156">156</a> of file <a class="el" href="cart__config_8h_source.html">cart_config.h</a>.</p>
 
 </div>
 </div>
@@ -479,7 +514,7 @@ PM_CARTESIAN **&#160;</td><td class="memItemRight" valign="bottom"><b>edge_start
 </div><div class="memdoc">
 <p>A list of goal names in the vehicle map that the cart will travel to. </p>
 
-<p class="definition">Definition at line <a class="el" href="cart__config_8h_source.html#l00168">168</a> of file <a class="el" href="cart__config_8h_source.html">cart_config.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="cart__config_8h_source.html#l00174">174</a> of file <a class="el" href="cart__config_8h_source.html">cart_config.h</a>.</p>
 
 </div>
 </div>
@@ -504,7 +539,32 @@ PM_CARTESIAN **&#160;</td><td class="memItemRight" valign="bottom"><b>edge_start
 </div><div class="memdoc">
 <p>An error integer indicating if there was an error reading or writing to a file. A value of 0 indicates no error occurred. </p>
 
-<p class="definition">Definition at line <a class="el" href="cart__config_8h_source.html#l00144">144</a> of file <a class="el" href="cart__config_8h_source.html">cart_config.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="cart__config_8h_source.html#l00150">150</a> of file <a class="el" href="cart__config_8h_source.html">cart_config.h</a>.</p>
+
+</div>
+</div>
+<a id="a3de41943f6230959d80159eb591cc9ef"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3de41943f6230959d80159eb591cc9ef">&#9670;&nbsp;</a></span>file_name</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">char* cart_config::file_name</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Stores the file path of the configuration file to read and write to. </p>
+
+<p class="definition">Definition at line <a class="el" href="cart__config_8h_source.html#l00132">132</a> of file <a class="el" href="cart__config_8h_source.html">cart_config.h</a>.</p>
 
 </div>
 </div>
@@ -529,7 +589,7 @@ PM_CARTESIAN **&#160;</td><td class="memItemRight" valign="bottom"><b>edge_start
 </div><div class="memdoc">
 <p>Pointer to the first task </p>
 
-<p class="definition">Definition at line <a class="el" href="cart__config_8h_source.html#l00156">156</a> of file <a class="el" href="cart__config_8h_source.html">cart_config.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="cart__config_8h_source.html#l00162">162</a> of file <a class="el" href="cart__config_8h_source.html">cart_config.h</a>.</p>
 
 </div>
 </div>
@@ -554,7 +614,7 @@ PM_CARTESIAN **&#160;</td><td class="memItemRight" valign="bottom"><b>edge_start
 </div><div class="memdoc">
 <p>A list 2D poses that correspond to the goals listed in dock_list. Used for coordinate system transformations adjusting the registration. </p>
 
-<p class="definition">Definition at line <a class="el" href="cart__config_8h_source.html#l00174">174</a> of file <a class="el" href="cart__config_8h_source.html">cart_config.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="cart__config_8h_source.html#l00180">180</a> of file <a class="el" href="cart__config_8h_source.html">cart_config.h</a>.</p>
 
 </div>
 </div>
@@ -579,7 +639,7 @@ PM_CARTESIAN **&#160;</td><td class="memItemRight" valign="bottom"><b>edge_start
 </div><div class="memdoc">
 <p>A list of initial search positions for the first large reflector used when bisecting. </p>
 
-<p class="definition">Definition at line <a class="el" href="cart__config_8h_source.html#l00180">180</a> of file <a class="el" href="cart__config_8h_source.html">cart_config.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="cart__config_8h_source.html#l00186">186</a> of file <a class="el" href="cart__config_8h_source.html">cart_config.h</a>.</p>
 
 </div>
 </div>
@@ -604,7 +664,7 @@ PM_CARTESIAN **&#160;</td><td class="memItemRight" valign="bottom"><b>edge_start
 </div><div class="memdoc">
 <p>A list of initial search positions for the second large reflector used when bisecting. </p>
 
-<p class="definition">Definition at line <a class="el" href="cart__config_8h_source.html#l00186">186</a> of file <a class="el" href="cart__config_8h_source.html">cart_config.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="cart__config_8h_source.html#l00192">192</a> of file <a class="el" href="cart__config_8h_source.html">cart_config.h</a>.</p>
 
 </div>
 </div>
@@ -629,7 +689,7 @@ PM_CARTESIAN **&#160;</td><td class="memItemRight" valign="bottom"><b>edge_start
 </div><div class="memdoc">
 <p>A list of integer flags indicating whether or not the arm is to be used at a specific docking location. 0 indicates the arm will be used, 1 indicates the arm is disabled. </p>
 
-<p class="definition">Definition at line <a class="el" href="cart__config_8h_source.html#l00198">198</a> of file <a class="el" href="cart__config_8h_source.html">cart_config.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="cart__config_8h_source.html#l00204">204</a> of file <a class="el" href="cart__config_8h_source.html">cart_config.h</a>.</p>
 
 </div>
 </div>
@@ -654,7 +714,7 @@ PM_CARTESIAN **&#160;</td><td class="memItemRight" valign="bottom"><b>edge_start
 </div><div class="memdoc">
 <p>Stores the number of times a cart will cycle through a sequence of stops. </p>
 
-<p class="definition">Definition at line <a class="el" href="cart__config_8h_source.html#l00132">132</a> of file <a class="el" href="cart__config_8h_source.html">cart_config.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="cart__config_8h_source.html#l00138">138</a> of file <a class="el" href="cart__config_8h_source.html">cart_config.h</a>.</p>
 
 </div>
 </div>
@@ -679,7 +739,7 @@ PM_CARTESIAN **&#160;</td><td class="memItemRight" valign="bottom"><b>edge_start
 </div><div class="memdoc">
 <p>Stores the goal name in the vehicle map at which the cart is initially parked. </p>
 
-<p class="definition">Definition at line <a class="el" href="cart__config_8h_source.html#l00162">162</a> of file <a class="el" href="cart__config_8h_source.html">cart_config.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="cart__config_8h_source.html#l00168">168</a> of file <a class="el" href="cart__config_8h_source.html">cart_config.h</a>.</p>
 
 </div>
 </div>
@@ -704,7 +764,7 @@ PM_CARTESIAN **&#160;</td><td class="memItemRight" valign="bottom"><b>edge_start
 </div><div class="memdoc">
 <p>A sum used for computing the average actual position of the first large reflector. Used for adaptive registration. </p>
 
-<p class="definition">Definition at line <a class="el" href="cart__config_8h_source.html#l00204">204</a> of file <a class="el" href="cart__config_8h_source.html">cart_config.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="cart__config_8h_source.html#l00210">210</a> of file <a class="el" href="cart__config_8h_source.html">cart_config.h</a>.</p>
 
 </div>
 </div>
@@ -729,7 +789,7 @@ PM_CARTESIAN **&#160;</td><td class="memItemRight" valign="bottom"><b>edge_start
 </div><div class="memdoc">
 <p>A sum used for computing the average actual position of the second large reflector. Used for adaptive registration. </p>
 
-<p class="definition">Definition at line <a class="el" href="cart__config_8h_source.html#l00210">210</a> of file <a class="el" href="cart__config_8h_source.html">cart_config.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="cart__config_8h_source.html#l00216">216</a> of file <a class="el" href="cart__config_8h_source.html">cart_config.h</a>.</p>
 
 </div>
 </div>
@@ -754,7 +814,7 @@ PM_CARTESIAN **&#160;</td><td class="memItemRight" valign="bottom"><b>edge_start
 </div><div class="memdoc">
 <p>Counts the number of task locations that the cart will travel to. The tasks need not be unique stops. </p>
 
-<p class="definition">Definition at line <a class="el" href="cart__config_8h_source.html#l00138">138</a> of file <a class="el" href="cart__config_8h_source.html">cart_config.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="cart__config_8h_source.html#l00144">144</a> of file <a class="el" href="cart__config_8h_source.html">cart_config.h</a>.</p>
 
 </div>
 </div>
@@ -779,7 +839,7 @@ PM_CARTESIAN **&#160;</td><td class="memItemRight" valign="bottom"><b>edge_start
 </div><div class="memdoc">
 <p>Counts the number of registration points recorded for computing the average actual position of the large reflectors. </p>
 
-<p class="definition">Definition at line <a class="el" href="cart__config_8h_source.html#l00216">216</a> of file <a class="el" href="cart__config_8h_source.html">cart_config.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="cart__config_8h_source.html#l00222">222</a> of file <a class="el" href="cart__config_8h_source.html">cart_config.h</a>.</p>
 
 </div>
 </div>

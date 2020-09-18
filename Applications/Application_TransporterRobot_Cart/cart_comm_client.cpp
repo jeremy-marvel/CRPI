@@ -198,7 +198,7 @@ int cart_comm_client::remote_command(char* cmd)
 
 		if (client_str != NULL)
 		{
-			cout << "Sending status: '" << client_str << "'" << endl;
+			//cout << "Sending status: '" << client_str << "'" << endl;
 			if ((err = send(client_str) <= 0))
 				return err;
 		}//end if
@@ -216,7 +216,7 @@ int cart_comm_client::remote_command(char* cmd)
 
 		if (client_str != NULL)
 		{
-			cout << "Sending status: '" << client_str << "'" << endl;
+			//cout << "Sending status: '" << client_str << "'" << endl;
 			if ((err = send(client_str) <= 0))
 				return err;
 		}//end if
@@ -318,8 +318,8 @@ int cart_comm_client::parse_msg(char* msg)
 	cmd = strtok_s(msg, ":", &next);
 	pose = strtok_s(NULL, ":", &next);
 
-	cout << "cmd=" << cmd << endl;
-	cout << "pose=" << pose << endl;
+	//cout << "cmd=" << cmd << endl;
+	//cout << "pose=" << pose << endl;
 
 	if (client_stat->get_status() != 2)
 	{
@@ -409,7 +409,7 @@ void cart_comm_client::test_square(CrpiRobot<CrpiUniversal> * ur_robot, bool lev
 
 			cout << "Start Point 1: (" << square_point1_world.x << ", " << square_point1_world.y << ", " << square_point1_world.z << ")" << endl;
 			cout << "Start Point 2: (" << square_point2_world.x << ", " << square_point2_world.y << ", " << square_point2_world.z << ")" << endl;
-			square_bisect_short(ur_robot, square_point1_world, square_point2_world, numIters, mytime_seconds, client_stat->get_current_dock(), false);
+			square_bisect_short(ur_robot, square_point1_world, square_point2_world, numIters, mytime_seconds, client_stat->get_current_dock(), level_pause);
 		}//end if
 
 		cout << "Now stowing manipulator..." << endl;
@@ -833,6 +833,156 @@ void cart_comm_client::test_edge_cont2(CrpiRobot<CrpiUniversal> * ur_robot, bool
 					square_edge_short_cont2(ur_robot, rob2cart(cur_pose), r_world.y, 4 * 25.4, 2, 9 * 25.4, numIters, mytime_seconds, client_stat->get_current_dock(), true);
 				else
 					cout << "Could not start edge registration test. Pose check failed" << endl;
+			}//end if
+		}//end if
+		else
+			exit(retval);
+
+		cout << "Now stowing manipulator..." << endl;
+
+		if ((retval = stow_arm(ur_robot)) != CANON_SUCCESS)
+			exit(retval);
+
+		cout << "Manipulator stowed" << endl;
+
+		cout << "Raising Feet..." << endl;
+
+		if ((retval = raise_feet(ur_robot)) != CANON_SUCCESS)
+			exit(retval);
+
+		cout << "Feet rectracted." << endl;
+	}//end if
+
+	else
+	{
+		cout << "No cart or arm present. Simulating static load. Now Sleeping for 10 seconds..." << endl;
+		Sleep(10000);
+	}//end else
+
+}//end test_edge_cont
+
+void cart_comm_client::test_edge_cont_bisect(CrpiRobot<CrpiUniversal> * ur_robot, bool level_pause)
+{
+	CanonReturn retval;
+	robotPose cur_pose, world_pose, check_pose, r3_start;
+	robotPose sq_search_pose1;
+	robotPose start_r;
+	PM_CARTESIAN r_world;
+	PM_POSE square_ld;
+	PM_CARTESIAN r, square_point1_world, square_point2_world, large1, large2;
+	PM_POSE* pm_ld = NULL;
+	crpi_timer pause;
+	int err;
+	int err1, err2, err3, err4;
+	int no_arm, no_cart;
+	ld_msg_pose cur_ld_pose;
+	int mytime_seconds;
+
+	//PM_CARTESIAN start_point1;
+	//start_point1.x = 180.837;
+	//start_point1.y = 90.043;
+	//start_point1.z = sensor_height;
+
+	//PM_CARTESIAN start_point2;
+	//start_point2.x = 180.837;
+	//start_point2.y = -40.053;
+	//start_point2.z = sensor_height;
+
+	//PM_CARTESIAN start_point3;
+	//start_point3.x = 451.515;
+	//start_point3.y = 464.485;
+	//start_point3.z = sensor_height;
+
+	mytime_seconds = get_seconds();
+
+	ulapi_mutex_take(mutex);
+	no_arm = client_stat->get_current_no_arm();
+	no_cart = client_stat->get_no_cart();
+	ulapi_mutex_give(mutex);
+
+	if (no_arm == 0 && no_cart == 0 && ur_robot != NULL)
+	{
+		cout << "Lowering Feet..." << endl;
+
+		if ((retval = lower_feet(ur_robot)) != CANON_SUCCESS)
+			exit(retval);
+
+		cout << "Feet extended." << endl;
+
+		if (level_pause)
+			pause.waitUntil(15000);
+
+		cout << "Now staging manipulator..." << endl;
+
+		if ((retval = stage_arm_edge(ur_robot, r3_start)) == CANON_SUCCESS)
+		{
+			cout << "Manipulator staged" << endl;
+
+			pause.waitUntil(robot_settle_time);
+
+			ulapi_mutex_take(mutex);
+			client_stat->get_current_pose(cur_ld_pose);
+
+			pm_ld = new PM_POSE(PM_CARTESIAN(cur_ld_pose.robot_x, cur_ld_pose.robot_y, 0), PM_RPY(0, 0, cur_ld_pose.robot_th * TO_RAD));
+			err1 = client_stat->get_current_goal(square_ld);
+			err2 = client_stat->get_current_edge_start(r);
+			err3 = client_stat->get_current_large_point1(large1);
+			err4 = client_stat->get_current_large_point2(large2);
+			ulapi_mutex_give(mutex);
+
+			if (err1 >= 0 && err2 >= 0 && pm_ld != NULL)
+			{
+				cout << "Lynx Point: (" << cur_ld_pose.robot_x << ", " << cur_ld_pose.robot_y << "," << cur_ld_pose.robot_th << ")" << endl;
+				compute_start(r_world, r, square_ld, *pm_ld);//Can remove this, just use r since r.y is only used to determine which side of the table cart is on.
+
+				cout << "Start Point 1: (" << r_world.x << ", " << r_world.y << ", " << r_world.z << ")" << endl;
+
+				cout << "r3_start = (" << r3_start.x << ", " << r3_start.y << ")" << endl;
+				setPosition(check_pose, stage_3, sensor_rot);
+				ur_robot->GetRobotPose(&cur_pose);
+
+				if (cur_pose.distance(check_pose) < 0.1)
+					square_edge_short_cont2(ur_robot, rob2cart(cur_pose), r_world.y, 4 * 25.4, 2, 9 * 25.4, numIters, mytime_seconds, client_stat->get_current_dock(), true);
+				else
+					cout << "Could not start edge registration test. Pose check failed" << endl;
+			}//end if
+		}//end if
+		else
+			exit(retval);
+
+		cout << "Now stowing manipulator..." << endl;
+
+		if ((retval = stow_arm(ur_robot)) != CANON_SUCCESS)
+			exit(retval);
+
+		cout << "Manipulator stowed" << endl;
+
+		if (level_pause)
+			pause.waitUntil(15000);
+
+		cout << "Now staging manipulator..." << endl;
+
+		if ((retval = stage_arm_edge(ur_robot, r3_start)) == CANON_SUCCESS)
+		{
+			cout << "Manipulator staged" << endl;
+
+			pause.waitUntil(robot_settle_time);
+
+			ulapi_mutex_take(mutex);
+			err3 = client_stat->get_current_large_point1(large1);
+			err4 = client_stat->get_current_large_point2(large2);
+			ulapi_mutex_give(mutex);
+
+			if (err3 >= 0 && err4 >= 0 && pm_ld != NULL)
+			{
+
+				cout << "Lynx Point: (" << cur_ld_pose.robot_x << ", " << cur_ld_pose.robot_y << "," << cur_ld_pose.robot_th << ")" << endl;
+				compute_start(square_point1_world, square_point2_world, large1, large2, square_ld, *pm_ld);
+
+				cout << "Start Point 1: (" << square_point1_world.x << ", " << square_point1_world.y << ", " << square_point1_world.z << ")" << endl;
+				cout << "Start Point 2: (" << square_point2_world.x << ", " << square_point2_world.y << ", " << square_point2_world.z << ")" << endl;
+				square_bisect_short(ur_robot, square_point1_world, square_point2_world, numIters, mytime_seconds, client_stat->get_current_dock(), level_pause);
+
 			}//end if
 		}//end if
 		else

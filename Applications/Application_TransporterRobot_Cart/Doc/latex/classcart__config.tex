@@ -6,8 +6,7 @@
 
 
 
-Collaboration diagram for cart\+\_\+config\+:
-\nopagebreak
+Collaboration diagram for cart\+\_\+config\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -29,8 +28,7 @@ void \mbox{\hyperlink{classcart__config_afda8f2022ce8e2bb9a79f99cadad670c}{write
 \item 
 void \mbox{\hyperlink{classcart__config_a1bd9d29b6529a9ada7404f1829da58a8}{update\+\_\+large\+\_\+points}} (int dock\+\_\+num, P\+M\+\_\+\+C\+A\+R\+T\+E\+S\+I\+AN large\+\_\+point1, P\+M\+\_\+\+C\+A\+R\+T\+E\+S\+I\+AN large\+\_\+point2)
 \item 
-\mbox{\Hypertarget{classcart__config_ab5f34a358566d6149efda9429eba9123}\label{classcart__config_ab5f34a358566d6149efda9429eba9123}} 
-void {\bfseries update\+\_\+edge\+\_\+points} (int dock\+\_\+num, P\+M\+\_\+\+C\+A\+R\+T\+E\+S\+I\+AN edge\+\_\+point)
+void \mbox{\hyperlink{classcart__config_ab5f34a358566d6149efda9429eba9123}{update\+\_\+edge\+\_\+points}} (int dock\+\_\+num, P\+M\+\_\+\+C\+A\+R\+T\+E\+S\+I\+AN edge\+\_\+point)
 \item 
 void \mbox{\hyperlink{classcart__config_ad35fbb7f1aa613931ef059b40c94832b}{avg\+\_\+large\+\_\+points}} (int dock\+\_\+num, P\+M\+\_\+\+C\+A\+R\+T\+E\+S\+I\+AN large\+\_\+point1, P\+M\+\_\+\+C\+A\+R\+T\+E\+S\+I\+AN large\+\_\+point2)
 \item 
@@ -45,8 +43,7 @@ int \mbox{\hyperlink{classcart__config_a4a9bcdd8b2ca21ea2a8622923aa32ea2}{get\+\
 \subsection*{Private Attributes}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{classcart__config_a3de41943f6230959d80159eb591cc9ef}\label{classcart__config_a3de41943f6230959d80159eb591cc9ef}} 
-char $\ast$ {\bfseries file\+\_\+name}
+char $\ast$ \mbox{\hyperlink{classcart__config_a3de41943f6230959d80159eb591cc9ef}{file\+\_\+name}}
 \item 
 int \mbox{\hyperlink{classcart__config_a7ad70584604bd971e639efb74a1552ec}{runs}}
 \item 
@@ -84,7 +81,7 @@ int $\ast$ \mbox{\hyperlink{classcart__config_a68c64182da792f9eb4475705a228aae0}
 \subsection{Detailed Description}
 An object containing data to access the configuration file and store a copy of its configuration values in main memory. Also contains functions for opening, reading and writing to the file. As well as functions for managing access and modification of the configuration values. 
 
-Definition at line 120 of file cart\+\_\+config.\+h.
+Definition at line 122 of file cart\+\_\+config.\+h.
 
 
 
@@ -208,6 +205,23 @@ Reads the information stored in the file and populates the private fields of the
 
 Definition at line 608 of file cart\+\_\+config.\+cpp.
 
+\mbox{\Hypertarget{classcart__config_ab5f34a358566d6149efda9429eba9123}\label{classcart__config_ab5f34a358566d6149efda9429eba9123}} 
+\index{cart\+\_\+config@{cart\+\_\+config}!update\+\_\+edge\+\_\+points@{update\+\_\+edge\+\_\+points}}
+\index{update\+\_\+edge\+\_\+points@{update\+\_\+edge\+\_\+points}!cart\+\_\+config@{cart\+\_\+config}}
+\subsubsection{\texorpdfstring{update\+\_\+edge\+\_\+points()}{update\_edge\_points()}}
+{\footnotesize\ttfamily void cart\+\_\+config\+::update\+\_\+edge\+\_\+points (\begin{DoxyParamCaption}\item[{int}]{dock\+\_\+num,  }\item[{P\+M\+\_\+\+C\+A\+R\+T\+E\+S\+I\+AN}]{edge\+\_\+point }\end{DoxyParamCaption})}
+
+Updates the pose of the large reflectors within the data structure. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em dock\+\_\+num} & Index into large\+\_\+point1\+\_\+list and large\+\_\+point2\+\_\+list to select which point to update. \\
+\hline
+\mbox{\tt in}  & {\em edge\+\_\+point} & New point for the edge registration \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 1017 of file cart\+\_\+config.\+cpp.
+
 \mbox{\Hypertarget{classcart__config_a1bd9d29b6529a9ada7404f1829da58a8}\label{classcart__config_a1bd9d29b6529a9ada7404f1829da58a8}} 
 \index{cart\+\_\+config@{cart\+\_\+config}!update\+\_\+large\+\_\+points@{update\+\_\+large\+\_\+points}}
 \index{update\+\_\+large\+\_\+points@{update\+\_\+large\+\_\+points}!cart\+\_\+config@{cart\+\_\+config}}
@@ -248,7 +262,7 @@ Definition at line 837 of file cart\+\_\+config.\+cpp.
 
 A pointer to a filestream object used to read the configuration file. 
 
-Definition at line 150 of file cart\+\_\+config.\+h.
+Definition at line 156 of file cart\+\_\+config.\+h.
 
 \mbox{\Hypertarget{classcart__config_a3b73d8e5b48ba87502d77028ec765023}\label{classcart__config_a3b73d8e5b48ba87502d77028ec765023}} 
 \index{cart\+\_\+config@{cart\+\_\+config}!dock\+\_\+list@{dock\+\_\+list}}
@@ -258,7 +272,7 @@ Definition at line 150 of file cart\+\_\+config.\+h.
 
 A list of goal names in the vehicle map that the cart will travel to. 
 
-Definition at line 168 of file cart\+\_\+config.\+h.
+Definition at line 174 of file cart\+\_\+config.\+h.
 
 \mbox{\Hypertarget{classcart__config_a5b331a578d28d3abec6625ac8952fe37}\label{classcart__config_a5b331a578d28d3abec6625ac8952fe37}} 
 \index{cart\+\_\+config@{cart\+\_\+config}!err@{err}}
@@ -268,7 +282,17 @@ Definition at line 168 of file cart\+\_\+config.\+h.
 
 An error integer indicating if there was an error reading or writing to a file. A value of 0 indicates no error occurred. 
 
-Definition at line 144 of file cart\+\_\+config.\+h.
+Definition at line 150 of file cart\+\_\+config.\+h.
+
+\mbox{\Hypertarget{classcart__config_a3de41943f6230959d80159eb591cc9ef}\label{classcart__config_a3de41943f6230959d80159eb591cc9ef}} 
+\index{cart\+\_\+config@{cart\+\_\+config}!file\+\_\+name@{file\+\_\+name}}
+\index{file\+\_\+name@{file\+\_\+name}!cart\+\_\+config@{cart\+\_\+config}}
+\subsubsection{\texorpdfstring{file\+\_\+name}{file\_name}}
+{\footnotesize\ttfamily char$\ast$ cart\+\_\+config\+::file\+\_\+name\hspace{0.3cm}{\ttfamily [private]}}
+
+Stores the file path of the configuration file to read and write to. 
+
+Definition at line 132 of file cart\+\_\+config.\+h.
 
 \mbox{\Hypertarget{classcart__config_af683646edbe7260d8b12bc4fe4f885db}\label{classcart__config_af683646edbe7260d8b12bc4fe4f885db}} 
 \index{cart\+\_\+config@{cart\+\_\+config}!first\+\_\+task@{first\+\_\+task}}
@@ -278,7 +302,7 @@ Definition at line 144 of file cart\+\_\+config.\+h.
 
 Pointer to the first task 
 
-Definition at line 156 of file cart\+\_\+config.\+h.
+Definition at line 162 of file cart\+\_\+config.\+h.
 
 \mbox{\Hypertarget{classcart__config_ac484fbaf3da5c3fcbf6b0b338ebf7812}\label{classcart__config_ac484fbaf3da5c3fcbf6b0b338ebf7812}} 
 \index{cart\+\_\+config@{cart\+\_\+config}!goal\+\_\+list@{goal\+\_\+list}}
@@ -288,7 +312,7 @@ Definition at line 156 of file cart\+\_\+config.\+h.
 
 A list 2D poses that correspond to the goals listed in dock\+\_\+list. Used for coordinate system transformations adjusting the registration. 
 
-Definition at line 174 of file cart\+\_\+config.\+h.
+Definition at line 180 of file cart\+\_\+config.\+h.
 
 \mbox{\Hypertarget{classcart__config_ae86eebedcace9bd7afabc6f264051ceb}\label{classcart__config_ae86eebedcace9bd7afabc6f264051ceb}} 
 \index{cart\+\_\+config@{cart\+\_\+config}!large\+\_\+point1\+\_\+list@{large\+\_\+point1\+\_\+list}}
@@ -298,7 +322,7 @@ Definition at line 174 of file cart\+\_\+config.\+h.
 
 A list of initial search positions for the first large reflector used when bisecting. 
 
-Definition at line 180 of file cart\+\_\+config.\+h.
+Definition at line 186 of file cart\+\_\+config.\+h.
 
 \mbox{\Hypertarget{classcart__config_a8f71e861e41c9f8fee2c05f2bad2d31e}\label{classcart__config_a8f71e861e41c9f8fee2c05f2bad2d31e}} 
 \index{cart\+\_\+config@{cart\+\_\+config}!large\+\_\+point2\+\_\+list@{large\+\_\+point2\+\_\+list}}
@@ -308,7 +332,7 @@ Definition at line 180 of file cart\+\_\+config.\+h.
 
 A list of initial search positions for the second large reflector used when bisecting. 
 
-Definition at line 186 of file cart\+\_\+config.\+h.
+Definition at line 192 of file cart\+\_\+config.\+h.
 
 \mbox{\Hypertarget{classcart__config_a79325b64754bf4e6135d77234c85e2d8}\label{classcart__config_a79325b64754bf4e6135d77234c85e2d8}} 
 \index{cart\+\_\+config@{cart\+\_\+config}!no\+\_\+arm\+\_\+list@{no\+\_\+arm\+\_\+list}}
@@ -318,7 +342,7 @@ Definition at line 186 of file cart\+\_\+config.\+h.
 
 A list of integer flags indicating whether or not the arm is to be used at a specific docking location. 0 indicates the arm will be used, 1 indicates the arm is disabled. 
 
-Definition at line 198 of file cart\+\_\+config.\+h.
+Definition at line 204 of file cart\+\_\+config.\+h.
 
 \mbox{\Hypertarget{classcart__config_a7ad70584604bd971e639efb74a1552ec}\label{classcart__config_a7ad70584604bd971e639efb74a1552ec}} 
 \index{cart\+\_\+config@{cart\+\_\+config}!runs@{runs}}
@@ -328,7 +352,7 @@ Definition at line 198 of file cart\+\_\+config.\+h.
 
 Stores the number of times a cart will cycle through a sequence of stops. 
 
-Definition at line 132 of file cart\+\_\+config.\+h.
+Definition at line 138 of file cart\+\_\+config.\+h.
 
 \mbox{\Hypertarget{classcart__config_a353c41c44acad0ec6620f92d01942e7f}\label{classcart__config_a353c41c44acad0ec6620f92d01942e7f}} 
 \index{cart\+\_\+config@{cart\+\_\+config}!start@{start}}
@@ -338,7 +362,7 @@ Definition at line 132 of file cart\+\_\+config.\+h.
 
 Stores the goal name in the vehicle map at which the cart is initially parked. 
 
-Definition at line 162 of file cart\+\_\+config.\+h.
+Definition at line 168 of file cart\+\_\+config.\+h.
 
 \mbox{\Hypertarget{classcart__config_a4bafa2b778c01f3648df8f24b24e59bb}\label{classcart__config_a4bafa2b778c01f3648df8f24b24e59bb}} 
 \index{cart\+\_\+config@{cart\+\_\+config}!sum1@{sum1}}
@@ -348,7 +372,7 @@ Definition at line 162 of file cart\+\_\+config.\+h.
 
 A sum used for computing the average actual position of the first large reflector. Used for adaptive registration. 
 
-Definition at line 204 of file cart\+\_\+config.\+h.
+Definition at line 210 of file cart\+\_\+config.\+h.
 
 \mbox{\Hypertarget{classcart__config_aa45f914752bd0cdfa4d7473be5d15a78}\label{classcart__config_aa45f914752bd0cdfa4d7473be5d15a78}} 
 \index{cart\+\_\+config@{cart\+\_\+config}!sum2@{sum2}}
@@ -358,7 +382,7 @@ Definition at line 204 of file cart\+\_\+config.\+h.
 
 A sum used for computing the average actual position of the second large reflector. Used for adaptive registration. 
 
-Definition at line 210 of file cart\+\_\+config.\+h.
+Definition at line 216 of file cart\+\_\+config.\+h.
 
 \mbox{\Hypertarget{classcart__config_a54560028df17adebca7d034b3b246f45}\label{classcart__config_a54560028df17adebca7d034b3b246f45}} 
 \index{cart\+\_\+config@{cart\+\_\+config}!task\+\_\+count@{task\+\_\+count}}
@@ -368,7 +392,7 @@ Definition at line 210 of file cart\+\_\+config.\+h.
 
 Counts the number of task locations that the cart will travel to. The tasks need not be unique stops. 
 
-Definition at line 138 of file cart\+\_\+config.\+h.
+Definition at line 144 of file cart\+\_\+config.\+h.
 
 \mbox{\Hypertarget{classcart__config_a68c64182da792f9eb4475705a228aae0}\label{classcart__config_a68c64182da792f9eb4475705a228aae0}} 
 \index{cart\+\_\+config@{cart\+\_\+config}!update\+\_\+count@{update\+\_\+count}}
@@ -378,7 +402,7 @@ Definition at line 138 of file cart\+\_\+config.\+h.
 
 Counts the number of registration points recorded for computing the average actual position of the large reflectors. 
 
-Definition at line 216 of file cart\+\_\+config.\+h.
+Definition at line 222 of file cart\+\_\+config.\+h.
 
 
 

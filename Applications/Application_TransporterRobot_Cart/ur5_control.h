@@ -510,7 +510,7 @@ using namespace MotionPrims;
 	bool vertical_pan_cont(CrpiRobot<CrpiUniversal>* arm, robotPose &pose, double stepSize1, double stepSize2, double max_x, int* stepCount1, int* stepCount2, double* searchTime);
 
 	bool vertical_pan_cont2(CrpiRobot<CrpiUniversal>* arm, robotPose &pose, double stepSize1, double stepSize2, double max_x, int* stepCount1, int* stepCount2, double* searchTime);
-
+	bool horizontal_pan_cont2(CrpiRobot<CrpiUniversal>* arm, robotPose &pose, robotPose r1, robotPose r2, double offset, double stepSize1, double stepSize2, double max_y, bool reverse, int* stepCount1, int* stepCount2, double* searchTime);
 	/**
 	*Code and comments from scanUtils.cpp by S. Legowik:
 	*Bisect the current target to find the center more accurately.
@@ -527,6 +527,7 @@ using namespace MotionPrims;
 	bool horizontal_pan_cont(CrpiRobot<CrpiUniversal>* arm, robotPose &pose, double stepSize1, double stepSize2, double max_y, bool reverse, int* stepCount, double* searchTime);
 
 	bool horizontal_pan_cont2(CrpiRobot<CrpiUniversal>* arm, robotPose &pose, double offset, double stepSize1, double stepSize2, double max_y, bool reverse, int* stepCount1, int* stepCount2, double* searchTime);
+	bool horizontal_pan_cont2(CrpiRobot<CrpiUniversal>* arm, robotPose &pose, robotPose r1, robotPose r2, double offset, double stepSize1, double stepSize2, double max_y, bool reverse, int* stepCount1, int* stepCount2, double* searchTime);
 
 	/**
 	*Code and comments from scanUtils.cpp by S. Legowik:
