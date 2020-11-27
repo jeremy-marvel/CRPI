@@ -584,6 +584,29 @@ namespace crpi_robot
   {
     return CANON_SUCCESS;
   }
+
+
+  LIBRARY_API CanonReturn CrpiRobotiq::MoveBase (robotPose &to)
+  {
+    //! Not applicable
+    return CANON_REJECT;
+  }
+
+
+  LIBRARY_API CanonReturn CrpiRobotiq::PointHead (robotPose &to)
+  {
+    //! Not applicable
+    return CANON_REJECT;
+  }
+
+
+  LIBRARY_API CanonReturn CrpiRobotiq::PointAppendage (CanonRobotAppendage app_ID,
+                                                       robotPose &to)
+  {
+    //! Not applicable
+    return CANON_REJECT;
+  }
+
   
   LIBRARY_API void CrpiRobotiq::sendCommand()
   {

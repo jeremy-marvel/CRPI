@@ -28,8 +28,8 @@ namespace Math
   {
     //! @brief The matrix values
     //!
-    double **data;
-  
+    vector< vector<double > > data_m;
+
     //! @brief The number of rows in the matrix
     //!
     int rows;
@@ -47,8 +47,9 @@ namespace Math
     matrix ()
     {
       rows = cols = 0;
-      data = NULL;
       valid = false;
+
+      data_m.clear();
     }
 
 
@@ -59,16 +60,19 @@ namespace Math
       rows = source.rows;
       cols = source.cols;
       int x, y;
-      valid = true;
+      valid = source.valid;
 
-      data = new double*[rows];
+      data_m.clear();
+
       for (y = 0; y < rows; ++y)
       {
-        data[y] = new double[cols];
+        vector<double> nv;
+        nv.resize(cols);
         for (x = 0; x < cols; ++x)
         {
-          data[y][x] = source.data[y][x];
+          nv.at(x) = source.data_m.at(y).at(x);
         }
+        data_m.push_back(nv);
       }
     }
 
@@ -81,18 +85,20 @@ namespace Math
     matrix (int r, int c)
     {
       int y, x;
-      rows = r;
-      cols = c;
+      rows = (r <= 0) ? 1 : r;
+      cols = (c <= 0) ? 1 : c;
       valid = true;
 
-      data = new double*[rows];
+      data_m.clear();
       for (y = 0; y < rows; ++y)
       {
-        data[y] = new double[cols];
+        vector<double> nv;
+        nv.resize(cols);
         for (x = 0; x < cols; ++x)
         {
-          data[y][x] = 0.0f;
+          nv.at(x) = 0.0f;
         }
+        data_m.push_back(nv);
       }
     }
 
@@ -102,20 +108,12 @@ namespace Math
     ~matrix ()
     {
       int y;
-      if (data != NULL && rows > 0 && cols > 0)
-      {
-        for (y = 0; y < rows; ++y)
-        {
-          if (data[y] != NULL)
-          {
-            delete data[y];
-          }
-        }
-        delete data;
-        data = NULL;
-      }
+
       rows = cols = 0;
       valid = false;
+
+      data_m.clear();
+
     }
 
 
@@ -127,26 +125,22 @@ namespace Math
     void resize (int r, int c)
     {
       int x, y;
-      if (data != NULL)
-      {
-        for (y = 0; y < rows; ++y) 
-        {
-          delete [] data[y];
-        }
-        delete [] data;
-      }
 
-      rows = r;
-      cols = c;
-      data = new double*[rows];
+      rows = (r <= 0) ? 1 : r;
+      cols = (c <= 0) ? 1 : c;
+
+      data_m.clear();
       for (y = 0; y < rows; ++y)
       {
-        data[y] = new double[cols];
+        vector<double> nv;
+        nv.resize(cols);
         for (x = 0; x < cols; ++x)
         {
-          data[y][x] = 0.0f;
+          nv.at(x) = 0.0f;
         }
+        data_m.push_back(nv);
       }
+
       valid = true;
     }
 
@@ -162,7 +156,23 @@ namespace Math
     //!
     double& at(int row, int col)
     {
-      return data[row][col];
+      
+      if (!valid || rows == 0 || cols == 0)
+      {
+        return data_m[0][0];
+      }
+
+      if (row >= 0 && row < rows &&
+          col >= 0 && col < cols)
+      {
+        return data_m[row][col];
+      }
+      int r = (row < 0) ? 0 : row;
+      int c = (col < 0) ? 0 : col;
+
+      r = (r >= rows) ? (rows - 1) : r;
+      c = (c >= cols) ? (cols - 1) : c;
+      return data_m[r][c];
     }
 
 
@@ -179,7 +189,7 @@ namespace Math
       {
         for (x = 0; x < cols; ++x)
         {
-          data[y][x] = val;
+          data_m[y][x] = val;
         }
       }
     }
@@ -233,7 +243,7 @@ namespace Math
           {
             sum += m1.at(i, k) * m2.at(k, j);
           } // for (k = 0; k < 1; ++k)
-          data[i][j] = sum;
+          data_m[i][j] = sum;
         } // for (i = 0; j < sz; ++j)
       } // for (i = 0; i < sz; ++i)
       valid = true;
@@ -248,10 +258,11 @@ namespace Math
     void homogeneousPoint(const point &source)
     {
       resize(4, 1);
-      data[0][0] = source.x;
-      data[1][0] = source.y;
-      data[2][0] = source.z;
-      data[3][0] = 1.0f;
+
+      data_m[0][0] = source.x;
+      data_m[1][0] = source.y;
+      data_m[2][0] = source.z;
+      data_m[3][0] = 1.0f;
       valid = true;
     }
 
@@ -288,7 +299,7 @@ namespace Math
         {
           for (int j = 0; j < cols; ++j)
           {
-            data[i][j] = source.data[i][j];
+            data_m[i][j] = source.data_m[i][j];
           }
         }
       }
@@ -305,9 +316,9 @@ namespace Math
     matrix & operator=(const point &source)
     {
       resize (3, 1);
-      data[0][0] = source.x;
-      data[1][0] = source.y;
-      data[2][0] = source.z;
+      data_m[0][0] = source.x;
+      data_m[1][0] = source.y;
+      data_m[2][0] = source.z;
       valid = true;
       return *this;
     }
@@ -323,7 +334,7 @@ namespace Math
       resize(source.size(), 1);
       for (int x = 0; x < source.size(); ++x)
       {
-        data[x][0] = source.at(x);
+        data_m[x][0] = source.at(x);
       }
       valid = true;
       return *this;
@@ -367,9 +378,9 @@ namespace Math
           sum = 0.0f;
           for (z = 0; z < n1; ++z)
           {
-            sum += data[y1][z] * val.data[z][x2];
+            sum += data_m[y1][z] * val.data_m[z][x2];
           } // for (z = 0; z < n1; ++z)
-          out.data[y1][x2] = sum; //at(y1, x2) = sum;
+          out.data_m[y1][x2] = sum; //at(y1, x2) = sum;
         } // for (x2 = 0; x2 < n2; ++x2)
       } // for (y1 = 0; y1 < m1; ++y1)
       out.valid = true;
@@ -406,7 +417,7 @@ namespace Math
       {
         for (x1 = 0; x1 < n1; ++x1)
         {
-          out.at(y1, x1) = data[y1][x1] * val;
+          out.at(y1, x1) = data_m[y1][x1] * val;
         }
       }
 
@@ -444,7 +455,7 @@ namespace Math
       {
         for (x1 = 0; x1 < n1; ++x1)
         {
-          out.at(y1, x1) = data[y1][x1] * val;
+          out.at(y1, x1) = data_m[y1][x1] * val;
         }
       }
 
@@ -482,7 +493,7 @@ namespace Math
       {
         for (x1 = 0; x1 < n1; ++x1)
         {
-          out.at(y1, x1) = data[y1][x1] / val;
+          out.at(y1, x1) = data_m[y1][x1] / val;
         }
       }
 
@@ -520,7 +531,7 @@ namespace Math
       {
         for (x1 = 0; x1 < n1; ++x1)
         {
-          out.at(y1, x1) = data[y1][x1] / val;
+          out.at(y1, x1) = data_m[y1][x1] / val;
         }
       }
 
@@ -561,7 +572,7 @@ namespace Math
       {
         for (x1 = 0; x1 < n1; ++x1)
         {
-          out.data[y1][x1] = data[y1][x1] + val.data[y1][x1];
+          out.data_m[y1][x1] = data_m[y1][x1] + val.data_m[y1][x1];
         }
       }
 
@@ -603,7 +614,7 @@ namespace Math
       {
         for (x1 = 0; x1 < n1; ++x1)
         {
-          out.at(y1, x1) = data[y1][x1] - val.data[y1][x1];
+          out.at(y1, x1) = data_m[y1][x1] - val.data_m[y1][x1];
         }
       }
 
@@ -638,7 +649,7 @@ namespace Math
       {
         for (x1 = 0; x1 < n1; ++x1)
         {
-          val = data[y1][x1];
+          val = data_m[y1][x1];
           out.at(x1, y1) = val;
         }
       }
@@ -658,7 +669,8 @@ namespace Math
     {
       matrix out;
       out.resize(rows, cols);
-      int *indxc, *indxr, *ipiv;
+
+      vector<int> indxc, indxr, ipiv;
       int i, icol, irow, j, k, l, ll;
       int x, y, n = rows;
       double big, dum, pivinv, temp;
@@ -670,17 +682,17 @@ namespace Math
       }
 
       //! Index and pivot tables
-      indxc = new int[n]; //ivector(1,n);
-      indxr = new int[n]; //indxr=ivector(1,n);
-      ipiv = new int[n]; //ipiv=ivector(1,n);
+      indxc.resize(n);
+      indxr.resize(n);
+      ipiv.resize(n);
 
       //! Create a copy of our input vector for in-line inversion
       for (y = 0; y < n; ++y)
       {
         for (x = 0; x < n; ++x)
         {
-          temp = data[y][x];
-          out.data[y][x] = temp;
+          temp = data_m[y][x];
+          out.data_m[y][x] = temp;
         }
       }
 
@@ -700,9 +712,9 @@ namespace Math
             {
               if (ipiv[k] == 0)
               {
-                if (fabs(out.data[j][k]) >= big)
+                if (fabs(out.data_m[j][k]) >= big)
                 {
-                  big = fabs(out.data[j][k]);
+                  big = fabs(out.data_m[j][k]);
                   irow = j;
                   icol = k;
                 }      
@@ -721,41 +733,41 @@ namespace Math
         {
           for (l = 0; l < n; ++l)
           {
-            temp = out.data[irow][l];
-            out.data[irow][l] = out.data[icol][l];
-            out.data[icol][l] = temp;
+            temp = out.data_m[irow][l];
+            out.data_m[irow][l] = out.data_m[icol][l];
+            out.data_m[icol][l] = temp;
           }
         }
 
         indxr[i] = irow;
         indxc[i] = icol;
-        temp = fabs(out.data[icol][icol]);
+        temp = fabs(out.data_m[icol][icol]);
         if (temp < 0.00000001)
         {
            out.valid = false;
            return out;
         }
 
-        pivinv = 1.0 / out.data[icol][icol];
-        out.data[icol][icol] = 1.0;
+        pivinv = 1.0 / out.data_m[icol][icol];
+        out.data_m[icol][icol] = 1.0;
 
         for (l = 0; l < n; ++l)
         {
-          temp = out.data[icol][l] * pivinv;
-          out.data[icol][l] = temp;
+          temp = out.data_m[icol][l] * pivinv;
+          out.data_m[icol][l] = temp;
         }
 
         for (ll = 0; ll < n; ++ll)
         {
           if (ll != icol) 
           {
-            dum = out.data[ll][icol];
-            out.data[ll][icol] = 0.0f;
+            dum = out.data_m[ll][icol];
+            out.data_m[ll][icol] = 0.0f;
 
             for (l = 0; l < n; ++l)
             {
-              temp = out.data[ll][l] - (out.data[icol][l] * dum);
-              out.data[ll][l] = temp;
+              temp = out.data_m[ll][l] - (out.data_m[icol][l] * dum);
+              out.data_m[ll][l] = temp;
             }
           }
         } // for (ll = 0; ll < n; ++ll)
@@ -767,17 +779,17 @@ namespace Math
         {
           for (k = 0; k < n; ++k)
           {
-            temp = out.data[k][indxr[l]];
-            out.data[k][indxr[l]] = out.data[k][indxc[l]];
-            out.data[k][indxc[l]] = temp;
+            temp = out.data_m[k][indxr[l]];
+            out.data_m[k][indxr[l]] = out.data_m[k][indxc[l]];
+            out.data_m[k][indxc[l]] = temp;
           }
         } // if (indxr[l] != indxc[l])
       } //for (l = n-1; l >= 0; --l)
 
       //! Garbage collection
-      delete [] ipiv;
-      delete [] indxr;
-      delete [] indxc;
+      ipiv.clear();
+      indxr.clear();
+      indxc.clear();
 
       out.valid = true;
       return out;

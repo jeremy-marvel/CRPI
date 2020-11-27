@@ -33,6 +33,7 @@
 #include <time.h>
 #include "..\Math\MatrixMath.h"
 #include "..\Math\VectorMath.h"
+#include "..\Math\NumericalMath.h"
 #include "..\..\portable.h"
 
 #elif defined(__GNUC__)
@@ -88,10 +89,13 @@ typedef enum
   CmdInitCanon,                 //! Not a CRPI command
   CmdMessage,
   CmdMoveAttractor,
+  CmdMoveBase,
   CmdMoveStraightTo,
   CmdMoveThroughTo,
   CmdMoveTo,
   CmdMoveToAxisTarget,
+  CmdPointAppendage,
+  CmdPointHead,
   CmdRunProgram,
   CmdSaveConfig,
   CmdSetAbsoluteAcceleration,
@@ -135,6 +139,32 @@ typedef enum
   RADIAN = 0,
   DEGREE
 } CanonAngleUnit;
+
+
+typedef enum
+{
+  ARM_LEFT = 0,
+  ARM_RIGHT,
+  ARM_0,
+  ARM_1,
+  ARM_2,
+  ARM_3,
+  ARM_4,
+  ARM_5,
+  ARM_6,
+  ARM_7,
+  LEG_LEFT,
+  LEG_RIGHT,
+  LEG_0,
+  LEG_1,
+  LEG_2,
+  LEG_3,
+  LEG_4,
+  LEG_5,
+  LEG_6,
+  LEG_7,
+} CanonRobotAppendage;
+
 
 //! @brief Vector representation of an axis of rotation
 //!
@@ -465,11 +495,6 @@ struct robotAxes
   ~robotAxes()
   {
     axis.clear();
-    //if (axes > 0 && axis != NULL)
-    //{
-    //  delete axis;
-    //}
-    //axis = NULL;
     axes = 0;
   }
 
@@ -482,15 +507,6 @@ struct robotAxes
   {
     if (this != &source)
     {
-      /*
-      delete[] axis;
-      axis = new double[source.axes];
-      for (int i = 0; i < source.axes; ++i)
-      {
-        axis[i] = source.axis[i];
-      }
-      axes = source.axes;
-      */
       axis.clear();
       for (int i = 0; i < source.axes; ++i)
       {
@@ -569,11 +585,11 @@ struct robotIO
 {
   //! @brief Set of digital I/O values
   //!
-  bool *dio;
+  vector<bool> dio;
 
   //! @brief Set of analog I/O values
   //!
-  double *aio;
+  vector<double> aio;
 
   //! @brief Number of DI/O values defined
   //!
@@ -587,8 +603,9 @@ struct robotIO
   //!
   robotIO ()
   {
-    dio = new bool[CRPI_IO_MAX];
-    aio = new double[CRPI_IO_MAX];
+    dio.resize(CRPI_IO_MAX);
+    aio.resize(CRPI_IO_MAX);
+
     for (int i = 0; i < CRPI_IO_MAX; ++i)
     {
       dio[i] = false;
@@ -604,8 +621,9 @@ struct robotIO
   //!
   robotIO(int diosize, int aiosize)
   {
-    dio = new bool[diosize];
-    aio = new double[aiosize];
+    dio.resize(diosize);
+    aio.resize(aiosize);
+
     for (int i = 0; i < diosize; ++i)
     {
       dio[i] = false;
@@ -622,8 +640,8 @@ struct robotIO
   //!
   ~robotIO()
   {
-    delete[] dio;
-    delete[] aio;
+    dio.clear();
+    aio.clear();
   }
 
   //! @brief Assignment function
@@ -635,11 +653,10 @@ struct robotIO
   {
     if (this != &source)
     {
-      delete[] dio;
-      delete[] aio;
-
-      dio = new bool[source.ndio];
-      aio = new double[source.naio];
+      dio.clear();
+      dio.resize(source.ndio);
+      aio.clear();
+      aio.resize(source.naio);
 
       for (int i = 0; i < source.ndio; ++i)
       {

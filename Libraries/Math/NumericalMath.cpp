@@ -109,5 +109,4 @@ namespace Math
 
     return val;
   }
-
 }

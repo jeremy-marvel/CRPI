@@ -35,10 +35,6 @@
 #include "OptiTrack.h"
 #include "MoCapTypes.h"
 #include "../../Libraries/RegistrationKit/CoordFrameReg.h"
-#include "ATI_Wired.h"
-#include "FT_COP.h"
-#include "LeapMotion.h"
-#include "MYO.h"
 
 //VR Includes
 #include "stdincludes.h"

@@ -203,7 +203,7 @@
       <Culture>0x0409</Culture>
     </ResourceCompile>
     <Link>
-      <AdditionalDependencies>Library_CRPI.lib;Winmm.lib;ulapi_VS2015.lib;ws2_32.lib;Serial.lib;Math.lib;MoCap.lib;ForceTorque.lib;DAQ.lib</AdditionalDependencies>
+      <AdditionalDependencies>Library_CRPI.lib;Winmm.lib;ulapi_VS2015.lib;ws2_32.lib;Serial.lib;Math.lib;MoCap.lib;RegistrationKit.lib</AdditionalDependencies>
       <OutputFile>../../Debug/Registration.exe</OutputFile>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <GenerateDebugInformation>true</GenerateDebugInformation>
@@ -297,7 +297,7 @@
       <Culture>0x0409</Culture>
     </ResourceCompile>
     <Link>
-      <AdditionalDependencies>Library_CRPI.lib;Winmm.lib;ulapi_VS2015.lib;ws2_32.lib;Serial.lib;Math.lib;MoCap.lib;ForceTorque.lib;DAQ.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>Library_CRPI.lib;Winmm.lib;ulapi_VS2015.lib;ws2_32.lib;Serial.lib;Math.lib;MoCap.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <OutputFile>../../Release/Registration.exe</OutputFile>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <ProgramDatabaseFile>../../Release/Registration.pdb</ProgramDatabaseFile>

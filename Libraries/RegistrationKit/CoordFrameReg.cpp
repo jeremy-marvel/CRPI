@@ -162,6 +162,8 @@ namespace Registration
     vector<point> world;
     vector<point> robot;
     matrix r_2_w(4, 4), w_2_r(4, 4);
+
+    outs.clear();
     outs.resize(numRegs);
     for (count = 0; count < numRegs; ++count)
     {

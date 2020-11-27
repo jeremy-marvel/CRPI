@@ -42,12 +42,12 @@
 
 //#define TESTROBOTIQ
 //#define TESTSDH
-#define MANUALDEMO
+//#define MANUALDEMO
 //#define URFORCEMEASTEST
 //#define SDHTEST
 //#define XMLDEMO
 //#define REGISTRATIONTEST
-//#define MATHTEST
+#define MATHTEST
 //#define SENSORTEST
 //#define DATADEMO
 //#define FT_TEST
@@ -655,11 +655,13 @@ arm.Couple("Yumi_Parallel");
   m2.at(1, 2) = 2;
   m2.at(2, 0) = 2;
 
+  m1.print();
+  m2.print();
+
   mout = m1 + m2;
 
   cout << endl;
   mout.print();
-
 
   cout << endl << endl;
   vector<double> euler;

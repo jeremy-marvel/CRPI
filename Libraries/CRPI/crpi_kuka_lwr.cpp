@@ -1065,6 +1065,28 @@ namespace crpi_robot
   }
   
 
+  LIBRARY_API CanonReturn CrpiKukaLWR::MoveBase (robotPose &to)
+  {
+    //! Not applicable
+    return CANON_REJECT;
+  }
+
+
+  LIBRARY_API CanonReturn CrpiKukaLWR::PointHead (robotPose &to)
+  {
+    //! Not applicable
+    return CANON_REJECT;
+  }
+
+
+  LIBRARY_API CanonReturn CrpiKukaLWR::PointAppendage (CanonRobotAppendage app_ID,
+                                                       robotPose &to)
+  {
+    //! Not applicable
+    return CANON_REJECT;
+  }
+
+
   LIBRARY_API bool CrpiKukaLWR::generateMove (char moveType, char posType, char deltaType, vector<double> &input)
   {
     bool state = true;

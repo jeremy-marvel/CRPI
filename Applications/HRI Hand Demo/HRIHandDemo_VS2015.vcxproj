@@ -166,7 +166,7 @@
       <WarningLevel>Level3</WarningLevel>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
-      <AdditionalIncludeDirectories>..\..\Libraries\Sensor\HRI;..\..\Libraries\ThirdParty\NI\NIDAQ\include;..\..\Libraries\Math;..\..\Libraries\ulapi;..\..\Libraries\ulapi\src;..\..\Libraries\CRPI;..\..\Libraries\Sensor\DAQ;..\..\Libraries\Sensor\Force-Torque;..\..\Libraries\RegistrationKit;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\..\Libraries\Sensor\HRI;..\..\Libraries\Math;..\..\Libraries\ulapi;..\..\Libraries\ulapi\src;..\..\Libraries\CRPI;..\..\Libraries\ThirdParty\MyoSDK\include;..\..\Libraries\ThirdParty\LeapSDK\include;..\..\Libraries\RegistrationKit;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <MultiProcessorCompilation>false</MultiProcessorCompilation>
     </ClCompile>
     <ResourceCompile>
@@ -183,7 +183,7 @@
       <RandomizedBaseAddress>false</RandomizedBaseAddress>
       <DataExecutionPrevention>
       </DataExecutionPrevention>
-      <AdditionalLibraryDirectories>..\..\Debug;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>..\..\ThirdParty\OptiTrack\include;..\..\Debug;..\..\Libraries\ThirdParty\LeapSDK\lib\X86;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
     <Bscmake>
       <SuppressStartupBanner>true</SuppressStartupBanner>
@@ -257,7 +257,7 @@
       <ProgramDataBaseFileName>../../Release/</ProgramDataBaseFileName>
       <WarningLevel>Level3</WarningLevel>
       <SuppressStartupBanner>true</SuppressStartupBanner>
-      <AdditionalIncludeDirectories>..\..\Libraries\ulapi;..\..\Libraries\ulapi\src;..\..\Libraries\CRPI;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\..\Libraries\Sensor\HRI;..\..\Libraries\Math;..\..\Libraries\ulapi;..\..\Libraries\ulapi\src;..\..\Libraries\CRPI;..\..\Libraries\ThirdParty\MyoSDK\include;..\..\Libraries\RegistrationKit;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>

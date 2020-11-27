@@ -26,14 +26,14 @@
 #include "MatrixMath.h"
 #include "../../Libraries/MotionPrims/AssemblyPrims.h"
 #include "CoordFrameReg.h"
-#include "ATI_Wired.h"
-#include "FT_COP.h"
+//#include "ATI_Wired.h"
+//#include "FT_COP.h"
 #include<sstream>
 using namespace crpi_robot;
 using namespace std;
 using namespace MotionPrims;
 using namespace Math;
-using namespace Sensor;
+//using namespace Sensor;
 
 //int callibrate();
 

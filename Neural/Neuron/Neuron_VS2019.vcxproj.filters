@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="Numerical\Numerical.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\portable.h">
+      <Filter>Include</Filter>
+    </ClInclude>
+    <ClInclude Include="Numerical\Numerical.h">
+      <Filter>Include</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Include">
+      <UniqueIdentifier>{68e79b25-8070-477e-b888-84bea8decb20}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source">
+      <UniqueIdentifier>{154221a9-1547-46c1-846a-ea8511c00ad3}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

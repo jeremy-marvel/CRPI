@@ -285,34 +285,36 @@ namespace Math
     return kbest;
   }
 
-
   /*
-    double dotProduct (numVector &val1, numVector &val2)
+  double dotProduct (vector<double> &val1, vector<double> &val2)
   {
-    if (val1.vals != val2.vals)
+    //! Size mismatch?
+    if (val1.size() != val2.size())
     {
       return 0.0f;
     }
+
     int y; 
     double out = 0.0f;
 
-    for (y = 0; y < val1.vals; ++y)
+    for (y = 0; y < val1.size(); ++y)
     {
-      out += (val1.data[y] * val2.data[y]);
+      out += (val1.at(y) * val2.at(y));
     }
     return out;
   }
 
-  bool crossProduct (numVector &val1, numVector &val2, numVector &out)
+  bool crossProduct (vector<double> &val1, vector<double> &val2, vector<double> &out)
   {
     //! Currently only supports 3D vectors
-    if (val1.vals != 3 || val2.vals != 3)
+    if (val1.size() != 3 || val2.size() != 3)
     {
       return false;
     }
-    out.data[0] = (val1.data[1] * val2.data[2]) - (val1.data[2] * val2.data[1]);
-    out.data[1] = (val1.data[2] * val2.data[0]) - (val1.data[0] * val2.data[2]);
-    out.data[2] = (val1.data[0] * val2.data[1]) - (val1.data[1] * val2.data[0]);
+
+    out.at(0) = (val1.at(1) * val2.at(2)) - (val1.at(2) * val2.at(1));
+    out.at(1) = (val1.at(2) * val2.at(0)) - (val1.at(0) * val2.at(2));
+    out.at(2) = (val1.at(0) * val2.at(1)) - (val1.at(1) * val2.at(0));
     return true;
   }
   */

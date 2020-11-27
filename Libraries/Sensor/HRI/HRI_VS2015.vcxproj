@@ -263,7 +263,7 @@
     </Midl>
     <ClCompile>
       <Optimization>Disabled</Optimization>
-      <AdditionalIncludeDirectories>..\..\ThirdParty\MyoSDK\include;..\..\ThirdParty\OpenCV2\include\;..\..\ThirdParty\LeapSDK\include;..\..\Math;..\..\ulapi\src;..\..\CRPI;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\..\ThirdParty\MyoSDK\include;..\..\ThirdParty\OpenCV2\include;..\..\ThirdParty\LeapSDK\include;..\..\Math;..\..\ulapi\src;..\..\CRPI;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>

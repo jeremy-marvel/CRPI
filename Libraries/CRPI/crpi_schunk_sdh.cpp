@@ -376,4 +376,26 @@ namespace crpi_robot
     return CANON_FAILURE;
   }
 
+  
+  LIBRARY_API CanonReturn CrpiSchunkSDH::MoveBase (robotPose &to)
+  {
+    //! Not applicable
+    return CANON_REJECT;
+  }
+
+
+  LIBRARY_API CanonReturn CrpiSchunkSDH::PointHead (robotPose &to)
+  {
+    //! Not applicable
+    return CANON_REJECT;
+  }
+
+
+  LIBRARY_API CanonReturn CrpiSchunkSDH::PointAppendage (CanonRobotAppendage app_ID,
+                                                         robotPose &to)
+  {
+    //! Not applicable
+    return CANON_REJECT;
+  }
+
 } // crpi_robot

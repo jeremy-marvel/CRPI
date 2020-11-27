@@ -1355,6 +1355,28 @@ namespace crpi_robot
     }
     return CANON_SUCCESS;
   }
+
+
+  LIBRARY_API CanonReturn CrpiUniversal::MoveBase (robotPose &to)
+  {
+    //! Not applicable
+    return CANON_REJECT;
+  }
+
+
+  LIBRARY_API CanonReturn CrpiUniversal::PointHead (robotPose &to)
+  {
+    //! Not applicable
+    return CANON_REJECT;
+  }
+
+
+  LIBRARY_API CanonReturn CrpiUniversal::PointAppendage (CanonRobotAppendage app_ID,
+                                                         robotPose &to)
+  {
+    //! Not applicable
+    return CANON_REJECT;
+  }
   
 
   LIBRARY_API bool CrpiUniversal::generateMove (char moveType, char posType, char deltaType, vector<double> &input)

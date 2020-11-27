@@ -137,7 +137,7 @@ namespace Math
 
     //! @brief Compute the Cartesian distance to another point
     //!
-    //! @param dest The comparitive point to which we are finding the distance
+    //! @param dest The comparative point to which we are finding the distance
     //! @param root Whether or not to take the square root (false makes the
     //!             equation faster--useful when only doing nearest-neighbor
     //!             comparisons)
@@ -156,6 +156,10 @@ namespace Math
 
     //! @brief Compute the cross product with another point
     //!
+    //! @param val The comparative point against which we are computing the cross product
+    //!
+    //! @return The cross product of this point and val
+    //!
     point cross(const point& val)
     {
       point pC;
@@ -167,9 +171,57 @@ namespace Math
 
     //! @brief Compute the dot product with another point
     //!
+    //! @param val The comparative point against which we are computing the dot product
+    //!
+    //! @return The dot product of this point and val
+    //!
     double dot(const point& val)
     {
       return ((x * val.x) + (y * val.y) + (z * val.z));
+    }
+
+    //! @brief Compute the Euclidean norm of this point
+    //!
+    //! @return The Euclidean norm
+    //!
+    double norm()
+    {
+      return sqrt( (fabs(x) * fabs(x)) + (fabs(y) * fabs(y)) + (fabs(z) * fabs(z)) );
+    }
+
+    //! @brief Compute the signum of this point
+    //!
+    //! @return A point with values [-1, 0, 1] depending on the sign of this point
+    //!
+    point sign()
+    {
+      point s;
+      s.x = signum(x);
+      s.y = signum(y);
+      s.z = signum(z);
+
+      return s;
+    }
+
+    //! @brief Find the signum of a double precision floating point number, -1 if negative,
+    //!        +1 if positive, and 0 otherwise
+    //!
+    //! @param x The number for which we are attempting to find the sign
+    //!
+    //! @return The signum
+    //!
+    int signum (double x)
+    {
+      int ret = 0;
+      if (x > 0.0f)
+      {
+        ret = 1;
+      }
+      else if (x < 0.0f)
+      {
+        ret = -1;
+      }
+      return ret;
     }
 
     //! @brief Print out the point to the screen

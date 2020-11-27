@@ -385,6 +385,42 @@ namespace crpi_robot
     //!
     CanonReturn StopMotion (int condition = 2);
 
+    //! @brief Move the base to a specified position and orientation on a horizontal plane
+    //!
+    //! @param to Target position in the robot's world frame toward which the robot will attempt to move
+    //!
+    //! @return SUCCESS if command is accepted and is executed successfully, REJECT if the command is
+    //!         not accepted, and FAILURE if the command is accepted but not executed successfully
+    //!
+    //! @note This function only uses the x, y, and zrot components of the pose object
+    //!
+    CanonReturn MoveBase(robotPose &to);
+
+    //! @brief Point the head at an location relative to the robot’s base coordinate frame
+    //!
+    //! @param to Target pose toward which the head is attempting to point
+    //!
+    //! @return SUCCESS if command is accepted and is executed successfully, REJECT if the command is
+    //!         not accepted, and FAILURE if the command is accepted but not executed successfully
+    //!
+    //! @note This function only uses the x, y, and z components of the pose object
+    //!
+    CanonReturn PointHead(robotPose &to);
+
+    //! @brief Point the appendage at a location relative to the robot’s base coordinate frame
+    //!
+    //! @param app_ID Identifier of which appendage is being pointed
+    //! @param to     Target pose toward which the appendage is attempting to point
+    //!
+    //! @return SUCCESS if command is accepted and is executed successfully, REJECT if the command is
+    //!         not accepted, and FAILURE if the command is accepted but not executed successfully
+    //!
+    //! @note This function only uses the x, y, and z components of the pose object
+    //! @note It is not always possible for the indicated appendage to point exactly along the vector
+    //!       specified.  The robot should attempt to get as close as possible.
+    //!
+    CanonReturn PointAppendage(CanonRobotAppendage app_ID, robotPose &to);
+
   private:
     matrix *pin_, *pout_;
     matrix *forward_, *backward_;

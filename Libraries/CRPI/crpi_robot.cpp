@@ -39,6 +39,16 @@ template class LIBRARY_API crpi_robot::CrpiRobot<crpi_robot::CrpiAllegro>;
 template class LIBRARY_API crpi_robot::CrpiRobot<crpi_robot::CrpiAbb>;
 
 
+//! @brief Determine if two double precision floating point numbers are approximately equal
+//!        to one another within 0.00001
+//!
+bool approxEqual(double v1, double v2)
+{
+  double error = 0.00001;
+  return (fabs(v1 - v2) <= error);
+}
+
+
 namespace crpi_robot
 {
   template <class T> LIBRARY_API CrpiRobot<T>::CrpiRobot (const char *initPath, bool bypass)
@@ -325,10 +335,10 @@ namespace crpi_robot
 
 
   template <class T> LIBRARY_API CanonReturn CrpiRobot<T>::MoveThroughTo (robotPose *poses,
-                                                                           int numPoses,
-                                                                           robotPose *accelerations,
-                                                                           robotPose *speeds,
-                                                                           robotPose *tolerances)
+                                                                          int numPoses,
+                                                                          robotPose *accelerations,
+                                                                          robotPose *speeds,
+                                                                          robotPose *tolerances)
   {
     if (bypass_)
     {
@@ -607,6 +617,136 @@ namespace crpi_robot
     CanonReturn val;
     crpiparams_->status = CANON_RUNNING;
     val = robInterface_->StopMotion (condition);
+    crpiparams_->status = val;
+    return val;
+  }
+
+
+  template <class T> LIBRARY_API CanonReturn CrpiRobot<T>::Orient (robotPose &to, robotPose *out)
+  {
+    if (bypass_)
+    {
+      return CANON_SUCCESS;
+    }
+    CanonReturn val;
+
+    robotPose *curPose = new robotPose();
+    if (GetRobotPose(curPose) != CANON_SUCCESS)
+    {
+      //! Could not get current pose
+      return CANON_FAILURE;
+    }
+
+    Math::point p0, p1, c;
+    double d, np0, nc, den;
+    Math::matrix z(3, 3);
+    Math::matrix r(3, 3);
+    Math::matrix i(3, 3);
+    Math::matrix num(3, 3);
+
+    i.identity(3);
+
+    p0.x = curPose->x;
+    p0.y = curPose->y;
+    p0.z = curPose->z;
+
+    p1.x = to.x;
+    p1.y = to.y;
+    p1.z = to.z;
+
+    c = p0.cross(p1);
+    d = p0.dot(p1);
+    np0 = p0.norm();
+    nc = c.norm();
+
+    bool is0 = approxEqual(c.x, 0.0f) && approxEqual(c.y, 0.0f) && approxEqual(c.z, 0.0f);
+
+    if (!is0)
+    {
+      try {
+        z.at(0, 0) = 0.0f;
+        z.at(0, 1) = -(c.z);
+        z.at(0, 2) = c.y;
+
+        z.at(1, 0) = c.z;
+        z.at(1, 1) = 0.0f;
+        z.at(1, 2) = -(c.x);
+
+        z.at(2, 0) = -(c.y);
+        z.at(2, 1) = c.x;
+        z.at(2, 2) = 0.0f;
+
+        num = i + z + (z * ((1.0f - d) / (nc * nc)));
+        den = np0 * np0;
+
+        r = num / (np0 * np0);
+      }
+      catch (...)
+      {
+        //! Just in case there's division by zero somewhere
+        return CANON_FAILURE;
+      }
+    }
+    else
+    {
+      //! Vectors are colinear, probably already pointing in the correct location
+      return CANON_FAILURE;
+    }
+
+    vector<double> e;
+    r.rotMatrixEulerConvert(e);
+    out->x = curPose->x;
+    out->y = curPose->y;
+    out->z = curPose->z;
+
+    out->xrot = e.at(0);
+    out->yrot = e.at(1);
+    out->zrot = e.at(2);
+
+    return CANON_SUCCESS;
+  }
+
+
+  template <class T> LIBRARY_API CanonReturn CrpiRobot<T>::MoveBase (robotPose &to)
+  {
+    if (bypass_)
+    {
+      return CANON_SUCCESS;
+    }
+    CanonReturn val;
+    crpiparams_->status = CANON_RUNNING;
+    val = robInterface_->MoveBase (to);
+    crpiparams_->status = val;
+    return val;
+  }
+
+
+  template <class T> LIBRARY_API CanonReturn CrpiRobot<T>::PointHead (robotPose &to)
+  {
+    if (bypass_)
+    {
+      return CANON_SUCCESS;
+    }
+    CanonReturn val;
+    crpiparams_->status = CANON_RUNNING;
+    robotPose *toPrime = new robotPose();
+    Orient(to, toPrime);
+    val = robInterface_->PointHead (*toPrime);
+    crpiparams_->status = val;
+    return val;
+  }
+
+
+  template <class T> LIBRARY_API CanonReturn CrpiRobot<T>::PointAppendage (CanonRobotAppendage app_ID, 
+                                                                           robotPose &to)
+  {
+    if (bypass_)
+    {
+      return CANON_SUCCESS;
+    }
+    CanonReturn val;
+    crpiparams_->status = CANON_RUNNING;
+    val = robInterface_->PointAppendage (app_ID, to);
     crpiparams_->status = val;
     return val;
   }
