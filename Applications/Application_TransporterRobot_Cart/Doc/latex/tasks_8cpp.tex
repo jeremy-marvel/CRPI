@@ -35,8 +35,16 @@ void \mbox{\hyperlink{tasks_8cpp_add699fefeb3419fd241d69f3eaf422bc}{actuation\+\
 \item 
 void \mbox{\hyperlink{tasks_8cpp_a0af19eedadbfd6ae653c669bede4bb00}{actuation\+\_\+test\+\_\+auto\+\_\+update}} (void $\ast$args)
 \item 
-\mbox{\Hypertarget{tasks_8cpp_ab79fc7fbb88ddfd54755d5fbd984524b}\label{tasks_8cpp_ab79fc7fbb88ddfd54755d5fbd984524b}} 
-void {\bfseries actuation\+\_\+test\+\_\+edge} (void $\ast$args)
+void \mbox{\hyperlink{tasks_8cpp_ab79fc7fbb88ddfd54755d5fbd984524b}{actuation\+\_\+test\+\_\+edge}} (void $\ast$args)
+\item 
+\mbox{\Hypertarget{tasks_8cpp_aeaa90596047baa42e5dcb46117d0dad3}\label{tasks_8cpp_aeaa90596047baa42e5dcb46117d0dad3}} 
+void {\bfseries actuation\+\_\+test\+\_\+edge\+\_\+cont} (void $\ast$args)
+\item 
+\mbox{\Hypertarget{tasks_8cpp_a3a29d9ddb9bd7f74fd54a30fa63aaba3}\label{tasks_8cpp_a3a29d9ddb9bd7f74fd54a30fa63aaba3}} 
+void {\bfseries actuation\+\_\+test\+\_\+edge\+\_\+cont2} (void $\ast$args)
+\item 
+\mbox{\Hypertarget{tasks_8cpp_ab766c116d29b5eb4e364bea103072446}\label{tasks_8cpp_ab766c116d29b5eb4e364bea103072446}} 
+void {\bfseries actuation\+\_\+test\+\_\+edge\+\_\+bisect} (void $\ast$args)
 \end{DoxyCompactItemize}
 
 
@@ -74,14 +82,14 @@ Omar Aboul-\/\+Enein
 \subsubsection{\texorpdfstring{actuation\+\_\+test()}{actuation\_test()}}
 {\footnotesize\ttfamily void actuation\+\_\+test (\begin{DoxyParamCaption}\item[{void $\ast$}]{args }\end{DoxyParamCaption})}
 
-Thread used to test the actuation of the manipulator arm when the cart\+\_\+client\+\_\+connect thread updates the cart status to busy. (Essentially performs the coordinate registration and verification steps) 
+Thread used to test the actuation of the manipulator arm when the cart\+\_\+client\+\_\+connect thread updates the cart status to busy. (Essentially performs the coordinate registration and verification steps) This version of the function uses bisect registration. 
 \begin{DoxyParams}[1]{Parameters}
 \mbox{\tt in}  & {\em args} & Pointer to data structure containing passed arguments. A pointer to the \mbox{\hyperlink{structtask__args}{task\+\_\+args}} structure that was passed to the cart\+\_\+client\+\_\+connect function should be passed to this function. \\
 \hline
 \end{DoxyParams}
 
 
-Definition at line 420 of file tasks.\+cpp.
+Definition at line 436 of file tasks.\+cpp.
 
 \mbox{\Hypertarget{tasks_8cpp_a0af19eedadbfd6ae653c669bede4bb00}\label{tasks_8cpp_a0af19eedadbfd6ae653c669bede4bb00}} 
 \index{tasks.\+cpp@{tasks.\+cpp}!actuation\+\_\+test\+\_\+auto\+\_\+update@{actuation\+\_\+test\+\_\+auto\+\_\+update}}
@@ -90,14 +98,30 @@ Definition at line 420 of file tasks.\+cpp.
 {\footnotesize\ttfamily void actuation\+\_\+test\+\_\+auto\+\_\+update (\begin{DoxyParamCaption}\item[{void $\ast$}]{args }\end{DoxyParamCaption})}
 
 Thread used to test the actuation of the manipulator arm when the cart\+\_\+client\+\_\+connect thread updates the cart status to busy. (Essentially performs the coordinate registration and verification steps).~\newline
-This version of the function also dynamically updates the initial search location of the large reflectors as the large reflectors are localized. 
+This version of the function uses bisect registration and also dynamically updates the initial search location of the large reflectors as the large reflectors are localized. 
 \begin{DoxyParams}[1]{Parameters}
 \mbox{\tt in}  & {\em args} & Pointer to data structure containing passed arguments. A pointer to the \mbox{\hyperlink{structtask__args}{task\+\_\+args}} structure that was passed to the cart\+\_\+client\+\_\+connect function should be passed to this function. \\
 \hline
 \end{DoxyParams}
 
 
-Definition at line 442 of file tasks.\+cpp.
+Definition at line 458 of file tasks.\+cpp.
+
+\mbox{\Hypertarget{tasks_8cpp_ab79fc7fbb88ddfd54755d5fbd984524b}\label{tasks_8cpp_ab79fc7fbb88ddfd54755d5fbd984524b}} 
+\index{tasks.\+cpp@{tasks.\+cpp}!actuation\+\_\+test\+\_\+edge@{actuation\+\_\+test\+\_\+edge}}
+\index{actuation\+\_\+test\+\_\+edge@{actuation\+\_\+test\+\_\+edge}!tasks.\+cpp@{tasks.\+cpp}}
+\subsubsection{\texorpdfstring{actuation\+\_\+test\+\_\+edge()}{actuation\_test\_edge()}}
+{\footnotesize\ttfamily void actuation\+\_\+test\+\_\+edge (\begin{DoxyParamCaption}\item[{void $\ast$}]{args }\end{DoxyParamCaption})}
+
+Thread used to test the actuation of the manipulator arm when the cart\+\_\+client\+\_\+connect thread updates the cart status to busy. (Essentially performs the coordinate registration and verification steps).~\newline
+This version of the function uses edge registration. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em args} & Pointer to data structure containing passed arguments. A pointer to the \mbox{\hyperlink{structtask__args}{task\+\_\+args}} structure that was passed to the cart\+\_\+client\+\_\+connect function should be passed to this function. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 499 of file tasks.\+cpp.
 
 \mbox{\Hypertarget{tasks_8cpp_a4dc02c4593e47dbd0c88e7b6ec3c71b2}\label{tasks_8cpp_a4dc02c4593e47dbd0c88e7b6ec3c71b2}} 
 \index{tasks.\+cpp@{tasks.\+cpp}!cart\+\_\+client\+\_\+connect@{cart\+\_\+client\+\_\+connect}}
@@ -112,7 +136,7 @@ Background thread for managing connection to vehicle server process, forwarding 
 \end{DoxyParams}
 
 
-Definition at line 382 of file tasks.\+cpp.
+Definition at line 398 of file tasks.\+cpp.
 
 \mbox{\Hypertarget{tasks_8cpp_aa916896f8c8d5c54b8c52d326d2519be}\label{tasks_8cpp_aa916896f8c8d5c54b8c52d326d2519be}} 
 \index{tasks.\+cpp@{tasks.\+cpp}!ur5\+\_\+task\+\_\+code\+\_\+control@{ur5\+\_\+task\+\_\+code\+\_\+control}}

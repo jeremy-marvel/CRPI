@@ -1,0 +1,6 @@
+Goal, RMMASq2
+time, iter, marker, init_x, init_y, init_z, init_xrot, init_yrot, init_zrot,ok, time_elapsed, steps,x, y, z, xrot, yrot, zrot
+Coarse Spiral Search
+Bisect
+24.403, -1, -1, 471.354, 197.087, 297, 180, 0, 0, 1, 23.9736, 157, 475.112, 216.589, 297.02, -179.996, -0.0115914, 0.00252836
+56.207, -1, -2, 466.963, -261.453, 297, 180, 0, 0, 0, 0, 0, 466.974, -261.449, 297.01, 179.997, -0.00062065, 0.00348346

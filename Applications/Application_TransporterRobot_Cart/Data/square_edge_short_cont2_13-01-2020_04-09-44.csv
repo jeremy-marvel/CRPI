@@ -1,0 +1,2 @@
+Goal, TEST
+time, iter, marker, init_x, init_y, init_z, init_xrot, init_yrot, init_zrot,ok, time_elapsed, steps_large, steps_small,x, y, z, xrot, yrot, zrot

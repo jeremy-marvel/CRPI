@@ -116,9 +116,17 @@ Functions</h2></td></tr>
 <tr class="separator:add699fefeb3419fd241d69f3eaf422bc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0af19eedadbfd6ae653c669bede4bb00"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tasks_8h.html#a0af19eedadbfd6ae653c669bede4bb00">actuation_test_auto_update</a> (void *args)</td></tr>
 <tr class="separator:a0af19eedadbfd6ae653c669bede4bb00"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab79fc7fbb88ddfd54755d5fbd984524b"><td class="memItemLeft" align="right" valign="top"><a id="ab79fc7fbb88ddfd54755d5fbd984524b"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>actuation_test_edge</b> (void *args)</td></tr>
+<tr class="memitem:ab79fc7fbb88ddfd54755d5fbd984524b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tasks_8h.html#ab79fc7fbb88ddfd54755d5fbd984524b">actuation_test_edge</a> (void *args)</td></tr>
 <tr class="separator:ab79fc7fbb88ddfd54755d5fbd984524b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aeaa90596047baa42e5dcb46117d0dad3"><td class="memItemLeft" align="right" valign="top"><a id="aeaa90596047baa42e5dcb46117d0dad3"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>actuation_test_edge_cont</b> (void *args)</td></tr>
+<tr class="separator:aeaa90596047baa42e5dcb46117d0dad3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3a29d9ddb9bd7f74fd54a30fa63aaba3"><td class="memItemLeft" align="right" valign="top"><a id="a3a29d9ddb9bd7f74fd54a30fa63aaba3"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>actuation_test_edge_cont2</b> (void *args)</td></tr>
+<tr class="separator:a3a29d9ddb9bd7f74fd54a30fa63aaba3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab766c116d29b5eb4e364bea103072446"><td class="memItemLeft" align="right" valign="top"><a id="ab766c116d29b5eb4e364bea103072446"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>actuation_test_edge_bisect</b> (void *args)</td></tr>
+<tr class="separator:ab766c116d29b5eb4e364bea103072446"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Task interface. Main code wrapped into individual functions. Designed to be easily implemented into threads if needed. <br />
@@ -147,14 +155,14 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>actuation_test_edge</
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Thread used to test the actuation of the manipulator arm when the cart_client_connect thread updates the cart status to busy. (Essentially performs the coordinate registration and verification steps) </p><dl class="params"><dt>Parameters</dt><dd>
+<p>Thread used to test the actuation of the manipulator arm when the cart_client_connect thread updates the cart status to busy. (Essentially performs the coordinate registration and verification steps) This version of the function uses bisect registration. </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">args</td><td>Pointer to data structure containing passed arguments. A pointer to the <a class="el" href="structtask__args.html">task_args</a> structure that was passed to the cart_client_connect function should be passed to this function. </td></tr>
   </table>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="tasks_8cpp_source.html#l00420">420</a> of file <a class="el" href="tasks_8cpp_source.html">tasks.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="tasks_8cpp_source.html#l00436">436</a> of file <a class="el" href="tasks_8cpp_source.html">tasks.cpp</a>.</p>
 
 </div>
 </div>
@@ -174,14 +182,41 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>actuation_test_edge</
       </table>
 </div><div class="memdoc">
 <p>Thread used to test the actuation of the manipulator arm when the cart_client_connect thread updates the cart status to busy. (Essentially performs the coordinate registration and verification steps).<br />
-This version of the function also dynamically updates the initial search location of the large reflectors as the large reflectors are localized. </p><dl class="params"><dt>Parameters</dt><dd>
+This version of the function uses bisect registration and also dynamically updates the initial search location of the large reflectors as the large reflectors are localized. </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">args</td><td>Pointer to data structure containing passed arguments. A pointer to the <a class="el" href="structtask__args.html">task_args</a> structure that was passed to the cart_client_connect function should be passed to this function. </td></tr>
   </table>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="tasks_8cpp_source.html#l00442">442</a> of file <a class="el" href="tasks_8cpp_source.html">tasks.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="tasks_8cpp_source.html#l00458">458</a> of file <a class="el" href="tasks_8cpp_source.html">tasks.cpp</a>.</p>
+
+</div>
+</div>
+<a id="ab79fc7fbb88ddfd54755d5fbd984524b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab79fc7fbb88ddfd54755d5fbd984524b">&#9670;&nbsp;</a></span>actuation_test_edge()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void actuation_test_edge </td>
+          <td>(</td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>args</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Thread used to test the actuation of the manipulator arm when the cart_client_connect thread updates the cart status to busy. (Essentially performs the coordinate registration and verification steps).<br />
+This version of the function uses edge registration. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">args</td><td>Pointer to data structure containing passed arguments. A pointer to the <a class="el" href="structtask__args.html">task_args</a> structure that was passed to the cart_client_connect function should be passed to this function. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="tasks_8cpp_source.html#l00499">499</a> of file <a class="el" href="tasks_8cpp_source.html">tasks.cpp</a>.</p>
 
 </div>
 </div>
@@ -207,7 +242,7 @@ This version of the function also dynamically updates the initial search locatio
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="tasks_8cpp_source.html#l00382">382</a> of file <a class="el" href="tasks_8cpp_source.html">tasks.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="tasks_8cpp_source.html#l00398">398</a> of file <a class="el" href="tasks_8cpp_source.html">tasks.cpp</a>.</p>
 
 </div>
 </div>

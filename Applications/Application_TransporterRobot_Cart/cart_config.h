@@ -49,6 +49,8 @@ public:
 	*\public
 	*A list 2D poses that correspond to the goals listed in dock_list. Used for coordinate system transformations adjusting the registration.
 	*/
+	//Remember that in the config file, you found out that the vehicle pose should not be the ideal goal pose, but the actual vehicle pose
+	//at the time of training the initial search points.
 	ld_msg_pose** goal_list;
 
 	/**

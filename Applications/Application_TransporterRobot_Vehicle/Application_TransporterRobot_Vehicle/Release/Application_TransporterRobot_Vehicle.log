@@ -1,0 +1,19 @@
+﻿  cart_comm.cpp
+  cart_status_copy.cpp
+c:\users\oya\desktop\tortoisesvn\applications\application_transporterrobot_vehicle\cart_status_copy.cpp(127): warning C4018: '<': signed/unsigned mismatch
+  ld_comm.cpp
+c:\users\oya\desktop\tortoisesvn\applications\application_transporterrobot_vehicle\ld_comm.cpp(76): warning C4101: 'err': unreferenced local variable
+  ld_comm_client.cpp
+  tasks.cpp
+c:\users\oya\desktop\tortoisesvn\applications\application_transporterrobot_vehicle\tasks.cpp(281): warning C4101: 'cart_client_buf': unreferenced local variable
+c:\users\oya\desktop\tortoisesvn\applications\application_transporterrobot_vehicle\tasks.cpp(277): warning C4101: 'err': unreferenced local variable
+  transporter_vehicle.cpp
+ulapi.lib(win32_ulapi.obj) : warning LNK4075: ignoring '/EDITANDCONTINUE' due to '/OPT:ICF' specification
+LINK : warning LNK4098: defaultlib 'LIBCMT' conflicts with use of other libs; use /NODEFAULTLIB:library
+  Generating code
+  0 of 221 functions ( 0.0%) were compiled, the rest were copied from previous compilation.
+    0 functions were new in current compilation
+    0 functions had inline decision re-evaluated but remain unchanged
+  Finished generating code
+ulapi.lib(win32_ulapi.obj) : warning LNK4099: PDB 'ulapi.pdb' was not found with 'ulapi.lib(win32_ulapi.obj)' or at 'C:\Users\oya\Desktop\TortoiseSVN\Applications\Application_TransporterRobot_Vehicle\Release\ulapi.pdb'; linking object as if no debug info
+  Application_TransporterRobot_Vehicle.vcxproj -> C:\Users\oya\Desktop\TortoiseSVN\Applications\Application_TransporterRobot_Vehicle\Release\Application_TransporterRobot_Vehicle.exe

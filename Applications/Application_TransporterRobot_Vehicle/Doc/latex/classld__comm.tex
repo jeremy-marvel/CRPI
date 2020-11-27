@@ -28,7 +28,7 @@ int \mbox{\hyperlink{classld__comm_afaca1d34911ee06e0b8d07efd3a074d3}{arcl\+\_\+
 \item 
 void \mbox{\hyperlink{classld__comm_aceb15ae4635e8033ec46cb1a54a99c1f}{print\+\_\+pose}} (\mbox{\hyperlink{structld__msg__pose}{ld\+\_\+msg\+\_\+pose}} $\ast$msg)
 \item 
-void \mbox{\hyperlink{classld__comm_a1219ef460b9a510a448704f57ce0412e}{log\+\_\+pose}} (\mbox{\hyperlink{structld__msg__pose}{ld\+\_\+msg\+\_\+pose}} $\ast$msg)
+void \mbox{\hyperlink{classld__comm_a4f3f33cd1ad222ab4d0bf8cc114d530b}{log\+\_\+pose}} (\mbox{\hyperlink{structld__msg__pose}{ld\+\_\+msg\+\_\+pose}} $\ast$msg, ulapi\+\_\+integer \mbox{\hyperlink{classld__comm_ab48ea91f4f13b276a1e65fe5edd1ab15}{client\+\_\+id}}, char $\ast$current\+\_\+dock)
 \item 
 void \mbox{\hyperlink{classld__comm_ad47e957c7397e42e82128ee143d8b143}{log\+\_\+comment}} (char $\ast$msg)
 \end{DoxyCompactItemize}
@@ -186,11 +186,11 @@ Enters additional comments into the log. Useful for adding headers to the C\+SV 
 
 Definition at line 259 of file ld\+\_\+comm.\+cpp.
 
-\mbox{\Hypertarget{classld__comm_a1219ef460b9a510a448704f57ce0412e}\label{classld__comm_a1219ef460b9a510a448704f57ce0412e}} 
+\mbox{\Hypertarget{classld__comm_a4f3f33cd1ad222ab4d0bf8cc114d530b}\label{classld__comm_a4f3f33cd1ad222ab4d0bf8cc114d530b}} 
 \index{ld\+\_\+comm@{ld\+\_\+comm}!log\+\_\+pose@{log\+\_\+pose}}
 \index{log\+\_\+pose@{log\+\_\+pose}!ld\+\_\+comm@{ld\+\_\+comm}}
 \subsubsection{\texorpdfstring{log\+\_\+pose()}{log\_pose()}}
-{\footnotesize\ttfamily void ld\+\_\+comm\+::log\+\_\+pose (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structld__msg__pose}{ld\+\_\+msg\+\_\+pose}} $\ast$}]{msg }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void ld\+\_\+comm\+::log\+\_\+pose (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structld__msg__pose}{ld\+\_\+msg\+\_\+pose}} $\ast$}]{msg,  }\item[{ulapi\+\_\+integer}]{client\+\_\+id,  }\item[{char $\ast$}]{current\+\_\+dock }\end{DoxyParamCaption})}
 
 Outputs the contents of a pose message to a log file in C\+SV format. 
 \begin{DoxyParams}[1]{Parameters}

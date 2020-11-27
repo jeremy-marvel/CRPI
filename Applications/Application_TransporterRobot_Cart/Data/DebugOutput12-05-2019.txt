@@ -1,0 +1,2586 @@
+Microsoft Windows [Version 10.0.17134.1130]
+(c) 2018 Microsoft Corporation. All rights reserved.
+
+C:\Users\oya\Desktop\TortoiseSVN\Applications\Application_TransporterRobot_Cart\Debug>.\Application_TransporterRobot_Cart.exe
+==========================================================
+Manpiulator on Cart Test: Cart
+==========================================================
+0. UR5 Control Options
+1. Manipulator-on-Cart Assembly Tasks (Cart and Arm Present)
+2. Manipulator-on-Cart Assembly Tasks (Cart and Arm Present with Auto-Updated Search)
+3. Manipulator-on-Cart Assembly Tasks (Cart Not Present)
+4. Manipulator-on-Cart Assembly Tasks (Static Load with Cart)
+5. Manipulator-on-Cart Assembly Tasks with Edge Registration (Cart and Arm Present)
+6. Manipulator-on-Cart Assembly Tasks with Edge Registration (Continuous move, Cart and Arm Present)
+7. Manipulator-on-Cart Assembly Tasks with Edge Registration (Improved Continuous move, Cart and Arm Present)
+8. Test Configuration File Loading
+Please select an option:
+
+C:\Users\oya\Desktop\TortoiseSVN\Applications\Application_TransporterRobot_Cart\Debug>.\Application_TransporterRobot_Cart.exe
+==========================================================
+Manpiulator on Cart Test: Cart
+==========================================================
+0. UR5 Control Options
+1. Manipulator-on-Cart Assembly Tasks (Cart and Arm Present)
+2. Manipulator-on-Cart Assembly Tasks (Cart and Arm Present with Auto-Updated Search)
+3. Manipulator-on-Cart Assembly Tasks (Cart Not Present)
+4. Manipulator-on-Cart Assembly Tasks (Static Load with Cart)
+5. Manipulator-on-Cart Assembly Tasks with Edge Registration (Cart and Arm Present)
+6. Manipulator-on-Cart Assembly Tasks with Edge Registration (Continuous move, Cart and Arm Present)
+7. Manipulator-on-Cart Assembly Tasks with Edge Registration (Improved Continuous move, Cart and Arm Present)
+8. Test Configuration File Loading
+Please select an option:
+0
+Connecting to UR5 controller...
+Waiting to connect to the UR5 controller...
+Connection established.
+Raising Feet...
+Feet retracted.
+1. Stage Arm
+2. Stow Arm
+3. Print current pose
+4. Train Initial Search Position for Large Reflectors
+5. Train Initial Search Position for Large Reflectors (Static Load)
+6. Train Initial Search Position for Edge Registration
+7. Train Initial Search Position for Edge Registration (Static Load)
+8. Perform spiral search at first square point
+9. Perform spiral search at first square point offset
+10. Search Square RMMA Pattern
+11. Search Circle RMMA Pattern
+12. Compute start points from test constants and spiral search
+13. Test bisect registration
+14. Search square RMMA pattern with bisection
+15. Search square RMMA pattern with bisection (Two-Point version)
+16. Lower Feet
+17. Raise Feet
+18. Test Continuous Vertical Pan
+19. Test Continuous Horizontal Pan
+Enter -1 to quit
+2
+Moving to (380.000000, 350.000000, 297.000000, 180.000000, 0.000000, 0.000000, -1, -1)
+
+Moving to (97.400000, 350.000000, 100.000000, 180.000000, 0.000000, 0.000000, -1, -1)
+
+Moving to (48.700000, 175.000000, 100.000000, 180.000000, 0.000000, 0.000000, -1, -1)
+
+1. Stage Arm
+2. Stow Arm
+3. Print current pose
+4. Train Initial Search Position for Large Reflectors
+5. Train Initial Search Position for Large Reflectors (Static Load)
+6. Train Initial Search Position for Edge Registration
+7. Train Initial Search Position for Edge Registration (Static Load)
+8. Perform spiral search at first square point
+9. Perform spiral search at first square point offset
+10. Search Square RMMA Pattern
+11. Search Circle RMMA Pattern
+12. Compute start points from test constants and spiral search
+13. Test bisect registration
+14. Search square RMMA pattern with bisection
+15. Search square RMMA pattern with bisection (Two-Point version)
+16. Lower Feet
+17. Raise Feet
+18. Test Continuous Vertical Pan
+19. Test Continuous Horizontal Pan
+Enter -1 to quit
+-1
+Stopping...
+All Done.
+
+C:\Users\oya\Desktop\TortoiseSVN\Applications\Application_TransporterRobot_Cart\Debug>.\Application_TransporterRobot_Cart.exe
+==========================================================
+Manpiulator on Cart Test: Cart
+==========================================================
+0. UR5 Control Options
+1. Manipulator-on-Cart Assembly Tasks (Cart and Arm Present)
+2. Manipulator-on-Cart Assembly Tasks (Cart and Arm Present with Auto-Updated Search)
+3. Manipulator-on-Cart Assembly Tasks (Cart Not Present)
+4. Manipulator-on-Cart Assembly Tasks (Static Load with Cart)
+5. Manipulator-on-Cart Assembly Tasks with Edge Registration (Cart and Arm Present)
+6. Manipulator-on-Cart Assembly Tasks with Edge Registration (Continuous move, Cart and Arm Present)
+7. Manipulator-on-Cart Assembly Tasks with Edge Registration (Improved Continuous move, Cart and Arm Present)
+8. Test Configuration File Loading
+Please select an option:
+7
+Connecting to UR5 controller...
+Waiting to connect to the UR5 controller...
+Connection established.
+Raising feet...
+Feet retracted.
+Constructor: 0,RMMASq2
+Waiting for semaphore to signal a status change has occurred...
+Connected to vehicle process at 10.0.128.52 on port 5352, using id 192
+x=0.000000
+y=0.000000
+th=0.000000
+
+x=0.000000
+y=0.000000
+th=0.000000
+
+x=0.000000
+y=0.000000
+th=0.000000
+
+x=0.000000
+y=0.000000
+th=0.000000
+
+Comm Error -1 ulapi socket read failure
+
+C:\Users\oya\Desktop\TortoiseSVN\Applications\Application_TransporterRobot_Cart\Debug>.\Application_TransporterRobot_Cart.exe
+==========================================================
+Manpiulator on Cart Test: Cart
+==========================================================
+0. UR5 Control Options
+1. Manipulator-on-Cart Assembly Tasks (Cart and Arm Present)
+2. Manipulator-on-Cart Assembly Tasks (Cart and Arm Present with Auto-Updated Search)
+3. Manipulator-on-Cart Assembly Tasks (Cart Not Present)
+4. Manipulator-on-Cart Assembly Tasks (Static Load with Cart)
+5. Manipulator-on-Cart Assembly Tasks with Edge Registration (Cart and Arm Present)
+6. Manipulator-on-Cart Assembly Tasks with Edge Registration (Continuous move, Cart and Arm Present)
+7. Manipulator-on-Cart Assembly Tasks with Edge Registration (Improved Continuous move, Cart and Arm Present)
+8. Test Configuration File Loading
+Please select an option:
+7
+Connecting to UR5 controller...
+Waiting to connect to the UR5 controller...
+Connection established.
+Raising feet...
+Feet retracted.
+Constructor: 0,RMMASq2
+Waiting for semaphore to signal a status change has occurred...
+Connected to vehicle process at 10.0.128.52 on port 5352, using id 580
+x=0.000000
+y=0.000000
+th=0.000000
+
+x=0.000000
+y=0.000000
+th=0.000000
+
+x=0.000000
+y=0.000000
+th=0.000000
+
+x=0.000000
+y=0.000000
+th=0.000000
+
+x=0.000000
+y=0.000000
+th=0.000000
+
+x=3267.000000
+y=144.000000
+th=1.500000
+
+GIVING ACTUATE MUTEX
+Waiting for semaphore to signal a status change has occurred...
+STARTING TEST EDGE
+Lowering Feet...
+Feet extended.
+Now staging manipulator...
+Moving to (97.400000, 350.000000, 100.000000, 180.000000, 0.000000, 0.000000, -1, -1)
+
+Moving to (380.000000, 350.000000, 297.000000, 180.000000, 0.000000, 0.000000, -1, -1)
+
+Moving to (380.000000, 0.000000, 297.000000, 180.000000, 0.000000, 0.000000, -1, -1)
+
+Manipulator staged
+Lynx Point: (3267, 144,1.5)
+Point 1: (331.506, 349.178, 297)
+Point 1: (3580.51, 489.178, 297)
+Point 1: (322.434, 336.853, 297)
+Start Point 1: (322.434, 336.853, 297)
+r3_start = (379.963, 329.749)
+Log file created at: ..\Data\square_edge_short_cont2_05-12-2019_04-17-42.csv
+GETTING POSE
+GETTING IO
+Panning to tape...
+curPose.x =379.944
+io.dio[8]=1
+Panning to tape...
+curPose.x =379.944
+io.dio[8]=1
+Panning to tape...
+curPose.x =379.944
+io.dio[8]=1
+Panning to tape...
+curPose.x =379.944
+io.dio[8]=1
+Panning to tape...
+curPose.x =379.944
+io.dio[8]=1
+Panning to tape...
+curPose.x =366.959
+io.dio[8]=1
+Panning to tape...
+curPose.x =366.959
+io.dio[8]=1
+Panning to tape...
+curPose.x =366.959
+io.dio[8]=1
+Panning to tape...
+curPose.x =366.959
+io.dio[8]=1
+Panning to tape...
+curPose.x =346.176
+io.dio[8]=1
+Panning to tape...
+curPose.x =346.176
+io.dio[8]=1
+Panning to tape...
+curPose.x =346.176
+io.dio[8]=1
+Panning to tape...
+curPose.x =326.122
+io.dio[8]=0
+On tape refining edge position.
+io.dio[8]=0
+io.dio[8]=0
+io.dio[8]=0
+io.dio[8]=0
+io.dio[8]=0
+io.dio[8]=0
+io.dio[8]=0
+io.dio[8]=0
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=0
+Pausing 1 seconds.
+point moved from 379.979 0.0160095 to 315.417 0.0571873
+   distance = 64.5626
+Moving to (315.416775, -228.542813, 297.000000, 180.000000, 0.000000, 0.000000, -1, -1)
+
+GETTING POSE
+GETTING IO
+On tape refining edge position.
+io.dio[8]=0
+io.dio[8]=0
+io.dio[8]=0
+io.dio[8]=0
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=0
+Pausing 1 seconds.
+point moved from 315.431 -228.524 to 309.78 -228.526
+   distance = 5.65099
+Moving to (354.230303, -228.550164, 296.965242, 179.996873, -0.010115, 0.026104, -1, -1)
+
+^C
+C:\Users\oya\Desktop\TortoiseSVN\Applications\Application_TransporterRobot_Cart\Debug>.\Application_TransporterRobot_Cart.exe
+==========================================================
+Manpiulator on Cart Test: Cart
+==========================================================
+0. UR5 Control Options
+1. Manipulator-on-Cart Assembly Tasks (Cart and Arm Present)
+2. Manipulator-on-Cart Assembly Tasks (Cart and Arm Present with Auto-Updated Search)
+3. Manipulator-on-Cart Assembly Tasks (Cart Not Present)
+4. Manipulator-on-Cart Assembly Tasks (Static Load with Cart)
+5. Manipulator-on-Cart Assembly Tasks with Edge Registration (Cart and Arm Present)
+6. Manipulator-on-Cart Assembly Tasks with Edge Registration (Continuous move, Cart and Arm Present)
+7. Manipulator-on-Cart Assembly Tasks with Edge Registration (Improved Continuous move, Cart and Arm Present)
+8. Test Configuration File Loading
+Please select an option:
+0
+Connecting to UR5 controller...
+Waiting to connect to the UR5 controller...
+Connection established.
+Raising Feet...
+Feet retracted.
+1. Stage Arm
+2. Stow Arm
+3. Print current pose
+4. Train Initial Search Position for Large Reflectors
+5. Train Initial Search Position for Large Reflectors (Static Load)
+6. Train Initial Search Position for Edge Registration
+7. Train Initial Search Position for Edge Registration (Static Load)
+8. Perform spiral search at first square point
+9. Perform spiral search at first square point offset
+10. Search Square RMMA Pattern
+11. Search Circle RMMA Pattern
+12. Compute start points from test constants and spiral search
+13. Test bisect registration
+14. Search square RMMA pattern with bisection
+15. Search square RMMA pattern with bisection (Two-Point version)
+16. Lower Feet
+17. Raise Feet
+18. Test Continuous Vertical Pan
+19. Test Continuous Horizontal Pan
+Enter -1 to quit
+2
+Moving to (380.000000, 350.000000, 297.000000, 180.000000, 0.000000, 0.000000, -1, -1)
+
+Moving to (97.400000, 350.000000, 100.000000, 180.000000, 0.000000, 0.000000, -1, -1)
+
+Moving to (48.700000, 175.000000, 100.000000, 180.000000, 0.000000, 0.000000, -1, -1)
+
+1. Stage Arm
+2. Stow Arm
+3. Print current pose
+4. Train Initial Search Position for Large Reflectors
+5. Train Initial Search Position for Large Reflectors (Static Load)
+6. Train Initial Search Position for Edge Registration
+7. Train Initial Search Position for Edge Registration (Static Load)
+8. Perform spiral search at first square point
+9. Perform spiral search at first square point offset
+10. Search Square RMMA Pattern
+11. Search Circle RMMA Pattern
+12. Compute start points from test constants and spiral search
+13. Test bisect registration
+14. Search square RMMA pattern with bisection
+15. Search square RMMA pattern with bisection (Two-Point version)
+16. Lower Feet
+17. Raise Feet
+18. Test Continuous Vertical Pan
+19. Test Continuous Horizontal Pan
+Enter -1 to quit
+-1
+Stopping...
+All Done.
+
+C:\Users\oya\Desktop\TortoiseSVN\Applications\Application_TransporterRobot_Cart\Debug>.\Application_TransporterRobot_Cart.exe
+==========================================================
+Manpiulator on Cart Test: Cart
+==========================================================
+0. UR5 Control Options
+1. Manipulator-on-Cart Assembly Tasks (Cart and Arm Present)
+2. Manipulator-on-Cart Assembly Tasks (Cart and Arm Present with Auto-Updated Search)
+3. Manipulator-on-Cart Assembly Tasks (Cart Not Present)
+4. Manipulator-on-Cart Assembly Tasks (Static Load with Cart)
+5. Manipulator-on-Cart Assembly Tasks with Edge Registration (Cart and Arm Present)
+6. Manipulator-on-Cart Assembly Tasks with Edge Registration (Continuous move, Cart and Arm Present)
+7. Manipulator-on-Cart Assembly Tasks with Edge Registration (Improved Continuous move, Cart and Arm Present)
+8. Test Configuration File Loading
+Please select an option:
+7
+Connecting to UR5 controller...
+Waiting to connect to the UR5 controller...
+Connection established.
+Raising feet...
+Feet retracted.
+Constructor: 0,RMMASq2
+Waiting for semaphore to signal a status change has occurred...
+Connected to vehicle process at 10.0.128.52 on port 5352, using id 592
+x=0.000000
+y=0.000000
+th=0.000000
+
+x=0.000000
+y=0.000000
+th=0.000000
+
+x=0.000000
+y=0.000000
+th=0.000000
+
+x=0.000000
+y=0.000000
+th=0.000000
+
+x=0.000000
+y=0.000000
+th=0.000000
+
+x=3273.000000
+y=163.000000
+th=2.300000
+
+GIVING ACTUATE MUTEX
+Waiting for semaphore to signal a status change has occurred...
+STARTING TEST EDGE
+Lowering Feet...
+Feet extended.
+Now staging manipulator...
+Moving to (97.400000, 350.000000, 100.000000, 180.000000, 0.000000, 0.000000, -1, -1)
+
+Moving to (380.000000, 350.000000, 297.000000, 180.000000, 0.000000, 0.000000, -1, -1)
+
+Moving to (380.000000, 0.000000, 297.000000, 180.000000, 0.000000, 0.000000, -1, -1)
+
+Manipulator staged
+Lynx Point: (3273, 163,2.3)
+Point 1: (331.506, 349.178, 297)
+Point 1: (3580.51, 489.178, 297)
+Point 1: (320.348, 313.574, 297)
+Start Point 1: (320.348, 313.574, 297)
+r3_start = (379.98, 299.381)
+Log file created at: ..\Data\square_edge_short_cont2_05-12-2019_04-37-33.csv
+GETTING POSE
+GETTING IO
+Panning to tape...
+curPose.x =379.79
+io.dio[8]=1
+Panning to tape...
+curPose.x =379.79
+io.dio[8]=1
+Panning to tape...
+curPose.x =379.79
+io.dio[8]=1
+Panning to tape...
+curPose.x =379.79
+io.dio[8]=1
+Panning to tape...
+curPose.x =379.79
+io.dio[8]=1
+Panning to tape...
+curPose.x =379.79
+io.dio[8]=1
+Panning to tape...
+curPose.x =379.79
+io.dio[8]=1
+Panning to tape...
+curPose.x =379.79
+io.dio[8]=1
+Panning to tape...
+curPose.x =364.512
+io.dio[8]=1
+Panning to tape...
+curPose.x =364.512
+io.dio[8]=1
+Panning to tape...
+curPose.x =364.512
+io.dio[8]=1
+Panning to tape...
+curPose.x =364.512
+io.dio[8]=1
+Panning to tape...
+curPose.x =364.512
+io.dio[8]=1
+Panning to tape...
+curPose.x =364.512
+io.dio[8]=1
+Panning to tape...
+curPose.x =344.588
+io.dio[8]=0
+On tape refining edge position.
+io.dio[8]=0
+io.dio[8]=0
+io.dio[8]=0
+io.dio[8]=0
+io.dio[8]=0
+io.dio[8]=0
+io.dio[8]=0
+io.dio[8]=0
+io.dio[8]=0
+io.dio[8]=0
+io.dio[8]=0
+io.dio[8]=0
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=0
+Pausing 1 seconds.
+point moved from 380.002 -0.0116401 to 324.814 -0.0220858
+   distance = 55.1879
+Moving to (324.813852, -228.622086, 297.000000, 180.000000, 0.000000, 0.000000, -1, -1)
+
+GETTING POSE
+GETTING IO
+On tape refining edge position.
+io.dio[8]=0
+io.dio[8]=0
+io.dio[8]=0
+io.dio[8]=0
+io.dio[8]=0
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=0
+Pausing 1 seconds.
+point moved from 324.791 -228.648 to 316.117 -228.599
+   distance = 8.67403
+Moving to (360.566936, -228.603092, 296.963406, 179.994439, -0.001994, 0.014596, -1, -1)
+
+Panning to tape...
+commandPose=(17530.8, 431.8)
+m=26
+b=6304
+offsetPose=(360.567, -228.603)
+Panning to tape...
+curPose.y =-228.553
+io.dio[8]=1
+Panning to tape...
+curPose.y =-228.609
+io.dio[8]=1
+Panning to tape...
+curPose.y =-228.609
+io.dio[8]=1
+Panning to tape...
+curPose.y =-228.609
+io.dio[8]=1
+Panning to tape...
+curPose.y =-228.609
+io.dio[8]=1
+Panning to tape...
+curPose.y =-228.609
+io.dio[8]=1
+Panning to tape...
+curPose.y =-228.609
+io.dio[8]=1
+Panning to tape...
+curPose.y =-227.907
+io.dio[8]=1
+Panning to tape...
+curPose.y =-227.907
+io.dio[8]=1
+Panning to tape...
+curPose.y =-227.907
+io.dio[8]=1
+Panning to tape...
+curPose.y =-227.907
+io.dio[8]=1
+Panning to tape...
+curPose.y =-227.036
+io.dio[8]=1
+Panning to tape...
+curPose.y =-227.036
+io.dio[8]=1
+Panning to tape...
+curPose.y =-227.036
+io.dio[8]=1
+Panning to tape...
+curPose.y =-227.036
+io.dio[8]=1
+Panning to tape...
+curPose.y =-227.036
+io.dio[8]=1
+Panning to tape...
+curPose.y =-226.258
+io.dio[8]=1
+Panning to tape...
+curPose.y =-226.258
+io.dio[8]=1
+Panning to tape...
+curPose.y =-226.258
+io.dio[8]=1
+Panning to tape...
+curPose.y =-226.258
+io.dio[8]=1
+Panning to tape...
+curPose.y =-226.258
+io.dio[8]=1
+Panning to tape...
+curPose.y =-226.258
+io.dio[8]=1
+Panning to tape...
+curPose.y =-225.458
+io.dio[8]=1
+Panning to tape...
+curPose.y =-225.458
+io.dio[8]=1
+Panning to tape...
+curPose.y =-225.458
+io.dio[8]=1
+Panning to tape...
+curPose.y =-225.458
+io.dio[8]=1
+Panning to tape...
+curPose.y =-225.458
+io.dio[8]=1
+Panning to tape...
+curPose.y =-225.458
+io.dio[8]=1
+Panning to tape...
+curPose.y =-225.458
+io.dio[8]=1
+Panning to tape...
+curPose.y =-225.26
+io.dio[8]=1
+Panning to tape...
+curPose.y =-225.26
+io.dio[8]=1
+Panning to tape...
+curPose.y =-225.26
+io.dio[8]=1
+Panning to tape...
+curPose.y =-225.26
+io.dio[8]=1
+Panning to tape...
+curPose.y =-225.26
+io.dio[8]=1
+Panning to tape...
+curPose.y =-225.197
+io.dio[8]=0
+^C
+C:\Users\oya\Desktop\TortoiseSVN\Applications\Application_TransporterRobot_Cart\Debug>.\Application_TransporterRobot_Cart.exe
+==========================================================
+Manpiulator on Cart Test: Cart
+==========================================================
+0. UR5 Control Options
+1. Manipulator-on-Cart Assembly Tasks (Cart and Arm Present)
+2. Manipulator-on-Cart Assembly Tasks (Cart and Arm Present with Auto-Updated Search)
+3. Manipulator-on-Cart Assembly Tasks (Cart Not Present)
+4. Manipulator-on-Cart Assembly Tasks (Static Load with Cart)
+5. Manipulator-on-Cart Assembly Tasks with Edge Registration (Cart and Arm Present)
+6. Manipulator-on-Cart Assembly Tasks with Edge Registration (Continuous move, Cart and Arm Present)
+7. Manipulator-on-Cart Assembly Tasks with Edge Registration (Improved Continuous move, Cart and Arm Present)
+8. Test Configuration File Loading
+Please select an option:
+0
+Connecting to UR5 controller...
+Waiting to connect to the UR5 controller...
+Connection established.
+Raising Feet...
+Feet retracted.
+1. Stage Arm
+2. Stow Arm
+3. Print current pose
+4. Train Initial Search Position for Large Reflectors
+5. Train Initial Search Position for Large Reflectors (Static Load)
+6. Train Initial Search Position for Edge Registration
+7. Train Initial Search Position for Edge Registration (Static Load)
+8. Perform spiral search at first square point
+9. Perform spiral search at first square point offset
+10. Search Square RMMA Pattern
+11. Search Circle RMMA Pattern
+12. Compute start points from test constants and spiral search
+13. Test bisect registration
+14. Search square RMMA pattern with bisection
+15. Search square RMMA pattern with bisection (Two-Point version)
+16. Lower Feet
+17. Raise Feet
+18. Test Continuous Vertical Pan
+19. Test Continuous Horizontal Pan
+Enter -1 to quit
+2
+Moving to (380.000000, 350.000000, 297.000000, 180.000000, 0.000000, 0.000000, -1, -1)
+
+Moving to (97.400000, 350.000000, 100.000000, 180.000000, 0.000000, 0.000000, -1, -1)
+
+Moving to (48.700000, 175.000000, 100.000000, 180.000000, 0.000000, 0.000000, -1, -1)
+
+1. Stage Arm
+2. Stow Arm
+3. Print current pose
+4. Train Initial Search Position for Large Reflectors
+5. Train Initial Search Position for Large Reflectors (Static Load)
+6. Train Initial Search Position for Edge Registration
+7. Train Initial Search Position for Edge Registration (Static Load)
+8. Perform spiral search at first square point
+9. Perform spiral search at first square point offset
+10. Search Square RMMA Pattern
+11. Search Circle RMMA Pattern
+12. Compute start points from test constants and spiral search
+13. Test bisect registration
+14. Search square RMMA pattern with bisection
+15. Search square RMMA pattern with bisection (Two-Point version)
+16. Lower Feet
+17. Raise Feet
+18. Test Continuous Vertical Pan
+19. Test Continuous Horizontal Pan
+Enter -1 to quit
+-1
+Stopping...
+All Done.
+
+C:\Users\oya\Desktop\TortoiseSVN\Applications\Application_TransporterRobot_Cart\Debug>.\Application_TransporterRobot_Cart.exe
+==========================================================
+Manpiulator on Cart Test: Cart
+==========================================================
+0. UR5 Control Options
+1. Manipulator-on-Cart Assembly Tasks (Cart and Arm Present)
+2. Manipulator-on-Cart Assembly Tasks (Cart and Arm Present with Auto-Updated Search)
+3. Manipulator-on-Cart Assembly Tasks (Cart Not Present)
+4. Manipulator-on-Cart Assembly Tasks (Static Load with Cart)
+5. Manipulator-on-Cart Assembly Tasks with Edge Registration (Cart and Arm Present)
+6. Manipulator-on-Cart Assembly Tasks with Edge Registration (Continuous move, Cart and Arm Present)
+7. Manipulator-on-Cart Assembly Tasks with Edge Registration (Improved Continuous move, Cart and Arm Present)
+8. Test Configuration File Loading
+Please select an option:
+7
+Connecting to UR5 controller...
+Waiting to connect to the UR5 controller...
+Connection established.
+Raising feet...
+Feet retracted.
+Constructor: 0,RMMASq2
+Waiting for semaphore to signal a status change has occurred...
+Connected to vehicle process at 10.0.128.52 on port 5352, using id 608
+x=0.000000
+y=0.000000
+th=0.000000
+
+x=0.000000
+y=0.000000
+th=0.000000
+
+x=0.000000
+y=0.000000
+th=0.000000
+
+x=0.000000
+y=0.000000
+th=0.000000
+
+x=0.000000
+y=0.000000
+th=0.000000
+
+x=3279.000000
+y=171.000000
+th=2.300000
+
+GIVING ACTUATE MUTEX
+Waiting for semaphore to signal a status change has occurred...
+STARTING TEST EDGE
+Lowering Feet...
+Feet extended.
+Now staging manipulator...
+Moving to (97.400000, 350.000000, 100.000000, 180.000000, 0.000000, 0.000000, -1, -1)
+
+Moving to (380.000000, 350.000000, 297.000000, 180.000000, 0.000000, 0.000000, -1, -1)
+
+Moving to (380.000000, 0.000000, 297.000000, 180.000000, 0.000000, 0.000000, -1, -1)
+
+Manipulator staged
+Lynx Point: (3279, 171,2.3)
+Point 1: (331.506, 349.178, 297)
+Point 1: (3580.51, 489.178, 297)
+Point 1: (314.032, 305.822, 297)
+Start Point 1: (314.032, 305.822, 297)
+r3_start = (379.981, 281.004)
+Log file created at: ..\Data\square_edge_short_cont2_05-12-2019_04-48-26.csv
+GETTING POSE
+GETTING IO
+Panning to tape...
+curPose.x =379.977
+io.dio[8]=1
+Panning to tape...
+curPose.x =379.977
+io.dio[8]=1
+Panning to tape...
+curPose.x =379.977
+io.dio[8]=1
+Panning to tape...
+curPose.x =379.977
+io.dio[8]=1
+Panning to tape...
+curPose.x =379.977
+io.dio[8]=1
+Panning to tape...
+curPose.x =379.977
+io.dio[8]=1
+Panning to tape...
+curPose.x =379.977
+io.dio[8]=1
+Panning to tape...
+curPose.x =366.982
+io.dio[8]=1
+Panning to tape...
+curPose.x =366.982
+io.dio[8]=1
+Panning to tape...
+curPose.x =366.982
+io.dio[8]=1
+Panning to tape...
+curPose.x =366.982
+io.dio[8]=1
+Panning to tape...
+curPose.x =366.982
+io.dio[8]=1
+Panning to tape...
+curPose.x =366.982
+io.dio[8]=1
+Panning to tape...
+curPose.x =366.982
+io.dio[8]=1
+Panning to tape...
+curPose.x =366.982
+io.dio[8]=1
+Panning to tape...
+curPose.x =347.017
+io.dio[8]=1
+Panning to tape...
+curPose.x =347.017
+io.dio[8]=1
+Panning to tape...
+curPose.x =347.017
+io.dio[8]=1
+Panning to tape...
+curPose.x =347.017
+io.dio[8]=1
+Panning to tape...
+curPose.x =347.017
+io.dio[8]=1
+Panning to tape...
+curPose.x =347.017
+io.dio[8]=1
+Panning to tape...
+curPose.x =326.969
+io.dio[8]=0
+On tape refining edge position.
+io.dio[8]=0
+io.dio[8]=0
+io.dio[8]=0
+io.dio[8]=0
+io.dio[8]=0
+io.dio[8]=0
+io.dio[8]=0
+io.dio[8]=0
+io.dio[8]=0
+io.dio[8]=0
+io.dio[8]=0
+io.dio[8]=0
+io.dio[8]=0
+io.dio[8]=0
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=0
+Pausing 1 seconds.
+point moved from 379.964 -0.0193987 to 302.797 -0.0248695
+   distance = 77.1669
+Moving to (302.796618, -228.624869, 297.000000, 180.000000, 0.000000, 0.000000, -1, -1)
+
+GETTING POSE
+GETTING IO
+On tape refining edge position.
+io.dio[8]=0
+io.dio[8]=0
+io.dio[8]=0
+io.dio[8]=0
+io.dio[8]=0
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=0
+Pausing 1 seconds.
+point moved from 302.778 -228.621 to 295.544 -228.592
+   distance = 7.23395
+Moving to (339.994347, -228.631561, 296.953171, -179.995989, 0.011928, 0.012582, -1, -1)
+
+Panning to tape...
+commandPose=(339, 431.8)
+m=0
+b=339
+offsetPose=(339.994, -228.632)
+Panning to tape...
+curPose.y =-228.605
+io.dio[8]=1
+Panning to tape...
+curPose.y =-228.605
+io.dio[8]=1
+Panning to tape...
+curPose.y =-227.915
+io.dio[8]=1
+Panning to tape...
+curPose.y =-227.915
+io.dio[8]=1
+Panning to tape...
+curPose.y =-227.915
+io.dio[8]=1
+Panning to tape...
+curPose.y =-209.253
+io.dio[8]=1
+Panning to tape...
+curPose.y =-209.253
+io.dio[8]=1
+Panning to tape...
+curPose.y =-209.253
+io.dio[8]=1
+Panning to tape...
+curPose.y =-209.253
+io.dio[8]=1
+Panning to tape...
+curPose.y =-209.253
+io.dio[8]=1
+Panning to tape...
+curPose.y =-189.234
+io.dio[8]=1
+Panning to tape...
+curPose.y =-189.234
+io.dio[8]=1
+Panning to tape...
+curPose.y =-189.234
+io.dio[8]=1
+Panning to tape...
+curPose.y =-189.234
+io.dio[8]=1
+Panning to tape...
+curPose.y =-189.234
+io.dio[8]=1
+Panning to tape...
+curPose.y =-169.202
+io.dio[8]=1
+Panning to tape...
+curPose.y =-169.202
+io.dio[8]=1
+Panning to tape...
+curPose.y =-169.202
+io.dio[8]=1
+Panning to tape...
+curPose.y =-169.202
+io.dio[8]=1
+Panning to tape...
+curPose.y =-169.202
+io.dio[8]=1
+Panning to tape...
+curPose.y =-149.236
+io.dio[8]=1
+Panning to tape...
+curPose.y =-149.236
+io.dio[8]=1
+Panning to tape...
+curPose.y =-149.236
+io.dio[8]=1
+Panning to tape...
+curPose.y =-149.236
+io.dio[8]=1
+Panning to tape...
+curPose.y =-149.236
+io.dio[8]=1
+Panning to tape...
+curPose.y =-129.215
+io.dio[8]=1
+Panning to tape...
+curPose.y =-129.215
+io.dio[8]=1
+Panning to tape...
+curPose.y =-129.215
+io.dio[8]=1
+Panning to tape...
+curPose.y =-129.215
+io.dio[8]=1
+Panning to tape...
+curPose.y =-129.215
+io.dio[8]=1
+Panning to tape...
+curPose.y =-129.215
+io.dio[8]=1
+Panning to tape...
+curPose.y =-109.238
+io.dio[8]=1
+Panning to tape...
+curPose.y =-109.238
+io.dio[8]=1
+Panning to tape...
+curPose.y =-109.238
+io.dio[8]=1
+Panning to tape...
+curPose.y =-109.238
+io.dio[8]=1
+Panning to tape...
+curPose.y =-109.238
+io.dio[8]=1
+Panning to tape...
+curPose.y =-88.4315
+io.dio[8]=1
+Panning to tape...
+curPose.y =-88.4315
+io.dio[8]=1
+Panning to tape...
+curPose.y =-88.4315
+io.dio[8]=1
+Panning to tape...
+curPose.y =-88.4315
+io.dio[8]=1
+Panning to tape...
+curPose.y =-88.4315
+io.dio[8]=1
+Panning to tape...
+curPose.y =-68.3863
+io.dio[8]=1
+Panning to tape...
+curPose.y =-68.3863
+io.dio[8]=1
+Panning to tape...
+curPose.y =-68.3863
+io.dio[8]=1
+Panning to tape...
+curPose.y =-68.3863
+io.dio[8]=1
+Panning to tape...
+curPose.y =-68.3863
+io.dio[8]=1
+Panning to tape...
+curPose.y =-68.3863
+io.dio[8]=1
+Panning to tape...
+curPose.y =-48.3415
+io.dio[8]=1
+Panning to tape...
+curPose.y =-48.3415
+io.dio[8]=1
+Panning to tape...
+curPose.y =-48.3415
+io.dio[8]=1
+Panning to tape...
+curPose.y =-48.3415
+io.dio[8]=1
+Panning to tape...
+curPose.y =-48.3415
+io.dio[8]=1
+Panning to tape...
+curPose.y =-28.3514
+io.dio[8]=1
+Panning to tape...
+curPose.y =-28.3514
+io.dio[8]=1
+Panning to tape...
+curPose.y =-28.3514
+io.dio[8]=1
+Panning to tape...
+curPose.y =-28.3514
+io.dio[8]=1
+Panning to tape...
+curPose.y =-28.3514
+io.dio[8]=1
+Panning to tape...
+curPose.y =-28.3514
+io.dio[8]=1
+Panning to tape...
+curPose.y =-28.3514
+io.dio[8]=1
+Panning to tape...
+curPose.y =-8.41444
+io.dio[8]=1
+Panning to tape...
+curPose.y =-8.41444
+io.dio[8]=1
+Panning to tape...
+curPose.y =-8.41444
+io.dio[8]=1
+Panning to tape...
+curPose.y =-8.41444
+io.dio[8]=1
+Panning to tape...
+curPose.y =-8.41444
+io.dio[8]=1
+Panning to tape...
+curPose.y =-8.41444
+io.dio[8]=1
+Panning to tape...
+curPose.y =12.3337
+io.dio[8]=1
+Panning to tape...
+curPose.y =12.3337
+io.dio[8]=1
+Panning to tape...
+curPose.y =12.3337
+io.dio[8]=1
+Panning to tape...
+curPose.y =12.3337
+io.dio[8]=1
+Panning to tape...
+curPose.y =12.3337
+io.dio[8]=1
+Panning to tape...
+curPose.y =12.3337
+io.dio[8]=1
+Panning to tape...
+curPose.y =32.3441
+io.dio[8]=1
+Panning to tape...
+curPose.y =32.3441
+io.dio[8]=1
+Panning to tape...
+curPose.y =32.3441
+io.dio[8]=1
+Panning to tape...
+curPose.y =32.3441
+io.dio[8]=1
+Panning to tape...
+curPose.y =32.3441
+io.dio[8]=1
+Panning to tape...
+curPose.y =52.3575
+io.dio[8]=1
+Panning to tape...
+curPose.y =52.3575
+io.dio[8]=1
+Panning to tape...
+curPose.y =52.3575
+io.dio[8]=1
+Panning to tape...
+curPose.y =52.3575
+io.dio[8]=1
+Panning to tape...
+curPose.y =52.3575
+io.dio[8]=1
+Panning to tape...
+curPose.y =52.3575
+io.dio[8]=1
+Panning to tape...
+curPose.y =52.3575
+io.dio[8]=1
+Panning to tape...
+curPose.y =72.2985
+io.dio[8]=1
+Panning to tape...
+curPose.y =72.2985
+io.dio[8]=1
+Panning to tape...
+curPose.y =72.2985
+io.dio[8]=1
+Panning to tape...
+curPose.y =72.2985
+io.dio[8]=1
+Panning to tape...
+curPose.y =72.2985
+io.dio[8]=1
+Panning to tape...
+curPose.y =72.2985
+io.dio[8]=1
+Panning to tape...
+curPose.y =92.3118
+io.dio[8]=1
+Panning to tape...
+curPose.y =92.3118
+io.dio[8]=1
+Panning to tape...
+curPose.y =92.3118
+io.dio[8]=1
+Panning to tape...
+curPose.y =92.3118
+io.dio[8]=1
+Panning to tape...
+curPose.y =92.3118
+io.dio[8]=1
+Panning to tape...
+curPose.y =92.3118
+io.dio[8]=1
+Panning to tape...
+curPose.y =112.421
+io.dio[8]=1
+Panning to tape...
+curPose.y =112.421
+io.dio[8]=1
+Panning to tape...
+curPose.y =112.421
+io.dio[8]=1
+Panning to tape...
+curPose.y =112.421
+io.dio[8]=1
+Panning to tape...
+curPose.y =112.421
+io.dio[8]=1
+Panning to tape...
+curPose.y =112.421
+io.dio[8]=1
+Panning to tape...
+curPose.y =133.168
+io.dio[8]=1
+Panning to tape...
+curPose.y =133.168
+io.dio[8]=1
+Panning to tape...
+curPose.y =133.168
+io.dio[8]=1
+Panning to tape...
+curPose.y =133.168
+io.dio[8]=1
+Panning to tape...
+curPose.y =133.168
+io.dio[8]=1
+Panning to tape...
+curPose.y =133.168
+io.dio[8]=1
+Panning to tape...
+curPose.y =153.106
+io.dio[8]=1
+Panning to tape...
+curPose.y =153.106
+io.dio[8]=1
+Panning to tape...
+curPose.y =153.106
+io.dio[8]=1
+Panning to tape...
+curPose.y =153.106
+io.dio[8]=1
+Panning to tape...
+curPose.y =153.106
+io.dio[8]=1
+Panning to tape...
+curPose.y =153.106
+io.dio[8]=1
+Panning to tape...
+curPose.y =173.098
+io.dio[8]=1
+Panning to tape...
+curPose.y =173.098
+io.dio[8]=1
+Panning to tape...
+curPose.y =173.098
+io.dio[8]=1
+Panning to tape...
+curPose.y =173.098
+io.dio[8]=1
+Panning to tape...
+curPose.y =173.098
+io.dio[8]=1
+Panning to tape...
+curPose.y =193.143
+io.dio[8]=1
+Panning to tape...
+curPose.y =193.143
+io.dio[8]=1
+Panning to tape...
+curPose.y =193.143
+io.dio[8]=1
+Panning to tape...
+curPose.y =193.143
+io.dio[8]=1
+Panning to tape...
+curPose.y =193.143
+io.dio[8]=1
+Panning to tape...
+curPose.y =193.143
+io.dio[8]=1
+Panning to tape...
+curPose.y =193.143
+io.dio[8]=1
+Panning to tape...
+curPose.y =213.146
+io.dio[8]=1
+Panning to tape...
+curPose.y =213.146
+io.dio[8]=1
+Panning to tape...
+curPose.y =213.146
+io.dio[8]=1
+Panning to tape...
+curPose.y =213.146
+io.dio[8]=1
+Panning to tape...
+curPose.y =213.146
+io.dio[8]=1
+Panning to tape...
+curPose.y =213.146
+io.dio[8]=1
+Panning to tape...
+curPose.y =233.942
+io.dio[8]=1
+Panning to tape...
+curPose.y =233.942
+io.dio[8]=1
+Panning to tape...
+curPose.y =233.942
+io.dio[8]=1
+Panning to tape...
+curPose.y =233.942
+io.dio[8]=1
+Panning to tape...
+curPose.y =233.942
+io.dio[8]=1
+Panning to tape...
+curPose.y =233.942
+io.dio[8]=1
+Panning to tape...
+curPose.y =253.998
+io.dio[8]=1
+Panning to tape...
+curPose.y =253.998
+io.dio[8]=1
+Panning to tape...
+curPose.y =253.998
+io.dio[8]=1
+Panning to tape...
+curPose.y =253.998
+io.dio[8]=1
+Panning to tape...
+curPose.y =253.998
+io.dio[8]=1
+Panning to tape...
+curPose.y =253.998
+io.dio[8]=1
+Panning to tape...
+curPose.y =273.961
+io.dio[8]=0
+Pausing 1 seconds.
+point moved from 339.994 -228.632 to 339.299 297.413
+   distance = 526.045
+REFPOINT1=(302.797, -0.0248695)
+REFPOINT2=(295.544, -228.592)
+REFPOINT3=(339.299, 297.413)
+m=31.5166
+b1=-9543.14
+b2=308.179
+corner_point.y=298.271
+corner_point.x=312.261
+offsetAngle_notnormed=(228.567, -7.25227)
+offsetAngle=(0.684326, -0.729176)
+CORNEROFFSET=(98.3268, -104.771)
+First position=(410.588, 193.5)
+Starting iteration 0
+Moving to initial search position (410.588170, 193.500206, 297.000000, 180.000000, 0.000000, 0.000000, -1, -1)
+
+at position (410.576808, 193.415537, 296.985991, 179.989059, 0.001244, 0.003553, -1, -1)
+
+Running spiral search...
+X: 411.077 Y: 193.416 Z: 296.986
+X: 410.577 Y: 193.916 Z: 296.986
+X: 410.077 Y: 193.416 Z: 296.986
+X: 410.577 Y: 192.916 Z: 296.986
+X: 411.577 Y: 192.916 Z: 296.986
+X: 411.577 Y: 193.916 Z: 296.986
+X: 411.077 Y: 194.416 Z: 296.986
+X: 410.077 Y: 194.416 Z: 296.986
+X: 409.577 Y: 193.916 Z: 296.986
+X: 409.577 Y: 192.916 Z: 296.986
+X: 410.077 Y: 192.416 Z: 296.986
+X: 411.077 Y: 192.416 Z: 296.986
+X: 412.077 Y: 192.416 Z: 296.986
+X: 412.077 Y: 193.416 Z: 296.986
+X: 412.077 Y: 194.416 Z: 296.986
+X: 411.577 Y: 194.916 Z: 296.986
+X: 410.577 Y: 194.916 Z: 296.986
+X: 409.577 Y: 194.916 Z: 296.986
+CanonReturn: 0
+Completed iteration 0
+Moving to initial search position (396.115463, -262.066809, 297.055567, 179.985206, -0.014111, 0.011368, -1, -1)
+
+at position (396.096456, -262.127322, 297.043263, 179.992707, -0.016870, 0.002711, -1, -1)
+
+Running spiral search...
+CanonReturn: 0
+Completed iteration 0
+CanonReturn: 0
+Now stowing manipulator...
+Moving to (380.000000, 350.000000, 297.000000, 180.000000, 0.000000, 0.000000, -1, -1)
+
+Moving to (97.400000, 350.000000, 100.000000, 180.000000, 0.000000, 0.000000, -1, -1)
+
+Moving to (48.700000, 175.000000, 100.000000, 180.000000, 0.000000, 0.000000, -1, -1)
+
+Manipulator stowed
+Raising Feet...
+Feet rectracted.
+Updating current task
+Updating current docking task...
+Printing docking task lists
+RMMASq3, RMMASq2
+(4775, 139, 180), (3249, 140, 0)
+(395.417, 260.243, 297), (451.981, 210.074, 297)
+(409.411, -194.192, 297), (444.433, -245.022, 297)
+(320.17, -281.89, 297), (331.506, 349.178, 297)
+Changing status to 0 (Ready)
+x=3279.000000
+y=171.000000
+th=2.300000
+
+x=3279.000000
+y=171.000000
+th=2.300000
+
+x=3279.000000
+y=171.000000
+th=2.300000
+
+x=3279.000000
+y=171.000000
+th=2.300000
+
+x=4729.000000
+y=126.000000
+th=-178.500000
+
+GIVING ACTUATE MUTEX
+Waiting for semaphore to signal a status change has occurred...
+STARTING TEST EDGE
+Lowering Feet...
+Feet extended.
+Now staging manipulator...
+Moving to (97.400000, 350.000000, 100.000000, 180.000000, 0.000000, 0.000000, -1, -1)
+
+Moving to (380.000000, 350.000000, 297.000000, 180.000000, 0.000000, 0.000000, -1, -1)
+
+Moving to (380.000000, 0.000000, 297.000000, 180.000000, 0.000000, 0.000000, -1, -1)
+/*
+UPDATE ON VERTICAL PAN RACE CONDITION
+Seems to be caused by the arm initially detecting the tape. Either the controller cannot be interrupted fast enough or the condition to prevent the continuous search is wrong!
+*/ -I added this comment.
+Manipulator staged
+Lynx Point: (4729, 126,-178.5)
+Point 1: (320.17, -281.89, 297)
+Point 1: (4454.83, 420.89, 297)
+Point 1: (266.357, -301.966, 297)
+Start Point 1: (266.357, -301.966, 297)
+r3_start = (380.041, 244.949)
+Log file created at: ..\Data\square_edge_short_cont2_05-12-2019_04-52-09.csv
+GETTING POSE
+GETTING IO
+On tape refining edge position.
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=0
+Pausing 1 seconds.
+point moved from 379.978 0.0124769 to 360.129 -0.0159815
+   distance = 19.8491
+Moving to (360.128728, 228.584018, 297.000000, 180.000000, 0.000000, 0.000000, -1, -1)
+
+GETTING POSE
+GETTING IO
+Panning to tape...
+curPose.x =360.139
+io.dio[8]=1
+Panning to tape...
+curPose.x =360.139
+io.dio[8]=1
+Panning to tape...
+curPose.x =360.139
+io.dio[8]=1
+Panning to tape...
+curPose.x =361.175
+io.dio[8]=1
+Panning to tape...
+curPose.x =361.175
+io.dio[8]=1
+Panning to tape...
+curPose.x =361.175
+io.dio[8]=1
+Panning to tape...
+curPose.x =361.175
+io.dio[8]=1
+Panning to tape...
+curPose.x =361.175
+io.dio[8]=1
+Panning to tape...
+curPose.x =361.175
+io.dio[8]=1
+Panning to tape...
+curPose.x =379.653
+io.dio[8]=0
+On tape refining edge position.
+io.dio[8]=0
+io.dio[8]=0
+io.dio[8]=0
+io.dio[8]=0
+io.dio[8]=0
+io.dio[8]=0
+io.dio[8]=0
+io.dio[8]=0
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=1
+io.dio[8]=0
+Pausing 1 seconds.
+point moved from 360.139 228.584 to 363.672 228.647
+   distance = 3.53437
+Moving to (404.578728, 228.640776, 296.803221, -179.995734, 0.025759, -0.009689, -1, -1)
+
+Panning to tape...
+commandPose=(404, -431.8)
+m=0
+b=404
+offsetPose=(404.579, 228.641)
+Panning to tape...
+curPose.y =228.592
+io.dio[8]=1
+Panning to tape...
+curPose.y =228.592
+io.dio[8]=1
+Panning to tape...
+curPose.y =226.492
+io.dio[8]=1
+Panning to tape...
+curPose.y =226.492
+io.dio[8]=1
+Panning to tape...
+curPose.y =226.492
+io.dio[8]=1
+Panning to tape...
+curPose.y =226.492
+io.dio[8]=1
+Panning to tape...
+curPose.y =226.492
+io.dio[8]=1
+Panning to tape...
+curPose.y =206.784
+io.dio[8]=1
+Panning to tape...
+curPose.y =206.784
+io.dio[8]=1
+Panning to tape...
+curPose.y =206.784
+io.dio[8]=1
+Panning to tape...
+curPose.y =206.784
+io.dio[8]=1
+Panning to tape...
+curPose.y =206.784
+io.dio[8]=1
+Panning to tape...
+curPose.y =186.805
+io.dio[8]=1
+Panning to tape...
+curPose.y =186.805
+io.dio[8]=1
+Panning to tape...
+curPose.y =186.805
+io.dio[8]=1
+Panning to tape...
+curPose.y =186.805
+io.dio[8]=1
+Panning to tape...
+curPose.y =186.805
+io.dio[8]=1
+Panning to tape...
+curPose.y =166.817
+io.dio[8]=1
+Panning to tape...
+curPose.y =166.817
+io.dio[8]=1
+Panning to tape...
+curPose.y =166.817
+io.dio[8]=1
+Panning to tape...
+curPose.y =166.817
+io.dio[8]=1
+Panning to tape...
+curPose.y =166.817
+io.dio[8]=1
+Panning to tape...
+curPose.y =166.817
+io.dio[8]=1
+Panning to tape...
+curPose.y =146.829
+io.dio[8]=1
+Panning to tape...
+curPose.y =146.829
+io.dio[8]=1
+Panning to tape...
+curPose.y =146.829
+io.dio[8]=1
+Panning to tape...
+curPose.y =146.829
+io.dio[8]=1
+Panning to tape...
+curPose.y =146.829
+io.dio[8]=1
+Panning to tape...
+curPose.y =146.829
+io.dio[8]=1
+Panning to tape...
+curPose.y =146.829
+io.dio[8]=1
+Panning to tape...
+curPose.y =125.954
+io.dio[8]=1
+Panning to tape...
+curPose.y =125.954
+io.dio[8]=1
+Panning to tape...
+curPose.y =125.954
+io.dio[8]=1
+Panning to tape...
+curPose.y =125.954
+io.dio[8]=1
+Panning to tape...
+curPose.y =125.954
+io.dio[8]=1
+Panning to tape...
+curPose.y =105.949
+io.dio[8]=1
+Panning to tape...
+curPose.y =105.949
+io.dio[8]=1
+Panning to tape...
+curPose.y =105.949
+io.dio[8]=1
+Panning to tape...
+curPose.y =105.949
+io.dio[8]=1
+Panning to tape...
+curPose.y =105.949
+io.dio[8]=1
+Panning to tape...
+curPose.y =85.9825
+io.dio[8]=1
+Panning to tape...
+curPose.y =85.9825
+io.dio[8]=1
+Panning to tape...
+curPose.y =85.9825
+io.dio[8]=1
+Panning to tape...
+curPose.y =85.9825
+io.dio[8]=1
+Panning to tape...
+curPose.y =85.9825
+io.dio[8]=1
+Panning to tape...
+curPose.y =85.9825
+io.dio[8]=1
+Panning to tape...
+curPose.y =65.9809
+io.dio[8]=1
+Panning to tape...
+curPose.y =65.9809
+io.dio[8]=1
+Panning to tape...
+curPose.y =65.9809
+io.dio[8]=1
+Panning to tape...
+curPose.y =65.9809
+io.dio[8]=1
+Panning to tape...
+curPose.y =65.9809
+io.dio[8]=1
+Panning to tape...
+curPose.y =65.9809
+io.dio[8]=1
+Panning to tape...
+curPose.y =65.9809
+io.dio[8]=1
+Panning to tape...
+curPose.y =65.9809
+io.dio[8]=1
+Panning to tape...
+curPose.y =65.9809
+io.dio[8]=1
+Panning to tape...
+curPose.y =65.9809
+io.dio[8]=1
+Panning to tape...
+curPose.y =45.9602
+io.dio[8]=1
+Panning to tape...
+curPose.y =45.9602
+io.dio[8]=1
+Panning to tape...
+curPose.y =45.9602
+io.dio[8]=1
+Panning to tape...
+curPose.y =45.9602
+io.dio[8]=1
+Panning to tape...
+curPose.y =45.9602
+io.dio[8]=1
+Panning to tape...
+curPose.y =45.9602
+io.dio[8]=1
+Panning to tape...
+curPose.y =25.1999
+io.dio[8]=1
+Panning to tape...
+curPose.y =25.1999
+io.dio[8]=1
+Panning to tape...
+curPose.y =25.1999
+io.dio[8]=1
+Panning to tape...
+curPose.y =25.1999
+io.dio[8]=1
+Panning to tape...
+curPose.y =5.20869
+io.dio[8]=1
+Panning to tape...
+curPose.y =5.20869
+io.dio[8]=1
+Panning to tape...
+curPose.y =5.20869
+io.dio[8]=1
+Panning to tape...
+curPose.y =5.20869
+io.dio[8]=1
+Panning to tape...
+curPose.y =5.20869
+io.dio[8]=1
+Panning to tape...
+curPose.y =5.20869
+io.dio[8]=1
+Panning to tape...
+curPose.y =-14.7378
+io.dio[8]=1
+Panning to tape...
+curPose.y =-14.7378
+io.dio[8]=1
+Panning to tape...
+curPose.y =-14.7378
+io.dio[8]=1
+Panning to tape...
+curPose.y =-14.7378
+io.dio[8]=1
+Panning to tape...
+curPose.y =-14.7378
+io.dio[8]=1
+Panning to tape...
+curPose.y =-34.8149
+io.dio[8]=1
+Panning to tape...
+curPose.y =-34.8149
+io.dio[8]=1
+Panning to tape...
+curPose.y =-34.8149
+io.dio[8]=1
+Panning to tape...
+curPose.y =-34.8149
+io.dio[8]=1
+Panning to tape...
+curPose.y =-34.8149
+io.dio[8]=1
+Panning to tape...
+curPose.y =-34.8149
+io.dio[8]=1
+Panning to tape...
+curPose.y =-34.8149
+io.dio[8]=1
+Panning to tape...
+curPose.y =-34.8149
+io.dio[8]=1
+Panning to tape...
+curPose.y =-54.8098
+io.dio[8]=1
+Panning to tape...
+curPose.y =-54.8098
+io.dio[8]=1
+Panning to tape...
+curPose.y =-54.8098
+io.dio[8]=1
+Panning to tape...
+curPose.y =-54.8098
+io.dio[8]=1
+Panning to tape...
+curPose.y =-54.8098
+io.dio[8]=1
+Panning to tape...
+curPose.y =-74.8912
+io.dio[8]=1
+Panning to tape...
+curPose.y =-74.8912
+io.dio[8]=1
+Panning to tape...
+curPose.y =-74.8912
+io.dio[8]=1
+Panning to tape...
+curPose.y =-74.8912
+io.dio[8]=1
+Panning to tape...
+curPose.y =-74.8912
+io.dio[8]=1
+Panning to tape...
+curPose.y =-74.8912
+io.dio[8]=1
+Panning to tape...
+curPose.y =-95.5668
+io.dio[8]=1
+Panning to tape...
+curPose.y =-95.5668
+io.dio[8]=1
+Panning to tape...
+curPose.y =-95.5668
+io.dio[8]=1
+Panning to tape...
+curPose.y =-95.5668
+io.dio[8]=1
+Panning to tape...
+curPose.y =-115.56
+io.dio[8]=1
+Panning to tape...
+curPose.y =-115.56
+io.dio[8]=1
+Panning to tape...
+curPose.y =-115.56
+io.dio[8]=1
+Panning to tape...
+curPose.y =-115.56
+io.dio[8]=1
+Panning to tape...
+curPose.y =-135.543
+io.dio[8]=1
+Panning to tape...
+curPose.y =-135.543
+io.dio[8]=1
+Panning to tape...
+curPose.y =-135.543
+io.dio[8]=1
+Panning to tape...
+curPose.y =-155.559
+io.dio[8]=1
+Panning to tape...
+curPose.y =-155.559
+io.dio[8]=1
+Panning to tape...
+curPose.y =-155.559
+io.dio[8]=1
+Panning to tape...
+curPose.y =-155.559
+io.dio[8]=1
+Panning to tape...
+curPose.y =-155.559
+io.dio[8]=1
+Panning to tape...
+curPose.y =-175.606
+io.dio[8]=1
+Panning to tape...
+curPose.y =-175.606
+io.dio[8]=1
+Panning to tape...
+curPose.y =-175.606
+io.dio[8]=1
+Panning to tape...
+curPose.y =-175.606
+io.dio[8]=1
+Panning to tape...
+curPose.y =-175.606
+io.dio[8]=1
+Panning to tape...
+curPose.y =-175.606
+io.dio[8]=1
+Panning to tape...
+curPose.y =-196.435
+io.dio[8]=1
+Panning to tape...
+curPose.y =-196.435
+io.dio[8]=1
+Panning to tape...
+curPose.y =-196.435
+io.dio[8]=1
+Panning to tape...
+curPose.y =-196.435
+io.dio[8]=1
+Panning to tape...
+curPose.y =-196.435
+io.dio[8]=1
+Panning to tape...
+curPose.y =-196.435
+io.dio[8]=1
+Panning to tape...
+curPose.y =-216.342
+io.dio[8]=1
+Panning to tape...
+curPose.y =-216.342
+io.dio[8]=1
+Panning to tape...
+curPose.y =-216.342
+io.dio[8]=1
+Panning to tape...
+curPose.y =-236.351
+io.dio[8]=1
+Panning to tape...
+curPose.y =-236.351
+io.dio[8]=1
+Panning to tape...
+curPose.y =-236.351
+io.dio[8]=1
+Panning to tape...
+curPose.y =-236.351
+io.dio[8]=1
+Panning to tape...
+curPose.y =-236.351
+io.dio[8]=1
+Panning to tape...
+curPose.y =-236.351
+io.dio[8]=1
+Panning to tape...
+curPose.y =-236.351
+io.dio[8]=1
+Panning to tape...
+curPose.y =-256.388
+io.dio[8]=1
+Panning to tape...
+curPose.y =-256.388
+io.dio[8]=1
+Panning to tape...
+curPose.y =-256.388
+io.dio[8]=1
+Panning to tape...
+curPose.y =-256.388
+io.dio[8]=1
+Panning to tape...
+curPose.y =-256.388
+io.dio[8]=1
+Panning to tape...
+curPose.y =-276.386
+io.dio[8]=1
+Panning to tape...
+curPose.y =-276.386
+io.dio[8]=1
+Panning to tape...
+curPose.y =-276.386
+io.dio[8]=1
+Panning to tape...
+curPose.y =-276.386
+io.dio[8]=1
+Panning to tape...
+curPose.y =-276.386
+io.dio[8]=1
+Panning to tape...
+curPose.y =-276.386
+io.dio[8]=1
+Panning to tape...
+curPose.y =-276.386
+io.dio[8]=1
+Panning to tape...
+curPose.y =-296.363
+io.dio[8]=1
+Panning to tape...
+curPose.y =-296.363
+io.dio[8]=1
+Panning to tape...
+curPose.y =-296.363
+io.dio[8]=1
+Panning to tape...
+curPose.y =-296.363
+io.dio[8]=1
+Panning to tape...
+curPose.y =-296.363
+io.dio[8]=1
+Panning to tape...
+curPose.y =-296.363
+io.dio[8]=1
+Panning to tape...
+curPose.y =-317.176
+io.dio[8]=1
+Panning to tape...
+curPose.y =-317.176
+io.dio[8]=1
+Panning to tape...
+curPose.y =-317.176
+io.dio[8]=1
+Panning to tape...
+curPose.y =-317.176
+io.dio[8]=1
+Panning to tape...
+curPose.y =-317.176
+io.dio[8]=1
+Panning to tape...
+curPose.y =-317.176
+io.dio[8]=1
+Panning to tape...
+curPose.y =-317.176
+io.dio[8]=1
+Panning to tape...
+curPose.y =-337.151
+io.dio[8]=0
+Pausing 1 seconds.
+point moved from 404.579 228.641 to 404.038 -354.143
+   distance = 582.784
+^C
+C:\Users\oya\Desktop\TortoiseSVN\Applications\Application_TransporterRobot_Cart\Debug>.\Application_TransporterRobot_Cart.exe
+==========================================================
+Manpiulator on Cart Test: Cart
+==========================================================
+0. UR5 Control Options
+1. Manipulator-on-Cart Assembly Tasks (Cart and Arm Present)
+2. Manipulator-on-Cart Assembly Tasks (Cart and Arm Present with Auto-Updated Search)
+3. Manipulator-on-Cart Assembly Tasks (Cart Not Present)
+4. Manipulator-on-Cart Assembly Tasks (Static Load with Cart)
+5. Manipulator-on-Cart Assembly Tasks with Edge Registration (Cart and Arm Present)
+6. Manipulator-on-Cart Assembly Tasks with Edge Registration (Continuous move, Cart and Arm Present)
+7. Manipulator-on-Cart Assembly Tasks with Edge Registration (Improved Continuous move, Cart and Arm Present)
+8. Test Configuration File Loading
+Please select an option:
+0
+Connecting to UR5 controller...
+Waiting to connect to the UR5 controller...
+Connection established.
+Raising Feet...
+Feet retracted.
+1. Stage Arm
+2. Stow Arm
+3. Print current pose
+4. Train Initial Search Position for Large Reflectors
+5. Train Initial Search Position for Large Reflectors (Static Load)
+6. Train Initial Search Position for Edge Registration
+7. Train Initial Search Position for Edge Registration (Static Load)
+8. Perform spiral search at first square point
+9. Perform spiral search at first square point offset
+10. Search Square RMMA Pattern
+11. Search Circle RMMA Pattern
+12. Compute start points from test constants and spiral search
+13. Test bisect registration
+14. Search square RMMA pattern with bisection
+15. Search square RMMA pattern with bisection (Two-Point version)
+16. Lower Feet
+17. Raise Feet
+18. Test Continuous Vertical Pan
+19. Test Continuous Horizontal Pan
+Enter -1 to quit
+2
+Moving to (380.000000, 350.000000, 297.000000, 180.000000, 0.000000, 0.000000, -1, -1)
+
+Moving to (97.400000, 350.000000, 100.000000, 180.000000, 0.000000, 0.000000, -1, -1)
+
+Moving to (48.700000, 175.000000, 100.000000, 180.000000, 0.000000, 0.000000, -1, -1)
+
+1. Stage Arm
+2. Stow Arm
+3. Print current pose
+4. Train Initial Search Position for Large Reflectors
+5. Train Initial Search Position for Large Reflectors (Static Load)
+6. Train Initial Search Position for Edge Registration
+7. Train Initial Search Position for Edge Registration (Static Load)
+8. Perform spiral search at first square point
+9. Perform spiral search at first square point offset
+10. Search Square RMMA Pattern
+11. Search Circle RMMA Pattern
+12. Compute start points from test constants and spiral search
+13. Test bisect registration
+14. Search square RMMA pattern with bisection
+15. Search square RMMA pattern with bisection (Two-Point version)
+16. Lower Feet
+17. Raise Feet
+18. Test Continuous Vertical Pan
+19. Test Continuous Horizontal Pan
+Enter -1 to quit

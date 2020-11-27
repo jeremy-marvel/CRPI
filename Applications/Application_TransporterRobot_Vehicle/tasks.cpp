@@ -150,7 +150,7 @@ void ld_client_cmd_code(void* args)
 	ld_comm_client* mobile_robot_cmd;
 
 	mobile_robot = new ld_comm(5353, TRUE);
-	mobile_robot_cmd = new ld_comm_client("10.0.128.36", 7575, "adept", FALSE);
+	mobile_robot_cmd = new ld_comm_client("192.168.160.36", 7575, "adept", FALSE);
 
 	if ((err = mobile_robot->ld_connect()) < 0)
 	{
@@ -420,7 +420,7 @@ void cart_dock_test_t(void* args)
 	ld_comm_client* mobile_robot_cmd;
 
 	mobile_robot = new ld_comm(5353, TRUE);
-	mobile_robot_cmd = new ld_comm_client("10.0.128.36", 7575, "adept", FALSE);
+	mobile_robot_cmd = new ld_comm_client("192.168.160.36", 7575, "adept", FALSE);
 
 	if ((err = mobile_robot->ld_connect()) < 0)
 	{
@@ -525,12 +525,16 @@ void cart_dock_test_t(void* args)
 					mobile_robot_cmd->arcl_write("doTask move 1000 150 25 25 30 0 0 0 0 0 1\n");
 					mobile_robot->arcl_read_status(move_f);
 
+					cout << "GETTING POSE" << endl;
 					mobile_robot->arcl_dsfv_pose(&cur_pose);
+					cout << "LOGGING POSE" << endl;
 					mobile_robot->log_pose(&cur_pose, selected_client->get_id(), cart_client_buf);
 
 					if (selected_client->get_no_cart() == 0)
 					{
+						cout << "SENDING CART RELEASE COMMAND" << endl;
 						mobile_robot_cmd->arcl_write("doTask cartRelease\n");
+						cout << "SENT CART RELEASE COMMAND" << endl;
 						mobile_robot->arcl_read_status(cart_r);
 					}//end if
 
@@ -576,7 +580,7 @@ void cart_latch_delayed_test_t(void* args)
 	ld_comm_client* mobile_robot_cmd;
 
 	mobile_robot = new ld_comm(5353, TRUE);
-	mobile_robot_cmd = new ld_comm_client("10.0.128.36", 7575, "adept", FALSE);
+	mobile_robot_cmd = new ld_comm_client("192.168.160.36", 7575, "adept", FALSE);
 
 	if ((err = mobile_robot->ld_connect()) < 0)
 	{

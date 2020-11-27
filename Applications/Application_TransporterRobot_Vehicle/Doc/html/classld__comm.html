@@ -94,8 +94,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:afaca1d34911ee06e0b8d07efd3a074d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aceb15ae4635e8033ec46cb1a54a99c1f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classld__comm.html#aceb15ae4635e8033ec46cb1a54a99c1f">print_pose</a> (<a class="el" href="structld__msg__pose.html">ld_msg_pose</a> *msg)</td></tr>
 <tr class="separator:aceb15ae4635e8033ec46cb1a54a99c1f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1219ef460b9a510a448704f57ce0412e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classld__comm.html#a1219ef460b9a510a448704f57ce0412e">log_pose</a> (<a class="el" href="structld__msg__pose.html">ld_msg_pose</a> *msg)</td></tr>
-<tr class="separator:a1219ef460b9a510a448704f57ce0412e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4f3f33cd1ad222ab4d0bf8cc114d530b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classld__comm.html#a4f3f33cd1ad222ab4d0bf8cc114d530b">log_pose</a> (<a class="el" href="structld__msg__pose.html">ld_msg_pose</a> *msg, ulapi_integer <a class="el" href="classld__comm.html#ab48ea91f4f13b276a1e65fe5edd1ab15">client_id</a>, char *current_dock)</td></tr>
+<tr class="separator:a4f3f33cd1ad222ab4d0bf8cc114d530b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad47e957c7397e42e82128ee143d8b143"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classld__comm.html#ad47e957c7397e42e82128ee143d8b143">log_comment</a> (char *msg)</td></tr>
 <tr class="separator:ad47e957c7397e42e82128ee143d8b143"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
@@ -367,8 +367,8 @@ Used to pause the program until a specified broadcast message is received from t
 
 </div>
 </div>
-<a id="a1219ef460b9a510a448704f57ce0412e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1219ef460b9a510a448704f57ce0412e">&#9670;&nbsp;</a></span>log_pose()</h2>
+<a id="a4f3f33cd1ad222ab4d0bf8cc114d530b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4f3f33cd1ad222ab4d0bf8cc114d530b">&#9670;&nbsp;</a></span>log_pose()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -377,8 +377,24 @@ Used to pause the program until a specified broadcast message is received from t
           <td class="memname">void ld_comm::log_pose </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="structld__msg__pose.html">ld_msg_pose</a> *&#160;</td>
-          <td class="paramname"><em>msg</em></td><td>)</td>
+          <td class="paramname"><em>msg</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">ulapi_integer&#160;</td>
+          <td class="paramname"><em>client_id</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>current_dock</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">

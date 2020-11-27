@@ -229,6 +229,8 @@ public:
 	*/
 	void test_edge_cont2(CrpiRobot<CrpiUniversal> * ur_robot, bool level_pause);
 
+	void test_edge_cont_bisect(CrpiRobot<CrpiUniversal> * ur_robot, bool level_pause);
+
 	/**
 	*\public
 	*Wrapper that prints the contents of client_stat with mutexing.

@@ -39,12 +39,18 @@ ulapi\+\_\+integer \mbox{\hyperlink{classcart__comm__client_ae7aa5e3ce2b4192163d
 \item 
 int \mbox{\hyperlink{classcart__comm__client_af857bf6da9431c0ebfa1862bf54ba912}{get\+\_\+stat\+\_\+count}} ()
 \item 
-void \mbox{\hyperlink{classcart__comm__client_a0b5e6c07fa231bc4c1475934d90775fe}{test\+\_\+square}} (Crpi\+Robot$<$ Crpi\+Universal $>$ $\ast$ur\+\_\+robot)
+void \mbox{\hyperlink{classcart__comm__client_a4ea2b789160e7d1580e6d47d31561f28}{test\+\_\+square}} (Crpi\+Robot$<$ Crpi\+Universal $>$ $\ast$ur\+\_\+robot, bool level\+\_\+pause)
 \item 
 void \mbox{\hyperlink{classcart__comm__client_aaa588482b9a7b89a473bd88125aa833a}{test\+\_\+square\+\_\+auto\+\_\+update}} (Crpi\+Robot$<$ Crpi\+Universal $>$ $\ast$ur\+\_\+robot, P\+M\+\_\+\+C\+A\+R\+T\+E\+S\+I\+AN $\ast$update1, P\+M\+\_\+\+C\+A\+R\+T\+E\+S\+I\+AN $\ast$update2, int $\ast$bisect\+\_\+stat)
 \item 
-\mbox{\Hypertarget{classcart__comm__client_afbb6d5ec314d688c411a84e24eb0b437}\label{classcart__comm__client_afbb6d5ec314d688c411a84e24eb0b437}} 
-void {\bfseries test\+\_\+edge} (Crpi\+Robot$<$ Crpi\+Universal $>$ $\ast$ur\+\_\+robot)
+void \mbox{\hyperlink{classcart__comm__client_ac90c32ff9efabd33ecf499fa4e5d95cb}{test\+\_\+edge}} (Crpi\+Robot$<$ Crpi\+Universal $>$ $\ast$ur\+\_\+robot, bool level\+\_\+pause)
+\item 
+void \mbox{\hyperlink{classcart__comm__client_ad2e607ccbc2c1b02c25c252a2eaea521}{test\+\_\+edge\+\_\+cont}} (Crpi\+Robot$<$ Crpi\+Universal $>$ $\ast$ur\+\_\+robot, bool level\+\_\+pause)
+\item 
+void \mbox{\hyperlink{classcart__comm__client_ac44548dbca7cf94a77e014d3650fd763}{test\+\_\+edge\+\_\+cont2}} (Crpi\+Robot$<$ Crpi\+Universal $>$ $\ast$ur\+\_\+robot, bool level\+\_\+pause)
+\item 
+\mbox{\Hypertarget{classcart__comm__client_a997c5d40abc9a3ddcd56504f3e9413ea}\label{classcart__comm__client_a997c5d40abc9a3ddcd56504f3e9413ea}} 
+void {\bfseries test\+\_\+edge\+\_\+cont\+\_\+bisect} (Crpi\+Robot$<$ Crpi\+Universal $>$ $\ast$ur\+\_\+robot, bool level\+\_\+pause)
 \item 
 void \mbox{\hyperlink{classcart__comm__client_a1b98c6cdf26eea214854b6eec41486a8}{print\+\_\+info}} ()
 \end{DoxyCompactItemize}
@@ -240,7 +246,7 @@ Definition at line 310 of file cart\+\_\+comm\+\_\+client.\+cpp.
 
 Wrapper that prints the contents of client\+\_\+stat with mutexing. 
 
-Definition at line 638 of file cart\+\_\+comm\+\_\+client.\+cpp.
+Definition at line 1015 of file cart\+\_\+comm\+\_\+client.\+cpp.
 
 \mbox{\Hypertarget{classcart__comm__client_a673f4b5374d8a7e033375cd694ca4697}\label{classcart__comm__client_a673f4b5374d8a7e033375cd694ca4697}} 
 \index{cart\+\_\+comm\+\_\+client@{cart\+\_\+comm\+\_\+client}!recv@{recv}}
@@ -302,16 +308,72 @@ An integer indicating the error status of the socket. Takes on a negative number
 
 Definition at line 131 of file cart\+\_\+comm\+\_\+client.\+cpp.
 
-\mbox{\Hypertarget{classcart__comm__client_a0b5e6c07fa231bc4c1475934d90775fe}\label{classcart__comm__client_a0b5e6c07fa231bc4c1475934d90775fe}} 
+\mbox{\Hypertarget{classcart__comm__client_ac90c32ff9efabd33ecf499fa4e5d95cb}\label{classcart__comm__client_ac90c32ff9efabd33ecf499fa4e5d95cb}} 
+\index{cart\+\_\+comm\+\_\+client@{cart\+\_\+comm\+\_\+client}!test\+\_\+edge@{test\+\_\+edge}}
+\index{test\+\_\+edge@{test\+\_\+edge}!cart\+\_\+comm\+\_\+client@{cart\+\_\+comm\+\_\+client}}
+\subsubsection{\texorpdfstring{test\+\_\+edge()}{test\_edge()}}
+{\footnotesize\ttfamily void cart\+\_\+comm\+\_\+client\+::test\+\_\+edge (\begin{DoxyParamCaption}\item[{Crpi\+Robot$<$ Crpi\+Universal $>$ $\ast$}]{ur\+\_\+robot,  }\item[{bool}]{level\+\_\+pause }\end{DoxyParamCaption})}
+
+Control code for performance test method. Sends manipulator to an initial stage pose for safe access to the R\+M\+MA, then performs pose calculations based on the current vehicle position to adjust for docking offset. ~\newline
+Finally, calls function to perform edge registration (does not use continuous move, only moves incremented by steps) and spiral search verification. This version was one of several edge registration methods tested with the O\+TS and was measured on 06-\/28-\/2019. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em ur\+\_\+robot} & A pointer to a C\+R\+PI datastructure that manages the connection to the U\+R5 robot U\+R\+Script server. Needed to send move commands to control the arm. \\
+\hline
+\mbox{\tt in}  & {\em level\+\_\+pause} & Flag to enable pausing after extending feet to allow for level measurements. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 531 of file cart\+\_\+comm\+\_\+client.\+cpp.
+
+\mbox{\Hypertarget{classcart__comm__client_ad2e607ccbc2c1b02c25c252a2eaea521}\label{classcart__comm__client_ad2e607ccbc2c1b02c25c252a2eaea521}} 
+\index{cart\+\_\+comm\+\_\+client@{cart\+\_\+comm\+\_\+client}!test\+\_\+edge\+\_\+cont@{test\+\_\+edge\+\_\+cont}}
+\index{test\+\_\+edge\+\_\+cont@{test\+\_\+edge\+\_\+cont}!cart\+\_\+comm\+\_\+client@{cart\+\_\+comm\+\_\+client}}
+\subsubsection{\texorpdfstring{test\+\_\+edge\+\_\+cont()}{test\_edge\_cont()}}
+{\footnotesize\ttfamily void cart\+\_\+comm\+\_\+client\+::test\+\_\+edge\+\_\+cont (\begin{DoxyParamCaption}\item[{Crpi\+Robot$<$ Crpi\+Universal $>$ $\ast$}]{ur\+\_\+robot,  }\item[{bool}]{level\+\_\+pause }\end{DoxyParamCaption})}
+
+Control code for performance test method. Sends manipulator to an initial stage pose for safe access to the R\+M\+MA, then performs pose calculations based on the current vehicle position to adjust for docking offset. ~\newline
+Finally, calls function to perform edge registration (features a trained, initial search point followed by a single continuous move that is interrupted) and spiral search verification. This version was one of several edge registration methods tested with the O\+TS and was measured on 07-\/01-\/2019. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em ur\+\_\+robot} & A pointer to a C\+R\+PI datastructure that manages the connection to the U\+R5 robot U\+R\+Script server. Needed to send move commands to control the arm. \\
+\hline
+\mbox{\tt in}  & {\em level\+\_\+pause} & Flag to enable pausing after extending feet to allow for level measurements. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 641 of file cart\+\_\+comm\+\_\+client.\+cpp.
+
+\mbox{\Hypertarget{classcart__comm__client_ac44548dbca7cf94a77e014d3650fd763}\label{classcart__comm__client_ac44548dbca7cf94a77e014d3650fd763}} 
+\index{cart\+\_\+comm\+\_\+client@{cart\+\_\+comm\+\_\+client}!test\+\_\+edge\+\_\+cont2@{test\+\_\+edge\+\_\+cont2}}
+\index{test\+\_\+edge\+\_\+cont2@{test\+\_\+edge\+\_\+cont2}!cart\+\_\+comm\+\_\+client@{cart\+\_\+comm\+\_\+client}}
+\subsubsection{\texorpdfstring{test\+\_\+edge\+\_\+cont2()}{test\_edge\_cont2()}}
+{\footnotesize\ttfamily void cart\+\_\+comm\+\_\+client\+::test\+\_\+edge\+\_\+cont2 (\begin{DoxyParamCaption}\item[{Crpi\+Robot$<$ Crpi\+Universal $>$ $\ast$}]{ur\+\_\+robot,  }\item[{bool}]{level\+\_\+pause }\end{DoxyParamCaption})}
+
+Control code for performance test method. Sends manipulator to an initial stage pose for safe access to the R\+M\+MA, then performs pose calculations based on the current vehicle position to adjust for docking offset. ~\newline
+Finally, calls function to perform edge registration (features a single continuous move that is interrupted and NO trained initial search point) and spiral search verification. This version was one of several edge registration methods tested with the O\+TS and was measured on 07-\/03-\/2019. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em ur\+\_\+robot} & A pointer to a C\+R\+PI datastructure that manages the connection to the U\+R5 robot U\+R\+Script server. Needed to send move commands to control the arm. \\
+\hline
+\mbox{\tt in}  & {\em level\+\_\+pause} & Flag to enable pausing after extending feet to allow for level measurements. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 754 of file cart\+\_\+comm\+\_\+client.\+cpp.
+
+\mbox{\Hypertarget{classcart__comm__client_a4ea2b789160e7d1580e6d47d31561f28}\label{classcart__comm__client_a4ea2b789160e7d1580e6d47d31561f28}} 
 \index{cart\+\_\+comm\+\_\+client@{cart\+\_\+comm\+\_\+client}!test\+\_\+square@{test\+\_\+square}}
 \index{test\+\_\+square@{test\+\_\+square}!cart\+\_\+comm\+\_\+client@{cart\+\_\+comm\+\_\+client}}
 \subsubsection{\texorpdfstring{test\+\_\+square()}{test\_square()}}
-{\footnotesize\ttfamily void cart\+\_\+comm\+\_\+client\+::test\+\_\+square (\begin{DoxyParamCaption}\item[{Crpi\+Robot$<$ Crpi\+Universal $>$ $\ast$}]{ur\+\_\+robot }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void cart\+\_\+comm\+\_\+client\+::test\+\_\+square (\begin{DoxyParamCaption}\item[{Crpi\+Robot$<$ Crpi\+Universal $>$ $\ast$}]{ur\+\_\+robot,  }\item[{bool}]{level\+\_\+pause }\end{DoxyParamCaption})}
 
 Control code for performance test method. Sends manipulator to an initial stage pose for safe access to the R\+M\+MA, then performs pose calculations based on the current vehicle position to adjust for docking offset. ~\newline
 Finally, calls function to perform bisect registration and spiral search verification. 
 \begin{DoxyParams}[1]{Parameters}
 \mbox{\tt in}  & {\em ur\+\_\+robot} & A pointer to a C\+R\+PI datastructure that manages the connection to the U\+R5 robot U\+R\+Script server. Needed to send move commands to control the arm. \\
+\hline
+\mbox{\tt in}  & {\em level\+\_\+pause} & Flag to enable pausing after extending feet to allow for level measurements. \\
 \hline
 \end{DoxyParams}
 
@@ -338,7 +400,7 @@ Finally, calls function to perform bisect registration and spiral search verific
 \end{DoxyParams}
 
 
-Definition at line 435 of file cart\+\_\+comm\+\_\+client.\+cpp.
+Definition at line 438 of file cart\+\_\+comm\+\_\+client.\+cpp.
 
 
 

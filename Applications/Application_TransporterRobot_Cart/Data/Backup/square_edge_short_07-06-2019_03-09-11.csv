@@ -1,0 +1,4 @@
+Goal, RMMASq2
+time, iter, marker, init_x, init_y, init_z, init_xrot, init_yrot, init_zrot,ok, time_elapsed, steps,x, y, z, xrot, yrot, zrot
+Edge
+17.067, -1, -1, 380.002, -0.0526371, 297, 180, 0, 0, 0, 4.81402, 40, 272.406, -0.103474, 296.915, -179.995, 0.0166521, -0.0095435

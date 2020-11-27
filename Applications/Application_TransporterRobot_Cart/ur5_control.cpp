@@ -26,7 +26,7 @@
 #include "crpi_universal.h"
 #include "ld_msg.h"
 
-using namespace std;
+//using namespace std;
 using namespace crpi_robot;
 using namespace MotionPrims;
 
@@ -2059,8 +2059,6 @@ CanonReturn square_edge_short_cont2(CrpiRobot<CrpiUniversal>* ur_robot, PM_CARTE
 	setPosition(ref_point1, start_point, sensor_rot);
 	setPosition(start_pose1, start_point, sensor_rot);
 
-	ur_robot->GetRobotIO(&io);
-
 	start_point1_time = time_since(mytime_seconds);
 
 	if (!vertical_pan_cont2(ur_robot, ref_point1, large_step, 0.25, max_dist, &stepCount1L, &stepCount1s, &searchTime1))
@@ -2085,7 +2083,7 @@ CanonReturn square_edge_short_cont2(CrpiRobot<CrpiUniversal>* ur_robot, PM_CARTE
 
 		setPosition(ref_point2, rob2cart(start_pose2), sensor_rot);
 
-		if (!vertical_pan_cont(ur_robot, ref_point2, large_step, 0.25, 25.4, &stepCount2L, &stepCount2s, &searchTime2))
+		if (!vertical_pan_cont(ur_robot, ref_point2, large_step, 0.25, max_dist, &stepCount2L, &stepCount2s, &searchTime2))
 		{
 			cout << "Error in vertical pan 2" << endl;
 			success2 = 0;
@@ -2104,7 +2102,7 @@ CanonReturn square_edge_short_cont2(CrpiRobot<CrpiUniversal>* ur_robot, PM_CARTE
 
 			if (r3_start > 0)
 			{
-				if (!horizontal_pan_cont2(ur_robot, ref_point3, ref_point2.x, large_step, 0.25, max_dist, false, &stepCount3L, &stepCount3s, &searchTime3))
+				if (!horizontal_pan_cont2(ur_robot, ref_point3, ref_point1, ref_point2, ref_point2.x, large_step, 0.25, max_dist, false, &stepCount3L, &stepCount3s, &searchTime3))
 				{
 					cout << "Error in horizontal pan" << endl;
 					success3 = 0;
@@ -2112,7 +2110,7 @@ CanonReturn square_edge_short_cont2(CrpiRobot<CrpiUniversal>* ur_robot, PM_CARTE
 			}//end if
 			if (r3_start < 0)
 			{
-				if (!horizontal_pan_cont2(ur_robot, ref_point3, ref_point1.x, large_step, 0.25, max_dist, true, &stepCount3L, &stepCount3s, &searchTime3))
+				if (!horizontal_pan_cont2(ur_robot, ref_point3, ref_point1, ref_point2, ref_point1.x, large_step, 0.25, max_dist, true, &stepCount3L, &stepCount3s, &searchTime3))
 				{
 					cout << "Error in horizontal pan" << endl;
 					success3 = 0;
@@ -2150,12 +2148,18 @@ CanonReturn square_edge_short_cont2(CrpiRobot<CrpiUniversal>* ur_robot, PM_CARTE
 	square_spiral_edge_csv << ", " << ref_point3.x << ", " << ref_point3.y << ", " << ref_point3.z << ", "
 		<< ref_point3.xrot << ", " << ref_point3.yrot << ", " << ref_point3.zrot << endl;
 
-	m = (ref_point2.y - ref_point1.y) / (ref_point2.x - ref_point1.x);
-	b1 = ref_point1.y - m * ref_point1.x;
-	b2 = ref_point3.y + (1 / m)*ref_point3.x;
-	corner_point.x = (b2 - b1) / (m + (1 / m));
-	corner_point.y = m * corner_point.x + b1;
-	corner_point.z = sensor_height;
+	if (ref_point2.x - ref_point1.x != 0 && ref_point2.y - ref_point1.y != 0)
+	{
+		m = (ref_point2.y - ref_point1.y) / (ref_point2.x - ref_point1.x);
+
+		b1 = ref_point1.y - m * ref_point1.x;
+		b2 = ref_point3.y + (1 / m)*ref_point3.x;
+		corner_point.x = (b2 - b1) / (m + (1 / m));
+		corner_point.y = m * corner_point.x + b1;
+		corner_point.z = sensor_height;
+	}//end if
+	else
+		return CANON_FAILURE;
 
 	point2_offset = rob2cart(ref_point2 - ref_point1);
 	point2_offset.z = 0;
@@ -3139,7 +3143,6 @@ bool vertical_pan_cont2(CrpiRobot<CrpiUniversal>* arm, robotPose &pose, double s
 	robotIO io;
 	int count = 0;
 	robotPose curPose, stagePose, panLimit;
-	CanonReturn retval;
 
 	bool found = false;
 
@@ -3151,6 +3154,7 @@ bool vertical_pan_cont2(CrpiRobot<CrpiUniversal>* arm, robotPose &pose, double s
 	*searchTime = 0;
 
 	// get current pose and io
+	pause.waitUntil(robot_settle_time);//Added 11/20/2019
 	cout << "GETTING POSE" << endl;
 	arm->GetRobotPose(&pose);
 	cout << "GETTING IO" << endl;
@@ -3169,12 +3173,14 @@ bool vertical_pan_cont2(CrpiRobot<CrpiUniversal>* arm, robotPose &pose, double s
 
 	// search for edge
 	robotPose startPose = pose;
-	robotPose commandPose = panLimit;
+	robotPose commandPose = initialPose;
 
-	//cout << "Panning towards cart" << endl;
+	cout << "Panning towards cart" << endl;
 
 	if (io.dio[8])
 	{
+		commandPose = panLimit;
+		cout << "NOT ON TAPE!" << endl;
 		arm->MoveStraightTo(commandPose, false);
 		pause.waitUntil(robot_settle_time);
 
@@ -3746,13 +3752,177 @@ bool horizontal_pan_cont2(CrpiRobot<CrpiUniversal>* arm, robotPose &pose, double
 	robotPose commandPose = offsetPose;
 
 	if(!reverse)
-		commandPose.y = stagePose.y + 13 * 25.4 + max_y;
+		commandPose.y = stagePose.y + (13 * 25.4 + max_y);
 	else
 		commandPose.y = stagePose.y - (13 * 25.4 + max_y);
 
 	arm->MoveStraightTo(commandPose, false);
 	pause.waitUntil(robot_settle_time);
 
+	while (io.dio[8] && curPose.distance(commandPose) > 0.1)
+	{
+		arm->GetRobotIO(&io);
+		arm->GetRobotPose(&curPose);
+
+		cout << "Panning to tape..." << endl;
+		cout << "curPose.y =" << curPose.y << endl;
+		cout << "io.dio[8]=" << io.dio[8] << endl;
+
+		if (!io.dio[8])
+		{
+			commandPose = curPose;
+			arm->MoveStraightTo(commandPose, true);
+			pause.waitUntil(robot_settle_time*2.5);//Pause increased on 08/16/2019
+		}//end if
+
+	}//end while
+	if (!io.dio[8])
+	{
+		while (!io.dio[8])
+		{
+			if (!reverse)
+				commandPose.y += stepSize1;
+			else
+				commandPose.y -= stepSize1;
+
+			arm->MoveStraightTo(commandPose);
+			pause.waitUntil(robot_settle_time);
+
+			arm->GetRobotIO(&io);
+
+			++count;
+		}//end while
+
+		*stepCount1 = count;
+
+		while (io.dio[8])
+		{
+			if (!reverse)
+				commandPose.y -= stepSize2;
+			else
+				commandPose.y += stepSize2;
+
+			arm->MoveStraightTo(commandPose);
+			pause.waitUntil(robot_settle_time);
+
+			arm->GetRobotIO(&io);
+
+			++count;
+		}//end while
+		*stepCount2 = count;
+		found = true;
+	}//end if
+
+	arm->GetRobotPose(&pose);
+
+	*searchTime = timer.elapsedTime() / 1000.0;
+	timer.stop();
+
+	// move robot to center point and pause there
+	arm->MoveStraightTo(pose);
+	cout << "Pausing " << bisectPauseMs / 1000.0 << " seconds." << endl;
+	pause.waitUntil(bisectPauseMs);
+
+	cout << "point moved from " << initialPose.x << " " << initialPose.y <<
+		" to " << pose.x << " " << pose.y << endl;
+	cout << "   distance = " << sqrt(sq(initialPose.x - pose.x) + sq(initialPose.y - pose.y)) << endl;
+
+	return found;
+}//end if
+
+bool horizontal_pan_cont2(CrpiRobot<CrpiUniversal>* arm, robotPose &pose, robotPose r1, robotPose r2, double offset, double stepSize1, double stepSize2, double max_y, bool reverse, int* stepCount1, int* stepCount2, double* searchTime)
+{
+	crpi_timer pause;
+	crpi_timer timer;
+	robotIO io;
+	int count = 0;
+	robotPose curPose, stagePose, offsetPose;
+	CanonReturn retval;
+
+	bool found = false;
+
+	double m = 0;
+	double b = 0;
+	double b0 = 0;
+
+	*stepCount1 = 0;
+	*stepCount2 = 0;
+	*searchTime = 0;
+
+	setPosition(stagePose, stage_3, sensor_rot);
+
+	arm->GetRobotPose(&curPose);
+	offsetPose = curPose;
+
+	// search for edge
+	robotPose startPose = offsetPose;
+	robotPose commandPose = offsetPose;
+
+	cout << "r1=(" << r1.y << ", " << r1.x << ")" << endl;;
+	cout << "r1=(" << r2.y << ", " << r2.x << ")" << endl;;
+	if (r2.y - r1.y != 0)
+	{
+		m = (r2.x - r1.x) / (r2.y - r1.y);
+		cout << "SLOPE=" << m << endl;
+		cout << "r2.x-r1.x=" << (r2.x - r1.x) << endl;
+		cout << "r2.y-r1.y=" << (r2.y - r1.y) << endl;
+		cout << "DIVIDED=" << (r2.x - r1.x) / (r2.y - r1.y) << endl;
+	}//end if
+	else
+	{
+		cout << "ZERO!!!!" << endl;
+		m = 0;
+	}//end else
+
+	b0 = r2.x + (1 / m)*r2.y+1.75*25.4;
+	offsetPose.y = r2.y;
+	offsetPose.x = (-1 / m)*offsetPose.y + b0;
+
+	b = offsetPose.x - m * offsetPose.y;
+
+	if (!reverse)
+	{
+		commandPose.y = stagePose.y + (13 * 25.4 + max_y);
+		commandPose.x = (m * commandPose.y) + b;
+	}//end if
+	else
+	{
+		commandPose.y = stagePose.y - (13 * 25.4 + max_y);
+		commandPose.x = (m * commandPose.y) + b;
+	}//end else
+
+	cout << "Moving to ";
+	offsetPose.print();
+	cout << endl;
+
+	if ((retval = arm->MoveStraightTo(offsetPose)) != CANON_SUCCESS)
+	{
+		cout << retval << " could not move robot" << endl;
+	}//end if
+
+	while (curPose.distance(offsetPose) > 0.1)
+	{
+		arm->GetRobotPose(&curPose);
+		ulapi_sleep(.1);
+	}//end while
+	pause.waitUntil(robot_settle_time);//Added 08/08/2019
+
+	// get current pose and io
+	arm->GetRobotIO(&io);
+	arm->GetRobotPose(&pose);
+
+	robotPose initialPose = offsetPose;
+
+	cout << "Panning to tape..." << endl;
+
+	timer.start();
+
+	arm->MoveStraightTo(commandPose, false);
+	pause.waitUntil(robot_settle_time);
+	cout << "commandPose=(" << commandPose.x << ", " << commandPose.y << ")" << endl;
+	cout << "m=" << m << endl;
+	cout << "b=" << b << endl;
+	cout<<"offsetPose=(" << offsetPose.x << ", " << offsetPose.y << ")" << endl;
 	while (io.dio[8] && curPose.distance(commandPose) > 0.1)
 	{
 		arm->GetRobotIO(&io);

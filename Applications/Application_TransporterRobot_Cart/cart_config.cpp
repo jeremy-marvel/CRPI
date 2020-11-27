@@ -661,8 +661,8 @@ void cart_config::read_file()
 					if (check_num(tok_th) == 0 && check_num(tok_x) == 0 && check_num(tok_y) == 0)
 					{
 						goal_list[i]->robot_th = atof(tok_th);
-						goal_list[i]->robot_x = atof(tok_x) + 1000 * cos(goal_list[i]->robot_th * TO_RAD);
-						goal_list[i]->robot_y = atof(tok_y) + 1000 * sin(goal_list[i]->robot_th * TO_RAD);
+						goal_list[i]->robot_x = atof(tok_x); //+ 1000 * cos(goal_list[i]->robot_th * TO_RAD);
+						goal_list[i]->robot_y = atof(tok_y); //+ 1000 * sin(goal_list[i]->robot_th * TO_RAD);
 					}//end if
 
 					else
@@ -884,9 +884,9 @@ void cart_config::write_file()
 							if (k == 0)
 								sprintf_s(temp, "%f, ", goal_list[i]->robot_th);
 							else if (k == 1)
-								sprintf_s(temp, "%f, ", goal_list[i]->robot_x - 1000 * cos(goal_list[i]->robot_th * TO_RAD));
+								sprintf_s(temp, "%f, ", goal_list[i]->robot_x); //- 1000 * cos(goal_list[i]->robot_th * TO_RAD));
 							else if (k == 2)
-								sprintf_s(temp, "%f", goal_list[i]->robot_y - 1000 * sin(goal_list[i]->robot_th * TO_RAD));
+								sprintf_s(temp, "%f", goal_list[i]->robot_y); //- 1000 * sin(goal_list[i]->robot_th * TO_RAD));
 
 							config_file->write(temp, sizeof(char)*strlen(temp));
 						}//end for

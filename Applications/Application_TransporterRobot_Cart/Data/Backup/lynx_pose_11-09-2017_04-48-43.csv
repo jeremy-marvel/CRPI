@@ -1,0 +1,2 @@
+seconds_since_epoch, robot_x, robot_y, robot_th
+seconds since epoch (s), robot_x (mm), robot_y (mm), robot_th (degrees), recv time (s), x recv time (s), y recv time (s), th recv time (s), time recv time (s)
