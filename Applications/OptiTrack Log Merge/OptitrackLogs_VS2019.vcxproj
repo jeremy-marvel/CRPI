@@ -196,7 +196,7 @@
       <RandomizedBaseAddress>false</RandomizedBaseAddress>
       <DataExecutionPrevention>
       </DataExecutionPrevention>
-      <AdditionalLibraryDirectories>..\..\Debug;..\..\Libraries\ThirdParty\OpenCV2\lib;..\..\Libraries\ThirdParty\LeapSDK\lib\x86;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>..\..\Debug;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <ProfileGuidedDatabase>..\..\Debug\OptitrackLogs\OptitrackLogs.pgd</ProfileGuidedDatabase>
     </Link>
     <Bscmake>

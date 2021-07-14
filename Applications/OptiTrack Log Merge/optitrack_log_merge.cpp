@@ -16,6 +16,7 @@
 #include <string>
 #include <fstream>
 #include <vector>
+#include <math.h>
 
 #pragma warning (disable: 4996)
 using namespace std;
@@ -23,13 +24,34 @@ using namespace std;
 //#define NOISY
 #define TO_MM
 
+
+#define MINFRAMES 360
+#define MAXDIST 5.0f
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//! @brief 3D point structure
+//!
 struct pt
 {
-	double x;
-	double y;
-	double z;
-	bool valid;
+	double x;    //! X axis coordinate
+	double y;    //! Y axis coordinate
+	double z;    //! Z axis coordinate
+	bool valid;  //! Whether this is a valid point (i.e., it is defined)
 
+	//! @brief Display the contents of this point on the screen
+	//!
 	void print()
 	{
 		if (valid)
@@ -37,7 +59,52 @@ struct pt
 		else
 			cout << "Not a valid point" << endl;
 	}
+
+	//! @brief Calculate the Euclidean distance between this point and another point
+	//!
+	//! @param no2 The second point to which we are calculating the distance
+	//! 
+	//! @return The Euclidean distance between these two points if both are valid.  -1 otherwise;
+	//!
+	double distance(pt no2)
+	{
+		if (valid && no2.valid)
+		{
+			return (sqrt( ((x-no2.x)*(x-no2.x)) + ((y-no2.y)*(y-no2.y)) + ((z-no2.z)*(z-no2.z)) ));
+		}
+		return -1.0f;
+	}
+
+	//! @brief Merge two points by taking the average point value.  If one point (or both points) is not valid,
+	//!        then take the value of the other point.
+	//! 
+	//! @param no2 The second point that is being merged with this point
+	//!
+	void merge (pt no2)
+	{
+		if (!valid)
+		{
+			//! This point is not valid.  Take the value of the other point.
+			x = no2.x;
+			y = no2.y;
+			z = no2.z;
+			valid = no2.valid;
+			return;
+		}
+
+		if (!(no2.valid))
+		{
+			//! The second point is not valid.  This value does not change.
+			return;
+		}
+
+		x = (x + no2.x) / 2.0f;
+		y = (y + no2.y) / 2.0f;
+		z = (z + no2.z) / 2.0f;
+	}
 };
+
+
 
 struct frame
 {
@@ -76,7 +143,8 @@ void main(int argc, char* argv[])
 	int target;
 	vector<pt>::iterator pt_iter;  //! Iterator to go through the markers of a single frame
 
-	int frame_threshold = 360; //! ~3 seconds
+	int frame_threshold = MINFRAMES; //! ~3 seconds
+	double dist_threshold = (1.0f / scale) * MAXDIST; //! 5mm threshold for declaring markers "the same"
 
 	//! -------------------------------------------------------------------------------------------------------------
 	//! Read data files.  Identify valid and invalid frame data
@@ -498,16 +566,17 @@ void main(int argc, char* argv[])
 	}
 
   //! -------------------------------------------------------------------------------------------------------------
-	//! Identify first frames for synchronization
+	//! Identify origin markers.  Look only at first frame.
 	//! -------------------------------------------------------------------------------------------------------------
 
 	unsigned int origin_1, origin_2, originx_1, originx_2, originy_1, originy_2;
 
-	pt_iter = frames1.at(0).markers.begin();
-	unsigned int tmp = 0;
+	unsigned int tmp;
 	bool ofound, xfound, yfound;
+
+	tmp = 0;
 	ofound = xfound = yfound = false;
-	for (; pt_iter != frame_iter->markers.end(); ++pt_iter, ++tmp)
+	for (pt_iter = frames1.at(0).markers.begin(); pt_iter != frames1.at(0).markers.end(); ++pt_iter, ++tmp)
 	{
 		if (pt_iter->valid)
 		{
@@ -538,7 +607,6 @@ void main(int argc, char* argv[])
 		}
 	} //for (; pt_iter != frame_iter->markers.end(); ++pt_iter)
 
-
 	//! JAM: TODO:  What if we can't find all three origin markers?
 	//! JAM: TODO:  What if there are multiple markers found that align with origin markers?
 
@@ -547,18 +615,45 @@ void main(int argc, char* argv[])
 	processed1.at(originy_1) = true;
 
 
-
-
-
-
-
+	tmp = 0;
+	ofound = xfound = yfound = false;
+	for (pt_iter = frames2.at(0).markers.begin(); pt_iter != frames2.at(0).markers.end(); ++pt_iter, ++tmp)
+	{
+		if (pt_iter->valid)
+		{
+			if (fabs(pt_iter->x) < (scale > 2.0f ? 1.0f : 0.001f) &&
+				  fabs(pt_iter->y) < (scale > 2.0f ? 1.0f : 0.001f) &&
+				  fabs(pt_iter->z) < (scale > 2.0f ? 1.0f : 0.001f))
+			{
+				origin_2 = tmp;
+				ofound = true;
+				continue;
+			}
+			if (fabs(pt_iter->x) > (scale > 2.0f ? 10.0f : 0.01f) &&
+				  fabs(pt_iter->y) < (scale > 2.0f ? 1.0f : 0.001f) &&
+				  fabs(pt_iter->z) < (scale > 2.0f ? 1.0f : 0.001f))
+			{
+				originx_2 = tmp;
+				xfound = true;
+				continue;
+			}
+			if (fabs(pt_iter->x) > (scale > 2.0f ? 1.0f : 0.001f) &&
+				  fabs(pt_iter->y) < (scale > 2.0f ? 10.0f : 0.01f) &&
+				  fabs(pt_iter->z) < (scale > 2.0f ? 1.0f : 0.001f))
+			{
+				originy_2 = tmp;
+				xfound = true;
+				continue;
+			}
+		}
+	} //for (; pt_iter != frame_iter->markers.end(); ++pt_iter)
 
 	processed2.at(origin_2) = true;
 	processed2.at(originx_2) = true;
 	processed2.at(originy_2) = true;
 
 	//! -------------------------------------------------------------------------------------------------------------
-	//! Finished reading files and storing data.  Identify first frames for synchronization
+	//! Identify first frames for synchronization
 	//! -------------------------------------------------------------------------------------------------------------
 
 	cout << "Finding initial frames for synchronization..." << endl;
@@ -617,8 +712,109 @@ void main(int argc, char* argv[])
 	cout << argv[2] << " origin disappears frame #" << frames2_zero << endl;
 
 	//! -------------------------------------------------------------------------------------------------------------
-  //! Finished reading files and storing data.  Identify first frames for synchronization
+  //! Identify aligned markers based on overlap.  Aligned markers are merged, and the markers identified as having
+	//! been processed.
   //! -------------------------------------------------------------------------------------------------------------
 
+	int c1, c2;
+	int m1, m2;
+	double dist, mindist;
 
+	for (m1 = 0; m1 < frames1.at(0).markers.size(); ++m1)
+	{
+		//! For all markers in file 1...
+
+		//! If we've already processed this marker in file 1, skip
+		if (processed1.at(m1))
+		{
+			continue;
+		}
+
+		for (m2 = 0; m2 < frames2.at(0).markers.size(); ++m2)
+		{
+			if (processed1.at(m2))
+			{
+				//! If we've already processed this marker in file 2, skip
+				continue;
+			}
+
+			mindist = 20000.0f;
+			c2 = frames2_zero;
+			for (c1 = frames1_zero; c1 < frames1.size(); ++c1, ++c2)
+			{
+				if (c2 >= frames2.size())
+				{
+					//! If the second stream ends before the first stream, quit this process
+					//! If the first stream ends before the second stream, this process quits automatically
+					break;
+				}
+
+				dist = frames1.at(c1).markers.at(m1).distance(frames2.at(c2).markers.at(m2));
+				if (dist >= 0.0f)
+				{
+					//! Valid marker, check to see if distances is smaller than current minimum distance
+					mindist = ((dist < mindist) ? dist : mindist);
+				}
+			} // for (c1 = frames1_zero; c1 < frames1.size(); ++c1, ++c2)
+
+			if (mindist >= 0.0f)
+			{
+				if (mindist < dist_threshold)
+				{
+					//! These are likely the same marker.  Merge them. 
+					c2 = frames2_zero;
+					for (c1 = frames1_zero; c1 < frames1.size(); ++c1, ++c2)
+					{
+						if (c2 >= frames2.size())
+						{
+							//! If the second stream ends before the first stream, quit this process
+							//! If the first stream ends before the second stream, this process quits automatically
+							break;
+						}
+
+						//! Merge these two streams
+						frames1.at(c1).markers.at(m1).merge(frames2.at(c2).markers.at(m2));
+
+					} // for (c1 = frames1_zero; c1 < frames1.size(); ++c1, ++c2)
+
+					//! Mark the second marker as having been processed since it's been merged with a marker in file 1.
+					processed2.at(m2) = true;
+				} // if (mindist < dist_threshold)
+			} // if (mindist >= 0.0f)
+		} // for (m2 = 0; m2 < frames2.at(0).markers.size(); ++m2)
+	} // for (m1 = 0; m1 < frames1.at(0).markers.size(); ++m1)
+
+	//! All markers in file 2 have either been merged, or are determined to be unique markers.
+	//! Set aside the file 2 data for the time being.  Any markers that are unique
+
+	//! Determine if there are any markers within file 1 that should be merged
+	//! (After merging with file 2, it is possible that marker streams now have enough data that
+	//! orphaned markers can now be identified)
+
+
+
+
+
+
+	/*
+	starting at zero frame1
+		for markers in file 1
+			starting at zero frame2
+			for markers in file 2
+			  if marker not processed already
+				  go through markers frame-by-frame
+					  find minimum distance between markers at each frame (if not valid marker, distance is infinite)
+				  if minimum distance < threshold, merge streams
+		repeat until no new merges
+		merge markers within file 1
+		repeat until no new merges
+
+		combine all streams into one file (ignoring origins & noise)
+	
+	*/
+
+	//! -------------------------------------------------------------------------------------------------------------
+  //! 
+  //! -------------------------------------------------------------------------------------------------------------
+	
 }
