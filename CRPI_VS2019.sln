@@ -160,6 +160,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Demo_SimpleTest", "Applicat
 		{F4860F51-78F2-4C0F-8B57-94C7BF1B24B7} = {F4860F51-78F2-4C0F-8B57-94C7BF1B24B7}
 	EndProjectSection
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Application_HRI-Interface", "Applications\ARInterface\ARInterface_VS2019.vcxproj", "{EDE580B9-89B0-4457-AFFA-C120D0385DCA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -382,6 +384,14 @@ Global
 		{03B4E6C8-FF2E-4A72-A42C-BA9AFD2A2412}.Release|Win32.Build.0 = Release|Win32
 		{03B4E6C8-FF2E-4A72-A42C-BA9AFD2A2412}.Release|x64.ActiveCfg = Release|x64
 		{03B4E6C8-FF2E-4A72-A42C-BA9AFD2A2412}.Release|x64.Build.0 = Release|x64
+		{EDE580B9-89B0-4457-AFFA-C120D0385DCA}.Debug|Win32.ActiveCfg = Debug|Win32
+		{EDE580B9-89B0-4457-AFFA-C120D0385DCA}.Debug|Win32.Build.0 = Debug|Win32
+		{EDE580B9-89B0-4457-AFFA-C120D0385DCA}.Debug|x64.ActiveCfg = Debug|x64
+		{EDE580B9-89B0-4457-AFFA-C120D0385DCA}.Debug|x64.Build.0 = Debug|x64
+		{EDE580B9-89B0-4457-AFFA-C120D0385DCA}.Release|Win32.ActiveCfg = Release|Win32
+		{EDE580B9-89B0-4457-AFFA-C120D0385DCA}.Release|Win32.Build.0 = Release|Win32
+		{EDE580B9-89B0-4457-AFFA-C120D0385DCA}.Release|x64.ActiveCfg = Release|x64
+		{EDE580B9-89B0-4457-AFFA-C120D0385DCA}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
