@@ -23,19 +23,12 @@ using namespace std;
 
 //#define NOISY
 #define TO_MM
+//#define ADD_LABELED_MARKERS
 
 
-#define MINFRAMES 360
-#define MAXDIST 5.0f
-
-
-
-
-
-
-
-
-
+#define MINFRAMES 120
+#define MAXDIST 3.0f
+#define ORIGIN_THRESH 6
 
 
 
@@ -82,36 +75,38 @@ struct pt
 	//!
 	void merge (pt no2)
 	{
-		if (!valid)
+		if (valid)
 		{
-			//! This point is not valid.  Take the value of the other point.
-			x = no2.x;
-			y = no2.y;
-			z = no2.z;
-			valid = no2.valid;
+			if (no2.valid)
+			{
+				x = (x + no2.x) / 2.0f;
+				y = (y + no2.y) / 2.0f;
+				z = (z + no2.z) / 2.0f;
+			}
 			return;
 		}
 
-		if (!(no2.valid))
-		{
-			//! The second point is not valid.  This value does not change.
-			return;
-		}
-
-		x = (x + no2.x) / 2.0f;
-		y = (y + no2.y) / 2.0f;
-		z = (z + no2.z) / 2.0f;
+		x = no2.x;
+		y = no2.y;
+		z = no2.z;
+		valid = no2.valid;
+		return;
 	}
 };
 
 
 
+//! @brief Individual frame storage structure
+//!
 struct frame
 {
-	int number;
-	double timestamp;
-	vector<pt> markers;
+	int number;          //! Frame number
+	double timestamp;    //! Time stamp (in seconds since process started)
+	vector<pt> markers;  //! Collection of markers
 };
+
+
+
 
 void main(int argc, char* argv[])
 {
@@ -121,13 +116,14 @@ void main(int argc, char* argv[])
 	scale = 1000.0f;
 #endif
 
-	if (argc < 3)
+	if (argc < 4)
 	{
-		cout << "Usage: OptiTrackLogs <file1> <file2>" << endl;
+		cout << "Usage: OptiTrackLogs <file1> <file2> <outfile>" << endl;
 		return;
 	}
 
 	ifstream fIn;
+	ofstream fout;
 	frame data;
 	vector<frame> frames1, frames2;
 	vector<int> indexes;
@@ -144,7 +140,8 @@ void main(int argc, char* argv[])
 	vector<pt>::iterator pt_iter;  //! Iterator to go through the markers of a single frame
 
 	int frame_threshold = MINFRAMES; //! ~3 seconds
-	double dist_threshold = (1.0f / scale) * MAXDIST; //! 5mm threshold for declaring markers "the same"
+	double dist_threshold = MAXDIST; //! 5mm threshold for declaring markers "the same"
+	cout << "dist threshold: " << dist_threshold << endl;
 
 	//! -------------------------------------------------------------------------------------------------------------
 	//! Read data files.  Identify valid and invalid frame data
@@ -289,8 +286,9 @@ void main(int argc, char* argv[])
 				else
 					getline(fIn, buffer, ','); //! Marker quality
 				tempoint.valid = state;
-
+#ifdef ADD_LABELED_MARKERS
 				data.markers.push_back(tempoint);
+#endif
 				state = true;
 			} // else if (*order_iter == 'b')
 			else
@@ -330,6 +328,7 @@ void main(int argc, char* argv[])
 	//! --------------------------------------
 	//! Read 2nd file
 	//! --------------------------------------
+	rb = rbm = m = 0;
 	cout << "Reading " << argv[2] << "..." << endl;
 	fIn.open(argv[2]);
 
@@ -509,11 +508,11 @@ void main(int argc, char* argv[])
 
 	//! Keep track of which markers have been processed already so we don't process them again
 	vector<bool> processed1, processed2;
-	for (x = 0; x < frames1.size(); ++x)
+	for (x = 0; x < frames1.at(0).markers.size(); ++x)
 	{
 		processed1.push_back(false);
 	}
-	for (x = 0; x < frames2.size(); ++x)
+	for (x = 0; x < frames2.at(0).markers.size(); ++x)
 	{
 		processed2.push_back(false);
 	}
@@ -569,39 +568,44 @@ void main(int argc, char* argv[])
 	//! Identify origin markers.  Look only at first frame.
 	//! -------------------------------------------------------------------------------------------------------------
 
-	unsigned int origin_1, origin_2, originx_1, originx_2, originy_1, originy_2;
+	cout << endl << "Idetifying origin markers... " << endl;
+
+	unsigned int origin_1, origin_2, originx_1, originx_2, originz_1, originz_2;
 
 	unsigned int tmp;
-	bool ofound, xfound, yfound;
+	bool ofound, xfound, zfound;
 
 	tmp = 0;
-	ofound = xfound = yfound = false;
-	for (pt_iter = frames1.at(0).markers.begin(); pt_iter != frames1.at(0).markers.end(); ++pt_iter, ++tmp)
+	ofound = xfound = zfound = false;
+	cout << argv[1] << ":" << endl;
+	for (tmp = 0; tmp < frames1.at(0).markers.size(); ++tmp)// pt_iter = frames1.at(0).markers.begin(); pt_iter != frames1.at(0).markers.end(); ++pt_iter, ++tmp)
 	{
-		if (pt_iter->valid)
+		//cout << endl << tmp << ": " << frames1.at(0).markers.at(tmp).valid << " (" << frames1.at(0).markers.at(tmp).x << ", " << frames1.at(0).markers.at(tmp).y << ", " << frames1.at(0).markers.at(tmp).z << ")";
+
+		if (frames1.at(0).markers.at(tmp).valid)
 		{
-			if (fabs(pt_iter->x) < (scale > 2.0f ? 1.0f : 0.001f) &&
-				  fabs(pt_iter->y) < (scale > 2.0f ? 1.0f : 0.001f) &&
-				  fabs(pt_iter->z) < (scale > 2.0f ? 1.0f : 0.001f))
+			if (fabs(frames1.at(0).markers.at(tmp).x) < (scale > 2.0f ? 5.0f : 0.005f) &&
+				  fabs(frames1.at(0).markers.at(tmp).y) < (scale > 2.0f ? 5.0f : 0.005f) &&
+				  fabs(frames1.at(0).markers.at(tmp).z) < (scale > 2.0f ? 5.0f : 0.005f) && !ofound)
 			{
 				origin_1 = tmp;
 				ofound = true;
 				continue;
 			}
-			if (fabs(pt_iter->x) > (scale > 2.0f ? 10.0f : 0.01f) &&
-				  fabs(pt_iter->y) < (scale > 2.0f ? 1.0f : 0.001f) &&
-				  fabs(pt_iter->z) < (scale > 2.0f ? 1.0f : 0.001f))
+			if (fabs(frames1.at(0).markers.at(tmp).x) > (scale > 2.0f ? 10.0f : 0.01f) &&
+				  fabs(frames1.at(0).markers.at(tmp).y) < (scale > 2.0f ? 5.0f : 0.005f) &&
+				  fabs(frames1.at(0).markers.at(tmp).z) < (scale > 2.0f ? 5.0f : 0.005f) && !xfound)
 			{
 				originx_1 = tmp;
 				xfound = true;
 				continue;
 			}
-			if (fabs(pt_iter->x) > (scale > 2.0f ? 1.0f : 0.001f) &&
-				  fabs(pt_iter->y) < (scale > 2.0f ? 10.0f : 0.01f) &&
-				  fabs(pt_iter->z) < (scale > 2.0f ? 1.0f : 0.001f))
+			if (fabs(frames1.at(0).markers.at(tmp).x) < (scale > 2.0f ? 5.0f : 0.005f) &&
+				  fabs(frames1.at(0).markers.at(tmp).y) < (scale > 2.0f ? 5.0f : 0.005f) &&
+				  fabs(frames1.at(0).markers.at(tmp).z) > (scale > 2.0f ? 10.0f : 0.01f) && !zfound)
 			{
-				originy_1 = tmp;
-				xfound = true;
+				originz_1 = tmp;
+				zfound = true;
 				continue;
 			}
 		}
@@ -610,47 +614,92 @@ void main(int argc, char* argv[])
 	//! JAM: TODO:  What if we can't find all three origin markers?
 	//! JAM: TODO:  What if there are multiple markers found that align with origin markers?
 
-	processed1.at(origin_1) = true;
-	processed1.at(originx_1) = true;
-	processed1.at(originy_1) = true;
-
+	if (ofound)
+	{
+		cout << "  Origin:  (" << frames1.at(0).markers.at(origin_1).x << ", " 
+			   << frames1.at(0).markers.at(origin_1).y << ", " 
+				 << frames1.at(0).markers.at(origin_1).z << ")" << endl;
+		processed1.at(origin_1) = true;
+	}
+	if (xfound)
+	{
+		cout << "  OriginX:  (" << frames1.at(0).markers.at(originx_1).x << ", "
+			   << frames1.at(0).markers.at(originx_1).y << ", "
+			   << frames1.at(0).markers.at(originx_1).z << ")" << endl;
+		processed1.at(originx_1) = true;
+	}
+	if (zfound)
+	{
+		cout << "  OriginZ:  (" << frames1.at(0).markers.at(originz_1).x << ", "
+			   << frames1.at(0).markers.at(originz_1).y << ", "
+				 << frames1.at(0).markers.at(originz_1).z << ")" << endl;
+		processed1.at(originz_1) = true;
+	}
 
 	tmp = 0;
-	ofound = xfound = yfound = false;
-	for (pt_iter = frames2.at(0).markers.begin(); pt_iter != frames2.at(0).markers.end(); ++pt_iter, ++tmp)
+	ofound = xfound = zfound = false;
+	cout << argv[2] << ":" << endl;
+	for (tmp = 0; tmp < frames2.at(0).markers.size(); ++tmp)// pt_iter = frames1.at(0).markers.begin(); pt_iter != frames1.at(0).markers.end(); ++pt_iter, ++tmp)
 	{
-		if (pt_iter->valid)
+		//cout << endl << tmp << ": " << frames2.at(0).markers.at(tmp).valid << " (" << frames2.at(0).markers.at(tmp).x << ", " << frames2.at(0).markers.at(tmp).y << ", " << frames2.at(0).markers.at(tmp).z << ")";
+
+		if (frames2.at(0).markers.at(tmp).valid)
 		{
-			if (fabs(pt_iter->x) < (scale > 2.0f ? 1.0f : 0.001f) &&
-				  fabs(pt_iter->y) < (scale > 2.0f ? 1.0f : 0.001f) &&
-				  fabs(pt_iter->z) < (scale > 2.0f ? 1.0f : 0.001f))
+			if (fabs(frames2.at(0).markers.at(tmp).x) < (scale > 2.0f ? 5.0f : 0.005f) &&
+				fabs(frames2.at(0).markers.at(tmp).y) < (scale > 2.0f ? 5.0f : 0.005f) &&
+				fabs(frames2.at(0).markers.at(tmp).z) < (scale > 2.0f ? 5.0f : 0.005f) && !ofound)
 			{
 				origin_2 = tmp;
 				ofound = true;
 				continue;
 			}
-			if (fabs(pt_iter->x) > (scale > 2.0f ? 10.0f : 0.01f) &&
-				  fabs(pt_iter->y) < (scale > 2.0f ? 1.0f : 0.001f) &&
-				  fabs(pt_iter->z) < (scale > 2.0f ? 1.0f : 0.001f))
+			if (fabs(frames2.at(0).markers.at(tmp).x) > (scale > 2.0f ? 10.0f : 0.01f) &&
+				fabs(frames2.at(0).markers.at(tmp).y) < (scale > 2.0f ? 5.0f : 0.005f) &&
+				fabs(frames2.at(0).markers.at(tmp).z) < (scale > 2.0f ? 5.0f : 0.005f) && !xfound)
 			{
 				originx_2 = tmp;
 				xfound = true;
 				continue;
 			}
-			if (fabs(pt_iter->x) > (scale > 2.0f ? 1.0f : 0.001f) &&
-				  fabs(pt_iter->y) < (scale > 2.0f ? 10.0f : 0.01f) &&
-				  fabs(pt_iter->z) < (scale > 2.0f ? 1.0f : 0.001f))
+			if (fabs(frames2.at(0).markers.at(tmp).x) < (scale > 2.0f ? 5.0f : 0.005f) &&
+				fabs(frames2.at(0).markers.at(tmp).y) < (scale > 2.0f ? 5.0f : 0.005f) &&
+				fabs(frames2.at(0).markers.at(tmp).z) > (scale > 2.0f ? 10.0f : 0.01f) && !zfound)
 			{
-				originy_2 = tmp;
-				xfound = true;
+				originz_2 = tmp;
+				zfound = true;
 				continue;
 			}
 		}
 	} //for (; pt_iter != frame_iter->markers.end(); ++pt_iter)
 
-	processed2.at(origin_2) = true;
-	processed2.at(originx_2) = true;
-	processed2.at(originy_2) = true;
+	//! JAM: TODO:  What if we can't find all three origin markers?
+	//! JAM: TODO:  What if there are multiple markers found that align with origin markers?
+
+	cout << "[o = " << origin_2 << ", x = " << originx_2 << ", z = " << originz_2 << "]" << endl;
+
+	if (ofound)
+	{
+		cout << "  Origin:  (" << frames2.at(0).markers.at(origin_2).x << ", "
+			<< frames2.at(0).markers.at(origin_2).y << ", "
+			<< frames2.at(0).markers.at(origin_2).z << ")" << endl;
+		processed2.at(origin_2) = true;
+	}
+	if (xfound)
+	{
+		cout << "  OriginX:  (" << frames2.at(0).markers.at(originx_2).x << ", "
+			<< frames2.at(0).markers.at(originx_2).y << ", "
+			<< frames2.at(0).markers.at(originx_2).z << ")" << endl;
+		processed2.at(originx_2) = true;
+	}
+	if (zfound)
+	{
+		cout << "  OriginZ:  (" << frames2.at(0).markers.at(originz_2).x << ", "
+			<< frames2.at(0).markers.at(originz_2).y << ", "
+			<< frames2.at(0).markers.at(originz_2).z << ")" << endl;
+		processed2.at(originz_2) = true;
+	}
+
+	cout << "Done." << endl;
 
 	//! -------------------------------------------------------------------------------------------------------------
 	//! Identify first frames for synchronization
@@ -660,54 +709,32 @@ void main(int argc, char* argv[])
 	unsigned int frames1_zero, frames2_zero;
 	bool originfound;
 	
+	x = 0;
 	frames1_zero = 0;
-	for (frame_iter = frames1.begin(); frame_iter != frames1.end(); ++frame_iter, ++frames1_zero)
+	for (frame_iter = frames1.begin(); frame_iter != frames1.end(); ++frame_iter, ++x)
 	{
-		if (frame_iter->markers.at(origin_1).valid != true)
+		if (frame_iter->markers.at(origin_1).valid)
 		{
-			break;
-		}
-
-
-		pt_iter = frame_iter->markers.begin();
-		originfound = false;
-		for (; pt_iter != frame_iter->markers.end(); ++pt_iter)
-		{
-			if (fabs(pt_iter->x) < (scale > 2.0f ? 1.0f : 0.001f) &&
-				  fabs(pt_iter->y) < (scale > 2.0f ? 1.0f : 0.001f) &&
-				  fabs(pt_iter->z) < (scale > 2.0f ? 1.0f : 0.001f))
+			if ((x - frames1_zero <= ORIGIN_THRESH))
 			{
-				originfound = true;
-				break;
+				frames1_zero = x;
 			}
-		} //for (; pt_iter != frame_iter->markers.end(); ++pt_iter)
-		if (!originfound)
-		{
-			break;
 		}
 	} //for (frame_iter = frames1.begin(); frame_iter != frames2.end(); ++frame_iter)
 	cout << argv[1] << " origin disappears frame #" << frames1_zero << endl;
 
+	x = 0;
 	frames2_zero = 0;
-	for (frame_iter = frames2.begin(); frame_iter != frames2.end(); ++frame_iter, ++frames2_zero)
+	for (frame_iter = frames2.begin(); frame_iter != frames2.end(); ++frame_iter, ++x)
 	{
-		pt_iter = frame_iter->markers.begin();
-		originfound = false;
-		for (; pt_iter != frame_iter->markers.end(); ++pt_iter)
+		if (frame_iter->markers.at(origin_2).valid)
 		{
-			if (fabs(pt_iter->x) < (scale > 2.0f ? 1.0f : 0.001f) &&
-				  fabs(pt_iter->y) < (scale > 2.0f ? 1.0f : 0.001f) &&
-				  fabs(pt_iter->z) < (scale > 2.0f ? 1.0f : 0.001f))
+			if ((x - frames2_zero <= ORIGIN_THRESH))
 			{
-				//! Look for marker at (0, 0, 0) - origin
-				originfound = true;
-				break;
+				frames2_zero = x;
 			}
-		} //for (; pt_iter != frame_iter->markers.end(); ++pt_iter)
-		if (!originfound)
-		{
-			break;
 		}
+
 	} //for (frame_iter = frames1.begin(); frame_iter != frames2.end(); ++frame_iter)
 	cout << argv[2] << " origin disappears frame #" << frames2_zero << endl;
 
@@ -718,8 +745,9 @@ void main(int argc, char* argv[])
 
 	int c1, c2;
 	int m1, m2;
-	double dist, mindist;
+	double dist, mindist, avgdist;
 
+	cout << "Merging " << argv[1] << " and " << argv[2] << "...";
 	for (m1 = 0; m1 < frames1.at(0).markers.size(); ++m1)
 	{
 		//! For all markers in file 1...
@@ -732,13 +760,15 @@ void main(int argc, char* argv[])
 
 		for (m2 = 0; m2 < frames2.at(0).markers.size(); ++m2)
 		{
-			if (processed1.at(m2))
+			if (processed2.at(m2))
 			{
 				//! If we've already processed this marker in file 2, skip
 				continue;
 			}
 
 			mindist = 20000.0f;
+			avgdist = 0.0f;
+			x = 0;
 			c2 = frames2_zero;
 			for (c1 = frames1_zero; c1 < frames1.size(); ++c1, ++c2)
 			{
@@ -752,14 +782,19 @@ void main(int argc, char* argv[])
 				dist = frames1.at(c1).markers.at(m1).distance(frames2.at(c2).markers.at(m2));
 				if (dist >= 0.0f)
 				{
+					x++;
 					//! Valid marker, check to see if distances is smaller than current minimum distance
 					mindist = ((dist < mindist) ? dist : mindist);
+					avgdist += dist;
 				}
 			} // for (c1 = frames1_zero; c1 < frames1.size(); ++c1, ++c2)
 
-			if (mindist >= 0.0f)
+			if (x > 0)
 			{
-				if (mindist < dist_threshold)
+				avgdist /= (double)x;
+				cout << "Min dist:  " << mindist << endl;
+				cout << "avg dist:  " << avgdist << endl;
+				if (avgdist < dist_threshold)
 				{
 					//! These are likely the same marker.  Merge them. 
 					c2 = frames2_zero;
@@ -771,10 +806,21 @@ void main(int argc, char* argv[])
 							//! If the first stream ends before the second stream, this process quits automatically
 							break;
 						}
-
+#ifdef NOISY
+						cout << "  Before: ";
+						frames1.at(c1).markers.at(m1).print();
+						cout << endl;
+						cout << "  With: ";
+						frames2.at(c2).markers.at(m2).print();
+						cout << endl;
+#endif
 						//! Merge these two streams
 						frames1.at(c1).markers.at(m1).merge(frames2.at(c2).markers.at(m2));
-
+#ifdef NOISY
+						cout << "  After: ";
+						frames1.at(c1).markers.at(m1).print();
+						cout << endl;
+#endif
 					} // for (c1 = frames1_zero; c1 < frames1.size(); ++c1, ++c2)
 
 					//! Mark the second marker as having been processed since it's been merged with a marker in file 1.
@@ -783,38 +829,199 @@ void main(int argc, char* argv[])
 			} // if (mindist >= 0.0f)
 		} // for (m2 = 0; m2 < frames2.at(0).markers.size(); ++m2)
 	} // for (m1 = 0; m1 < frames1.at(0).markers.size(); ++m1)
+	cout << "Done." << endl;
 
 	//! All markers in file 2 have either been merged, or are determined to be unique markers.
-	//! Set aside the file 2 data for the time being.  Any markers that are unique
+	//! Set aside the file 2 data for the time being.  Any markers that are unique are marked as not
+	//! having been processed.
 
 	//! Determine if there are any markers within file 1 that should be merged
 	//! (After merging with file 2, it is possible that marker streams now have enough data that
 	//! orphaned markers can now be identified)
+	cout << "Merging processed markers within " << argv[1] << "...";
+	bool changed;
+	do
+	{
+		//! Keep doing this process until no more changes are made
+		changed = false;
 
+		for (m1 = 0; m1 < frames1.at(0).markers.size(); ++m1)
+		{
+			//! For all markers in file 1...
 
+			//! If we've already processed this marker in file 1, skip
+			if (processed1.at(m1))
+			{
+				continue;
+			}
 
+			for (m2 = m1+1; m2 < frames1.at(0).markers.size(); ++m2)
+			{
+				if (processed1.at(m2))
+				{
+					//! If we've already processed this marker in file 2, skip
+					continue;
+				}
 
+				mindist = 20000.0f;
+				avgdist = 0.0f;
+				x = 0;
+				for (c1 = frames1_zero; c1 < frames1.size(); ++c1)
+				{
+					dist = frames1.at(c1).markers.at(m1).distance(frames1.at(c1).markers.at(m2));
+					if (dist >= 0.0f)
+					{
+						//! Valid marker, check to see if distances is smaller than current minimum distance
+						mindist = ((dist < mindist) ? dist : mindist);
+						avgdist += dist;
+						x++;
+					}
+				} // for (c1 = frames1_zero; c1 < frames1.size(); ++c1, ++c2)
 
+				if (x > 0)
+				{
+					avgdist /= (double)x;
+					if (avgdist < dist_threshold)
+					{
+						//! These are likely the same marker.  Merge them. 
+						for (c1 = frames1_zero; c1 < frames1.size(); ++c1)
+						{
+							//! Merge these two streams
 
-	/*
-	starting at zero frame1
-		for markers in file 1
-			starting at zero frame2
-			for markers in file 2
-			  if marker not processed already
-				  go through markers frame-by-frame
-					  find minimum distance between markers at each frame (if not valid marker, distance is infinite)
-				  if minimum distance < threshold, merge streams
-		repeat until no new merges
-		merge markers within file 1
-		repeat until no new merges
+#ifdef NOISY
+							cout << "  ";
+							frames1.at(c1).markers.at(m1).print();
+							cout << endl;
+							cout << "  ";
+							frames1.at(c1).markers.at(m2).print();
+							cout << endl;
+#endif
+							//! Merge these two streams
+							frames1.at(c1).markers.at(m1).merge(frames1.at(c1).markers.at(m2));
+#ifdef NOISY
+							cout << "  ";
+							frames1.at(c1).markers.at(m1).print();
+							cout << endl;
+#endif
+						} // for (c1 = frames1_zero; c1 < frames1.size(); ++c1, ++c2)
 
-		combine all streams into one file (ignoring origins & noise)
-	
-	*/
+						//! Mark the second marker as having been processed since it's been merged with a marker in file 1.
+						processed1.at(m2) = true;
+						changed = true;
+					} // if (mindist < dist_threshold)
+				} // if (mindist >= 0.0f)
+			} // for (m2 = 0; m2 < frames2.at(0).markers.size(); ++m2)
+		} // for (m1 = 0; m1 < frames1.at(0).markers.size(); ++m1)
+	} while (changed);
+	cout << "Done." << endl;
+
 
 	//! -------------------------------------------------------------------------------------------------------------
-  //! 
+  //! Anything that can be merged has been merged.  Output values that have not been merged or ignored (i.e.,
+	//! processed == false).
   //! -------------------------------------------------------------------------------------------------------------
 	
+	//! It's not uncommon for unprocessed, valid markers to disappear before (or shortly after) the beginning streams
+	for (m1 = 0; m1 < frames1.at(0).markers.size(); ++m1)
+	{
+		x = 0;
+		if (processed1.at(m1))
+			continue;
+
+		for (c1 = 0; c1 < frames1.size(); ++c1)
+		{
+			x += ((frames1.at(0).markers.at(m1).valid) ? 1 : 0);
+		}
+		if (x < 20)
+		{
+			processed1.at(m1) = true;
+		}
+	}
+
+	for (m2 = 0; m2 < frames2.at(0).markers.size(); ++m2)
+	{
+		x = 0;
+		if (processed2.at(m2))
+			continue;
+
+		for (c2 = 0; c2 < frames2.size(); ++c2)
+		{
+			x += ((frames2.at(0).markers.at(m2).valid) ? 1 : 0);
+		}
+		if (x < 20)
+		{
+			processed2.at(m2) = true;
+		}
+	}
+
+
+
+
+	cout << endl << "Finished merging and filtering data.  Writing " << argv[3] << "..." << endl;
+	fout.open(argv[3]);
+
+	//! Write the column headers
+	fout << "Frame, Time";
+	c1 = 0;
+	for (m1 = 0; m1 < processed1.size(); ++m1)
+	{
+		if (!(processed1.at(m1)))
+		{
+			fout << ", Marker" << c1 << "_x, Marker" << c1 << "_y, Marker" << c1 << "_z";
+			++c1;
+		}
+	}
+	for (m2 = 0; m2 < processed2.size(); ++m2)
+	{
+		if (!(processed2.at(m2)))
+		{
+			fout << ", Marker" << c1 << "_x, Marker" << c1 << "_y, Marker" << c1 << "_z";
+			++c1;
+		}
+	}
+	fout << endl;
+
+	c1 = frames1_zero;
+	c2 = frames2_zero;
+	do
+	{
+		//! Use the frame and timestamp information for the output
+		fout << frames1.at(c1).number << ", " << frames1.at(c1).timestamp;
+		//! Add unprocessed markers from file 1
+		for (m1 = 0; m1 < processed1.size(); ++m1)
+		{
+			if (!(processed1.at(m1)))
+			{
+				if (frames1.at(c1).markers.at(m1).valid)
+				{
+					fout << ", " << frames1.at(c1).markers.at(m1).x << ", " << frames1.at(c1).markers.at(m1).y << ", " << frames1.at(c1).markers.at(m1).z;
+				}
+				else
+				{
+					fout << ", , , ";
+				}
+			}
+		} // for (m1 = 0; m1 < processed1.size(); ++m1)
+		//! Add unprocessed markers from file 2
+		for (m2 = 0; m2 < processed2.size(); ++m2)
+		{
+			if (!(processed2.at(m2)))
+			{
+				if (frames2.at(c2).markers.at(m2).valid)
+				{
+					fout << ", " << frames2.at(c2).markers.at(m2).x << ", " << frames2.at(c2).markers.at(m2).y << ", " << frames2.at(c2).markers.at(m2).z;
+				}
+				else
+				{
+					fout << ", , , ";
+				}
+			}
+		} // for (m2 = 0; m2 < processed2.size(); ++m2)
+		fout << endl;
+		++c1;
+		++c2;
+	} while (c1 < frames1.size() && c2 < frames2.size());
+	fout.close();
+
+	cout << "Complete" << endl;
 }
