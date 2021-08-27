@@ -16,3 +16,4 @@
 *.log
 Debug/OptitrackLogs/OptitrackLogs_VS2019.vcxproj.FileListAbsolute.txt
 .vs/CRPI_VS2019/v16/Browse.VC.opendb
+*.csv

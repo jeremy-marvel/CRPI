@@ -23,7 +23,7 @@ using namespace std;
 
 //#define NOISY
 #define TO_MM
-//#define ADD_LABELED_MARKERS
+#define ADD_LABELED_MARKERS
 
 
 #define MINFRAMES 120
@@ -118,7 +118,7 @@ void main(int argc, char* argv[])
 
 	if (argc < 4)
 	{
-		cout << "Usage: OptiTrackLogs <file1> <file2> <outfile>" << endl;
+		cout << "Usage: OptiTrackLogs <file1> <file2> <outfile> <optional nudgefile>" << endl;
 		return;
 	}
 
@@ -143,9 +143,24 @@ void main(int argc, char* argv[])
 	double dist_threshold = MAXDIST; //! 5mm threshold for declaring markers "the same"
 	cout << "dist threshold: " << dist_threshold << endl;
 
+	pt nudge1, nudge2;
+	nudge1.x = nudge2.x = nudge1.y = nudge2.y = nudge1.z = nudge2.z = 0.0f;
+
 	//! -------------------------------------------------------------------------------------------------------------
 	//! Read data files.  Identify valid and invalid frame data
 	//! -------------------------------------------------------------------------------------------------------------
+
+	if (argc == 5)
+	{
+		ifstream nudgefile;
+		nudgefile.open(argv[4]);
+		nudgefile >> nudge1.x >> nudge1.y >> nudge1.z;
+		nudgefile >> nudge2.x >> nudge2.y >> nudge2.z;
+		nudgefile.close();
+	}
+
+
+
 
 	cout << "Reading " << argv[1] << "..." << endl;
 	fIn.open(argv[1]);
@@ -286,6 +301,11 @@ void main(int argc, char* argv[])
 				else
 					getline(fIn, buffer, ','); //! Marker quality
 				tempoint.valid = state;
+
+				tempoint.x += (nudge1.x * scale);
+				tempoint.y += (nudge1.y * scale);
+				tempoint.z += (nudge1.z * scale);
+
 #ifdef ADD_LABELED_MARKERS
 				data.markers.push_back(tempoint);
 #endif
@@ -309,6 +329,10 @@ void main(int argc, char* argv[])
 					getline(fIn, buffer, ','); //! Z position
 				tempoint.z = atof(buffer.c_str()) * scale;
 				tempoint.valid = state;
+
+				tempoint.x += (nudge1.x * scale);
+				tempoint.y += (nudge1.y * scale);
+				tempoint.z += (nudge1.z * scale);
 
 				data.markers.push_back(tempoint);
 				state = true;
@@ -469,7 +493,13 @@ void main(int argc, char* argv[])
 					getline(fIn, buffer, ','); //! Marker quality
 				tempoint.valid = state;
 
+				tempoint.x += (nudge2.x * scale);
+				tempoint.y += (nudge2.y * scale);
+				tempoint.z += (nudge2.z * scale);
+
+#ifdef ADD_LABELED_MARKERS
 				data.markers.push_back(tempoint);
+#endif
 				state = true;
 			} // else if (*order_iter == 'b')
 			else
@@ -490,6 +520,10 @@ void main(int argc, char* argv[])
 					getline(fIn, buffer, ','); //! Z position
 				tempoint.z = atof(buffer.c_str()) * scale;
 				tempoint.valid = state;
+
+				tempoint.x += (nudge2.x * scale);
+				tempoint.y += (nudge2.y * scale);
+				tempoint.z += (nudge2.z * scale);
 
 				data.markers.push_back(tempoint);
 				state = true;
@@ -568,7 +602,7 @@ void main(int argc, char* argv[])
 	//! Identify origin markers.  Look only at first frame.
 	//! -------------------------------------------------------------------------------------------------------------
 
-	cout << endl << "Idetifying origin markers... " << endl;
+	cout << endl << "Identifying origin markers... " << endl;
 
 	unsigned int origin_1, origin_2, originx_1, originx_2, originz_1, originz_2;
 
@@ -582,8 +616,12 @@ void main(int argc, char* argv[])
 	{
 		//cout << endl << tmp << ": " << frames1.at(0).markers.at(tmp).valid << " (" << frames1.at(0).markers.at(tmp).x << ", " << frames1.at(0).markers.at(tmp).y << ", " << frames1.at(0).markers.at(tmp).z << ")";
 
+
 		if (frames1.at(0).markers.at(tmp).valid)
 		{
+#ifdef NOISY
+			frames1.at(0).markers.at(tmp).print();
+#endif
 			if (fabs(frames1.at(0).markers.at(tmp).x) < (scale > 2.0f ? 5.0f : 0.005f) &&
 				  fabs(frames1.at(0).markers.at(tmp).y) < (scale > 2.0f ? 5.0f : 0.005f) &&
 				  fabs(frames1.at(0).markers.at(tmp).z) < (scale > 2.0f ? 5.0f : 0.005f) && !ofound)
@@ -612,6 +650,10 @@ void main(int argc, char* argv[])
 	} //for (; pt_iter != frame_iter->markers.end(); ++pt_iter)
 
 	//! JAM: TODO:  What if we can't find all three origin markers?
+	if (!ofound)
+	{
+		cout << "Cound not find origin" << endl;
+	}
 	//! JAM: TODO:  What if there are multiple markers found that align with origin markers?
 
 	if (ofound)
@@ -638,6 +680,7 @@ void main(int argc, char* argv[])
 
 	tmp = 0;
 	ofound = xfound = zfound = false;
+	origin_2 = originx_2 = originz_2 = -1;
 	cout << argv[2] << ":" << endl;
 	for (tmp = 0; tmp < frames2.at(0).markers.size(); ++tmp)// pt_iter = frames1.at(0).markers.begin(); pt_iter != frames1.at(0).markers.end(); ++pt_iter, ++tmp)
 	{
@@ -651,6 +694,7 @@ void main(int argc, char* argv[])
 			{
 				origin_2 = tmp;
 				ofound = true;
+				cout << "Origin Found" << endl;
 				continue;
 			}
 			if (fabs(frames2.at(0).markers.at(tmp).x) > (scale > 2.0f ? 10.0f : 0.01f) &&
@@ -675,7 +719,8 @@ void main(int argc, char* argv[])
 	//! JAM: TODO:  What if we can't find all three origin markers?
 	//! JAM: TODO:  What if there are multiple markers found that align with origin markers?
 
-	cout << "[o = " << origin_2 << ", x = " << originx_2 << ", z = " << originz_2 << "]" << endl;
+	cout << "[o = " << origin_2 << "[" << ofound << "], x = " << originx_2 << "[" << xfound << "], z = " << originz_2 << "[" << zfound << "]]" << endl;
+	//cin >> x;
 
 	if (ofound)
 	{
@@ -792,8 +837,8 @@ void main(int argc, char* argv[])
 			if (x > 0)
 			{
 				avgdist /= (double)x;
-				cout << "Min dist:  " << mindist << endl;
-				cout << "avg dist:  " << avgdist << endl;
+				//cout << "Min dist:  " << mindist << endl;
+				//cout << "avg dist:  " << avgdist << endl;
 				if (avgdist < dist_threshold)
 				{
 					//! These are likely the same marker.  Merge them. 
