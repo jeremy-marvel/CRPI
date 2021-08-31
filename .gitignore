@@ -12,6 +12,7 @@
 *.sbr
 *.exe
 *.log
-Debug/OptitrackLogs/OptitrackLogs_VS2019.vcxproj.FileListAbsolute.txt
+Debug/OptitrackLogs/*
 .svn/*
 .vs/*
+*.csv
