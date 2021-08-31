@@ -10,3 +10,5 @@ UNITY unity_hololens.xml 20602
 UNITY unity_android.xml 20602
 UNITY unity.xml 20602
 UNITY surface_UWP.xml 20602
+
+COMMANDLINE whatever.xml 0
