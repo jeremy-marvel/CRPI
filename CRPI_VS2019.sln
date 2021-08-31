@@ -162,6 +162,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Library_Math", "Libraries\M
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Application_OptiTrackLogs", "Applications\OptiTrack Log Merge\OptitrackLogs_VS2019.vcxproj", "{10F71687-3556-465B-A532-22AAC5D8D498}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Application_HRI-Interface", "Applications\Application_HRI-Interface\HRIInterface.vcxproj", "{E6B5FA5C-913B-4561-93E3-DF0A9E0C570B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -392,6 +394,14 @@ Global
 		{10F71687-3556-465B-A532-22AAC5D8D498}.Release|Win32.Build.0 = Release|Win32
 		{10F71687-3556-465B-A532-22AAC5D8D498}.Release|x64.ActiveCfg = Release|x64
 		{10F71687-3556-465B-A532-22AAC5D8D498}.Release|x64.Build.0 = Release|x64
+		{E6B5FA5C-913B-4561-93E3-DF0A9E0C570B}.Debug|Win32.ActiveCfg = Debug|Win32
+		{E6B5FA5C-913B-4561-93E3-DF0A9E0C570B}.Debug|Win32.Build.0 = Debug|Win32
+		{E6B5FA5C-913B-4561-93E3-DF0A9E0C570B}.Debug|x64.ActiveCfg = Debug|x64
+		{E6B5FA5C-913B-4561-93E3-DF0A9E0C570B}.Debug|x64.Build.0 = Debug|x64
+		{E6B5FA5C-913B-4561-93E3-DF0A9E0C570B}.Release|Win32.ActiveCfg = Release|Win32
+		{E6B5FA5C-913B-4561-93E3-DF0A9E0C570B}.Release|Win32.Build.0 = Release|Win32
+		{E6B5FA5C-913B-4561-93E3-DF0A9E0C570B}.Release|x64.ActiveCfg = Release|x64
+		{E6B5FA5C-913B-4561-93E3-DF0A9E0C570B}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
