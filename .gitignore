@@ -1,3 +1,5 @@
+Debug/*
+Debug/OptitrackLogs/*
 *.ipch
 *.db
 *.db-shm
@@ -12,7 +14,8 @@
 *.sbr
 *.exe
 *.log
-Debug/OptitrackLogs/*
 .svn/*
 .vs/*
-*.csv
+*.lastbuildstate
+*.htm
+*.idb
