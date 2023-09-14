@@ -11,15 +11,16 @@
 //  Simple demo showing off different HRI technologies
 ///////////////////////////////////////////////////////////////////////////////
 
+
 #include <stdlib.h>
 #include <iostream>
+
 #include <string>
 #include <fstream>
 #include <time.h>
 #include "crpi_robot.h"
 #include "crpi_robotiq.h"
 #include "ulapi.h"
-#include "MYO.h"
 #include "LeapMotion.h"
 
 #pragma warning (disable: 4996)
@@ -52,55 +53,13 @@ struct hriHandle
 };
 
 
-//! @brief Thread method for controlling a robotiq gripper using a MYO
-//!
-//! @param param Pointer to a globalHandle object containing runtime instructions
-//!
-void MyoThread(void *param)
-{
-  hriHandle *hH = (hriHandle*)param;
 
-  //! Myo Test
-
-  MyoObj cb;
-  vector<MyoSubject> subjects;
-  int index;
-  double val;
-
-  while (hH->runThread)
-  {
-    cb.getData(subjects);
-    index = subjects.size();
-    for (int i = 0; i < index; ++i)
-    {
-      subjects.at(i).print();
-      val = subjects.at(i).orientEuler.at(1);
-      if (val < -1.0f)
-      {
-        val = -1.0f;
-      }
-      else if (val > 1.0f)
-      {
-        val = 1.0f;
-      }
-      val = (val / 2.0f) + 0.5f;
-      cout << "Value for hand: " << val << endl;
-    }
-    Sleep(200);
-  }
-
-  hH = NULL;
-
-  return;
-}
-
-
-void LeftThread(void *hhparam)
+void HandThread(void *hhparam)
 {
   hriHandle *hH = (hriHandle*)hhparam;
   int param;
 
-  CrpiRobot<CrpiRobotiq> robotiql("robotiqleft.xml");
+  CrpiRobot<CrpiRobotiq> robotiql("robotiq_lab.xml");
   param = 1;
   robotiql.SetParameter("ADVANCED_CONTROL", &param);
   param = 255;
@@ -120,7 +79,7 @@ void LeftThread(void *hhparam)
 
   while (hH->runThread)
   {
-    param = hH->left;
+    param = hH->right;
     robotiql.SetParameter("POSITION_FINGER_A", &param);
     robotiql.SetParameter("POSITION_FINGER_B", &param);
     robotiql.SetParameter("POSITION_FINGER_C", &param);
@@ -129,40 +88,6 @@ void LeftThread(void *hhparam)
   }
   hH = NULL;
   return;
-}
-
-void RightThread(void *hhparam)
-{
-  hriHandle *hH = (hriHandle*)hhparam;
-  int param;
-
-  CrpiRobot<CrpiRobotiq> robotiqr("robotiqright.xml");
-  param = 1;
-  robotiqr.SetParameter("ADVANCED_CONTROL", &param);
-  param = 255;
-  robotiqr.SetParameter("SPEED_FINGER_A", &param);
-  robotiqr.SetParameter("SPEED_FINGER_B", &param);
-  robotiqr.SetParameter("SPEED_FINGER_C", &param);
-  param = 30;
-  robotiqr.SetParameter("FORCE_FINGER_A", &param);
-  robotiqr.SetParameter("FORCE_FINGER_B", &param);
-  robotiqr.SetParameter("FORCE_FINGER_C", &param);
-  param = 0;
-  robotiqr.SetParameter("POSITION_FINGER_A", &param);
-  robotiqr.SetParameter("POSITION_FINGER_B", &param);
-  robotiqr.SetParameter("POSITION_FINGER_C", &param);
-  param = 1;
-  robotiqr.SetParameter("GRIP", &param);
-
-  while (hH->runThread)
-  {
-    param = hH->right;
-    robotiqr.SetParameter("POSITION_FINGER_A", &param);
-    robotiqr.SetParameter("POSITION_FINGER_B", &param);
-    robotiqr.SetParameter("POSITION_FINGER_C", &param);
-    param = 1;
-    robotiqr.SetParameter("GRIP", &param);
-  }
 }
 
 
@@ -217,23 +142,21 @@ void main ()
   crpi_timer timer;
   hriHandle hH;
   hH.runThread = true;
+  char temp;
 
-  void* lefttask = ulapi_task_new();
-  void* righttask = ulapi_task_new();
+  void* handtask = ulapi_task_new();
   void* leaptask = ulapi_task_new();
   ulapi_task_start((ulapi_task_struct*)leaptask, LeapThread, &hH, ulapi_prio_lowest(), 0);
   Sleep(100);
-  ulapi_task_start((ulapi_task_struct*)lefttask, LeftThread, &hH, ulapi_prio_lowest(), 0);
-  Sleep(500);
-  ulapi_task_start((ulapi_task_struct*)righttask, RightThread, &hH, ulapi_prio_lowest(), 0);
+  ulapi_task_start((ulapi_task_struct*)handtask, HandThread, &hH, ulapi_prio_lowest(), 0);
 
-  while (true)
-  {
-    Sleep (1000);
-  }
+  cout << "PRESS ENTER TO QUIT";
+  cin.get(temp);
+
+  ulapi_task_stop((ulapi_task_struct*)handtask);
+  ulapi_task_stop((ulapi_task_struct*)leaptask);
 
   cout << "All done" << endl;
-
 }
 
 

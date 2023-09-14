@@ -27,32 +27,32 @@
   <PropertyGroup Label="Globals">
     <ProjectName>Demo_HRIHand</ProjectName>
     <ProjectGuid>{F46EC8B1-D131-4AEA-B554-B6C28CE2C761}</ProjectGuid>
-    <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseOfMfc>false</UseOfMfc>
     <CharacterSet>MultiByte</CharacterSet>
-    <PlatformToolset>v140</PlatformToolset>
+    <PlatformToolset>v143</PlatformToolset>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseOfMfc>false</UseOfMfc>
     <CharacterSet>MultiByte</CharacterSet>
-    <PlatformToolset>v140</PlatformToolset>
+    <PlatformToolset>v143</PlatformToolset>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseOfMfc>false</UseOfMfc>
     <CharacterSet>MultiByte</CharacterSet>
-    <PlatformToolset>v140</PlatformToolset>
+    <PlatformToolset>v143</PlatformToolset>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseOfMfc>false</UseOfMfc>
     <CharacterSet>MultiByte</CharacterSet>
-    <PlatformToolset>v140</PlatformToolset>
+    <PlatformToolset>v142</PlatformToolset>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
   <ImportGroup Label="ExtensionSettings">
@@ -85,13 +85,15 @@
     <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</LinkIncremental>
     <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkIncremental>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">HRIHand</TargetName>
-    <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">AssemblyCoordinated</TargetName>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">DemoHRIHand</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ExtensionsToDeleteOnClean>*.cdf;*.cache;*.obj;*.obj.enc;*.ilk;*.ipdb;*.iobj;*.resources;*.tlb;*.tli;*.tlh;*.tmp;*.rsp;*.pgc;*.pgd;*.meta;*.tlog;*.manifest;*.res;*.pch;*.exp;*.idb;*.rep;*.xdc;*.pdb;*_manifest.rc;*.bsc;*.sbr;*.metagen;*.bi</ExtensionsToDeleteOnClean>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ExtensionsToDeleteOnClean>*.cdf;*.cache;*.obj;*.obj.enc;*.ilk;*.ipdb;*.iobj;*.resources;*.tlb;*.tli;*.tlh;*.tmp;*.rsp;*.pgc;*.pgd;*.meta;*.tlog;*.manifest;*.res;*.pch;*.exp;*.idb;*.rep;*.xdc;*.pdb;*_manifest.rc;*.bsc;*.sbr;*.metagen;*.bi</ExtensionsToDeleteOnClean>
+    <OutDir>..\..\Debug\</OutDir>
+    <IntDir>..\..\Debug\DemoHRIHand</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <TargetName>HRIHand</TargetName>
@@ -146,7 +148,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <BuildLog>
-      <Path>..\..\Debug\CoordinatedAssembly\CoordinatedAssembly_BuildLog.htm</Path>
+      <Path>..\..\Debug\DemoHRIHand\DemoHRIHand_BuildLog.htm</Path>
     </BuildLog>
     <Midl>
       <TypeLibraryName>.\Debug/HRIHand.tlb</TypeLibraryName>
@@ -158,15 +160,15 @@
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
-      <PrecompiledHeaderOutputFile>../../Debug/AssemblyCoordinated.pch</PrecompiledHeaderOutputFile>
+      <PrecompiledHeaderOutputFile>../../Debug/DemoHRIHand.pch</PrecompiledHeaderOutputFile>
       <AssemblerListingLocation>..\..\Debug/</AssemblerListingLocation>
       <ObjectFileName>../../Debug/</ObjectFileName>
-      <ProgramDataBaseFileName>../../Debug/AssemblyCoordinated.pdb</ProgramDataBaseFileName>
+      <ProgramDataBaseFileName>../../Debug/DemoHRIHand.pdb</ProgramDataBaseFileName>
       <BrowseInformation>true</BrowseInformation>
       <WarningLevel>Level3</WarningLevel>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
-      <AdditionalIncludeDirectories>..\..\Libraries\Sensor\HRI;..\..\Libraries\Math;..\..\Libraries\ulapi;..\..\Libraries\ulapi\src;..\..\Libraries\CRPI;..\..\Libraries\ThirdParty\MyoSDK\include;..\..\Libraries\ThirdParty\LeapSDK\include;..\..\Libraries\RegistrationKit;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\..\Libraries\Sensor\HRI;..\..\Libraries\Math;..\..\Libraries\ulapi;..\..\Libraries\ulapi\src;..\..\Libraries\CRPI;..\..\Libraries\ThirdParty\MyoSDK\include;..\..\Libraries\ThirdParty\LeapSDK\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <MultiProcessorCompilation>false</MultiProcessorCompilation>
     </ClCompile>
     <ResourceCompile>
@@ -174,20 +176,20 @@
       <Culture>0x0409</Culture>
     </ResourceCompile>
     <Link>
-      <AdditionalDependencies>Library_CRPI.lib;Winmm.lib;ulapi_VS2015.lib;ws2_32.lib;Serial.lib;MotionPrims.lib;ForceTorque.lib;DAQ.lib</AdditionalDependencies>
-      <OutputFile>../../Debug/AssemblyCoordinated.exe</OutputFile>
+      <AdditionalDependencies>Library_CRPI.lib;Winmm.lib;Library_ulapi.lib;ws2_32.lib;Serial.lib;Leap.lib;HRI.lib</AdditionalDependencies>
+      <OutputFile>../../Debug/DemoHRIHand.exe</OutputFile>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <ProgramDatabaseFile>../../Debug/AssemblyCoordinated.pdb</ProgramDatabaseFile>
+      <ProgramDatabaseFile>../../Debug/DemoHRIHand.pdb</ProgramDatabaseFile>
       <SubSystem>Console</SubSystem>
       <RandomizedBaseAddress>false</RandomizedBaseAddress>
       <DataExecutionPrevention>
       </DataExecutionPrevention>
-      <AdditionalLibraryDirectories>..\..\ThirdParty\OptiTrack\include;..\..\Debug;..\..\Libraries\ThirdParty\LeapSDK\lib\X86;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>..\..\Debug;..\..\Libraries\ThirdParty\LeapSDK\lib\X64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
     <Bscmake>
       <SuppressStartupBanner>true</SuppressStartupBanner>
-      <OutputFile>../../Debug/AssemblyCoordinated.bsc</OutputFile>
+      <OutputFile>../../Debug/DemoHRIHand.bsc</OutputFile>
     </Bscmake>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">

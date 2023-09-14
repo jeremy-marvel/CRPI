@@ -107,8 +107,6 @@ namespace Math
     //!
     ~matrix ()
     {
-      int y;
-
       rows = cols = 0;
       valid = false;
 

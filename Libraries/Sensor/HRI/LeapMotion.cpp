@@ -30,6 +30,7 @@
 #include "imgproc.hpp"
 #include "contrib.hpp"
 #endif
+
 #include <stdio.h>
 
 //#define LEAP_NOISY
@@ -152,11 +153,29 @@ namespace Sensor
     datamutex = ulapi_mutex_new(101);
     listener_ = new CrpiListener();
     controller_ = new Controller();
+    cout << "Entered here" << endl;
 
     //! Configure the controller to receive events from the controller
     controller_->addListener(*listener_);
-    controller_->setPolicy(Controller::POLICY_BACKGROUND_FRAMES);
-    controller_->setPolicy(Controller::POLICY_IMAGES);
+    //controller_->setPolicy(Controller::POLICY_BACKGROUND_FRAMES);
+    //controller_->setPolicy(Controller::POLICY_IMAGES);
+    DeviceList dl;
+    dl = controller_->devices();
+    cout << dl.count() << " devices connected" << endl;
+
+
+    FailedDeviceList fdl;
+    fdl = controller_->failedDevices();
+    cout << fdl.count() << " failed devices" << endl;
+
+    for (FailedDeviceList::const_iterator fl = fdl.begin(); fl != fdl.end(); ++fl)
+    {
+      const FailedDevice fd = *fl;
+      cout << fd.pnpId() << endl;
+    } // for (FingerList::const_iterator fl = fingers.begin(); fl != fingers.end(); ++fl)
+
+
+
 
   }
 
