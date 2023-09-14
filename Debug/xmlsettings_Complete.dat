@@ -1,0 +1,14 @@
+UNIVERSAL universal_ur5_table.xml 30002
+# R&L as if looking at the table towards the windows 
+UNIVERSAL universal_ur10_left_table.xml 30002
+UNIVERSAL universal_ur10_right_table.xml 30002
+ABB_IRB_14000 abb_irb14000_left.xml 1025
+ABB_IRB_14000 abb_irb14000_right.xml 1026
+
+HLDEMO unity_hololens.xml 20602
+UNITY unity_hololens.xml 20602
+UNITY unity_android.xml 20602
+UNITY unity.xml 20602
+UNITY surface_UWP.xml 20602
+
+COMMANDLINE whatever.xml 0
