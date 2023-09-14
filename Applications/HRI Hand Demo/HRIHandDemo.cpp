@@ -150,6 +150,8 @@ void main ()
   Sleep(100);
   ulapi_task_start((ulapi_task_struct*)handtask, HandThread, &hH, ulapi_prio_lowest(), 0);
 
+  Sleep(5000);
+
   cout << "PRESS ENTER TO QUIT";
   cin.get(temp);
 
@@ -158,5 +160,3 @@ void main ()
 
   cout << "All done" << endl;
 }
-
-
