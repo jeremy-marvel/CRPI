@@ -57,7 +57,9 @@ void main()
 
 
 	// Initialize UR5 arm
-	path = "universal_ur5_table.xml";
+	// path = "universal_ur5_table.xml";
+	// Initialize UR3e arm
+	path = "universal_ur3e_testbed.xml";
 	cout << ">Creating robot using " << path.c_str() << endl;
 	CrpiRobot<CrpiUniversal> arm(path.c_str());
 	cout << "Robot Created" << endl;
@@ -180,7 +182,7 @@ void main()
 		//! 
 		//! Get Pose
 		if (strcmp(buffer, cmds[0]) == 0) {
-			cout << ">Getting pose from robot..." << endl;
+			cout << ">Getting end-effector pose from robot..." << endl;
 
 			arm.GetRobotPose(&curPose);
 
@@ -189,7 +191,7 @@ void main()
 
 
 			// Format for printing & sending back
-			sprintf(sendData, "(%.1f, %.1f, %.1f, %.1f, %.1f, %.1f)", curPose.x, curPose.y, curPose.z,
+			sprintf(sendData, "(%.2f, %.2f, %.2f, %.2f, %.2f, %.2f)", curPose.x, curPose.y, curPose.z,
 				curPose.xrot, curPose.yrot, curPose.zrot);
 			cout << "Current pose:  " << sendData << endl;
 			cout << endl;
@@ -204,7 +206,7 @@ void main()
 			arm.GetRobotForces(&curForces);
 
 			// Format for printing & sending back
-			sprintf(sendData, "(%.1f, %.1f, %.1f, %.1f, %.1f, %.1f)", curForces.x, curForces.y, curForces.z,
+			sprintf(sendData, "(%.2f, %.2f, %.2f, %.2f, %.2f, %.2f)", curForces.x, curForces.y, curForces.z,
 				curForces.xrot, curForces.yrot, curForces.zrot);
 			cout << "Current forces:  " << sendData << endl;
 			cout << endl;
@@ -222,7 +224,7 @@ void main()
 			// sprintf(sendData, "(%.1f, %.1f, %.1f, %.1f, %.1f, %.1f)", curAxes.axis.at(0), curAxes.axis.at(1),
 			//	curAxes.axis.at(2), curAxes.axis.at(3), curAxes.axis.at(4), curAxes.axis.at(5));
 
-			sprintf(sendData, "(%.1f, %.1f, %.1f, %.1f, %.1f, %.1f)", curAxes.axis[0], curAxes.axis[1],
+			sprintf(sendData, "(%.2f, %.2f, %.2f, %.2f, %.2f, %.2f)", curAxes.axis[0], curAxes.axis[1],
 				curAxes.axis[2], curAxes.axis[3], curAxes.axis[4], curAxes.axis[5]);
 			cout << "Current axes:  " << sendData << endl;
 			//curAxes.print();

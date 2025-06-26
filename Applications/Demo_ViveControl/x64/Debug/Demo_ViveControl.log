@@ -1,12 +1,42 @@
-﻿C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.CppBuild.targets(1363,5): warning MSB8012: TargetPath(C:\CRPI\CRPI\x64\Debug\Demo_ViveControl.exe) does not match the Linker's OutputFile property value (C:\CRPI\CRPI\Debug\ViveControl.exe). This may cause your project to build incorrectly. To correct this, please make sure that $(OutDir), $(TargetName) and $(TargetExt) property values match the value specified in %(Link.OutputFile).
-C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.CppBuild.targets(1365,5): warning MSB8012: TargetName(Demo_ViveControl) does not match the Linker's OutputFile property value (ViveControl). This may cause your project to build incorrectly. To correct this, please make sure that $(OutDir), $(TargetName) and $(TargetExt) property values match the value specified in %(Link.OutputFile).
-     Creating library C:\CRPI\CRPI\x64\Debug\Demo_ViveControl.lib and object C:\CRPI\CRPI\x64\Debug\Demo_ViveControl.exp
-LighthouseTracking.obj : error LNK2019: unresolved external symbol __imp_VR_GetVRInitErrorAsEnglishDescription referenced in function "public: __cdecl LighthouseTracking::LighthouseTracking(void)" (??0LighthouseTracking@@QEAA@XZ)
-LighthouseTracking.obj : error LNK2019: unresolved external symbol __imp_VR_GetGenericInterface referenced in function "public: class vr::IVRSystem * __cdecl vr::COpenVRContext::VRSystem(void)" (?VRSystem@COpenVRContext@vr@@QEAAPEAVIVRSystem@2@XZ)
-ViveControl.obj : error LNK2001: unresolved external symbol __imp_VR_GetGenericInterface
-LighthouseTracking.obj : error LNK2019: unresolved external symbol __imp_VR_IsInterfaceVersionValid referenced in function "class vr::IVRSystem * __cdecl vr::VR_Init(enum vr::EVRInitError *,enum vr::EVRApplicationType)" (?VR_Init@vr@@YAPEAVIVRSystem@1@PEAW4EVRInitError@1@W4EVRApplicationType@1@@Z)
-LighthouseTracking.obj : error LNK2019: unresolved external symbol __imp_VR_GetInitToken referenced in function "public: void __cdecl vr::COpenVRContext::CheckClear(void)" (?CheckClear@COpenVRContext@vr@@QEAAXXZ)
-ViveControl.obj : error LNK2001: unresolved external symbol __imp_VR_GetInitToken
-LighthouseTracking.obj : error LNK2019: unresolved external symbol __imp_VR_InitInternal referenced in function "class vr::IVRSystem * __cdecl vr::VR_Init(enum vr::EVRInitError *,enum vr::EVRApplicationType)" (?VR_Init@vr@@YAPEAVIVRSystem@1@PEAW4EVRInitError@1@W4EVRApplicationType@1@@Z)
-LighthouseTracking.obj : error LNK2019: unresolved external symbol __imp_VR_ShutdownInternal referenced in function "class vr::IVRSystem * __cdecl vr::VR_Init(enum vr::EVRInitError *,enum vr::EVRApplicationType)" (?VR_Init@vr@@YAPEAVIVRSystem@1@PEAW4EVRInitError@1@W4EVRApplicationType@1@@Z)
-..\..\Debug\ViveControl.exe : fatal error LNK1120: 6 unresolved externals
+﻿  LighthouseTracking.cpp
+C:\Users\sbagchi\OneDrive - NIST\Documents\GitHub\CRPI\Applications\Demo_ViveControl\LighthouseTracking.h(6,10): error C1083: Cannot open include file: 'openvr.h': No such file or directory
+  (compiling source file 'LighthouseTracking.cpp')
+  
+  RobotCalibration.cpp
+C:\Users\sbagchi\OneDrive - NIST\Documents\GitHub\CRPI\Libraries\Math\MatrixMath.h(215,19): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
+  (compiling source file 'RobotCalibration.cpp')
+  
+C:\Users\sbagchi\OneDrive - NIST\Documents\GitHub\CRPI\Libraries\Math\MatrixMath.h(332,25): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+  (compiling source file 'RobotCalibration.cpp')
+  
+C:\Users\sbagchi\OneDrive - NIST\Documents\GitHub\CRPI\Libraries\CRPI\crpi.h(472,21): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
+  (compiling source file 'RobotCalibration.cpp')
+  
+C:\Users\sbagchi\OneDrive - NIST\Documents\GitHub\CRPI\Applications\Demo_ViveControl\RobotCalibration.cpp(28,10): error C1083: Cannot open include file: 'CoordFrameReg.h': No such file or directory
+  lodepng.cpp
+C:\Users\sbagchi\OneDrive - NIST\Documents\GitHub\CRPI\Applications\Demo_ViveControl\Shared\lodepng.cpp(794,53): warning C4267: 'argument': conversion from 'size_t' to 'unsigned int', possible loss of data
+C:\Users\sbagchi\OneDrive - NIST\Documents\GitHub\CRPI\Applications\Demo_ViveControl\Shared\lodepng.cpp(806,38): warning C4267: '=': conversion from 'size_t' to 'unsigned int', possible loss of data
+C:\Users\sbagchi\OneDrive - NIST\Documents\GitHub\CRPI\Applications\Demo_ViveControl\Shared\lodepng.cpp(824,70): warning C4267: 'argument': conversion from 'size_t' to 'unsigned int', possible loss of data
+C:\Users\sbagchi\OneDrive - NIST\Documents\GitHub\CRPI\Applications\Demo_ViveControl\Shared\lodepng.cpp(1432,25): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\sbagchi\OneDrive - NIST\Documents\GitHub\CRPI\Applications\Demo_ViveControl\Shared\lodepng.cpp(1436,27): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\sbagchi\OneDrive - NIST\Documents\GitHub\CRPI\Applications\Demo_ViveControl\Shared\lodepng.cpp(1508,40): warning C4267: '=': conversion from 'size_t' to 'unsigned int', possible loss of data
+C:\Users\sbagchi\OneDrive - NIST\Documents\GitHub\CRPI\Applications\Demo_ViveControl\Shared\lodepng.cpp(3426,25): warning C4334: '<<': result of 32-bit shift implicitly converted to 64 bits (was 64-bit shift intended?)
+C:\Users\sbagchi\OneDrive - NIST\Documents\GitHub\CRPI\Applications\Demo_ViveControl\Shared\lodepng.cpp(3432,53): warning C4267: 'argument': conversion from 'size_t' to 'unsigned int', possible loss of data
+C:\Users\sbagchi\OneDrive - NIST\Documents\GitHub\CRPI\Applications\Demo_ViveControl\Shared\lodepng.cpp(4225,42): warning C4267: '=': conversion from 'size_t' to 'unsigned int', possible loss of data
+C:\Users\sbagchi\OneDrive - NIST\Documents\GitHub\CRPI\Applications\Demo_ViveControl\Shared\lodepng.cpp(4273,26): warning C4267: '=': conversion from 'size_t' to 'unsigned int', possible loss of data
+C:\Users\sbagchi\OneDrive - NIST\Documents\GitHub\CRPI\Applications\Demo_ViveControl\Shared\lodepng.cpp(4353,34): warning C4267: '=': conversion from 'size_t' to 'unsigned int', possible loss of data
+C:\Users\sbagchi\OneDrive - NIST\Documents\GitHub\CRPI\Applications\Demo_ViveControl\Shared\lodepng.cpp(5274,27): warning C4267: 'initializing': conversion from 'size_t' to 'unsigned int', possible loss of data
+  Matrices.cpp
+  stdincludes.cpp
+  ViveControl.cpp
+C:\Users\sbagchi\OneDrive - NIST\Documents\GitHub\CRPI\Libraries\Math\MatrixMath.h(215,19): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
+  (compiling source file 'ViveControl.cpp')
+  
+C:\Users\sbagchi\OneDrive - NIST\Documents\GitHub\CRPI\Libraries\Math\MatrixMath.h(332,25): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+  (compiling source file 'ViveControl.cpp')
+  
+C:\Users\sbagchi\OneDrive - NIST\Documents\GitHub\CRPI\Libraries\CRPI\crpi.h(472,21): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
+  (compiling source file 'ViveControl.cpp')
+  
+C:\Users\sbagchi\OneDrive - NIST\Documents\GitHub\CRPI\Applications\Demo_ViveControl\ViveControl.cpp(34,10): error C1083: Cannot open include file: 'Vicon.h': No such file or directory
+  Generating Code...

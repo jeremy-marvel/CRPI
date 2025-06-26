@@ -2,7 +2,7 @@ Quick Start Guide to building and demoing Ulapi for Windows
 -------------------------------------------------------------
 The INSTALL file has general instructions for compiling software built
 using Autotools for Linux. Those instructions do not apply here. The
-Windows parts are found in ulapi\win32api.
+Windows parts are found in ulapi\win32.
 
 1. Obtain and unzip the Ulapi distribution, which you have
 probably already done if you're reading this README.
@@ -11,8 +11,9 @@ probably already done if you're reading this README.
 distribution so you'll need to compile it yourself using Microsoft
 Visual C++ Express 2010. This is free. Install this if you haven't.
 
-3. Go into the ulapi\win32api folder and double-click the "ulapi.sln"
+3. Go into the ulapi\win32 folder and double-click the "ulapi.sln"
 file to launch Microsoft Visual C++ Express 2010. Build the solution.
+(Note:  May need to look in CRPI\Debug and copy over ulapi.lib to ulapi\win32\Debug)
 
 4. Run the test by going into the Debug folder and running
 ultest.exe. You should see diagnostics output similar to this:
@@ -34,7 +35,8 @@ ultest condition variable test passed
 ultest gethostname test passed
 
 4. Install the resulting files by running the "install.bat" file. This
-puts the header files and library in C:\Program Files\ulapi.
+puts the header files and library in C:\Program Files\ulapi.  (Note - may need
+to do this manually on Win11.)
 
 5. Your own application code that uses the Ulapi functions will need
 to be compiled with the path to Ulapi, so in your own solution, make
