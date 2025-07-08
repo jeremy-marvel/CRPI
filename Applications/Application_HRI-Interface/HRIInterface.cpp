@@ -155,7 +155,7 @@ void main()
 			rec = ulapi_socket_read(client, buffer, 2048);
 			if (rec > 0)
 			{
-				cout << ">Buffer: " << buffer << endl;
+				cout << ">Entered: " << buffer << endl;
 			}
 
 		}
@@ -169,7 +169,7 @@ void main()
 			}
 			else cout << "Unknown command entered." << endl;
 
-			cout << ">Buffer: " << buffer << endl;
+			cout << ">Entered: " << buffer << endl;
 			key = 0;
 		}
 		else {
@@ -182,7 +182,7 @@ void main()
 		//! 
 		//! Get Pose
 		if (strcmp(buffer, cmds[0]) == 0) {
-			cout << ">Getting end-effector pose from robot..." << endl;
+			cout << ">Getting end-effector pose (x,y,z,x-rot,y-rot,z-rot) from robot... " << endl;
 
 			arm.GetRobotPose(&curPose);
 
@@ -216,7 +216,7 @@ void main()
 
 		//! Get Axes (joint angles)
 		else if (strcmp(buffer, cmds[2]) == 0) {
-			cout << ">Getting joint angles from robot..." << endl;
+			cout << ">Getting joint angles from robot in degrees..." << endl;
 
 			arm.GetRobotAxes(&curAxes);
 
@@ -235,7 +235,11 @@ void main()
 
 		//! --- Set pose ---
 		else if (strcmp(buffer, cmds[3]) == 0) {
-			cout << ">Setting pose..." << endl;
+			arm.GetRobotAxes(&curAxes);
+			sprintf(sendData, "(%.2f, %.2f, %.2f, %.2f, %.2f, %.2f)", curAxes.axis[0], curAxes.axis[1],
+				curAxes.axis[2], curAxes.axis[3], curAxes.axis[4], curAxes.axis[5]);
+			cout << "Current axes:  " << sendData << endl;
+
 
 			if (clientConnected) {
 				// Send acknowledgement first
@@ -244,7 +248,7 @@ void main()
 				rec = ulapi_socket_read(client, buffer, 2048);
 			}
 			else if (consoleInput) {
-				cout << "Enter new pose axes.  Format:  .1f,.1f,.1f,.1f,.1f,.1f" << endl;
+				cout << "Enter new pose axes in degrees.  Format:  0.0,0.0,0.0,0.0,0.0,0.0" << endl;
 				cin >> buffer;
 				rec = 1;
 			}
@@ -255,6 +259,7 @@ void main()
 				sent = ulapi_socket_write(client, "No pose received.", strlen(sendData));
 			}
 			else {
+				cout << ">Setting pose..." << endl;
 				string newPose = string(buffer);
 				//cout << ">New Axes: " << newPose << endl;
 
@@ -290,11 +295,12 @@ void main()
 
 		//! --- NEEDS CHECK:  Toggle 0-G mode ---
 		else if (strcmp(buffer, cmds[4]) == 0) {
-			cout << ">Toggling zero-G mode..." << endl;
+			cout << ">Toggling freedrive mode..." << endl;
 
 			if (freedriveStatus) { // Is On, turn off
 				arm.SetParameter("endfreedrive", NULL);
 				freedriveStatus = false;
+				cout << "Freedrive mode disabled." << endl;
 			}
 			else { // Is off, turn on
 				if (arm.SetParameter("freedrive", NULL) != CANON_SUCCESS)
@@ -303,6 +309,7 @@ void main()
 				}
 				else {
 					freedriveStatus = true;
+					cout << "Freedrive mode enabled." << endl;
 				}
 			}
 
@@ -527,7 +534,7 @@ void serverUnityHandlerThread(void* param)
 				//arm.CrpiXmlHandler(str);
 				//arm.CrpiXmlResponse(buffer);
 				//sent = ulapi_socket_write(client, buffer, strlen(buffer));
-				cout << ">Buffer: " << buffer << endl;
+				cout << ">Entered: " << buffer << endl;
 
 
 				// Pose

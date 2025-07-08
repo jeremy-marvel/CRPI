@@ -1,3 +1,4 @@
+UNIVERSAL universal_ur3e_testbed.xml 30001
 UNIVERSAL universal_ur5_table.xml 30002
 # R&L as if looking at the table towards the windows 
 UNIVERSAL universal_ur10_left_table.xml 30002

@@ -222,7 +222,7 @@ namespace crpi_robot
     //!
     CanonReturn MoveToAxisTarget (robotAxes &axes, bool useBlocking = true);
 
-    //! @brief Set the accerlation for the controlled pose to the given value in length units per
+    //! @brief Set the acceleration for the controlled pose to the given value in length units per
     //!        second per second
     //!
     //! @param acceleration The target TCP acceleration 
@@ -307,7 +307,7 @@ namespace crpi_robot
     //!
     CanonReturn SetParameter (const char *paramName, void *paramVal);
 
-    //! @brief Set the accerlation for the controlled pose to the given percentage of the robot's
+    //! @brief Set the acceleration for the controlled pose to the given percentage of the robot's
     //!        maximum acceleration
     //!
     //! @param percent The percentage of the robot's maximum acceration in the range of [0, 1]

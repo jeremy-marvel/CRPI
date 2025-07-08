@@ -1,2 +1,1 @@
-C:\CRPI\CRPI\Debug\HRIInterface.exe
 C:\Users\sbagchi\OneDrive - NIST\Documents\GitHub\CRPI\Debug\HRIInterface.exe
