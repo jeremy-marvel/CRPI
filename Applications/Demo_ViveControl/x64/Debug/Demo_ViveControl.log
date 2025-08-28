@@ -1,8 +1,9 @@
-﻿  LighthouseTracking.cpp
+﻿C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets(1133,5): warning MSB4211: The property "GetTargetPathDependsOn" is being set to a value for the first time, but it was already consumed at "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Current\Bin\amd64\Microsoft.Common.CurrentVersion.targets (2243,5)".
+  LighthouseTracking.cpp
+  RobotCalibration.cpp
 C:\Users\sbagchi\OneDrive - NIST\Documents\GitHub\CRPI\Applications\Demo_ViveControl\LighthouseTracking.h(6,10): error C1083: Cannot open include file: 'openvr.h': No such file or directory
   (compiling source file 'LighthouseTracking.cpp')
   
-  RobotCalibration.cpp
 C:\Users\sbagchi\OneDrive - NIST\Documents\GitHub\CRPI\Libraries\Math\MatrixMath.h(215,19): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
   (compiling source file 'RobotCalibration.cpp')
   
@@ -13,21 +14,6 @@ C:\Users\sbagchi\OneDrive - NIST\Documents\GitHub\CRPI\Libraries\CRPI\crpi.h(472
   (compiling source file 'RobotCalibration.cpp')
   
 C:\Users\sbagchi\OneDrive - NIST\Documents\GitHub\CRPI\Applications\Demo_ViveControl\RobotCalibration.cpp(28,10): error C1083: Cannot open include file: 'CoordFrameReg.h': No such file or directory
-  lodepng.cpp
-C:\Users\sbagchi\OneDrive - NIST\Documents\GitHub\CRPI\Applications\Demo_ViveControl\Shared\lodepng.cpp(794,53): warning C4267: 'argument': conversion from 'size_t' to 'unsigned int', possible loss of data
-C:\Users\sbagchi\OneDrive - NIST\Documents\GitHub\CRPI\Applications\Demo_ViveControl\Shared\lodepng.cpp(806,38): warning C4267: '=': conversion from 'size_t' to 'unsigned int', possible loss of data
-C:\Users\sbagchi\OneDrive - NIST\Documents\GitHub\CRPI\Applications\Demo_ViveControl\Shared\lodepng.cpp(824,70): warning C4267: 'argument': conversion from 'size_t' to 'unsigned int', possible loss of data
-C:\Users\sbagchi\OneDrive - NIST\Documents\GitHub\CRPI\Applications\Demo_ViveControl\Shared\lodepng.cpp(1432,25): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
-C:\Users\sbagchi\OneDrive - NIST\Documents\GitHub\CRPI\Applications\Demo_ViveControl\Shared\lodepng.cpp(1436,27): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
-C:\Users\sbagchi\OneDrive - NIST\Documents\GitHub\CRPI\Applications\Demo_ViveControl\Shared\lodepng.cpp(1508,40): warning C4267: '=': conversion from 'size_t' to 'unsigned int', possible loss of data
-C:\Users\sbagchi\OneDrive - NIST\Documents\GitHub\CRPI\Applications\Demo_ViveControl\Shared\lodepng.cpp(3426,25): warning C4334: '<<': result of 32-bit shift implicitly converted to 64 bits (was 64-bit shift intended?)
-C:\Users\sbagchi\OneDrive - NIST\Documents\GitHub\CRPI\Applications\Demo_ViveControl\Shared\lodepng.cpp(3432,53): warning C4267: 'argument': conversion from 'size_t' to 'unsigned int', possible loss of data
-C:\Users\sbagchi\OneDrive - NIST\Documents\GitHub\CRPI\Applications\Demo_ViveControl\Shared\lodepng.cpp(4225,42): warning C4267: '=': conversion from 'size_t' to 'unsigned int', possible loss of data
-C:\Users\sbagchi\OneDrive - NIST\Documents\GitHub\CRPI\Applications\Demo_ViveControl\Shared\lodepng.cpp(4273,26): warning C4267: '=': conversion from 'size_t' to 'unsigned int', possible loss of data
-C:\Users\sbagchi\OneDrive - NIST\Documents\GitHub\CRPI\Applications\Demo_ViveControl\Shared\lodepng.cpp(4353,34): warning C4267: '=': conversion from 'size_t' to 'unsigned int', possible loss of data
-C:\Users\sbagchi\OneDrive - NIST\Documents\GitHub\CRPI\Applications\Demo_ViveControl\Shared\lodepng.cpp(5274,27): warning C4267: 'initializing': conversion from 'size_t' to 'unsigned int', possible loss of data
-  Matrices.cpp
-  stdincludes.cpp
   ViveControl.cpp
 C:\Users\sbagchi\OneDrive - NIST\Documents\GitHub\CRPI\Libraries\Math\MatrixMath.h(215,19): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
   (compiling source file 'ViveControl.cpp')

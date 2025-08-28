@@ -3,7 +3,7 @@
 //  Original System: Collaborative Robot Programming Interface
 //  Subsystem:       CRPI HRI/AR/Unity Interface
 //  Workfile:        HRIInterface_Simple.cpp, derived from HRIInterface.cpp, derived from XMLInterface.cpp
-//  Last Revision:   08/17/2021
+//  Last Revision:   07/22/2025
 //  Authors:         S. Bagchi
 //
 //  Description
@@ -161,7 +161,7 @@ void main()
 		}
 		else if (consoleInput) // How do I make this not block for input?
 		{
-			cout << "Commands:  1 Get Pose, 2 Get Forces, 3 Get Axes, 4 Set Axes, 5 Zero-G Mode.  0 to (??? TBD)" << endl;
+			cout << "Commands:  1 Get Pose, 2 Get Forces, 3 Get Axes, 4 Set Axes, 5 Zero-G Mode, 6 Control Gripper on DIO 0" << endl;
 			cout << endl << "Enter cmd:" << endl;
 			cin >> key;
 			if (key > 0 && key <= 5) {
@@ -293,7 +293,7 @@ void main()
 			}
 		}
 
-		//! --- NEEDS CHECK:  Toggle 0-G mode ---
+		//! --- Toggle 0-G mode ---
 		else if (strcmp(buffer, cmds[4]) == 0) {
 			cout << ">Toggling freedrive mode..." << endl;
 
@@ -314,6 +314,16 @@ void main()
 			}
 
 			sprintf(sendData, "Freedrive Status: %d", freedriveStatus);
+		}
+
+
+		//! --- Activate gripper ---
+		else if (strcmp(buffer, cmds[5]) == 0) {
+			cout << ">Toggling Gripper... TBD" << endl;
+			robotIO io = robotIO();
+			arm.GetRobotIO(&io);
+
+
 		}
 		else {  // Echo if unrecognized
 
