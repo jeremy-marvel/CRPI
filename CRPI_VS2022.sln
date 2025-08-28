@@ -170,7 +170,7 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Demo_HRIHand", "Application
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Application_HRI-Interface", "Applications\Application_HRI-Interface\HRIInterface.vcxproj", "{E6B5FA5C-913B-4561-93E3-DF0A9E0C570B}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Application_ARInterface", "Applications\AR_Interface\AR_Interface.vcxproj", "{FDF69CA4-F0FA-488B-BAF9-4F23EC40C59A}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Application_ARInterface", "Applications\Application_AR-Interface\AR_Interface.vcxproj", "{FDF69CA4-F0FA-488B-BAF9-4F23EC40C59A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -266,7 +266,7 @@
     </Bscmake>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="ARInterface.cpp" />
+    <ClCompile Include="AR-Interface.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\Libraries\CRPI\crpi.h" />
